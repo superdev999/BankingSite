@@ -1,0 +1,11 @@
+name = Poll
+description = Allows your site to capture votes on different topics in the form of multiple choice questions.
+package = Core - optional
+version = VERSION
+core = 6.x
+
+; Information added by Drupal.org packaging script on 2015-06-17
+version = "6.36"
+project = "drupal"
+datestamp = "1434567252"
+

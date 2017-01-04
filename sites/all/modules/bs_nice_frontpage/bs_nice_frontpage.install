@@ -1,0 +1,9 @@
+<?php
+// $Id: bs_nice_frontpage.install,v 1.1 2010/12/12 16:40:31 manuelbs Exp $
+// @file this is the installation file for the module bs_nice_frontpage
+
+//Implements hook_enable()
+function bs_nice_frontpage_enable() {
+  //module must be an early one because if we redirect, all other moduls dont need to be executed
+  db_query('UPDATE {system} SET weight=-10 WHERE name="bs_nice_frontpage"');
+}

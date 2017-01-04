@@ -1,0 +1,1448 @@
+Cron called on 2016-03-19-17:07:02
+
+Cron called on 2016-03-20-02:02:01
+Import fuer 84 Bank of Scotland
+Nicht aktiviert
+Import fuer 170 Commerzbank
+Nicht aktiviert
+Import fuer 212 CreditPlus Bank
+Nicht aktiviert
+Import fuer 215 TeamBank
+Nicht aktiviert
+Import fuer 4031 AXA
+Nicht aktiviert
+Import fuer 4036 CapTrader
+Nicht aktiviert
+Import fuer 4116 kautionsfrei.de
+Nicht aktiviert
+Import fuer 12487 ARAG
+Nicht aktiviert
+Import fuer 13687 Asstel
+Nicht aktiviert
+Import fuer 15397 Lendico
+Nicht aktiviert
+Import fuer 24431 Vexcash
+Nicht aktiviert
+Import fuer 33501 Cashper
+Daten von 2014-01-01 00:00:00 bis 2020-12-31 00:00:00: Request:  http://diverses.ekimp.com/banking_check/api/getFeedback?token=66b81a0c492fa874d82d046a8cf24e981458436107&shop_id=69143&from=2014-01-01+00%3A00%3A00&to=2020-12-31+00%3A00%3A00 finished
+total 0:
+0 von 0
+Import fuer 40212 Bon-Kredit
+Nicht aktiviert
+Import fuer 42058 FINANZCHECK.de
+Nicht aktiviert
+Import fuer 147 SWK Bank Festgeld
+Nicht aktiviert
+Import fuer 171 Commerzbank Kostenloses Girokonto
+Nicht aktiviert
+Import fuer 382 SWK Bank Ratenkredit
+Nicht aktiviert
+Import fuer 1331 Santander Consumer Bank carcredit
+Nicht aktiviert
+array(2) {
+  ["imported"]=>
+  int(0)
+  ["total"]=>
+  int(0)
+}
+
+Cron called on 2016-03-20-05:02:01
+Import fuer 84 Bank of Scotland
+Nicht aktiviert
+Import fuer 170 Commerzbank
+Nicht aktiviert
+Import fuer 212 CreditPlus Bank
+Nicht aktiviert
+Import fuer 215 TeamBank
+Nicht aktiviert
+Import fuer 4031 AXA
+Nicht aktiviert
+Import fuer 4036 CapTrader
+Nicht aktiviert
+Import fuer 4116 kautionsfrei.de
+Nicht aktiviert
+Import fuer 12487 ARAG
+Nicht aktiviert
+Import fuer 13687 Asstel
+Nicht aktiviert
+Import fuer 15397 Lendico
+Nicht aktiviert
+Import fuer 24431 Vexcash
+Nicht aktiviert
+Import fuer 33501 Cashper
+Daten von 2016-03-14 bis 2020-12-31 00:00:00: Request:  http://diverses.ekimp.com/banking_check/api/getFeedback?token=57134b79bbc67b55f96dc883b9254e1b1458446907&shop_id=69143&from=2016-03-14&to=2020-12-31+00%3A00%3A00 finished
+total 0:
+0 von 0
+Import fuer 40212 Bon-Kredit
+Nicht aktiviert
+Import fuer 42058 FINANZCHECK.de
+Nicht aktiviert
+Import fuer 147 SWK Bank Festgeld
+Nicht aktiviert
+Import fuer 171 Commerzbank Kostenloses Girokonto
+Nicht aktiviert
+Import fuer 382 SWK Bank Ratenkredit
+Nicht aktiviert
+Import fuer 1331 Santander Consumer Bank carcredit
+Nicht aktiviert
+array(2) {
+  ["imported"]=>
+  int(0)
+  ["total"]=>
+  int(0)
+}
+
+Cron called on 2016-03-20-06:02:02
+Import fuer 84 Bank of Scotland
+Nicht aktiviert
+Import fuer 170 Commerzbank
+Nicht aktiviert
+Import fuer 212 CreditPlus Bank
+Nicht aktiviert
+Import fuer 215 TeamBank
+Nicht aktiviert
+Import fuer 4031 AXA
+Nicht aktiviert
+Import fuer 4036 CapTrader
+Nicht aktiviert
+Import fuer 4116 kautionsfrei.de
+Nicht aktiviert
+Import fuer 12487 ARAG
+Nicht aktiviert
+Import fuer 13687 Asstel
+Nicht aktiviert
+Import fuer 15397 Lendico
+Nicht aktiviert
+Import fuer 24431 Vexcash
+Nicht aktiviert
+Import fuer 33501 Cashper
+Daten von 2016-03-14 bis 2020-12-31 00:00:00: Request:  http://diverses.ekimp.com/banking_check/api/getFeedback?token=28578f9957ef95d7fec9944890a2ae951458450507&shop_id=69143&from=2016-03-14&to=2020-12-31+00%3A00%3A00 finished
+total 0:
+0 von 0
+Import fuer 40212 Bon-Kredit
+Nicht aktiviert
+Import fuer 42058 FINANZCHECK.de
+Nicht aktiviert
+Import fuer 147 SWK Bank Festgeld
+Nicht aktiviert
+Import fuer 171 Commerzbank Kostenloses Girokonto
+Nicht aktiviert
+Import fuer 382 SWK Bank Ratenkredit
+Nicht aktiviert
+Import fuer 1331 Santander Consumer Bank carcredit
+Nicht aktiviert
+array(2) {
+  ["imported"]=>
+  int(0)
+  ["total"]=>
+  int(0)
+}
+
+Cron called on 2016-03-20-14:20:40
+Import fuer 84 Bank of Scotland
+Nicht aktiviert
+Import fuer 170 Commerzbank
+Nicht aktiviert
+Import fuer 212 CreditPlus Bank
+Nicht aktiviert
+Import fuer 215 TeamBank
+Nicht aktiviert
+Import fuer 4031 AXA
+Nicht aktiviert
+Import fuer 4036 CapTrader
+Nicht aktiviert
+Import fuer 4116 kautionsfrei.de
+Nicht aktiviert
+Import fuer 12487 ARAG
+Nicht aktiviert
+Import fuer 13687 Asstel
+Nicht aktiviert
+Import fuer 15397 Lendico
+Nicht aktiviert
+Import fuer 24431 Vexcash
+Nicht aktiviert
+Import fuer 33501 Cashper
+Daten von 2014-01-01 00:00:00 bis 2020-12-31 00:00:00: Request:  http://diverses.ekimp.com/banking_check/api/getFeedback?token=a7059559520f9eea2b2dba69629ca2a81458480426&shop_id=69143&from=2014-01-01+00%3A00%3A00&to=2020-12-31+00%3A00%3A00 finished
+total 1128:
+Checking node 00038119: Insert node
+Checking node 00035693: Insert node
+Checking node 00037545: node exists
+Checking node 00038205: Insert node
+Checking node 00035711: node exists
+Checking node 00037433: Insert node
+Checking node 00037309: node exists
+Checking node 00037007: node exists
+Checking node 00037467: node exists
+Checking node 00037895: node exists
+Checking node 00037727: node exists
+Checking node 00037127: Insert node
+Checking node 00038077: node exists
+Checking node 00038133: node exists
+Checking node 00037731: node exists
+Checking node 00037315: Insert node
+Checking node 00035363: Insert node
+Checking node 00038233: node exists
+Checking node 00038185: Insert node
+Checking node 00039109: node exists
+Checking node 00038127: Insert node
+Checking node 00038343: node exists
+Checking node 00036101: node exists
+Checking node 00038803: Insert node
+Checking node 00035517: Insert node
+Checking node 00036027: node exists
+Checking node 00036815: node exists
+Checking node 00037735: node exists
+Checking node 00036783: node exists
+Checking node 00037739: Insert node
+Checking node 00036581: Insert node
+Checking node 00036777: node exists
+Checking node 00038567: node exists
+Checking node 00037009: Insert node
+Checking node 00037839: Insert node
+Checking node 00038673: Insert node
+Checking node 00036619: node exists
+Checking node 00037539: node exists
+Checking node 00036937: Insert node
+Checking node 00035579: Insert node
+Checking node 00037663: node exists
+Checking node 00037661: node exists
+Checking node 00037487: node exists
+Checking node 00037547: Insert node
+Checking node 00037765: Insert node
+Checking node 00038131: node exists
+Checking node 00037921: Insert node
+Checking node 00035139: node exists
+Checking node 00037635: Insert node
+Checking node 00035141: node exists
+Checking node 00036431: node exists
+Checking node 00036731: node exists
+Checking node 00036161: node exists
+Checking node 00037915: Insert node
+Checking node 00037229: node exists
+Checking node 00039031: Insert node
+Checking node 00035557: node exists
+Checking node 00037667: node exists
+Checking node 00037909: Insert node
+Checking node 00035845: Insert node
+Checking node 00036935: Insert node
+Checking node 00038885: Insert node
+Checking node 00036057: node exists
+Checking node 00038981: Insert node
+Checking node 00036077: Insert node
+Checking node 00036041: Insert node
+Checking node 00034987: node exists
+Checking node 00036437: node exists
+Checking node 00038241: node exists
+Checking node 00036799: node exists
+Checking node 00038357: node exists
+Checking node 00035937: node exists
+Checking node 00039023: Insert node
+Checking node 00038511: node exists
+Checking node 00036685: node exists
+Checking node 00037253: node exists
+Checking node 00038773: Insert node
+Checking node 00037857: Insert node
+Checking node 00038043: node exists
+Checking node 00037641: Insert node
+Checking node 00038361: Insert node
+Checking node 00036469: node exists
+Checking node 00036993: node exists
+Checking node 00036643: node exists
+Checking node 00035875: node exists
+Checking node 00036657: Insert node
+Checking node 00033487: node exists
+Checking node 00025641: node exists
+Checking node 00032637: Insert node
+Checking node 00031189: node exists
+Checking node 00032161: node exists
+Checking node 00032827: node exists
+Checking node 00032571: node exists
+Checking node 00033257: Insert node
+Checking node 00032589: Insert node
+Checking node 00032143: Insert node
+Checking node 00032393: Insert node
+Checking node 00033649: node exists
+Checking node 00031833: Insert node
+Checking node 00032583: Insert node
+Checking node 00032437: Insert node
+Checking node 00032047: node exists
+Checking node 00032031: Insert node
+Checking node 00032917: node exists
+Checking node 00033209: Insert node
+Checking node 00033163: Insert node
+Checking node 00032883: node exists
+Checking node 00033527: Insert node
+Checking node 00033275: node exists
+Checking node 00032781: node exists
+Checking node 00033339: Insert node
+Checking node 00033723: node exists
+Checking node 00033789: Insert node
+Checking node 00032035: Insert node
+Checking node 00033473: Insert node
+Checking node 00032057: Insert node
+Checking node 00033325: node exists
+Checking node 00032197: Insert node
+Checking node 00033777: node exists
+Checking node 00032523: Insert node
+Checking node 00033103: Insert node
+Checking node 00032063: Insert node
+Checking node 00032315: Insert node
+Checking node 00032507: Insert node
+Checking node 00032007: Insert node
+Checking node 00032845: node exists
+Checking node 00032105: node exists
+Checking node 00031973: Insert node
+Checking node 00032705: node exists
+Checking node 00033283: node exists
+Checking node 00033563: Insert node
+Checking node 00033207: node exists
+Checking node 00026053: Insert node
+Checking node 00027029: node exists
+Checking node 00025509: node exists
+Checking node 00027127: Insert node
+Checking node 00026409: Insert node
+Checking node 00026779: node exists
+Checking node 00025909: Insert node
+Checking node 00026937: node exists
+Checking node 00025883: Insert node
+Checking node 00025811: Insert node
+Checking node 00026109: Insert node
+Checking node 00025933: node exists
+Checking node 00026625: node exists
+Checking node 00026701: Insert node
+Checking node 00026987: node exists
+Checking node 00025759: node exists
+Checking node 00027047: Insert node
+Checking node 00025643: node exists
+Checking node 00026131: node exists
+Checking node 00026785: node exists
+Checking node 00027497: node exists
+Checking node 00027031: node exists
+Checking node 00025571: node exists
+Checking node 00027185: Insert node
+Checking node 00025723: node exists
+Checking node 00025949: node exists
+Checking node 00025895: node exists
+Checking node 00026799: node exists
+Checking node 00025309: Insert node
+Checking node 00027503: Insert node
+Checking node 00025483: Insert node
+Checking node 00027713: Insert node
+Checking node 00026725: node exists
+Checking node 00025625: node exists
+Checking node 00027461: Insert node
+Checking node 00025499: Insert node
+Checking node 00025231: node exists
+Checking node 00027551: node exists
+Checking node 00026343: node exists
+Checking node 00026149: Insert node
+Checking node 00025589: Insert node
+Checking node 00026553: Insert node
+Checking node 00026579: node exists
+Checking node 00026381: node exists
+Checking node 00027657: Insert node
+Checking node 00026939: node exists
+Checking node 00027329: Insert node
+Checking node 00025619: node exists
+Checking node 00026667: node exists
+Checking node 00025789: node exists
+Checking node 00026331: node exists
+Checking node 00027437: Insert node
+Checking node 00025825: node exists
+Checking node 00026879: node exists
+Checking node 00026951: node exists
+Checking node 00027557: node exists
+Checking node 00026269: Insert node
+Checking node 00027717: Insert node
+Checking node 00025711: node exists
+Checking node 00027171: node exists
+Checking node 00026973: Insert node
+Checking node 00026989: node exists
+Checking node 00027579: node exists
+Checking node 00027703: Insert node
+Checking node 00027443: node exists
+Checking node 00027081: Insert node
+Checking node 00025395: node exists
+Checking node 00026865: node exists
+Checking node 00026971: Insert node
+Checking node 00027287: Insert node
+Checking node 00026671: Insert node
+Checking node 00027439: Insert node
+Checking node 00026651: Insert node
+Checking node 00026043: Insert node
+Checking node 00027135: node exists
+Checking node 00026047: Insert node
+Checking node 00025303: node exists
+Checking node 00027163: node exists
+Checking node 00025947: node exists
+Checking node 00022565: Insert node
+Checking node 00024389: node exists
+Checking node 00024441: node exists
+Checking node 00024113: node exists
+Checking node 00024093: node exists
+Checking node 00024039: Insert node
+Checking node 00024069: node exists
+Checking node 00023873: Insert node
+Checking node 00024055: node exists
+Checking node 00024023: node exists
+Checking node 00024559: Insert node
+Checking node 00023777: node exists
+Checking node 00024517: node exists
+Checking node 00024379: node exists
+Checking node 00024311: node exists
+Checking node 00024013: Insert node
+Checking node 00024355: Insert node
+Checking node 00023605: Insert node
+Checking node 00023325: Insert node
+Checking node 00023639: Insert node
+Checking node 00023359: Insert node
+Checking node 00022251: Insert node
+Checking node 00021645: node exists
+Checking node 00023457: Insert node
+Checking node 00023387: Insert node
+Checking node 00023871: Insert node
+Checking node 00023435: Insert node
+Checking node 00023511: Insert node
+Checking node 00023795: node exists
+Checking node 00023749: Insert node
+Checking node 00023273: node exists
+Checking node 00023137: node exists
+Checking node 00023785: Insert node
+Checking node 00023755: Insert node
+Checking node 00023397: Insert node
+Checking node 00016999: node exists
+Checking node 00022951: node exists
+Checking node 00023167: Insert node
+Checking node 00023193: node exists
+Checking node 00022919: Insert node
+Checking node 00023327: node exists
+Checking node 00022767: Insert node
+Checking node 00022973: Insert node
+Checking node 00022479: node exists
+Checking node 00022605: Insert node
+Checking node 00022737: node exists
+Checking node 00022221: Insert node
+Checking node 00023289: node exists
+Checking node 00022255: Insert node
+Checking node 00023073: node exists
+Checking node 00022689: Insert node
+Checking node 00022531: Insert node
+Checking node 00022839: node exists
+Checking node 00023255: node exists
+Checking node 00022861: Insert node
+Checking node 00022615: Insert node
+Checking node 00022287: node exists
+Checking node 00022239: Insert node
+Checking node 00022477: node exists
+Checking node 00023249: node exists
+Checking node 00022233: node exists
+Checking node 00022707: Insert node
+Checking node 00023017: Insert node
+Checking node 00023005: node exists
+Checking node 00022425: node exists
+Checking node 00022325: Insert node
+Checking node 00022559: Insert node
+Checking node 00023009: Insert node
+Checking node 00022437: Insert node
+Checking node 00021705: node exists
+Checking node 00021401: Insert node
+Checking node 00020373: Insert node
+Checking node 00019317: Insert node
+Checking node 00016815: node exists
+Checking node 00021591: Insert node
+Checking node 00021511: node exists
+Checking node 00022081: node exists
+Checking node 00021523: node exists
+Checking node 00021495: node exists
+Checking node 00022023: Insert node
+Checking node 00021981: node exists
+Checking node 00021581: Insert node
+Checking node 00021845: Insert node
+Checking node 00021887: node exists
+Checking node 00022179: node exists
+Checking node 00021613: Insert node
+Checking node 00022243: node exists
+Checking node 00022007: Insert node
+Checking node 00021973: node exists
+Checking node 00021819: Insert node
+Checking node 00021831: Insert node
+Checking node 00021559: node exists
+Checking node 00021657: Insert node
+Checking node 00021431: node exists
+Checking node 00021951: Insert node
+Checking node 00021833: node exists
+Checking node 00021713: Insert node
+Checking node 00021649: node exists
+Checking node 00021927: node exists
+Checking node 00022041: Insert node
+Checking node 00021901: node exists
+Checking node 00021839: node exists
+Checking node 00021823: Insert node
+Checking node 00021889: node exists
+Checking node 00019349: Insert node
+Checking node 00021091: Insert node
+Checking node 00021025: Insert node
+Checking node 00020613: Insert node
+Checking node 00020939: node exists
+Checking node 00019931: Insert node
+Checking node 00020263: node exists
+Checking node 00021337: Insert node
+Checking node 00021135: Insert node
+Checking node 00021427: node exists
+Checking node 00020945: node exists
+Checking node 00021439: node exists
+Checking node 00020901: node exists
+Checking node 00021351: Insert node
+Checking node 00021409: node exists
+Checking node 00020937: Insert node
+Checking node 00019735: node exists
+Checking node 00019239: node exists
+Checking node 00019291: node exists
+Checking node 00019913: Insert node
+Checking node 00019765: node exists
+Checking node 00020135: Insert node
+Checking node 00019943: node exists
+Checking node 00020543: Insert node
+Checking node 00019495: node exists
+Checking node 00019451: node exists
+Checking node 00019957: node exists
+Checking node 00020181: Insert node
+Checking node 00020217: node exists
+Checking node 00019445: node exists
+Checking node 00019593: Insert node
+Checking node 00020365: Insert node
+Checking node 00020791: Insert node
+Checking node 00019671: Insert node
+Checking node 00020295: Insert node
+Checking node 00019499: node exists
+Checking node 00021189: Insert node
+Checking node 00019707: node exists
+Checking node 00020977: node exists
+Checking node 00020009: node exists
+Checking node 00021203: Insert node
+Checking node 00019091: Insert node
+Checking node 00020151: node exists
+Checking node 00020417: Insert node
+Checking node 00020249: node exists
+Checking node 00020471: node exists
+Checking node 00019531: Insert node
+Checking node 00019427: Insert node
+Checking node 00019485: Insert node
+Checking node 00021187: Insert node
+Checking node 00020895: Insert node
+Checking node 00019647: Insert node
+Checking node 00020521: Insert node
+Checking node 00019459: node exists
+Checking node 00021191: Insert node
+Checking node 00019375: node exists
+Checking node 00020817: Insert node
+Checking node 00019945: node exists
+Checking node 00019285: Insert node
+Checking node 00019595: node exists
+Checking node 00020913: Insert node
+Checking node 00020253: Insert node
+Checking node 00019817: Insert node
+Checking node 00020695: Insert node
+Checking node 00019853: Insert node
+Checking node 00020953: node exists
+Checking node 00019253: node exists
+Checking node 00019677: Insert node
+Checking node 00019265: node exists
+Checking node 00020193: Insert node
+Checking node 00020721: Insert node
+Checking node 00020855: Insert node
+Checking node 00021079: node exists
+Checking node 00021253: Insert node
+Checking node 00019733: node exists
+Checking node 00020667: node exists
+Checking node 00019407: Insert node
+Checking node 00020761: node exists
+Checking node 00019971: node exists
+Checking node 00019219: Insert node
+Checking node 00020575: Insert node
+Checking node 00020713: node exists
+Checking node 00020165: node exists
+Checking node 00020793: Insert node
+Checking node 00019143: node exists
+Checking node 00021301: node exists
+Checking node 00019287: Insert node
+Checking node 00019923: Insert node
+Checking node 00020527: node exists
+Checking node 00019991: node exists
+Checking node 00018905: node exists
+Checking node 00016747: node exists
+Checking node 00018411: node exists
+Checking node 00019113: Insert node
+Checking node 00018669: Insert node
+Checking node 00015173: Insert node
+Checking node 00019039: node exists
+Checking node 00018865: Insert node
+Checking node 00018179: node exists
+Checking node 00019035: node exists
+Checking node 00018483: Insert node
+Checking node 00019211: node exists
+Checking node 00019031: Insert node
+Checking node 00018977: node exists
+Checking node 00019067: node exists
+Checking node 00018565: Insert node
+Checking node 00018513: node exists
+Checking node 00019189: node exists
+Checking node 00019121: Insert node
+Checking node 00018929: node exists
+Checking node 00018273: node exists
+Checking node 00019055: node exists
+Checking node 00018877: Insert node
+Checking node 00018689: Insert node
+Checking node 00017381: node exists
+Checking node 00018875: Insert node
+Checking node 00018153: node exists
+Checking node 00018707: node exists
+Checking node 00018841: node exists
+Checking node 00018391: Insert node
+Checking node 00018925: Insert node
+Checking node 00018739: Insert node
+Checking node 00018217: Insert node
+Checking node 00018377: node exists
+Checking node 00018723: node exists
+Checking node 00018967: node exists
+Checking node 00018635: node exists
+Checking node 00018293: node exists
+Checking node 00018101: node exists
+Checking node 00018409: node exists
+Checking node 00018203: node exists
+Checking node 00018837: node exists
+Checking node 00018673: node exists
+Checking node 00018195: node exists
+Checking node 00018779: Insert node
+Checking node 00018641: Insert node
+Checking node 00018265: node exists
+Checking node 00018619: Insert node
+Checking node 00016375: node exists
+Checking node 00018103: node exists
+Checking node 00018941: Insert node
+Checking node 00018151: node exists
+Checking node 00018607: node exists
+Checking node 00018395: Insert node
+Checking node 00018439: node exists
+Checking node 00018601: node exists
+Checking node 00018793: node exists
+Checking node 00018251: Insert node
+Checking node 00018253: node exists
+Checking node 00018087: node exists
+Checking node 00018693: node exists
+Checking node 00018677: node exists
+Checking node 00018735: node exists
+Checking node 00018753: node exists
+Checking node 00018353: node exists
+Checking node 00016893: node exists
+Checking node 00017931: Insert node
+Checking node 00018019: Insert node
+Checking node 00017945: node exists
+Checking node 00017385: Insert node
+Checking node 00017747: node exists
+Checking node 00017501: node exists
+Checking node 00017365: Insert node
+Checking node 00017455: node exists
+Checking node 00017737: node exists
+Checking node 00017795: node exists
+Checking node 00017843: Insert node
+Checking node 00017761: node exists
+Checking node 00017623: node exists
+Checking node 00018041: node exists
+Checking node 00017615: node exists
+Checking node 00016309: node exists
+Checking node 00017973: node exists
+Checking node 00017903: node exists
+Checking node 00017495: Insert node
+Checking node 00017801: node exists
+Checking node 00017673: node exists
+Checking node 00017479: Insert node
+Checking node 00017515: node exists
+Checking node 00017551: node exists
+Checking node 00017741: node exists
+Checking node 00017717: node exists
+Checking node 00017723: node exists
+Checking node 00018005: node exists
+Checking node 00017601: node exists
+Checking node 00017657: node exists
+Checking node 00017991: node exists
+Checking node 00017521: node exists
+Checking node 00017635: node exists
+Checking node 00017707: node exists
+Checking node 00017941: node exists
+Checking node 00016487: node exists
+Checking node 00017115: node exists
+Checking node 00016643: node exists
+Checking node 00017149: node exists
+Checking node 00016933: Insert node
+Checking node 00016677: Insert node
+Checking node 00016471: node exists
+Checking node 00016719: node exists
+Checking node 00017185: Insert node
+Checking node 00016687: node exists
+Checking node 00016433: node exists
+Checking node 00017123: node exists
+Checking node 00016809: Insert node
+Checking node 00016709: node exists
+Checking node 00017001: node exists
+Checking node 00016783: node exists
+Checking node 00017255: Insert node
+Checking node 00016929: node exists
+Checking node 00016849: node exists
+Checking node 00017229: node exists
+Checking node 00016901: node exists
+Checking node 00016839: node exists
+Checking node 00017297: node exists
+Checking node 00016701: node exists
+Checking node 00016705: node exists
+Checking node 00016633: node exists
+Checking node 00017311: Insert node
+Checking node 00016725: node exists
+Checking node 00016521: Insert node
+Checking node 00014771: node exists
+Checking node 00016111: node exists
+Checking node 00016283: node exists
+Checking node 00016037: Insert node
+Checking node 00016009: node exists
+Checking node 00016153: Insert node
+Checking node 00016323: Insert node
+Checking node 00015509: node exists
+Checking node 00016165: Insert node
+Checking node 00016307: node exists
+Checking node 00016265: node exists
+Checking node 00016145: node exists
+Checking node 00016059: node exists
+Checking node 00016369: node exists
+Checking node 00015935: node exists
+Checking node 00016401: node exists
+Checking node 00015941: node exists
+Checking node 00016217: Insert node
+Checking node 00016219: node exists
+Checking node 00016137: Insert node
+Checking node 00016223: Insert node
+Checking node 00016127: node exists
+Checking node 00016129: node exists
+Checking node 00016397: node exists
+Checking node 00016415: node exists
+Checking node 00016049: Insert node
+Checking node 00015995: node exists
+Checking node 00016523: Insert node
+Checking node 00016507: node exists
+Checking node 00015959: Insert node
+Checking node 00015957: node exists
+Checking node 00016339: Insert node
+Checking node 00016237: Insert node
+Checking node 00016349: node exists
+Checking node 00016513: Insert node
+Checking node 00016103: node exists
+Checking node 00015653: Insert node
+Checking node 00014911: Insert node
+Checking node 00015625: Insert node
+Checking node 00014549: node exists
+Checking node 00014013: Insert node
+Checking node 00015741: node exists
+Checking node 00015599: Insert node
+Checking node 00015457: node exists
+Checking node 00015461: node exists
+Checking node 00015699: Insert node
+Checking node 00015871: Insert node
+Checking node 00015401: Insert node
+Checking node 00015577: Insert node
+Checking node 00015551: Insert node
+Checking node 00015527: Insert node
+Checking node 00015775: node exists
+Checking node 00015715: node exists
+Checking node 00015691: Insert node
+Checking node 00015633: Insert node
+Checking node 00015491: Insert node
+Checking node 00015485: Insert node
+Checking node 00015813: node exists
+Checking node 00015455: Insert node
+Checking node 00015909: node exists
+Checking node 00015827: node exists
+Checking node 00015831: node exists
+Checking node 00014947: node exists
+Checking node 00014819: node exists
+Checking node 00015305: node exists
+Checking node 00014909: node exists
+Checking node 00014931: Insert node
+Checking node 00014741: node exists
+Checking node 00014461: node exists
+Checking node 00014569: node exists
+Checking node 00014777: Insert node
+Checking node 00014847: node exists
+Checking node 00015057: Insert node
+Checking node 00015111: Insert node
+Checking node 00015067: Insert node
+Checking node 00014657: node exists
+Checking node 00015209: Insert node
+Checking node 00014859: node exists
+Checking node 00015037: node exists
+Checking node 00015249: Insert node
+Checking node 00014881: Insert node
+Checking node 00015221: Insert node
+Checking node 00014997: Insert node
+Checking node 00014251: node exists
+Checking node 00014961: node exists
+Checking node 00015019: node exists
+Checking node 00014873: node exists
+Checking node 00014757: Insert node
+Checking node 00014839: Insert node
+Checking node 00015133: Insert node
+Checking node 00015061: Insert node
+Checking node 00014565: node exists
+Checking node 00015183: Insert node
+Checking node 00015229: Insert node
+Checking node 00014663: Insert node
+Checking node 00015169: Insert node
+Checking node 00014609: node exists
+Checking node 00014837: Insert node
+Checking node 00014889: Insert node
+Checking node 00014883: Insert node
+Checking node 00015297: Insert node
+Checking node 00014971: node exists
+Checking node 00014507: node exists
+Checking node 00015005: node exists
+Checking node 00014891: node exists
+Checking node 00014717: Insert node
+Checking node 00015155: Insert node
+Checking node 00014965: node exists
+Checking node 00015105: Insert node
+Checking node 00015145: Insert node
+Checking node 00014981: Insert node
+Checking node 00014579: Insert node
+Checking node 00014627: Insert node
+Checking node 00014191: Insert node
+Checking node 00013863: node exists
+Checking node 00012993: node exists
+Checking node 00014061: Insert node
+Checking node 00013785: node exists
+Checking node 00014227: node exists
+Checking node 00013869: node exists
+Checking node 00014535: Insert node
+Checking node 00013965: node exists
+Checking node 00013941: Insert node
+Checking node 00014295: Insert node
+Checking node 00014185: node exists
+Checking node 00014531: Insert node
+Checking node 00014369: node exists
+Checking node 00013809: Insert node
+Checking node 00014291: Insert node
+Checking node 00014207: Insert node
+Checking node 00014131: Insert node
+Checking node 00014347: node exists
+Checking node 00014055: Insert node
+Checking node 00014157: node exists
+Checking node 00014127: Insert node
+Checking node 00014163: Insert node
+Checking node 00014427: Insert node
+Checking node 00014371: node exists
+Checking node 00014527: Insert node
+Checking node 00014083: Insert node
+Checking node 00014303: node exists
+Checking node 00014273: Insert node
+Checking node 00014103: node exists
+Checking node 00014027: Insert node
+Checking node 00014243: node exists
+Checking node 00014327: Insert node
+Checking node 00014137: Insert node
+Checking node 00014431: Insert node
+Checking node 00013893: node exists
+Checking node 00014459: Insert node
+Checking node 00014479: node exists
+Checking node 00012331: node exists
+Checking node 00012721: node exists
+Checking node 00013735: node exists
+Checking node 00012147: node exists
+Checking node 00013689: Insert node
+Checking node 00013767: node exists
+Checking node 00013885: node exists
+Checking node 00013279: Insert node
+Checking node 00013493: node exists
+Checking node 00013509: Insert node
+Checking node 00013559: node exists
+Checking node 00013741: node exists
+Checking node 00013721: node exists
+Checking node 00013653: Insert node
+Checking node 00013929: Insert node
+Checking node 00013727: node exists
+Checking node 00013553: node exists
+Checking node 00013645: node exists
+Checking node 00013579: Insert node
+Checking node 00013411: node exists
+Checking node 00013687: Insert node
+Checking node 00013669: node exists
+Checking node 00013471: node exists
+Checking node 00013747: node exists
+Checking node 00013695: node exists
+Checking node 00013925: node exists
+Checking node 00013641: Insert node
+Checking node 00013529: node exists
+Checking node 00012703: node exists
+Checking node 00012221: Insert node
+Checking node 00013167: Insert node
+Checking node 00013213: node exists
+Checking node 00012587: node exists
+Checking node 00013403: Insert node
+Checking node 00013019: node exists
+Checking node 00013383: Insert node
+Checking node 00013381: node exists
+Checking node 00013063: node exists
+Checking node 00012999: Insert node
+Checking node 00013333: Insert node
+Checking node 00012919: node exists
+Checking node 00013037: node exists
+Checking node 00012915: node exists
+Checking node 00013187: node exists
+Checking node 00013087: Insert node
+Checking node 00013095: node exists
+Checking node 00013375: Insert node
+Checking node 00013369: node exists
+Checking node 00013109: Insert node
+Checking node 00013267: Insert node
+Checking node 00012837: node exists
+Checking node 00013283: node exists
+Checking node 00011103: node exists
+Checking node 00012893: node exists
+Checking node 00012811: node exists
+Checking node 00012375: node exists
+Checking node 00012557: Insert node
+Checking node 00012603: node exists
+Checking node 00012777: Insert node
+Checking node 00012767: node exists
+Checking node 00012613: node exists
+Checking node 00012815: node exists
+Checking node 00012595: Insert node
+Checking node 00011935: node exists
+Checking node 00012517: Insert node
+Checking node 00012921: node exists
+Checking node 00012747: node exists
+Checking node 00012655: Insert node
+Checking node 00012751: node exists
+Checking node 00012789: node exists
+Checking node 00012899: Insert node
+Checking node 00012857: node exists
+Checking node 00011909: Insert node
+Checking node 00012265: node exists
+Checking node 00012217: node exists
+Checking node 00012479: Insert node
+Checking node 00011979: node exists
+Checking node 00012227: Insert node
+Checking node 00012491: Insert node
+Checking node 00012363: node exists
+Checking node 00012235: node exists
+Checking node 00012341: Insert node
+Checking node 00011349: Insert node
+Checking node 00012055: node exists
+Checking node 00012495: node exists
+Checking node 00012007: node exists
+Checking node 00012131: node exists
+Checking node 00012127: node exists
+Checking node 00012013: node exists
+Checking node 00012411: node exists
+Checking node 00012117: node exists
+Checking node 00012069: node exists
+Checking node 00011999: node exists
+Checking node 00011977: Insert node
+Checking node 00012389: node exists
+Checking node 00012467: node exists
+Checking node 00012105: Insert node
+Checking node 00011959: Insert node
+Checking node 00011943: Insert node
+Checking node 00012435: Insert node
+Checking node 00011981: node exists
+Checking node 00012439: node exists
+Checking node 00012249: node exists
+Checking node 00012267: node exists
+Checking node 00012219: Insert node
+Checking node 00012149: node exists
+Checking node 00010497: Insert node
+Checking node 00011353: Insert node
+Checking node 00010851: Insert node
+Checking node 00011447: node exists
+Checking node 00010819: Insert node
+Checking node 00011059: Insert node
+Checking node 00010749: node exists
+Checking node 00011455: Insert node
+Checking node 00010537: Insert node
+Checking node 00011131: node exists
+Checking node 00011289: node exists
+Checking node 00010683: node exists
+Checking node 00011185: Insert node
+Checking node 00010885: Insert node
+Checking node 00010895: Insert node
+Checking node 00011581: Insert node
+Checking node 00011181: node exists
+Checking node 00010771: Insert node
+Checking node 00011861: Insert node
+Checking node 00011761: node exists
+Checking node 00010585: node exists
+Checking node 00011159: node exists
+Checking node 00011591: Insert node
+Checking node 00010793: node exists
+Checking node 00011019: Insert node
+Checking node 00011555: Insert node
+Checking node 00011133: node exists
+Checking node 00011449: node exists
+Checking node 00011587: Insert node
+Checking node 00011569: node exists
+Checking node 00011691: node exists
+Checking node 00011493: Insert node
+Checking node 00011023: Insert node
+Checking node 00010549: Insert node
+Checking node 00011479: node exists
+Checking node 00011193: node exists
+Checking node 00011549: Insert node
+Checking node 00011611: Insert node
+Checking node 00011251: node exists
+Checking node 00011773: node exists
+Checking node 00011595: Insert node
+Checking node 00011511: Insert node
+Checking node 00011249: node exists
+Checking node 00011469: node exists
+Checking node 00011521: Insert node
+Checking node 00010975: node exists
+Checking node 00011705: node exists
+Checking node 00010807: Insert node
+Checking node 00011273: Insert node
+Checking node 00011155: node exists
+Checking node 00011343: node exists
+Checking node 00011845: Insert node
+Checking node 00011085: node exists
+Checking node 00011115: node exists
+Checking node 00011287: node exists
+Checking node 00011441: Insert node
+Checking node 00011869: node exists
+Checking node 00011313: Insert node
+Checking node 00010929: node exists
+Checking node 00010411: node exists
+Checking node 00009631: node exists
+Checking node 00010489: Insert node
+Checking node 00010515: Insert node
+Checking node 00010401: Insert node
+Checking node 00010349: Insert node
+Checking node 00010595: Insert node
+Checking node 00009521: node exists
+Checking node 00010417: node exists
+Checking node 00010125: node exists
+Checking node 00010281: node exists
+Checking node 00010219: node exists
+Checking node 00010501: node exists
+Checking node 00010435: node exists
+Checking node 00010259: node exists
+Checking node 00010263: node exists
+Checking node 00010189: node exists
+Checking node 00010603: node exists
+Checking node 00010587: Insert node
+Checking node 00010625: node exists
+Checking node 00010299: node exists
+Checking node 00010381: Insert node
+Checking node 00010347: node exists
+Checking node 00010317: node exists
+Checking node 00010627: Insert node
+Checking node 00010371: Insert node
+Checking node 00009605: node exists
+Checking node 00010015: node exists
+Checking node 00009879: Insert node
+Checking node 00010009: node exists
+Checking node 00010089: node exists
+Checking node 00009995: node exists
+Checking node 00009935: node exists
+Checking node 00009919: node exists
+Checking node 00009987: node exists
+Checking node 00010087: node exists
+Checking node 00010105: node exists
+Checking node 00009419: node exists
+Checking node 00009347: node exists
+Checking node 00009553: node exists
+Checking node 00009101: Insert node
+Checking node 00009471: node exists
+Checking node 00009199: node exists
+Checking node 00009365: node exists
+Checking node 00009565: node exists
+Checking node 00009479: node exists
+Checking node 00009391: node exists
+Checking node 00009431: node exists
+Checking node 00009781: Insert node
+Checking node 00009295: node exists
+Checking node 00009367: node exists
+Checking node 00006883: Insert node
+Checking node 00006507: Insert node
+Checking node 00007033: Insert node
+Checking node 00004857: Insert node
+Checking node 00006907: Insert node
+Checking node 00006979: Insert node
+Checking node 00007059: Insert node
+Checking node 00006981: Insert node
+Checking node 00007023: Insert node
+Checking node 00006933: Insert node
+Checking node 00007037: Insert node
+Checking node 00006865: Insert node
+Checking node 00006977: Insert node
+Checking node 00006961: Insert node
+Checking node 00006923: Insert node
+Checking node 00007093: Insert node
+Checking node 00006705: Insert node
+Checking node 00007065: Insert node
+Checking node 00007127: Insert node
+Checking node 00007111: Insert node
+Checking node 00007137: Insert node
+Checking node 00006743: Insert node
+Checking node 00006625: Insert node
+Checking node 00006053: Insert node
+Checking node 00005741: Insert node
+Checking node 00006695: Insert node
+Checking node 00006663: Insert node
+Checking node 00006565: Insert node
+Checking node 00006849: Insert node
+Checking node 00006633: Insert node
+Checking node 00006803: Insert node
+Checking node 00006831: Insert node
+Checking node 00006713: Insert node
+Checking node 00006647: Insert node
+Checking node 00006899: Insert node
+Checking node 00006675: Insert node
+Checking node 00006839: Insert node
+Checking node 00006657: Insert node
+Checking node 00006683: Insert node
+Checking node 00006701: Insert node
+Checking node 00006631: Insert node
+Checking node 00006783: Insert node
+Checking node 00006779: Insert node
+Checking node 00006681: Insert node
+Checking node 00006593: Insert node
+Checking node 00006551: Insert node
+Checking node 00006545: Insert node
+Checking node 00006457: Insert node
+Checking node 00006533: Insert node
+Checking node 00006541: Insert node
+Checking node 00006621: Insert node
+Checking node 00006481: Insert node
+Checking node 00006399: Insert node
+Checking node 00006451: Insert node
+Checking node 00006513: Insert node
+Checking node 00006469: Insert node
+Checking node 00006583: Insert node
+Checking node 00006535: Insert node
+Checking node 00006489: Insert node
+Checking node 00006561: Insert node
+Checking node 00006613: Insert node
+Checking node 00006493: Insert node
+Checking node 00006499: Insert node
+Checking node 00006501: Insert node
+Checking node 00005095: Insert node
+Checking node 00006331: Insert node
+Checking node 00005601: Insert node
+Checking node 00006025: Insert node
+Checking node 00006313: Insert node
+Checking node 00006153: Insert node
+Checking node 00006445: Insert node
+Checking node 00006253: Insert node
+Checking node 00006187: Insert node
+Checking node 00006207: Insert node
+Checking node 00006311: Insert node
+Checking node 00006099: Insert node
+Checking node 00006227: Insert node
+Checking node 00005855: Insert node
+Checking node 00006129: Insert node
+Checking node 00006225: Insert node
+Checking node 00006251: Insert node
+Checking node 00005893: Insert node
+Checking node 00006411: Insert node
+Checking node 00005877: Insert node
+Checking node 00006211: Insert node
+Checking node 00006199: Insert node
+Checking node 00006219: Insert node
+Checking node 00006315: Insert node
+Checking node 00006393: Insert node
+Checking node 00006105: Insert node
+Checking node 00006423: Insert node
+Checking node 00006429: Insert node
+Checking node 00006137: Insert node
+Checking node 00006059: Insert node
+Checking node 00006197: Insert node
+Checking node 00006073: Insert node
+Checking node 00006031: Insert node
+Checking node 00006067: Insert node
+Checking node 00006071: Insert node
+Checking node 00005905: Insert node
+Checking node 00006195: Insert node
+Checking node 00005501: Insert node
+Checking node 00005333: Insert node
+Checking node 00004991: Insert node
+Checking node 00004535: Insert node
+Checking node 00004833: Insert node
+Checking node 00005367: Insert node
+Checking node 00004923: Insert node
+Checking node 00005361: Insert node
+Checking node 00005323: Insert node
+Checking node 00003667: Insert node
+Checking node 00005565: Insert node
+Checking node 00005163: Insert node
+Checking node 00004875: Insert node
+Checking node 00005313: Insert node
+Checking node 00005251: Insert node
+Checking node 00005643: Insert node
+Checking node 00004777: Insert node
+Checking node 00005587: Insert node
+Checking node 00005115: Insert node
+Checking node 00005553: Insert node
+Checking node 00005341: Insert node
+Checking node 00005775: Insert node
+Checking node 00005589: Insert node
+Checking node 00005407: Insert node
+Checking node 00005635: Insert node
+Checking node 00005467: Insert node
+Checking node 00005383: Insert node
+Checking node 00005473: Insert node
+Checking node 00005223: Insert node
+Checking node 00005525: Insert node
+Checking node 00005155: Insert node
+Checking node 00005815: Insert node
+Checking node 00005195: Insert node
+Checking node 00005925: Insert node
+Checking node 00005629: Insert node
+Checking node 00004845: Insert node
+Checking node 00005661: Insert node
+Checking node 00005401: Insert node
+Checking node 00005429: Insert node
+Checking node 00005511: Insert node
+Checking node 00005539: Insert node
+Checking node 00004901: Insert node
+Checking node 00003271: Insert node
+Checking node 00005543: Insert node
+Checking node 00005253: Insert node
+Checking node 00005379: Insert node
+Checking node 00005075: Insert node
+Checking node 00004673: Insert node
+Checking node 00005537: Insert node
+Checking node 00005795: Insert node
+Checking node 00005657: Insert node
+Checking node 00006003: Insert node
+Checking node 00004717: Insert node
+Checking node 00005141: Insert node
+Checking node 00005671: Insert node
+Checking node 00005479: Insert node
+Checking node 00004883: Insert node
+Checking node 00005031: Insert node
+Checking node 00005851: Insert node
+Checking node 00005221: Insert node
+Checking node 00005985: Insert node
+Checking node 00004645: Insert node
+Checking node 00005745: Insert node
+Checking node 00005683: Insert node
+Checking node 00005347: Insert node
+Checking node 00004975: Insert node
+Checking node 00004661: Insert node
+Checking node 00004275: Insert node
+Checking node 00005957: Insert node
+Checking node 00004893: Insert node
+Checking node 00005317: Insert node
+Checking node 00005241: Insert node
+Checking node 00005991: Insert node
+Checking node 00005715: Insert node
+Checking node 00005271: Insert node
+Checking node 00005885: Insert node
+Checking node 00005349: Insert node
+Checking node 00004791: Insert node
+Checking node 00005803: Insert node
+Checking node 00005759: Insert node
+Checking node 00005233: Insert node
+Checking node 00005919: Insert node
+Checking node 00004867: Insert node
+Checking node 00005789: Insert node
+Checking node 00005215: Insert node
+Checking node 00005617: Insert node
+Checking node 00005653: Insert node
+Checking node 00005165: Insert node
+Checking node 00003887: Insert node
+Checking node 00004563: Insert node
+Checking node 00004773: Insert node
+Checking node 00005181: Insert node
+Checking node 00005235: Insert node
+Checking node 00005807: Insert node
+Checking node 00005257: Insert node
+Checking node 00005987: Insert node
+Checking node 00004779: Insert node
+Checking node 00005013: Insert node
+Checking node 00005763: Insert node
+Checking node 00005969: Insert node
+Checking node 00004751: Insert node
+Checking node 00005865: Insert node
+Checking node 00004997: Insert node
+Checking node 00005149: Insert node
+Checking node 00005087: Insert node
+Checking node 00005431: Insert node
+Checking node 00005863: Insert node
+Checking node 00005331: Insert node
+Checking node 00005627: Insert node
+Checking node 00004445: Insert node
+Checking node 00005953: Insert node
+Checking node 00005203: Insert node
+Checking node 00005959: Insert node
+Checking node 00005965: Insert node
+Checking node 00005005: Insert node
+Checking node 00004307: Insert node
+Checking node 00005899: Insert node
+Checking node 00005621: Insert node
+Checking node 00004579: Insert node
+Checking node 00005069: Insert node
+Checking node 00005351: Insert node
+Checking node 00004689: Insert node
+Checking node 00004651: Insert node
+Checking node 00004803: Insert node
+Checking node 12345671: Insert node
+618 von 1128
+Daten von 2014-01-01 00:00:00 bis 2015-01-28 15:30:01: Request:  http://diverses.ekimp.com/banking_check/api/getFeedback?token=148d28beb788b9078e9b689e4bdad5bc1458480801&shop_id=69143&from=2014-01-01+00%3A00%3A00&to=2015-01-28+15%3A30%3A01 finished
+total 0:
+0 von 0
+Import fuer 40212 Bon-Kredit
+Nicht aktiviert
+Import fuer 42058 FINANZCHECK.de
+Nicht aktiviert
+Import fuer 147 SWK Bank Festgeld
+Nicht aktiviert
+Import fuer 171 Commerzbank Kostenloses Girokonto
+Nicht aktiviert
+Import fuer 382 SWK Bank Ratenkredit
+Nicht aktiviert
+Import fuer 1331 Santander Consumer Bank carcredit
+Nicht aktiviert
+array(2) {
+  ["imported"]=>
+  int(618)
+  ["total"]=>
+  int(1128)
+}
+
+Cron called on 2016-03-21-02:02:01
+Import fuer 84 Bank of Scotland
+Nicht aktiviert
+Import fuer 170 Commerzbank
+Nicht aktiviert
+Import fuer 212 CreditPlus Bank
+Nicht aktiviert
+Import fuer 215 TeamBank
+Nicht aktiviert
+Import fuer 4031 AXA
+Nicht aktiviert
+Import fuer 4036 CapTrader
+Nicht aktiviert
+Import fuer 4116 kautionsfrei.de
+Nicht aktiviert
+Import fuer 12487 ARAG
+Nicht aktiviert
+Import fuer 13687 Asstel
+Nicht aktiviert
+Import fuer 15397 Lendico
+Nicht aktiviert
+Import fuer 24431 Vexcash
+Nicht aktiviert
+Import fuer 33501 Cashper
+Nicht aktiviert
+Import fuer 40212 Bon-Kredit
+Nicht aktiviert
+Import fuer 42058 FINANZCHECK.de
+Nicht aktiviert
+Import fuer 147 SWK Bank Festgeld
+Nicht aktiviert
+Import fuer 171 Commerzbank Kostenloses Girokonto
+Nicht aktiviert
+Import fuer 382 SWK Bank Ratenkredit
+Nicht aktiviert
+Import fuer 1331 Santander Consumer Bank carcredit
+Nicht aktiviert
+array(2) {
+  ["imported"]=>
+  int(0)
+  ["total"]=>
+  int(0)
+}
+
+Cron called on 2016-03-21-05:02:01
+Import fuer 84 Bank of Scotland
+Nicht aktiviert
+Import fuer 170 Commerzbank
+Nicht aktiviert
+Import fuer 212 CreditPlus Bank
+Nicht aktiviert
+Import fuer 215 TeamBank
+Nicht aktiviert
+Import fuer 4031 AXA
+Nicht aktiviert
+Import fuer 4036 CapTrader
+Nicht aktiviert
+Import fuer 4116 kautionsfrei.de
+Nicht aktiviert
+Import fuer 12487 ARAG
+Nicht aktiviert
+Import fuer 13687 Asstel
+Nicht aktiviert
+Import fuer 15397 Lendico
+Nicht aktiviert
+Import fuer 24431 Vexcash
+Nicht aktiviert
+Import fuer 33501 Cashper
+Nicht aktiviert
+Import fuer 40212 Bon-Kredit
+Nicht aktiviert
+Import fuer 42058 FINANZCHECK.de
+Nicht aktiviert
+Import fuer 147 SWK Bank Festgeld
+Nicht aktiviert
+Import fuer 171 Commerzbank Kostenloses Girokonto
+Nicht aktiviert
+Import fuer 382 SWK Bank Ratenkredit
+Nicht aktiviert
+Import fuer 1331 Santander Consumer Bank carcredit
+Nicht aktiviert
+array(2) {
+  ["imported"]=>
+  int(0)
+  ["total"]=>
+  int(0)
+}
+
+Cron called on 2016-03-21-06:02:02
+Import fuer 84 Bank of Scotland
+Nicht aktiviert
+Import fuer 170 Commerzbank
+Nicht aktiviert
+Import fuer 212 CreditPlus Bank
+Nicht aktiviert
+Import fuer 215 TeamBank
+Nicht aktiviert
+Import fuer 4031 AXA
+Nicht aktiviert
+Import fuer 4036 CapTrader
+Nicht aktiviert
+Import fuer 4116 kautionsfrei.de
+Nicht aktiviert
+Import fuer 12487 ARAG
+Nicht aktiviert
+Import fuer 13687 Asstel
+Nicht aktiviert
+Import fuer 15397 Lendico
+Nicht aktiviert
+Import fuer 24431 Vexcash
+Nicht aktiviert
+Import fuer 33501 Cashper
+Nicht aktiviert
+Import fuer 40212 Bon-Kredit
+Nicht aktiviert
+Import fuer 42058 FINANZCHECK.de
+Nicht aktiviert
+Import fuer 147 SWK Bank Festgeld
+Nicht aktiviert
+Import fuer 171 Commerzbank Kostenloses Girokonto
+Nicht aktiviert
+Import fuer 382 SWK Bank Ratenkredit
+Nicht aktiviert
+Import fuer 1331 Santander Consumer Bank carcredit
+Nicht aktiviert
+array(2) {
+  ["imported"]=>
+  int(0)
+  ["total"]=>
+  int(0)
+}

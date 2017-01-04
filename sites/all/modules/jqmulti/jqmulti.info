@@ -1,0 +1,12 @@
+name = jQuery Multi
+description = Runs a second version of jQuery in parallel to Drupal's version, and allows for targeting of files and libraries to the second version.
+core = 6.x
+
+dependencies[] = libraries
+
+; Information added by drupal.org packaging script on 2013-10-28
+version = "6.x-1.0"
+core = "6.x"
+project = "jqmulti"
+datestamp = "1382928630"
+

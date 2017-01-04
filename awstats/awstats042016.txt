@@ -1,0 +1,303 @@
+AWSTATS DATA FILE 7.4 (build 20150714)
+# If you remove this file, all statistics for date 201604 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 1982                
+POS_TIME 2661                
+POS_VISITOR 6261                
+POS_DAY 6451                
+POS_DOMAIN 3306                
+POS_LOGIN 3538                
+POS_ROBOT 3739                
+POS_WORMS 3913                
+POS_EMAILSENDER 4044                
+POS_EMAILRECEIVER 4187                
+POS_SESSION 6842                
+POS_SIDER 7035                
+POS_FILETYPES 4322                
+POS_DOWNLOADS 4604                
+POS_OS 4666                
+POS_BROWSER 4773                
+POS_SCREENSIZE 4944                
+POS_UNKNOWNREFERER 5018                
+POS_UNKNOWNREFERERBROWSER 5105                
+POS_ORIGIN 5187                
+POS_SEREFERRALS 5326                
+POS_PAGEREFS 5470                
+POS_SEARCHWORDS 5618                
+POS_KEYWORDS 5770                
+POS_MISC 2323                
+POS_ERRORS 5829                
+POS_CLUSTER 3394                
+POS_SIDER_404 5941                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20160501012913 3165 913887 22353600960
+FirstTime 20160401123939
+LastTime 20160428182400
+LastUpdate 20160502021135 1 0 0 0 0
+TotalVisits 25                  
+TotalUnique 2                   
+MonthHostsKnown 2                   
+MonthHostsUnknown 0                   
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 236 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 0 0 0 0 0 0
+1 0 0 0 1 3 1203
+2 0 0 0 1 2 802
+3 0 0 0 1 2 802
+4 0 0 0 1 4 1604
+5 0 0 0 0 1 401
+6 0 0 0 0 0 0
+7 0 0 0 1 2 802
+8 0 0 0 1 2 802
+9 1 248 1126160 11 13 4812
+10 58 617 2272391 38 77 56021
+11 85 1110 4120098 27 49 35605
+12 43 597 3390391 16 54 34928
+13 0 0 0 3 4 1604
+14 70 1129 6921867 36 63 59003
+15 48 656 3811836 4 31 35360
+16 209 2794 14442477 30 97 285540
+17 156 2016 9427663 60 147 159447
+18 31 410 1759224 8 17 14120
+19 0 0 0 2 3 1203
+20 0 0 0 1 2 802
+21 0 0 0 0 0 0
+22 0 0 0 0 0 0
+23 0 0 0 2 4 1604
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+de 701 9577 47272107
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 1
+bankingcheck 701 4960 29990883 20160428182400
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 1
+no_user_agent 109 175859 20160412150543 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 11
+css 2614 4151024 0 0
+png 478 6670822 0 0
+ttf 100 726264 0 0
+ico 130 236768 0 0
+txt 1 32 0 0
+php 162 95818 0 0
+html 46 1047373 0 0
+js 1309 13565437 0 0
+jpg 238 4715224 0 0
+Unknown 393 2614461 0 0
+gif 4106 13448884 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 1
+/1.txt 1 0 32
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 3
+linuxubuntu 281 4
+win10 1 1
+win7 9295 696
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 5
+firefox38.0 1918 138
+chrome49.0.2623.112 3355 96
+firefox43.0 172 8
+chrome49.0.2623.87 281 4
+chrome49.0.2623.110 3851 455
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 0
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 276 328
+From1 0 0
+From2 0 0
+From3 0 0
+From4 425 9249
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 3
+403 1 219
+401 217 87017
+404 1 26718
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 1
+/1.txt 1 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 2
+ip1-vt.berlin.isp.ekomi.de 697 9296 46791881 20160428182400
+pd9e77e47.dip0.t-ipconnect.de 4 281 480226 20160404105430
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 13
+20160401 298 3842 19574051 2
+20160404 64 358 646192 5
+20160405 47 47 27344 2
+20160407 140 1671 11224533 3
+20160408 40 44 167274 1
+20160412 16 260 1513050 2
+20160415 6 286 1680915 1
+20160418 5 281 1663773 1
+20160419 6 305 1782911 1
+20160421 5 478 2375901 2
+20160425 59 1063 3362713 1
+20160426 12 660 1576079 3
+20160428 3 282 1677371 1
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 6
+1h+ 6
+5mn-15mn 1
+0s-30s 7
+2mn-5mn 2
+30s-2mn 5
+30mn-1h 4
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 38
+/widget 135 1065829 1 1
+/company/testseal 135 624548 6 6
+/BewertungsWidget/bw_widget.php 129 75422 6 6
+/themes/bankingcheck2015/icons/icomoon.ttf 100 726264 0 3
+/ 44 1043057 11 3
+/helloworld 25 232260 1 1
+/user 23 46525 0 1
+/BewertungsWidget/json.php 21 5844 0 0
+/admin_menu/flush-cache 10 250 0 0
+/sites/all/modules/ad/serve.php 9 810 0 2
+/admin/user/user 2 28208 0 0
+/users/dkb-kundenservice 7 22218 0 0
+/company/ 1 2159 0 0
+/user/2753/edit/Pers%C3%B6nliche%20Informationen 3 30581 0 0
+/users/bankingcheck-tobias 3 29493 0 0
+/users/bankingcheck 2 20370 0 0
+/users/ 1 2157 0 0
+/user/registercompany 6 54305 0 0
+/produkte 1 3183 0 0
+/user/2753/edit 2 18403 0 0
+/admin/build/modules 6 152877 0 0
+/admin/by-module 6 81114 0 0
+/admin/user/user/list 2 32962 0 0
+/user/2753/edit/Ich%20interessiere%20mich%20f%C3%BCr%20folgende%20Produkte 1 10117 0 0
+/BewertungsWidget/info.php 3 13742 0 1
+/logout 5 125 0 0
+/user/3027/edit 1 13532 0 0
+/banken 2 9141 0 0
+/user/register 2 8657 0 0
+/company/seal 1 326 0 0
+/produkte/tagesgeld 1 3194 0 1
+/admin 1 13426 0 0
+/users/dkb-ag 1 9856 0 0
+/admin/build/modules/list/confirm 1 25 0 0
+/unternehmen 1 25 0 0
+/user/3027/edit/Ich%20interessiere%20mich%20f%C3%BCr%20folgende%20Produkte 1 10120 0 0
+/node/6388/edit 6 89567 0 0
+/ratgeber 1 3224 0 0
+END_SIDER

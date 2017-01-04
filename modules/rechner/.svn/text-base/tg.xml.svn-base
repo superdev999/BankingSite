@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="http://www.bankingcheck.de/modules/transform/tg.xsl" ?>
+<tagesgeldrechner>
+  <product id="373">
+    <link>http://www.financeads.net/de/tc.php?t=13289C13309006D&amp;product=373</link>
+    <logo>http://bilder.financeads.net/079028/133.gif</logo>
+    <testsiegel></testsiegel>
+    <anmerkungen></anmerkungen>
+    <neukunden>Dieses Angebot gilt nur für Neukunden</neukunden>
+    <bank>Postbank</bank>
+    <produkt>Tagesgeldkonto</produkt>
+    <rendite>2,50</rendite>
+    <zinsertrag>31,25</zinsertrag>
+    <einlagensicherung>100</einlagensicherung>
+    <es_land>DE</es_land>
+    <es_description>&lt;b&gt;Einlagensicherung des Bundesverbandes deutscher Banken&lt;/b&gt;: &lt;br&gt;Einlagen sind bis zu 30% des maßgeblichen haftenden Eigenkapitals der ausgebenden Bank abgesichert.</es_description>
+    <productid>373</productid>
+    <incentive></incentive>
+    <incentive_description></incentive_description>
+    <renditemitbonus>2,50</renditemitbonus>
+    <zinsertragmitbonus>31,25</zinsertragmitbonus>
+    <zinsgutschrift>jährlich</zinsgutschrift>
+    <zinskunden>0,35</zinskunden>
+    <renditegueltigkeit>6 Monate</renditegueltigkeit>
+    <renditegueltigkeitbetrag>bis 10.000</renditegueltigkeitbetrag>
+    <es_kurztext>&gt; 1 Mio</es_kurztext>
+    <bewertung>0.0</bewertung>
+  </product>
+  <product id="113">
+    <link>http://www.financeads.net/de/tc.php?t=13289C20909006D&amp;product=113</link>
+    <logo>http://bilder.financeads.net/079028/209.gif</logo>
+    <testsiegel>http://bilder.financeads.net/testsiegel/113.gif</testsiegel>
+    <anmerkungen></anmerkungen>
+    <neukunden>Dieses Angebot gilt nur für Neukunden</neukunden>
+    <bank>Wüstenrot direct</bank>
+    <produkt>Top Tagesgeld</produkt>
+    <rendite>2,00</rendite>
+    <zinsertrag>25,00</zinsertrag>
+    <einlagensicherung>100</einlagensicherung>
+    <es_land>DE</es_land>
+    <es_description>&lt;b&gt;Einlagensicherung des Bundesverbandes deutscher Banken&lt;/b&gt;: &lt;br&gt;Einlagen sind bis zu 30% des maßgeblichen haftenden Eigenkapitals der ausgebenden Bank abgesichert.</es_description>
+    <productid>113</productid>
+    <incentive></incentive>
+    <incentive_description></incentive_description>
+    <renditemitbonus>2,00</renditemitbonus>
+    <zinsertragmitbonus>25,00</zinsertragmitbonus>
+    <zinsgutschrift>1/4-jährlich</zinsgutschrift>
+    <zinskunden>0,75</zinskunden>
+    <renditegueltigkeit>6 Monate</renditegueltigkeit>
+    <renditegueltigkeitbetrag>bis 10.000</renditegueltigkeitbetrag>
+    <es_kurztext>&gt; 1 Mio</es_kurztext>
+    <bewertung>2.5</bewertung>
+  </product>
+  <product id="777">
+    <link>http://www.financeads.net/de/tc.php?t=13289C47409006D&amp;product=777</link>
+    <logo>http://bilder.financeads.net/079028/474.gif</logo>
+    <testsiegel></testsiegel>
+    <anmerkungen></anmerkungen>
+    <neukunden></neukunden>
+    <bank>RaboDirect</bank>
+    <produkt>RaboTagesgeld</produkt>
+    <rendite>1,85</rendite>
+    <zinsertrag>23,16</zinsertrag>
+    <einlagensicherung>100</einlagensicherung>
+    <es_land>NL</es_land>
+    <es_description>&lt;b&gt;Niederländische Einlagensicherung / Depositogarantiestelsel&lt;/b&gt;: &lt;br&gt;Alle Einlagen bis 100.000 Euro sind zu 100% garantiert.</es_description>
+    <productid>777</productid>
+    <incentive></incentive>
+    <incentive_description></incentive_description>
+    <renditemitbonus>1,85</renditemitbonus>
+    <zinsertragmitbonus>23,16</zinsertragmitbonus>
+    <zinsgutschrift>monatlich</zinsgutschrift>
+    <zinskunden>1,85</zinskunden>
+    <renditegueltigkeit>-</renditegueltigkeit>
+    <renditegueltigkeitbetrag>bis 499.999</renditegueltigkeitbetrag>
+    <es_kurztext>100.000</es_kurztext>
+    <bewertung>0.0</bewertung>
+  </product>
+</tagesgeldrechner>

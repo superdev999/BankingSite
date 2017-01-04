@@ -1,0 +1,262 @@
+<?php
+// $Id: finder_autocomplete.module,v 1.1.2.28 2009/07/22 03:02:51 danielb Exp $
+
+/**
+ * @file
+ * The finder autocomplete module.
+ */
+
+function finder_autocomplete_menu() {
+  $items = array();
+  $items['finder_autocomplete/autocomplete'] = array(
+    'page callback' => 'finder_autocomplete_autocomplete',
+    'access arguments' => array('use finder'),
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
+ * Implementation of hook_finder_element_handlers().
+ */
+function finder_autocomplete_finder_element_handlers() {
+  return array(
+    'autocomplete' => array(
+      '#title' => t('Autocomplete textfield'),
+      '#module' => 'finder_autocomplete',
+    ),
+  );
+}
+
+/**
+ * Implementation of hook_form_FORM-ID_alter().
+ *
+ */
+function finder_autocomplete_form_finder_admin_element_edit_alter(&$form, $form_state) {
+
+  $finder = &$form_state['storage']['finder'];
+  $finder_element_id = &$form_state['storage']['finder_element_id'];
+  $element = &$form_state['storage']['finder_element_defaults'];
+
+  if ($element->element == 'autocomplete') {
+
+    $form['settings']['form']['field_prefix'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Field prefix'),
+      '#default_value' => $element->settings['form']['field_prefix'],
+      '#weight' => 150,
+      '#description' => t('Displayed directly before the form input field.'),
+    );
+
+    $form['settings']['form']['field_suffix'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Field suffix'),
+      '#default_value' => $element->settings['form']['field_suffix'],
+      '#weight' => 160,
+      '#description' => t('Displayed directly after the form input field.'),
+    );
+
+    $form['settings']['form']['maxlength'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Max length'),
+      '#default_value' => $element->settings['form']['maxlength'],
+      '#weight' => 170,
+      '#description' => t('
+        The maximum amount of characters to accept as input.
+        <em> Using this may truncate longer field values and fail with exact matching.</em>'),
+    );
+
+    $form['settings']['form']['size'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Size'),
+      '#default_value' => $element->settings['form']['size'],
+      '#weight' => 180,
+      '#description' => t('Width of the textfield (in characters).  Leave blank to default to <em>60</em>'),
+    );
+
+    $form['settings']['form']['max_suggestions'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Max suggestions'),
+      '#default_value' => $element->settings['form']['max_suggestions'] ? $element->settings['form']['max_suggestions'] : 10,
+      '#weight' => 190,
+      '#description' => t('It is a good idea to limit the number of autocomplete suggestions that appear.'),
+    );
+
+    $operators = finder_match_operator();
+    foreach ($operators as $k => $v) {
+      $v['description'] = str_replace('Results ', 'Autocomplete suggestions ', $v['description']);
+      $v['description'] = str_replace('submitted values ', 'typed keywords ', $v['description']);
+      $operators[$k] = t($v['description']);
+    }
+
+    $form['settings']['form']['match'] = array(
+      '#type' => 'radios',
+      '#title' => t('Autocomplete matching'),
+      '#default_value' => $element->settings['form']['match'] ? $element->settings['form']['match'] : 'contains',
+      '#options' => $operators,
+      '#weight' => 190,
+      '#description' => t('"Contains" is the most common autocomplete match method, however it is also the slowest.'),
+    );
+
+    $form['settings']['form']['autosubmit'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Submit upon selection'),
+      '#default_value' => $element->settings['form']['autosubmit'] ? $element->settings['form']['autosubmit'] : 0,
+      '#weight' => 200,
+      '#description' => t('
+        Normally selecting a suggested autocomplete value (with mouse click or
+        enter button) does not submit the form, even if the entire value was 
+        typed by the user, this option shortens the workflow for single element 
+        finders by automatically submitting the form when the selection is 
+        made.'),
+    );
+
+  }
+}
+
+/**
+ * Implementation of hook_finder_element().
+ */
+function finder_autocomplete_finder_element($element, &$form_element) {
+  if ($element->element == 'autocomplete') {
+    $form_element['#type'] = 'textfield';
+
+    $autocomplete_path = 'finder_autocomplete/autocomplete/'. $element->finder_id .'/'. $element->finder_element_id;
+
+    if ($element->settings['form']['autosubmit']) {
+      $form_element['#theme'] = 'finder_autocomplete_textfield';
+    }
+
+    $form_element['#autocomplete_path'] = $autocomplete_path;
+
+    $properties = array(
+      'field_prefix',
+      'field_suffix',
+      'maxlength',
+      'size',
+    );
+    foreach ($properties as $property) {
+      if ($element->settings['form'][$property]) {
+        $form_element['#'. $property] = $element->settings['form'][$property];
+      }
+    }
+  }
+}
+
+/**
+ * Callback for #autocomplete_path on finder element.
+ */
+function finder_autocomplete_autocomplete($finder_id, $finder_element_id, $keywords = '') {
+
+  $choices = array();
+
+  if (!$keywords) {
+    drupal_json($matches);
+  }
+
+  $finder = finder_load($finder_id);
+  //$key = &$finder->elements_index[$finder_element_id];
+  //$element = &$finder->elements[$key];
+  $element = &finder_element($finder, $finder_element_id);
+  $field = &$element->settings['choices']['field'];
+  $field_info = finder_split_field($field);
+  $field_name = &$field_info['field'];
+  $pager = &$element->settings['form']['max_suggestions'];
+  $match = $element->settings['form']['match'] ? $element->settings['form']['match'] : 'contains';
+
+  $matches = finder_find($finder, array($finder_element_id => $keywords), 'choices', $match, $pager);
+
+  if ($matches) {
+    foreach ($matches as $match) {
+      $match = (array)$match;
+      $match['field_name'] = $field_name;
+      $autofill = theme('finder_autocomplete_autofill', $match, $element);
+      $suggestion = theme('finder_autocomplete_suggestion', $match, $element);
+      if ($autofill && $suggestion) {
+        $choices[$autofill] = $suggestion;
+      }
+    }
+  }
+
+  drupal_json($choices);
+
+}
+
+/**
+ * Implementation of hook_theme().
+ */
+function finder_autocomplete_theme() {
+  return array(
+    'finder_autocomplete_suggestion' => array(
+      'arguments' => array(
+        'match' => NULL,
+        'element' => NULL,
+      ),
+    ),
+    'finder_autocomplete_autofill' => array(
+      'arguments' => array(
+        'match' => NULL,
+        'element' => NULL,
+      ),
+    ),
+    'finder_autocomplete_textfield' => array(
+      'arguments' => array(
+        'element' => NULL,
+      ),
+    ),
+  );
+}
+
+/**
+ * Theme an autocomplete popup suggestion.
+ */
+function theme_finder_autocomplete_suggestion($match, $element) {
+  return $match[$match['field_name']];
+}
+
+/**
+ * Theme an autocomplete autofill text value.
+ * This will actually set the value sent to the submit function.
+ */
+function theme_finder_autocomplete_autofill($match, $element) {
+  return $match[$match['field_name']];
+}
+
+/**
+ * Format an autocomplete that autosubmits.
+ *
+ * @param $element
+ *   An associative array containing the properties of the element.
+ *   Properties used:  title, value, description, size, maxlength, required, attributes autocomplete_path
+ * @return
+ *   A themed HTML string representing the textfield.
+ *
+ * @ingroup themeable
+ */
+function theme_finder_autocomplete_textfield($element) {
+  $size = empty($element['#size']) ? '' : ' size="'. $element['#size'] .'"';
+  $maxlength = empty($element['#maxlength']) ? '' : ' maxlength="'. $element['#maxlength'] .'"';
+  $class = array('form-text');
+  $extra = '';
+  $output = '';
+
+  if (menu_valid_path(array('link_path' => $element['#autocomplete_path']))) {
+    $module = 'finder_autocomplete';
+    drupal_add_js(drupal_get_path('module', $module) .'/'. $module .'.js');
+    $class[] = 'form-autocomplete';
+    $extra =  '<input class="finder-autocomplete" type="hidden" id="'. $element['#id'] .'-autocomplete" value="'. check_url(url($element['#autocomplete_path'], array('absolute' => TRUE))) .'" disabled="disabled" />';
+  }
+  _form_set_class($element, $class);
+
+  if (isset($element['#field_prefix'])) {
+    $output .= '<span class="field-prefix">'. $element['#field_prefix'] .'</span> ';
+  }
+
+  $output .= '<input type="text"'. $maxlength .' name="'. $element['#name'] .'" id="'. $element['#id'] .'"'. $size .' value="'. check_plain($element['#value']) .'"'. drupal_attributes($element['#attributes']) .' />';
+
+  if (isset($element['#field_suffix'])) {
+    $output .= ' <span class="field-suffix">'. $element['#field_suffix'] .'</span>';
+  }
+
+  return theme('form_element', $element, $output) . $extra;
+}

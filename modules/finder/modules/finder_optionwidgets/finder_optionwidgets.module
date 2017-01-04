@@ -1,0 +1,235 @@
+<?php
+// $Id: finder_optionwidgets.module,v 1.1.2.17 2009/07/22 03:02:52 danielb Exp $
+
+/**
+ * @file
+ * The finder optionwidgets module.
+ */
+
+/**
+ * Implementation of hook_finder_element_handlers().
+ */
+function finder_optionwidgets_finder_element_handlers() {
+  return array(
+    'select' => array(
+      '#title' => t('Select list'),
+      '#module' => 'finder_optionwidgets',
+    ),
+    'buttons' => array(
+      '#title' => t('Check boxes/radio buttons'),
+      '#module' => 'finder_optionwidgets',
+    ),
+    // Not properly implemented yet.
+    //'onoff' => array(
+    //  '#title' => t('Single on/off checkbox'),
+    //  '#module' => 'finder_optionwidgets',
+    //),
+  );
+}
+
+/**
+ * Implementation of hook_form_FORM-ID_alter().
+ */
+function finder_optionwidgets_form_finder_admin_element_edit_alter(&$form, $form_state) {
+
+  $finder = &$form_state['storage']['finder'];
+  $finder_element_id = &$form_state['storage']['finder_element_id'];
+  $element = &$form_state['storage']['finder_element_defaults'];
+
+  if ($element->element == 'select') {
+
+    $form['settings']['form']['size'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Size'),
+      '#default_value' => $element->settings['form']['size'],
+      '#weight' => 170,
+      '#description' => t('The height (in lines) of the select list if multiple values are allowed.'),
+    );
+
+    finder_optionwidgets_finder_admin_element_multiple_bits($form, $element);
+
+  }
+  elseif ($element->element == 'buttons') {
+
+    finder_optionwidgets_finder_admin_element_multiple_bits($form, $element);
+
+  }
+  elseif ($element->element == 'onoff') {
+
+    $form['settings']['form']['return_value'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Return value'),
+      '#default_value' => $element->settings['form']['return_value'],
+      '#weight' => 170,
+      '#description' => t('Value element should return when selected.  Leave blank to default to 1.'),
+    );
+  }
+
+}
+
+function finder_optionwidgets_finder_admin_element_multiple_bits(&$form, $element) {
+    $form['settings']['form']['multiple'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Allow multiple values.'),
+      '#weight' => 180,
+      '#default_value' => $element->settings['form']['multiple'],
+
+    );
+
+    $form['settings']['form']['default_value']['#type'] = 'textarea';
+    $form['settings']['form']['default_value']['#size'] = 6;
+    $form['settings']['form']['default_value']['#description'] .= t(' One per line for multiple values.');
+
+    $form['settings']['form']['empty'] = array(
+      '#type' => 'radios',
+      '#title' => t('Add an empty value'),
+      '#default_value' => $element->settings['form']['empty'] ? $element->settings['form']['empty'] : '',
+      '#weight' => 210,
+      '#options' => array(
+        '' => t('Do not add an empty choice.'),
+        'prepend' => t('Prepend an empty choice to the top of the list.'),
+        'append' => t('Append an empty choice to the bottom of the list.'),
+      ),
+    );
+    $form['settings']['form']['empty_text'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Empty choice text'),
+      '#default_value' => $element->settings['form']['empty_text'],
+      '#weight' => 212,
+      '#description' => t("This can be used to create a choice such as 'please choose' or 'none of the above'."),
+    );
+
+}
+
+/**
+ * Implementation of hook_finder_element().
+ */
+function finder_optionwidgets_finder_element($element, &$form_element) {
+
+  $finder = finder_load($element->finder_id);
+  $field = &$element->settings['choices']['field'];
+  $field_info = finder_split_field($field);
+  $field_name = &$field_info['field'];
+
+  if ($element->element == 'select') {
+    $form_element['#type'] = 'select';
+    $properties = array(
+      'multiple',
+      'size',
+    );
+    if ($element->settings['form']['multiple']) {
+      if (!is_array($form_element['#default_value'])) {
+        $form_element['#default_value'] = explode('\n', $form_element['#default_value']);
+      }
+    }
+  }
+  elseif ($element->element == 'buttons') {
+    if ($element->settings['form']['multiple']) {
+      $form_element['#type'] = 'checkboxes';
+      if (!is_array($form_element['#default_value'])) {
+        $form_element['#default_value'] = explode('\n', $form_element['#default_value']);
+      }
+    }
+    else {
+      $form_element['#type'] = 'radios';
+    }
+  }
+  elseif ($element->element == 'onoff') {
+    $form_element['#type'] = 'checkbox';
+    $properties = array(
+      'return_value',
+    );
+  }
+
+  foreach ((array)$properties as $property) {
+    if ($element->settings['form'][$property]) {
+      $form_element['#'. $property] = $element->settings['form'][$property];
+    }
+  }
+
+  $options = finder_find($finder, array($element->finder_element_id => NULL), 'choices');
+
+  $form_element['#options'] = array();
+  foreach ((array)$options as $key => $option) {
+    $option->field_name = $field_name;
+    $display = theme('finder_optionwidgets_'. $element->element .'_option', $option, $element);
+    $value = theme('finder_optionwidgets_'. $element->element .'_value', $option, $element);
+    $form_element['#options'][$value] = $display;
+  }
+
+  if ($element->settings['form']['empty']) {
+    $empty = array('' => $element->settings['form']['empty_text']);
+    if ($element->settings['form']['empty'] == 'prepend') {
+      $form_element['#options'] = $empty + $form_element['#options'];
+    }
+    else if ($element->settings['form']['empty'] == 'append') {
+      $form_element['#options'] = $form_element['#options'] + $empty;
+    }
+  }
+
+}
+
+/**
+ * Implementation of hook_theme().
+ */
+function finder_optionwidgets_theme() {
+  $theme = array();
+  $types = array('option', 'value');
+  $widgets = array('select', 'buttons', 'onoff');
+  foreach ($types as $type) {
+    foreach ($widgets as $widget) {
+      $theme['finder_optionwidgets_'. $widget .'_'. $type] = array(
+        'arguments' => array(
+          'option' => NULL,
+          'element' => NULL,
+        ),
+      );
+    }
+  }
+  return $theme;
+}
+
+/**
+ * Theme a select option
+ */
+function theme_finder_optionwidgets_select_option($option, $element) {
+  return $option->{$option->field_name};
+}
+
+/**
+ * Theme a select value
+ * This will actually set the value sent to the submit function.
+ */
+function theme_finder_optionwidgets_select_value($option, $element) {
+  return $option->{$option->field_name};
+}
+
+/**
+ * Theme a buttons option
+ */
+function theme_finder_optionwidgets_buttons_option($option, $element) {
+  return $option->{$option->field_name};
+}
+
+/**
+ * Theme a select value
+ * This will actually set the value sent to the submit function.
+ */
+function theme_finder_optionwidgets_buttons_value($option, $element) {
+  return $option->{$option->field_name};
+}
+
+/**
+ * Theme a onoff option
+ */
+function theme_finder_optionwidgets_onoff_option($option, $element) {
+  return $option->{$option->field_name};
+}
+
+/**
+ * Theme a select value
+ * This will actually set the value sent to the submit function.
+ */
+function theme_finder_optionwidgets_onoff_value($option, $element) {
+  return $option->{$option->field_name};
+}

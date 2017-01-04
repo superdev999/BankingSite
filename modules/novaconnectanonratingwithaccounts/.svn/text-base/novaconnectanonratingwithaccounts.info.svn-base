@@ -1,0 +1,5 @@
+name = Nova ConnectAnonRatingWithAccounts
+description = Provides a function with connects anonymous rating with accounts using the same mail adress
+package = Nova
+version = 0.1
+core = 6.x

@@ -1,0 +1,278 @@
+<?php
+function novaexportratings_menu() {
+	$items['admin/content/exportAllRatings'] = array(
+			'title' => 'Export all ratings',
+			'page callback' => 'novanovaexportratings_exportAll',
+			'access arguments' => array('edit any bewertung_autokredit content'),
+			'weight' => 50,
+			'type' => MENU_LOCAL_TASK
+	);
+	$items['admin/content/exportAllRatingsDkb'] = array(
+		'title' => 'Export all DKB ratings',
+			'page callback' => 'novanovaexportratings_exportAllDkb',
+			'access arguments' => array('edit any bewertung_autokredit content'),
+			'weight' => 51,
+			'type' => MENU_LOCAL_TASK
+	);
+	$items['admin/content/exportAllRatingsWeltsparen'] = array(
+		'title' => 'Export all Weltsparen ratings',
+			'page callback' => 'novanovaexportratings_exportAllWeltsparen',
+			'access arguments' => array('edit any bewertung_autokredit content'),
+			'weight' => 52,
+			'type' => MENU_LOCAL_TASK
+	);
+	$items['admin/content/exportAllRatingsIkano'] = array(
+		'title' => 'Export all Ikano Bank ratings',
+			'page callback' => 'novanovaexportratings_exportAllIkano',
+			'access arguments' => array('edit any bewertung_autokredit content'),
+			'weight' => 53,
+			'type' => MENU_LOCAL_TASK
+	);
+	$items['admin/content/exportAllRatingsSantander'] = array(
+		'title' => 'Export all Santander Bank ratings',
+			'page callback' => 'novanovaexportratings_exportAllSantander',
+			'access arguments' => array('edit any bewertung_autokredit content'),
+			'weight' => 54,
+			'type' => MENU_LOCAL_TASK
+	);
+	$items['admin/content/exportAllRatingsGewinnspiel'] = array(
+		'title' => 'Export all Gewinnspiel ratings',
+			'page callback' => 'novanovaexportratings_exportAllWinner',
+			'access arguments' => array('edit any bewertung_autokredit content'),
+			'weight' => 55,
+			'type' => MENU_LOCAL_TASK
+	);
+
+	return $items;
+}
+
+function novanovaexportratings_exportAll() {
+	novanovaexportratings_exportAllInner(null);
+}
+
+function novanovaexportratings_exportAllInner($bank = null, $ekomi = null) {
+	if (is_null($bank))
+	{
+		$outputFile = $_SERVER['DOCUMENT_ROOT']."/exportRatings.xml";
+		$user = ' AND uid>=0 '; // anonyme User: uid=0
+		$time = "";
+		$condition = "";
+		$limit = 2000;
+	}
+	//else if
+	else
+	{
+		switch ($bank)
+		{
+			// DKB
+			case 'dkb':
+				$outputFile = $_SERVER['DOCUMENT_ROOT']."/exportRatingsDKB.xml";
+				$user = ' AND uid>=0 ';
+				$condition = ' AND `title` LIKE "%{DKB}%" ';
+				$starttime = mktime(0, 0, 0, 1, 01, 2015);
+				$endtime = mktime(23, 59, 59, 4, 30, 2015);
+				$time = ' AND `created` between '.$starttime.' AND '.$endtime.'';
+				$limit = 20000;
+				//$ekomi = true; // spezieller Output ohne Tonalität etc.
+				$ekomiImport = true; // spezieller Output ohne Tonalität , ohne Produkte NUR Anbieterbewertungen
+				break;
+			// Weltsparen
+			case 'weltsparen':
+				$outputFile = $_SERVER['DOCUMENT_ROOT']."/exportRatingsWeltsparen.xml";
+				$user = ' AND uid>=0 ';
+				$condition = ' AND `title` LIKE "%{Weltsparen}%" ';
+				$starttime = mktime(0, 0, 0, 7, 7, 2014);
+				$endtime = mktime(23, 59, 59, 7, 14, 2015);
+				$time = ' AND `created` between '.$starttime.' AND '.$endtime.'';
+				$limit = 20000;
+				//$ekomi = true; // spezieller Output ohne Tonalität etc.
+				$ekomiImport = true; // spezieller Output ohne Tonalität , ohne Produkte NUR Anbieterbewertungen
+				break;
+			// Santander Bank Award 2015
+			case 'santander':
+				$outputFile = $_SERVER['DOCUMENT_ROOT']."/exportRatingsSantander.xml";
+				$user = ' AND uid>=0 ';
+				$condition = ' AND `title` LIKE "%{Santander Bank}%" ';
+				$starttime = mktime(0, 0, 0, 1, 01, 2015);
+				$endtime = mktime(23, 59, 59, 4, 30, 2015);
+				$time = ' AND `created` between '.$starttime.' AND '.$endtime.'';
+				$limit = 20000;
+				$ekomi = true; // spezieller Output ohne Tonalität etc.
+				break;
+
+			// Ikano Bank Award 2015
+			case 'ikano':
+				$outputFile = $_SERVER['DOCUMENT_ROOT']."/exportRatingsIkano.xml";
+				$user = ' AND uid>=0 ';
+				$condition = ' AND `title` LIKE "%{Ikano Bank}%" ';
+				$starttime = mktime(0, 0, 0, 1, 01, 2015);
+				$endtime = mktime(23, 59, 59, 4, 30, 2015);
+				$time = ' AND `created` between '.$starttime.' AND '.$endtime.'';
+				$limit = 20000;
+				$ekomi = true; // spezieller Output ohne Tonalität etc.
+				break;
+
+			// Export für Gewinnspiel mit mails etc.
+			case 'gewinnspiel_export':
+				$outputFile = $_SERVER['DOCUMENT_ROOT']."/exportRatingsWinner.xml";
+				$user = ' AND uid>=0 ';
+				$condition = "";
+				$starttime = mktime(0, 0, 0, 4, 25, 2014);
+				$endtime = mktime(23, 59, 59, 5, 31, 2014);
+				$time = ' AND `created` between '.$starttime.' AND '.$endtime.'';
+				$limit = 20000;
+				break;
+
+			default:
+				throw new Exception("Undefined bank.");
+				break;
+		}
+	}
+	// Get all ratings uid=0 (anonym) - uid=* (all)
+	$xml = "<?xml version='1.0' encoding='UTF-8' ?>\n<rss version='2.0'>\n  <channel>\n    <title>Bankingcheck Ratings Feed</title>\n";
+	if ($time == "" )
+	{
+		if ($ekomiImport == true)
+		{
+			// nur Anbieterbewertungen nach Zeit
+			$sql = db_query('SELECT nid FROM `node` WHERE `type` LIKE "bewertung_bank" '.$user.' AND status=1 '.$condition.' ORDER BY created DESC LIMIT '.$limit.'');
+		}
+		else
+		{
+			$sql = db_query('SELECT nid FROM `node` WHERE `type` LIKE "bewertung_%" '.$user.' AND status=1 '.$condition.' ORDER BY created DESC LIMIT '.$limit.'');
+		}
+	}
+	else
+	{
+		if ($ekomiImport == true)
+		{
+			// nur Anbieterbewertungen ALL
+			$sql = db_query('SELECT nid FROM `node` WHERE `type` LIKE "bewertung_bank" '.$user.' '.$time.' AND status=1 '.$condition.' ORDER BY created DESC LIMIT '.$limit.'');
+		}
+		else
+		{
+			$sql = db_query('SELECT nid FROM `node` WHERE `type` LIKE "bewertung_%" '.$user.' '.$time.' AND status=1 '.$condition.' ORDER BY created DESC LIMIT '.$limit.'');
+		}
+	}
+	while ($ratingObject = db_fetch_object ($sql))
+	{
+		$ratingNode = node_load(array("nid" => $ratingObject->nid));
+		$novaRatingNode = new NovaBCVoting($ratingNode->nid);
+		$ratedProduct = $novaRatingNode->getRatedProductItemNode();
+		$mail = $novaRatingNode->getEmail();
+
+		// wenn es eine Bank-Bewertung ist, wird der Name der Bank verwendet!
+		if ($ratingNode->type == "bewertung_bank"){
+			$ratedBank = node_load(array("nid" => $novaRatingNode->getRatedProductItemNid()));
+			$firstDescription = "Rating für ".$ratedBank->title;
+		} else {
+			$ratedBank = node_load(array("nid" => $novaRatingNode->getRatedBankNid()));
+			$firstDescription = "Rating für ".$ratedBank->title." ".ucfirst(substr($ratingNode->type, 10));
+		}
+
+		$tonalitaet = "";
+		if ($novaRatingNode->getAverage() >= 1.0 && $novaRatingNode->getAverage() < 2.5)
+			$tonalitaet = "negativ";
+		else if ($novaRatingNode->getAverage() >= 2.5 && $novaRatingNode->getAverage() < 3.5)
+			$tonalitaet = "neutral";
+		else if ($novaRatingNode->getAverage() >= 3.5 && $novaRatingNode->getAverage() <= 5.0)
+			$tonalitaet = "positiv";
+
+		$bewertung_ausdruck = "";
+		if ($novaRatingNode->getAverage() >= 1.0 && $novaRatingNode->getAverage() < 1.5)
+			$bewertung_ausdruck = "mangelhaft";
+		else if ($novaRatingNode->getAverage() >= 1.5 && $novaRatingNode->getAverage() < 2.5)
+			$bewertung_ausdruck = "ausreichend";
+		else if ($novaRatingNode->getAverage() >= 2.5 && $novaRatingNode->getAverage() < 3.5)
+			$bewertung_ausdruck = "befriedigend";
+		else if ($novaRatingNode->getAverage() >= 3.5 && $novaRatingNode->getAverage() < 4.5)
+			$bewertung_ausdruck = "gut";
+		else if ($novaRatingNode->getAverage() >= 4.5 && $novaRatingNode->getAverage() <= 5.0)
+			$bewertung_ausdruck = "sehr gut";
+
+		if ($bank == "gewinnspiel_export")
+		{
+			//print_r($novaRatingNode);
+			$xml .= "    <item>\n".
+					"      <title>".novaexportratings_xmlEncode($ratingNode->title)."</title>\n".
+					"      <description>".novaexportratings_xmlEncode($firstDescription." - ".$bewertung_ausdruck." - ".$novaRatingNode->getAverage()." von ".number_format(BCVotings::votingBase, 1)." (Tonalitaet: ".$tonalitaet.") <br />Kommentar: ".$novaRatingNode->getComment())."</description>\n".
+					"      <link>".novaexportratings_xmlEncode(BCEmailGenerator::fl("/".$ratingNode->path))."</link>\n".
+					"      <rating>".$novaRatingNode->getAverage()."</rating>\n".
+					"      <mail>".$novaRatingNode->getEmail()."</mail>\n".
+					"      <guid>".$ratingNode->nid."</guid>\n".
+					"      <pubDate>".date("r", $ratingNode->created)."</pubDate>\n".
+					"    </item>\n";
+		}
+		else if ($ekomi == true)
+		{
+			//print_r($novaRatingNode);
+			$xml .= "    <item>\n".
+					"      <title>".novaexportratings_xmlEncode($ratingNode->title)."</title>\n".
+					"      <description>".$novaRatingNode->getComment()."</description>\n".
+					"      <link>".novaexportratings_xmlEncode(BCEmailGenerator::fl("/".$ratingNode->path))."</link>\n".
+					"      <rating>".$novaRatingNode->getAverage()."</rating>\n".
+					"      <guid>".$ratingNode->nid."</guid>\n".
+					"      <pubDate>".date("r", $ratingNode->created)."</pubDate>\n".
+					"    </item>\n";
+		}
+		else if ($ekomiImport == true)
+		{
+			//print_r($novaRatingNode);
+			$xml .= "    <item>\n".
+					"      <title>".novaexportratings_xmlEncode($ratingNode->title)."</title>\n".
+					"      <description>".$novaRatingNode->getComment()."</description>\n".
+					"      <link>".novaexportratings_xmlEncode(BCEmailGenerator::fl("/".$ratingNode->path))."</link>\n".				
+					"      <rating>".round($novaRatingNode->getAverage(),0)."</rating>\n".
+					"      <guid>".$ratingNode->nid."</guid>\n".
+					"      <pubDate>".$ratingNode->created."</pubDate>\n".				      
+					"    </item>\n";
+		}
+		else
+		{
+			//print_r($novaRatingNode);
+			$xml .= "    <item>\n".
+					"      <title>".novaexportratings_xmlEncode($ratingNode->title)."</title>\n".
+					"      <description>".novaexportratings_xmlEncode($firstDescription." - ".$bewertung_ausdruck." - ".$novaRatingNode->getAverage()." von ".number_format(BCVotings::votingBase, 1)." (Tonalitaet: ".$tonalitaet.") <br />Kommentar: ".$novaRatingNode->getComment())."</description>\n".
+					"      <link>".novaexportratings_xmlEncode(BCEmailGenerator::fl("/".$ratingNode->path))."</link>\n".
+					"      <rating>".$novaRatingNode->getAverage()."</rating>\n".
+					"      <guid>".$ratingNode->nid."</guid>\n".
+					"      <pubDate>".date("r", $ratingNode->created)."</pubDate>\n".
+					"    </item>\n";
+		}
+	}
+	$xml .= "  </channel>\n</rss>\n";
+	file_put_contents($outputFile, $xml);
+	drupal_set_message("<p><strong>Bewertungsexport erstellt.</strong></p><p><strong><a href='/".basename($outputFile)."'>Hier</a> kann der neue Export abgerufen werden.</strong></p>", "status", FALSE);
+	#drupal_goto("");
+}
+
+function novanovaexportratings_exportAllDkb() {
+	novanovaexportratings_exportAllInner("dkb");
+}
+
+function novanovaexportratings_exportAllWeltsparen() {
+	novanovaexportratings_exportAllInner("weltsparen");
+}
+
+function novanovaexportratings_exportAllIkano() {
+	novanovaexportratings_exportAllInner("ikano");
+}
+
+function novanovaexportratings_exportAllSantander() {
+	novanovaexportratings_exportAllInner("santander");
+}
+
+function novanovaexportratings_exportAllWinner() {
+	novanovaexportratings_exportAllInner("gewinnspiel_export");
+}
+
+
+function novaexportratings_cron() {
+	// Call only normal export on cron run
+	novanovaexportratings_exportAllInner(null);
+}
+
+function novaexportratings_xmlEncode($string) {
+	return "<![CDATA[".$string."]]>";
+}
+?>

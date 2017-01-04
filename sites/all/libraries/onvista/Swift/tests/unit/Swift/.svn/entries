@@ -1,0 +1,129 @@
+10
+
+dir
+696
+svn://nova.webwide.de/bankingcheck/www.bankingcheck.de/sites/all/libraries/onvista/Swift/tests/unit/Swift
+svn://nova.webwide.de/bankingcheck
+
+
+
+2013-07-16T12:32:43.888961Z
+372
+rb
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+525a1d8c-b57a-11e1-8bab-2b04473d3a71
+
+ByteStream
+dir
+
+CharacterReader
+dir
+
+Encoder
+dir
+
+MailerTest.php
+file
+
+
+
+
+2015-08-05T20:34:43.057638Z
+dfdcea9ada12aa8bdfe3bef9749bec68
+2013-07-16T12:32:43.888961Z
+372
+rb
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4771
+
+Plugins
+dir
+
+Events
+dir
+
+StreamFilters
+dir
+
+Mime
+dir
+
+DependencyContainerTest.php
+file
+
+
+
+
+2015-08-05T20:34:43.057638Z
+7d414dd2e70a2be4c46acb1103b303ee
+2013-07-16T12:32:43.888961Z
+372
+rb
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5745
+
+CharacterStream
+dir
+
+Mailer
+dir
+
+KeyCache
+dir
+
+Transport
+dir
+

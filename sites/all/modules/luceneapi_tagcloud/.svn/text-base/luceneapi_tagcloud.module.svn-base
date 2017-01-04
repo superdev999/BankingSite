@@ -1,0 +1,119 @@
+<?php
+// $Id: luceneapi_tagcloud.module,v 1.13 2009/12/19 03:10:47 cpliakas Exp $
+
+/**
+ * @defgroup luceneapi_tagcloud Search Lucene Tagcloud
+ * Adds tagadelic-like facets to Search Lucene API modules. The weights of the
+ * items in the tag clouds are calculated by their occurrences in the search
+ * results.
+ */
+
+/**
+ * @file
+ * Adds tagadelic-like facets to Search Lucene API modules. The weights of the
+ * items in the tag clouds are calculated by their occurrences in the search
+ * results.
+ *
+ * @ingroup luceneapi_tagcloud
+ */
+
+/**
+ * Implementation of hook_luceneapi_facet_realm().
+ */
+function luceneapi_tagcloud_luceneapi_facet_realm() {
+  $realms = array();
+
+  // adds a faceted search block similar to the Faceted Search module
+  $realms['tagcloud'] = array(
+    'title' => t('Tagcloud'),
+    'callback' => 'luceneapi_facet_block_realm_render',
+    'callback arguments' => array(),
+    'description' => t(
+      'The <i>Tagcloud</i> realm displays facets as a group of tagcloud links in the <i>Search Lucene Tagcloud</i> <a href="@block-page">block</a>. Each item is re-weighted depending on the quantity of the item in the search result set.',
+      array('@block-page' => url('admin/build/block/list'))
+    ),
+  );
+
+  return $realms;
+}
+
+/**
+ * Implementation of hook_form_[form_id]_alter().
+ */
+function luceneapi_tagcloud_form_luceneapi_node_admin_settings_facet_form_alter(&$form, $form_state) {
+  $variable = sprintf('luceneapi_facet:%s:tagcloud:levels', $form['module']['#value']);
+  $form['facets']['tagcloud'][$variable] = array(
+    '#type' => 'select',
+    '#title' => t('Number of levels'),
+    '#options' => drupal_map_assoc(range(1, 10)),
+    '#default_value' => variable_get($variable, 6),
+    '#description' => t('The number of levels between the least popular and most popular tags. A greater number will yield more variation in text size.'),
+  );
+
+  // hard limit, no more than this number of facets are displayed
+  $options  = array(0 => t('No imit'));
+  $options += drupal_map_assoc(range(5, 50, 5));
+  $variable = sprintf('luceneapi_facet:%s:tagcloud:limit', $form['module']['#value']);
+  $form['facets']['tagcloud'][$variable] = array(
+    '#type' => 'select',
+    '#title' => t('Limit'),
+    '#default_value' => variable_get($variable, 20),
+    '#options' => $options,
+    '#description' => t('No more than <i>n</i> number of facets will be displayed.'),
+  );
+}
+
+/**
+ * Implementation of hook_block().
+ */
+function luceneapi_tagcloud_block($op = 'list', $delta = 0, $edit = array()) {
+  switch ($op) {
+    case 'list':
+      $blocks = array();
+      foreach (luceneapi_searchable_module_list() as $module => $name) {
+        $blocks[$module] = array(
+          'info' => sprintf('Search Lucene Tagcloud: %s', $name),
+          'cache' => BLOCK_NO_CACHE,
+        );
+      }
+      return $blocks;
+
+    case 'view':
+      if (user_access('use advanced search') && luceneapi_search_executed() == $delta) {
+        module_load_include('inc', 'luceneapi_tagcloud', 'luceneapi_tagcloud.block');
+        return array(
+          'subject' => t('Tagcloud facets'),
+          'content' => luceneapi_tagcloud_block_view($delta),
+        );
+      }
+      break;
+  }
+}
+
+/**
+ * Implementation of hook_theme().
+ */
+function luceneapi_tagcloud_theme() {
+  return array(
+    'luceneapi_tagcloud_facets' => array(
+      'arguments' => array('items' => NULL, 'type' => NULL),
+      'file' => 'luceneapi_tagcloud.block.inc',
+    ),
+    'luceneapi_tagcloud_facet' => array(
+      'arguments' => array('facet_name' => NULL, 'facets' => NULL, 'type' => NULL),
+      'template' => 'luceneapi_tagcloud-facet',
+      'file' => 'luceneapi_tagcloud.block.inc',
+    ),
+  );
+}
+
+/**
+ * Implementation of hook_luceneapi_facet_postrander_alter().
+ */
+function luceneapi_tagcloud_luceneapi_facet_postrender_alter(&$items, $realm, $module, $type = NULL) {
+  if ('tagcloud' == $realm && isset($items['original_keys'])) {
+    // prevents negative level in calculations
+    $items['original_keys']['count'] = 1;
+    $items['original_keys']['items'][0]['count'] = 1;
+  }
+}

@@ -1,0 +1,188 @@
+/* Hintergrund Farbe (der Seite auf welcher der Rechner eingebunden werden soll) */
+	.fa_hintergrund
+	{
+	background-color: #FFFFFF;		
+	}
+
+/* Titelleisten */
+	.fa_rahmen
+	{
+	background-color: #CB0000;
+	color: #FFFFFF;
+	font-family: Arial, Helvetica;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: left;	
+	}
+	
+/* Formular */
+	.fa_formzeile
+	{
+	background-color: #EEEEEE;
+	font-family: Arial, Helvetica;
+	font-size: 12px;
+	font-weight: normal;
+	color: #000000;	
+	}
+	
+	.fa_formzelle
+	{
+	}
+	
+	.fa_form_select_rechner
+	{
+	}
+
+/* Formular Button */
+	.fa_button
+	{
+	font-size: 12px;
+	font-family: arial, helvetica;
+	color: #FFFFFF;
+	background-color: #CB0000;
+	border-width: 0px;
+	}
+	
+/* Ergebnistabelle - Titelzeile */
+	.fa_headzeile
+	{
+	background-color: #EEEEEE;
+	font-family: Arial, Helvetica;
+	font-size: 12px;
+	font-weight: normal;
+	color: #000000;	
+	}
+	
+	.fa_headzelle
+	{
+	}
+	
+/* Ergebnistabelle */
+/* Ergebnistabelle - gerade Zeilen */
+	.fa_zeile
+	{
+	background-color: #EEEEEE;
+	font-family: Arial, Helvetica;
+	font-size: 12px;
+	font-weight: normal;
+	color: #000000;	
+	}
+	
+/* Ergebnistabelle - ungerade Zeilen */
+	.fa_zeile2
+	{
+	background-color: #DDDDDD;
+	font-family: Arial, Helvetica;
+	font-size: 12px;
+	font-weight: normal;
+	color: #000000;	
+	}
+
+/* Ergebnistabelle - Zellen */
+	.fa_zelle
+	{
+	}
+	
+/* Ergebnistabelle - Logospalte */
+	.fa_logotd
+	{
+	}
+	
+/* Ergebnistabelle - Logo */
+	.fa_logoimg
+	{
+	}
+	
+
+/* Links */
+	.fa_link
+	{
+	font-size: 12px;
+	font-family: Arial, Helvetica;
+	color: #CB0000;
+	text-decoration: none;
+	}
+	
+	.fa_link:hover
+	{
+	color: #DDDDDD;
+	}
+	
+/* Anmerkungen */	
+	.fa_footnotes
+	{
+	color: #444444;
+	font-size: 10px;
+	font-family: arial, helvetica;
+	}
+	
+/* Info PopUp */
+	.info_body
+	{
+	font-family: arial, helvetica;
+	font-size: 11px;
+	color: #000000;
+	background-color: #EEEEEE;
+	border: 1px solid #CB0000;
+	margin: 0px;
+	padding: 4px;
+	width: 180px;
+	}
+
+	.info_header
+	{
+	font-family: arial, helvetica;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #CB0000;
+	border: 1px solid #CB0000;
+	margin: 0px;
+	padding: 4px;
+	width: 180px;
+	}
+
+/* Formular Felder */
+
+	.depotrechner_ordervolumen,
+	.depotrechner_orderanzahl,
+	.depotrechner_depotvolumen,
+	.depotrechner_orderinternet,
+	.festgeldrechner_anlagebetrag,
+	.girokontorechner_zahlungseingang,
+	.girokontorechner_guthaben,
+	.girokontorechner_minus,
+	.kreditkarterechner_umsatzeuroland,
+	.kreditkarterechner_umsatznichteuroland,
+	.ratenkreditrechner_kreditbetrag,
+	.tagesgeldrechner_anlagebetrag
+	{
+	width: 60px;	
+	}
+	
+	.girokontorechner_minustage
+	{
+	width: 40px;
+	}
+	
+	.kreditkarterechner_kartengesellschaft,
+	.kreditkarterechner_anzeige,
+	.kreditkarterechner_zahlungsart
+	{
+	width: 100px;
+	}
+	
+	.festgeldrechner_laufzeit,
+	.girokontorechner_berufsgruppe,
+	.girokontorechner_guthabentage,
+	.girokontorechner_eckarte,
+	.girokontorechner_kreditkarte,
+	.girokontorechner_use_regional,
+	.girokontorechner_regional,
+	.girokontorechner_filialbanken,
+	.ratenkreditrechner_laufzeit,
+	.ratenkreditrechner_verwendungszweck,
+	.tagesgeldrechner_laufzeit
+	{
+	
+	}

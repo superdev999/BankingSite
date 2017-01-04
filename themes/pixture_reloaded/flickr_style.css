@@ -1,0 +1,26 @@
+.picContainer-item {
+	//background-color: black;
+	width: 180px;
+	//height: 200px;
+	margin: 5px;
+}
+
+#wrapper {
+	margin: 0 auto;
+	max-width: 90%;
+}
+
+#title {
+	text-align: center;
+	font-size: 5em;
+    font-family: 'Roboto Slab', Roboto, Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+	color: #005192;
+	width: 90%;
+}
+
+#followFlickr {
+	margin-top: 20px;
+}
+

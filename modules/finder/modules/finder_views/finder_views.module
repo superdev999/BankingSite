@@ -1,0 +1,592 @@
+<?php
+// $Id: finder_views.module,v 1.1.2.25 2009/07/22 03:02:53 danielb Exp $
+
+/**
+ * @file
+ * The finder views module.
+ */
+
+/**
+ * Implementation of hook_views_api().
+ */
+function finder_views_views_api() {
+  return array(
+    'api' => 2,
+    'path' => finder_inc_path('finder_views'),
+  );
+}
+
+/**
+ * Implementation of hook_theme().
+ */
+function finder_views_theme() {
+  return array(
+    'finder_views_results' => array(
+      'arguments' => array(
+        'result' => NULL,
+        'finder' => NULL,
+        'form_state' => NULL,
+      ),
+    ),
+  );
+}
+
+/**
+ * Implementation of hook_finder_base_handlers().
+ */
+function finder_views_finder_base_handlers() {
+  return array(
+    'views' => array(
+      '#title' => t('Views finder'),
+      '#module' => 'finder_views',
+    ),
+  );
+}
+
+/**
+ * Implementation of hook_form_FORM-ID_alter().
+ */
+function finder_views_form_finder_admin_edit_alter(&$form, $form_state) {
+  $finder = &$form_state['storage']['finder'];
+  if ($finder->base == 'views') {
+    $form['settings']['views'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Views settings'),
+      '#weight' => 80,
+      '#collapsible' => TRUE,
+      '#collapsed' => FALSE,
+    );
+    if ($views = finder_views_get_views()) {
+      $form['settings']['views']['view'] = array(
+        '#type' => 'select',
+        '#title' => t('Find items from this view'),
+        '#default_value' => $finder->settings['views']['view'] ? $finder->settings['views']['view'] : '',
+        '#options' => $views,
+        '#required' => TRUE,
+        '#weight' => 10,
+      );
+
+      $form['settings']['views']['displays'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Displays'),
+        '#weight' => 20,
+        '#collapsible' => TRUE,
+        '#collapsed' => TRUE,
+        '#description' => t('Leaving these set to "Defaults" is perfectly suitable in most cases.'),
+      );
+
+      $displays = finder_views_get_displays($finder->settings['views']['view']);
+
+      $form['settings']['views']['displays']['query'] = array(
+        '#type' => 'select',
+        '#title' => t('Query display'),
+        '#default_value' => $finder->settings['views']['displays']['query'] ? $finder->settings['views']['displays']['query'] : 'default',
+        '#options' => $displays,
+        '#required' => TRUE,
+        '#weight' => 10,
+        '#description' => t('Allows you to use a specific display to calculate results, you can use this to add sort/filter settings via Views that do not affect the element choices.'),
+      );
+
+      $form['settings']['views']['displays']['output'] = array(
+        '#type' => 'select',
+        '#title' => t('Output display'),
+        '#default_value' => $finder->settings['views']['displays']['output'] ? $finder->settings['views']['displays']['output'] : 'default',
+        '#options' => $displays,
+        '#required' => TRUE,
+        '#weight' => 20,
+        '#description' => t('Allows you to use a specific display to output the results page, you can use this to change output settings via Views that do not affect the element choices.'),
+      );
+
+      if (count($displays) === 1) {
+        $form['settings']['views']['displays']['query']['#disabled'] = TRUE;
+        $form['settings']['views']['displays']['output']['#disabled'] = TRUE;
+      }
+
+      $form['settings']['views']['results'] = array(
+        '#type' => 'radios',
+        '#title' => t('Results page'),
+        '#default_value' => $finder->settings['views']['results'] ? $finder->settings['views']['results'] : 0,
+        '#weight' => 40,
+        '#description' => t('"Output display" is configured under the "Displays" fieldset above.  Custom results page can be themed using theme_finder_views_results($results, $finder, $form_state).'),
+        '#options' => array(
+          0 => t('Build results page from "Output display".'),
+          1 => t('Build custom results page.'),
+        ),
+      );
+
+      $form['settings']['views']['views_args'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Views arguments'),
+        '#weight' => 80,
+        '#collapsible' => TRUE,
+        '#collapsed' => TRUE,
+        '#description' => t('Restrict results using arguments.  These arguments will not apply to element choices - use with caution.'),
+      );
+      $form['settings']['views']['views_args']['args'] = array(
+        '#type' => 'textarea',
+        '#default_value' => isset($finder->settings['views']['views_args']['args']) ? $finder->settings['views']['views_args']['args'] : '',
+        '#title' => t('Arguments'),
+        '#rows' => 1,
+        '#description' => t('
+          You can provide a list of arguments seperated by a delimiter. 
+          e.g: <em>term_1/term_2</em>.<br />Or insert PHP code to generate the 
+          list of arguments. e.g: <em>term_1/&lt;?php print "term_x/term_y"; 
+          ?&gt;/term_2</em>. (Variables available: $finder)'),
+      );
+      $form['settings']['views']['views_args']['delimiter'] = array(
+        '#type' => 'textfield',
+        '#default_value' => isset($finder->settings['views']['views_args']['delimiter']) ? $finder->settings['views']['views_args']['delimiter'] : '/',
+        '#title' => t('Delimiter'),
+        '#size' => 5,
+        '#maxlength' => 10,
+        '#description' => t('This is the character used to split multiple arguments above.'),
+        '#required' => TRUE,
+      );
+    }
+    else {
+      $form['settings']['views']['no_view'] = array(
+        '#value' => t("<em>There are currently no views to choose from.</em>"),
+        '#weight' => 10,
+      );
+    }
+  }
+}
+
+/**
+ * Implementation of hook_form_FORM-ID_alter().
+ */
+function finder_views_form_finder_admin_element_edit_alter(&$form, $form_state) {
+  $finder = &$form_state['storage']['finder'];
+  if ($finder->base == 'views') {
+    $element = &$form_state['storage']['finder_element_defaults'];
+    unset($form['settings']['choices']['sort']);
+    $form['settings']['choices']['views'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Views arguments'),
+      '#weight' => 80,
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+      '#description' => t('Restrict possible choices using arguments.  These arguments will not apply to the results - use with caution.'),
+    );
+
+    $form['settings']['choices']['displays'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Displays'),
+      '#weight' => 20,
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+      '#description' => t('Leaving this set to "Defaults" is perfectly suitable for most cases.'),
+    );
+
+    $displays = finder_views_get_displays($finder->settings['views']['view']);
+
+    $form['settings']['choices']['displays']['query'] = array(
+      '#type' => 'select',
+      '#title' => t('Query display'),
+      '#default_value' => $element->settings['choices']['displays']['query'] ? $element->settings['choices']['displays']['query'] : 'default',
+      '#options' => $displays,
+      '#required' => TRUE,
+      '#weight' => 10,
+      '#description' => t('
+          Allows you to use a specific display to calculate the choices list, 
+          you can use this to add sort/filter settings via Views that do not 
+          affect other elements or the results.  An example use for this is 
+          to restrict taxonomy term choices to terms from a particular 
+          vocabulary.'),
+    );
+
+    $form['settings']['choices']['views']['args'] = array(
+      '#type' => 'textarea',
+      '#default_value' => isset($element->settings['choices']['views']['args']) ? $element->settings['choices']['views']['args'] : '',
+      '#title' => t('Arguments'),
+      '#rows' => 1,
+      '#description' => t('
+        You can provide a list of arguments seperated by a delimiter. 
+        e.g: <em>term_1/term_2</em>.<br />Or insert PHP code to generate the 
+        list of arguments. e.g: <em>term_1/&lt;?php print "term_x/term_y"; 
+        ?&gt;/term_2</em>. (Variables available: $finder_element)'),
+    );
+    $form['settings']['choices']['views']['delimiter'] = array(
+      '#type' => 'textfield',
+      '#default_value' => isset($element->settings['choices']['views']['delimiter']) ? $element->settings['choices']['views']['delimiter'] : '/',
+      '#title' => t('Delimiter'),
+      '#size' => 5,
+      '#maxlength' => 10,
+      '#description' => t('This is the character used to split multiple arguments above.'),
+      '#required' => TRUE,
+    );
+  }
+}
+
+/**
+ * Implementation of hook_finder_fields().
+ */
+function finder_views_finder_fields($finder, $finder_element_id) {
+  if ($view = views_get_view($finder->settings['views']['view'])) {
+    views_include('admin');
+    $display = $view->add_display('finder_views');
+    $view->set_display($display);
+    $base_tables = $view->get_base_tables();
+    $options = views_fetch_fields(array_keys($base_tables), 'field');
+    foreach ($options as $k => $v) {
+      $options[$k] = $v['group'] .': '. $v['title'];
+    }
+    return $options;
+  }
+  return FALSE;
+}
+
+/**
+ * Get an array of content types for use in select forms.
+ */
+function finder_views_get_views() {
+  $views = array('' => t(' - Select a view - '));
+  $all_views = views_get_all_views();
+  if (!empty($all_views)) {
+    foreach ($all_views as $view) {
+        if ($view->type == 'Default') {
+          $views[t('Default Views')][$view->name] = $view->name;
+        }
+        else {
+          $views[t('Existing Views')][$view->name] = $view->name;
+        }
+    }
+    return $views;
+  }
+  return FALSE;
+}
+
+/**
+ * Get an array of content types for use in select forms.
+ */
+function finder_views_get_displays($view_name = NULL) {
+  if (!$view_name) {
+    return array('default' => t('Defaults'));
+  }
+  $options = array();
+  $all_views = views_get_all_views();
+  $view = $all_views[$view_name];
+  foreach ($view->display as $key => $display) {
+    $options[$key] = $display->display_title .' ('. $key .')';
+  }
+  return $options;
+}
+
+/**
+ * Implementation of hook_finder_find().
+ */
+function finder_views_finder_find($finder, $finder_element_id, $keywords, $mode, $match, $pager) {
+  $options = array();
+  $view_name = &$finder->settings['views']['view'];
+
+  if ($view = views_get_view($view_name)) {
+
+    $view_args = array();
+
+    // We add a display, and let it derive from the 'default' display.
+    $display = $view->add_display('finder_views');
+
+    // Change the display options based on 'query display' setting.
+    if ($mode == 'results' && $finder->settings['views']['displays']['query']) {
+      $custom_display = &$finder->settings['views']['displays']['query'];
+    }
+    elseif ($mode == 'choices' && $fe = &finder_element($finder, $finder_element_id)
+            && $fe->settings['choices']['displays']['query']) {
+      $custom_display = &$fe->settings['choices']['displays']['query'];
+    }
+
+    if ($custom_display && $custom_display != 'default') {
+      $view->display[$display]->display_options = $view->display[$custom_display]->display_options;
+    }
+
+    // Activate the display
+    $view->set_display($display);
+
+    // We do need the field, so add it if not present
+
+    $fields = $view->get_items('field', $display);
+
+    $view->display_handler->set_option('style_plugin', 'finder_views_php_array_finder');
+
+    $view->display_handler->set_option('row_plugin', 'fields');
+
+    // Additional options to let finder_views_plugin_display_finder::query()
+    // narrow the results.
+
+    foreach ($keywords as $feid => $keyword_array) {
+      //$element = &$finder->elements[$finder->elements_index[$feid]];
+      $element = &finder_element($finder, $feid);
+      $field = &$element->settings['choices']['field'];
+      $field_info[$feid] = finder_split_field($field);
+
+      if ($mode == 'choices' && $feid == $finder_element_id) {
+        // if we're getting choices select a distinct value for the main field
+        if (!isset($fields[$field_info[$feid]['field']])) {
+          $view->add_item($display, 'field', $field_info[$feid]['table'], $field_info[$feid]['field']);
+        }
+        $view->set_item_option($display, 'field', $field_info[$feid]['field'], 'DISTINCT', TRUE);
+        $view_args = finder_views_get_element_args($element);
+      }
+      elseif ($mode == 'results') {
+        // if we're getting results, just grab the field anyway
+        if (!isset($fields[$field_info[$feid]['field']])) {
+          $view->add_item($display, 'field', $field_info[$feid]['table'], $field_info[$feid]['field']);
+        }
+      }
+
+      // removing blank keyword_array to stop inteference with query
+      if (empty($keyword_array)) {
+        unset($keywords[$feid]);
+      }
+    }
+
+    $options = array(
+      'base_table' => $view->base_table,
+      'base_field' => $view->base_field,
+      'feid' => $finder_element_id,
+      'field_info' => $field_info,
+      'keywords' => $keywords,
+      'mode' => $mode,
+      'match' => finder_match_operator($match),
+      'results_match' => finder_match_operator($finder->settings['advanced']['match']),
+      'combination' => $finder->settings['advanced']['element_combination'] ? 'OR' : 'AND',
+    );
+
+    // Used in content_plugin_style_php_array::render(), to get
+    // the 'field' to be used as title.
+    $view->display_handler->set_option('finder_views_field', $field_info[$finder_element_id]['field']);
+    $view->display_handler->set_option('finder_views_options', $options);
+
+    if (!isset($fields[$options['base_field']])) {
+      $view->add_item($display, 'field', $options['base_table'], $options['base_field']);
+    }
+
+    // If not set, make all fields inline and define a separator.
+    $options = $view->display_handler->get_option('row_options');
+    if (empty($options['inline'])) {
+      $options['inline'] = drupal_map_assoc(array_keys($view->get_items('field', $display)));
+    }
+    if (empty($options['separator'])) {
+      $options['separator'] = '-';
+    }
+    $view->display_handler->set_option('row_options', $options);
+
+    // Limit result set size.
+    if (isset($pager)) {
+      $view->display_handler->set_option('use_pager', TRUE);
+      $view->display_handler->set_option('items_per_page', $pager);
+      $pager_element = ($mode == 'results' ? 0 : 'finder_choices_'. $finder_element_id);
+      $view->display_handler->set_option('pager_element', $pager_element);
+    }
+
+    if ($mode == 'results') {
+      $view_args = finder_views_get_finder_args($finder);
+      // Limit result for redirect.
+      if (isset($finder->go) && $finder->go) {
+        $view->display_handler->set_option('use_pager', TRUE);
+        $view->display_handler->set_option('items_per_page', 1);
+        $view->display_handler->set_option('pager_element', 0);
+      }
+    }
+
+    // Make sure the query is not cached
+    $view->is_cacheable = FALSE;
+
+    // Get the results.
+    $result = $view->execute_display($display, $view_args);
+
+  }
+  else {
+    $result = FALSE;
+  }
+
+  return $result;
+
+}
+
+/**
+ * Process the $result_array, return the HTML output for the results.
+ */
+function finder_views_finder_result($finder, $keywords, $results, $form_state) {
+  $output = '';
+  if ($results) {
+    if ($finder->settings['views']['results']) {
+      $output .= theme('finder_views_results', $results, $finder, $form_state);
+    }
+    else {
+      $args = array();
+      $view = views_get_view($finder->settings['views']['view']);
+      $display_id = 'default';
+      if ($finder->settings['views']['displays']['output']) {
+        $display_id = $finder->settings['views']['displays']['output'];
+      }
+      $view->set_display($display_id);
+      $view->set_arguments($args);
+      $view->is_cacheable = FALSE;
+
+      // compile ids so that finder_views_views_query_alter() knows what to do
+      $ids = array();
+      foreach ($results as $result) {
+        $ids[] = $result->{$result->base_field};
+      }
+      $view->finder_ids = $ids;
+
+      $output .= $view->render($display_id);
+    }
+  }
+  return $output;
+}
+
+/**
+ * Implementation of hook_views_query_alter().
+ */
+function finder_views_views_query_alter($view, &$query) {
+  if (isset($view->finder_ids)) {
+    $alias = $query->ensure_table($view->base_table);
+    $query->add_where(NULL, $alias .'.'. $view->base_field .' IN  ('. db_placeholders($view->finder_ids) .')', $view->finder_ids);
+  }
+}
+
+/**
+ * Implementation of hook_finder_goto().
+ */
+function finder_views_finder_goto($finder, $result) {
+  $id = &$result->{$result->base_field};
+  $path = finder_views_path($result->base_table, $id);
+  if ($path) {
+    if ($result->base_table == 'files') {
+      file_download($path);
+    }
+    drupal_goto($path);
+  }
+}
+
+/**
+ * Get the raw link to an object given the table and id.
+ */
+function finder_views_path($table, $id) {
+  switch ($table) {
+    case 'node':
+      return 'node/'. $id;
+    case 'users':
+      return 'user/'. $id;
+    case 'term_data':
+      return 'taxonomy/term/'. $id;
+    case 'node_revisions':
+      $revision = node_load(array('vid' => $id));
+      return 'node/'. $revision->nid .'/revisions/'. $id .'/view';
+    case 'files':
+      $query = 'SELECT filepath FROM {files} f WHERE f.fid = %d';
+      $file = db_fetch_object(db_query($query, $id));
+      return $file->filepath;
+  }
+}
+
+/**
+ * Theme function for a views result.
+ */
+function theme_finder_views_results($results, $finder, $form_state) {
+  $output = '';
+  foreach ($results as $key => $result) {
+
+    // Open the results wrapper
+    $output .= '<div id="finder-views-result-'. $key .'" class="finder-views-result">';
+
+    // Output the identity of this result object
+    $id = &$result->{$result->base_field};
+    $path = finder_views_path($result->base_table, $id);
+    $id_output = $path ? l($id, $path) : $id;
+    $identity = $result->base_table .', '. $result->base_field .': '. $id_output;
+    $output .= '<div class="identity">'. $identity .'</div>';
+
+    // Output a list of finder element titles and the submitted keywords.
+    if (!empty($result->field_names)) {
+      $keywords = array();
+      foreach ($result->field_names as $finder_element_id => $field_name) {
+        if (!empty($result->$field_name)) {
+          $element = &finder_element($finder, $finder_element_id);
+          $keywords[] = '<span class="element-title">'. $element->title .': </span>'. $result->$field_name;
+        }
+      }
+      $output .= '<div class="keywords">'. implode(', ', $keywords) .'</div>';
+    }
+
+    // Close the results wrapper
+    $output .= '</div>';
+
+  }
+  return $output;
+}
+
+/**
+ * Get element arguments.
+ */
+function finder_views_get_element_args($element) {
+  $variables = array(
+    'finder_element' => $element,
+  );
+  $string = &$element->settings['choices']['views']['args'];
+  $delimiter = &$element->settings['choices']['views']['delimiter'];
+  return finder_views_get_args($string, $delimiter, $variables);
+}
+
+/**
+ * Get finder arguments.
+ */
+function finder_views_get_finder_args($finder) {
+  $variables = array(
+    'finder' => $finder,
+  );
+  $string = &$finder->settings['views']['views_args']['args'];
+  $delimiter = &$finder->settings['views']['views_args']['delimiter'];
+  return finder_views_get_args($string, $delimiter, $variables);
+}
+
+/**
+ * Convert arguments text field entry to an array of arguments.
+ */
+function finder_views_get_args($string, $delimiter, $variables) {
+  $args = array();
+  $arguments = finder_views_eval($string, $variables);
+  if ($arguments) {
+    $args = explode($delimiter, $arguments);
+    foreach ($args as $k => $v) {
+      $args[$k] = trim($v);
+    }
+  }
+  return $args;
+}
+
+/**
+ * Evaluate the code, whilst selecting what variables will be available in the PHP.
+ */
+function finder_views_eval($code, $variables = array()) {
+  global $theme_path, $theme_info, $conf;
+
+  // Store current theme path.
+  $old_theme_path = $theme_path;
+
+  // Restore theme_path to the theme, as long as drupal_eval() executes,
+  // so code evaluted will not see the caller module as the current theme.
+  // If theme info is not initialized get the path from theme_default.
+  if (!isset($theme_info)) {
+    $theme_path = drupal_get_path('theme', $conf['theme_default']);
+  }
+  else {
+    $theme_path = dirname($theme_info->filename);
+  }
+
+  foreach ((array)$variables as $key => $value) {
+    $$key = $value;
+  }
+
+  ob_start();
+  print eval('?>'. $code);
+  $output = ob_get_contents();
+  ob_end_clean();
+
+  // Recover original theme path.
+  $theme_path = $old_theme_path;
+
+  return $output;
+}

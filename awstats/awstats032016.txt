@@ -1,0 +1,350 @@
+AWSTATS DATA FILE 7.4 (build 20150714)
+# If you remove this file, all statistics for date 201603 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 1982                
+POS_TIME 2663                
+POS_VISITOR 6234                
+POS_DAY 6729                
+POS_DOMAIN 3352                
+POS_LOGIN 3586                
+POS_ROBOT 3787                
+POS_WORMS 3919                
+POS_EMAILSENDER 4050                
+POS_EMAILRECEIVER 4193                
+POS_SESSION 7100                
+POS_SIDER 7295                
+POS_FILETYPES 4328                
+POS_DOWNLOADS 4618                
+POS_OS 4666                
+POS_BROWSER 4791                
+POS_SCREENSIZE 4951                
+POS_UNKNOWNREFERER 5025                
+POS_UNKNOWNREFERERBROWSER 5112                
+POS_ORIGIN 5194                
+POS_SEREFERRALS 5332                
+POS_PAGEREFS 5476                
+POS_SEARCHWORDS 5624                
+POS_KEYWORDS 5776                
+POS_MISC 2325                
+POS_ERRORS 5835                
+POS_CLUSTER 3442                
+POS_SIDER_404 5925                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20160401123904 10421 3015979 44500406958
+FirstTime 20160301105835
+LastTime 20160321114945
+LastUpdate 20160402021137 1 0 0 0 0
+TotalVisits 26                  
+TotalUnique 7                   
+MonthHostsKnown 7                   
+MonthHostsUnknown 0                   
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 130 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 37 2619 10947029 1 9 6689
+1 19 448 1129644 3 8 3978
+2 0 0 0 0 1 401
+3 0 0 0 1 3 1203
+4 0 0 0 1 3 1203
+5 0 0 0 2 4 1604
+6 0 0 0 2 4 1604
+7 0 0 0 1 3 1203
+8 0 0 0 0 0 0
+9 1 1 33568 2 2 802
+10 62 1005 4380067 12 32 150374
+11 42 1026 5489526 8 14 35677
+12 7 38 262867 0 5 88511
+13 32 754 1206769 2 5 40335
+14 121 7441 20790954 13 40 93143
+15 141 5265 27790901 5 48 25664
+16 83 4381 21190091 2 15 10635
+17 50 2689 15050456 0 15 167802
+18 25 2966 2443652 4 16 18440
+19 1 1 90 2 4 1604
+20 0 0 0 0 1 401
+21 0 0 0 2 4 1604
+22 0 0 0 1 1 401
+23 14 1205 4529912 9 21 7956
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+de 635 29839 115245526
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 1
+bankingcheck 635 6297 61135594 20160321114945
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 11
+css 2711 3057466 0 0
+png 1373 16124188 0 0
+ttf 95 475530 0 0
+ico 115 169120 0 0
+woff 1 31352 0 0
+php 110 10347 0 0
+html 142 3725846 0 0
+js 1745 9793372 0 0
+jpg 667 10850100 0 0
+Unknown 287 12306562 0 0
+gif 22593 58701643 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 4
+macosx11 4716 78
+win10 420 21
+linux 16289 392
+win7 8414 144
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 5
+firefox38.0 99 7
+chrome49.0.2623.87 339 16
+firefox44.0 690 24
+chrome48.0.2564.116 28590 585
+firefox45.0 121 3
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 0
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 80 85
+From1 0 0
+From2 0 0
+From3 0 0
+From4 555 29754
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 1
+401 121 46917
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 0
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 7
+p54b369c6.dip0.t-ipconnect.de 263 14777 62445334 20160301172707
+ip1-vt.berlin.isp.ekomi.de 162 8713 30237768 20160321114945
+p54b36077.dip0.t-ipconnect.de 101 1717 5332681 20160307161235
+p57a3a654.dip0.t-ipconnect.de 67 4151 15868764 20160304014002
+p54b37532.dip0.t-ipconnect.de 28 305 343262 20160308103501
+p54b37c06.dip0.t-ipconnect.de 11 55 279896 20160321102502
+p5ddc4014.dip0.t-ipconnect.de 3 121 737821 20160313011646
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 12
+20160301 299 16715 70549933 6
+20160302 49 2935 11275993 2
+20160304 18 355 1836921 2
+20160307 101 1717 5332681 2
+20160308 28 305 343262 1
+20160309 12 657 3840390 2
+20160311 81 5167 18354691 3
+20160313 3 121 737821 1
+20160314 14 1447 455435 2
+20160315 11 34 248398 1
+20160317 3 47 326519 1
+20160321 16 339 1943482 3
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 6
+1h+ 5
+5mn-15mn 6
+0s-30s 9
+15mn-30mn 3
+2mn-5mn 2
+30mn-1h 1
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 85
+/ 139 3708096 23 3
+/sites/all/modules/ad/serve.php 110 10347 2 8
+/themes/bankingcheck2015/icons/icomoon.ttf 95 475530 0 5
+/node 35 1909319 0 0
+/admin_menu/flush-cache 23 575 0 0
+/admin/build/views 15 224115 0 0
+/user 15 57708 0 0
+/node/52424/edit 13 275774 0 1
+/admin/content/node/overview 13 240620 0 0
+/admin/build/views/edit/new_products 11 158371 0 0
+/admin/content/node-type/page 1 20943 0 0
+/admin/build/block/configure/block/9 2 29977 0 0
+/admin/build/views/ajax/display/new_products/default/style_options 1 2107 0 0
+/admin/build/block 7 135294 0 0
+/admin/build/views/edit/banken 1 16594 0 0
+/admin/build/views/ajax/display/new_products/default/exposed_form 1 754 0 0
+/users/bankingcheck-tobias 1 9820 0 0
+/admin/build/themes/settings/pixture_reloaded 1 14764 0 0
+/admin/content/node 7 111954 0 1
+/bankingcheck-award-2015 1 9929 0 1
+/user/registercompany 1 13132 0 0
+/admin/build/views/ajax/config-item/news/default/field/nid 1 4277 0 0
+/admin/build/themes/select 5 38286 0 1
+/admin/build/views/ajax/display/new_products/default/style_plugin 5 7290 0 0
+/admin/build/views/ajax/preview/new_products 7 7650181 0 0
+/admin/build/modules 3 84039 0 0
+/admin/by-module 1 13524 0 0
+/produkte/ratenkredit 2 43032 0 0
+/karriere 1 9971 0 0
+/banken/dkb 1 6313 0 0
+/shortnews 1 170 1 0
+/forum 1 4675 0 1
+/admin/build/themes/settings 2 27108 0 0
+/iew 1 8955 0 0
+/admin/content/node-settings 1 12998 0 0
+/register 1 2209 0 0
+/admin/build/views/ajax/display/new_products/default/css_class 1 658 0 0
+/admin/build/themes/settings/bankingcheck2015 2 25842 0 0
+/user/register 4 25246 0 0
+/admin/build/views/ajax/add-display/new_products 1 2725 0 0
+/admin/build/views/ajax/clone-display/news/block_2 1 2967 0 0
+/themes/bankingcheck2015/fonts/icomoon.woff 1 31352 0 0
+/admin/content/ad 1 12516 0 0
+/views-bulk-operations/js/pager 1 25 0 0
+/admin/build/views/export/new_products 3 38095 0 2
+/admin/build/block/list/pixture_reloaded 2 28271 0 0
+/login 1 2210 0 0
+/admin/build/views/edit/Bankbewertungen 1 16999 0 0
+/admin/build/views/edit/news 2 38670 0 0
+/admin/build/views/tools 1 13882 0 0
+/ratgeber 2 22329 0 0
+/admin/build/views/ajax/config-item/new_products/block/field/title 4 15563 0 0
+/admin/build/views/edit/Shortnews 5 97507 0 0
+/admin/build/views/ajax/display/new_products/block/style_options 1 1112 0 0
+/startseite 4 105579 0 0
+/admin/build/block/configure/forum/0 2 26232 0 0
+/admin/build/views/ajax/add-item/new_products/block/field 3 36299 0 0
+/admin/build/themes 7 74282 0 1
+/admin/build/views/list 5 72618 0 0
+/admin/build/views/ajax/preview/Shortnews 1 742 0 0
+/produkte 8 100672 0 0
+/admin/build/block/list/bankingcheck2015 3 50550 0 0
+/banken/creditplus-bank 2 17204 0 0
+/users/admin 5 68257 0 0
+/news 3 27515 0 1
+/admin/reports/updates 1 14512 0 0
+/admin/build/views/ajax/display/new_products/default/row_plugin 1 914 0 0
+/ratgeber/autokredit 1 14991 0 0
+/node/add/bewertung-mietkaution 1 9685 0 0
+/admin/build/menu 1 12430 0 0
+/logout 1 25 0 0
+/banken 3 29510 0 0
+/user/ 2 6573 0 0
+/admin/build/views/ajax/display/new_products/block/row_options 4 7809 0 0
+/admin/build/views/ajax/display/new_products/block_1/display_id 3 4730 0 0
+/node/7/track 1 9866 0 0
+/admin_menu/flush-cache/admin_menu 1 25 0 0
+/admin/settings/admin_menu 2 23528 0 0
+/produkte/tagesgeld 1 10055 0 0
+/admin/build/views/ajax/display/new_products/default/query 1 1003 0 0
+/admin/build/block/configure/ad/11 1 13254 0 0
+/admin/content/types 1 13345 0 0
+/admin/settings/ 1 11177 0 0
+/admin/build/block/configure/views/news-block_1 4 51821 0 1
+/admin/build/block/list 1 19714 0 0
+END_SIDER

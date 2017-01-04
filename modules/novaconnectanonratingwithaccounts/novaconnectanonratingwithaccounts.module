@@ -1,0 +1,143 @@
+<?php
+function novaconnectanonratingwithaccounts_cron() {
+	ob_start();
+	$overallStartTime = microtime(true);
+	#echo $overallStartTime;
+	$debugFile = $_SERVER['DOCUMENT_ROOT']."/modules/novaconnectanonratingwithaccounts/debug_cron.txt";
+	echo "\nCron called on ".date("Y-m-d-H:i:s")."\n";
+	$ratingsConnected = 0;
+
+	$userLoadTime = 0;
+	$ratingLoadTime = 0;
+	$arrayLookupTime = 0;
+
+	# load all mails from user for efficient lookup later
+	$usersLoadTime = -microtime(true);
+	$users = array();
+	$sqlUser = db_query('SELECT mail, uid FROM `users` WHERE `mail` <> \'\'');
+	while ($userObject = db_fetch_object ($sqlUser)) {
+		$users[$userObject->mail] = $userObject->uid;
+	}
+	$usersLoadTime += microtime(true);
+	echo count($users)." users loaded.\n";
+
+	# calculate timestamp from three months ago
+	$threeMonthsAgo = strtotime("3 months ago");
+	echo "Three Months ago: ".date("r", $threeMonthsAgo).", ".$threeMonthsAgo."\n";
+
+	// Collect all anonymous ratings
+	$sql = db_query('SELECT nid FROM `node` WHERE `type` LIKE "bewertung_%" AND uid =0 AND (`created`>%d OR `changed`>%d)', $threeMonthsAgo, $threeMonthsAgo);
+	$numOfRatings = $sql->num_rows;
+	while ($RatingObject = db_fetch_object ($sql)) {
+		$beginRating = microtime(true);
+		$ratingNode = node_load(array("nid" => $RatingObject->nid));
+		$ratingLoadTime += microtime(true)-$beginRating;
+
+		// Look for corresponding account
+		switch ($ratingNode->type) {
+			case "bewertung_autokredit":
+				$mailField = "field_carloans_mailadress";
+				break;
+			case "bewertung_baufinanzierung":
+				$mailField = "field_mortgages_mailadress";
+				break;
+			case "bewertung_depot":
+				$mailField = "field_brokerage_mailadress";
+				break;
+			case "bewertung_festgeld":
+				$mailField = "field_fixeddeposits_mailadress";
+				break;
+			case "bewertung_girokonto":
+				$mailField = "field_currentaccount_mailadress";
+				break;
+			case "bewertung_kreditkarte":
+				$mailField = "field_creditcard_mailadress";
+				break;
+			case "bewertung_mietkaution":
+				$mailField = "field_rentalbonds_mailadress";
+				break;
+			case "bewertung_ratenkredit":
+				$mailField = "field_loans_mailadress";
+				break;
+			case "bewertung_tagesgeld":
+				$mailField = "field_dailyallowances_mailadress";
+				break;
+			case "bewertung_bank":
+				$mailField = "field_bank_mailadress";
+			default:
+				#throw new Exception("Unset node type in novaafternewnode::nodeapi");
+				break;
+		}
+		$mailTmp = $ratingNode->$mailField;
+		$mail = $mailTmp[0]["value"];
+		#var_dump($ratingNode);
+		#echo " Rating #".$ratingNode->nid.":\n";
+		#echo "  Looking for account with mail ".$mail."\n";
+		#echo "Load user: ".microtime()-$then;
+		$beginArrayLookup = microtime(true);
+		if (strlen($mail) > 0 && array_key_exists($mail, $users)) {
+			$arrayLookupTime += microtime(true)-$beginArrayLookup;
+
+			# load user by id stores in $users
+			$beginUser = microtime(true);
+			$user = user_load(array("uid" => $users[$mail]));
+			$userLoadTime += microtime(true)-$beginUser;
+			#echo "End load user: ".microtime()-$then;
+
+			if ($user !== false) {
+				echo "  ".$user->name." (#".$user->uid.") has e-mail ".$user->mail." Connecting Nid ".$ratingNode->nid."\n";
+				$oldPath = $ratingNode->path;
+				#echo "  Old URL is ".$oldPath."\n";
+				// Merge rating with account
+				$ratingNode->uid = $user->uid;
+				node_save($ratingNode);
+				$newPath = $ratingNode->path;
+				#echo "  New URL is ".$newPath."\n";
+				$redirect = array('source' => $oldPath,	'redirect' => $newPath);
+				path_redirect_save($redirect);
+				#echo "  Redirect created.";
+				$ratingsConnected++;
+			} #else echo "  No user found.\n";
+			#var_dump($user);
+		} else {
+			#if (strlen($mail) <= 0) echo "  This rating has no mail.";
+			#if (!array_key_exists($mail, $users)) echo "  No user found with this mail.\n";
+			$arrayLookupTime += microtime(true)-$beginArrayLookup;
+		}
+	}
+	#echo $ratingsConnected." rating(s) with accounts connected.\n";
+	// Output debug info
+	$timeLimit = 40.0;
+	$overAllTime = microtime(true)-$overallStartTime;
+	echo sprintf("Overall:  %f\n", $overAllTime);
+	echo sprintf("User: %f\n", $userLoadTime);
+	echo sprintf("UserComplete: %f\n", $usersLoadTime);
+	echo sprintf("Node: %f\n", $ratingLoadTime);
+	echo sprintf("ArrayLookup: %f\n", $arrayLookupTime);
+	echo sprintf("# of Ratings: %d\n", $numOfRatings);
+	if (microtime(true)-$overallStartTime>$timeLimit) {
+		watchdog('Connect AnonRatings', 'Connecting accounts took longer than '.$timeLimit.' seconds: '.$overAllTime.', User: '.$userLoadTime.', Node: '.$ratingLoadTime.', ArrayLookup: '.$arrayLookupTime.', # of Ratings: '.$numOfRatings, array(), WATCHDOG_WARNING);
+	}
+	$text = ob_get_clean();
+	#echo nl2br($text);
+	file_put_contents($debugFile, $text, FILE_APPEND);
+}
+
+function novaconnectanonratingwithaccounts_menu() {
+	$items['admin/content/listAnonRatings'] = array(
+		'title' => 'List Anonymous Ratings',
+		'page callback' => 'drupal_goto',
+		'page arguments' => array('sites/all/libraries/anonRatings/listAnonRatings.php'),
+		'access arguments' => array('edit any bewertung_autokredit content'),
+		'weight' => 60,
+		'type' => MENU_LOCAL_TASK
+);
+	/*$items['admin/content/connectAnonRatings'] = array(
+		'title' => 'Nova: Connect anon ratings (debug only!)',
+			'page callback' => 'novaconnectanonratingwithaccounts_cron',
+			'access arguments' => array('edit any bewertung_autokredit content'),
+			'weight' => 61,
+			'type' => MENU_LOCAL_TASK);*/
+	return $items;
+}
+?>

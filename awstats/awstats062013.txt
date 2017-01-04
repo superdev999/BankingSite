@@ -1,0 +1,399 @@
+AWSTATS DATA FILE 7.1.1 (build 1.989)
+# If you remove this file, all statistics for date 201306 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 1981                
+POS_TIME 2665                
+POS_VISITOR 3430                
+POS_DAY 4183                
+POS_DOMAIN 4490                
+POS_LOGIN 4756                
+POS_ROBOT 4911                
+POS_WORMS 5115                
+POS_EMAILSENDER 5246                
+POS_EMAILRECEIVER 5389                
+POS_SESSION 5465                
+POS_SIDER 5660                
+POS_FILETYPES 12375               
+POS_DOWNLOADS 12614               
+POS_OS 12662               
+POS_BROWSER 12791               
+POS_SCREENSIZE 12995               
+POS_UNKNOWNREFERER 13069               
+POS_UNKNOWNREFERERBROWSER 13156               
+POS_ORIGIN 13238               
+POS_SEREFERRALS 13377               
+POS_PAGEREFS 13521               
+POS_SEARCHWORDS 13669               
+POS_KEYWORDS 13821               
+POS_MISC 2329                
+POS_ERRORS 13880               
+POS_CLUSTER 4612                
+POS_SIDER_404 13955               
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20130701152041 4456 1450558 44314747121
+FirstTime 20130619150016
+LastTime 20130627213021
+LastUpdate 20130717021425 4456 0 4454 1 0
+TotalVisits 14                  
+TotalUnique 11                  
+MonthHostsKnown 9                   
+MonthHostsUnknown 2                   
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 0 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 1 1 5461 0 1 25
+1 0 0 0 0 4 180
+2 0 0 0 0 2 50
+3 0 0 0 0 0 0
+4 0 0 0 0 0 0
+5 0 0 0 0 0 0
+6 0 0 0 0 1 25
+7 0 0 0 0 0 0
+8 0 0 0 0 1 25
+9 139 757 3858630 0 1 45
+10 70 219 524852 0 4 70
+11 288 976 3553823 0 2 25
+12 1 4 23495 0 1 45
+13 0 0 0 0 4 180
+14 0 0 0 0 4 180
+15 355 615 2527260 0 20 0
+16 98 348 1341906 0 17 90
+17 84 139 942663 0 2 70
+18 56 801 1800162 0 1 25
+19 32 89 535479 0 1 0
+20 0 0 0 0 0 0
+21 70 341 1861615 0 22 25
+22 8 75 235768 0 0 0
+23 0 0 0 0 1 25
+END_TIME
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 11
+p57905f2e.dip0.t-ipconnect.de 376 629 2584497 20130619164617
+p57905f3d.dip0.t-ipconnect.de 358 1195 4078675 20130624115809
+p57905d37.dip0.t-ipconnect.de 199 1136 2970567 20130621184005
+hsi-kbw-046-005-000-248.hsi8.kabel-badenwuerttemberg.de 139 757 3858630 20130626095334
+195.37.186.62 69 340 1861593 20130627213021
+hsi-kbw-046-005-000-164.hsi8.kabel-badenwuerttemberg.de 32 86 519225 20130626192328
+91-64-97-221-dynip.superkabel.de 12 135 1027579 20130625181032
+pd9547577.dip0.t-ipconnect.de 8 75 235768 20130625224201
+google-proxy-66-249-81-196.google.com 7 10 69097 20130626125649
+84.200.2.81 1 1 5461 20130621000559
+google-proxy-66-249-84-227.google.com 1 1 22 20130627211649
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 7
+20130619 376 629 2584497 1
+20130620 1 8 36213 1
+20130621 205 1147 3034179 4
+20130624 358 1198 4094929 1
+20130625 20 198 1214585 2
+20130626 172 844 4385096 3
+20130627 70 341 1861615 2
+END_DAY
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 3
+de 1124 4013 15274941
+ip 70 341 1867054
+com 8 11 69119
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 2
+googlebot 18 810 20130630142300 18
+ia_archiver 11 275 20130630021851 11
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Session range - Number of visits
+BEGIN_SESSION 6
+1h+ 3
+5mn-15mn 1
+30s-2mn 1
+15mn-30mn 1
+0s-30s 6
+30mn-1h 2
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 131
+/sites/all/modules/ad/serve.php 440 66000 0 3
+/admin/content/node 123 1627729 0 0
+/bewerten 58 672466 0 0
+/sites/all/libraries/quickrating/listItems-2.php 55 13236 0 1
+/sites/all/libraries/quickrating/getProductItems.php 54 11280 1 3
+/ 49 735793 11 3
+/admin/content/node/overview 40 499231 0 0
+/getxml/rating/ 30 4506 0 0
+/node/add/bewertung-bank 18 361081 0 0
+/sites/all/libraries/quickrating/getProductItems-2.php 16 352 0 0
+/produktbewertungen/mietkaution/bewertung-mietkaution-von-ahoenig-norisbank 1 12115 0 0
+/node/6414/edit 5 97639 0 0
+/produktbewertungen 6 13115 0 0
+/node/6393/edit 4 47462 0 0
+/produktbewertungen/baufinanzierung/bewertung-baufinanzierung-von-ahoenig-allianz 1 12144 0 0
+/banken/akbank 2 6127 0 0
+/admin/settings/language/overview 1 12813 0 0
+/admin/content/node-type/bewertung-mietkaution/display 1 14512 0 0
+/produkte/kreditkarte/Vincento-Payment-Solutions-Ltd-Kalixa-Card 1 13230 0 0
+/banken/bewertungen/3967/Frankfurter-Sparkasse 1 11641 0 0
+/admin/build/views/edit/admin_content 1 16071 0 0
+/produkte/ratenkredit 1 13623 0 0
+/produkte/mietkaution/bewertungen/4114/norisbank-Mietkaution 1 5368 0 0
+/admin/content/node-type/bewertung-mietkaution/fields 1 19616 0 0
+/produkte/kreditkarte 3 68610 0 0
+/produktbewertungen/baufinanzierung/bewertungbaufinanzierung-4315-von-afh 2 24319 0 0
+/produkte/tagesgeld/rabodirect-rabotagesgeld 1 7241 1 1
+/node/6393/delete 2 14648 0 0
+/node/add/bewertung-tagesgeld 7 87347 0 0
+/produkte/kreditkarte/ING-DiBa-VISA-Direkt-Card 10 134093 0 0
+/users/ahoenig 2 14806 0 0
+/produkte/baufinanzierung 1 10347 0 0
+/produktbewertungen/bank/bewertung-bank-von-berliner-ing-diba 6 72574 0 0
+/BewertungsWidget/bw_widget.php 5 3440 0 1
+/admin/build/trigger/unassign/nodeapi/update/1679091c5a880faf6fb5e6087eb1b2dc 2 11722 0 0
+/produktbewertungen/autokredit/bewertungautokredit-549-von-doe 3 36538 0 0
+/banken/bewertungen/251/ADAC-Finanzdienste 1 11612 0 0
+/admin/build/translate/search 6 75148 0 0
+/produktbewertungen/baufinanzierung/bewertung-baufinanzierung-von-novagodard-allianz 1 12154 0 0
+/node/add/bewertung-festgeld 3 69445 0 0
+/node/6380/edit 1 23654 0 0
+/user/494/edit 1 8608 0 0
+/node/6410/edit 3 71366 0 0
+/produktbewertungen/bank/bewertung-bank-von-afh-barmenia-versicherungen 2 24209 0 0
+/produkte/festgeld/debeka-bausparkasse-festgeldanlage 2 26966 0 0
+/verifyMail/6418/27096d0b218fd9f7932288033e85d037 1 20 0 0
+/admin/user/permissions/1 1 32561 0 0
+/banken/1822direkt 4 34656 0 0
+/produkte/mietkaution/mkb-mietkautions-ag-smartkaution 4 14003 0 0
+/banken/barclaycard 4 52831 0 0
+/logout 3 60 0 0
+/produkte/tagesgeld/moneyou-tagesgeld 7 81504 0 0
+/banken/santander-bank 1 6172 0 0
+/node/4128 1 13322 0 0
+/admin/user/settings 1 14964 0 0
+/node/add/bewertung-ratenkredit 2 9170 0 0
+/admin_menu/flush-cache/admin_menu 1 20 0 0
+/admin/build/translate/edit/8144 1 11560 0 0
+/node/250/edit 2 60624 0 0
+/produkte/mietkaution/bewertungen/4162/MKB-Mietkautions-AG-SmartKaution 4 12066 0 0
+/node/100 2 19901 0 0
+/produkte/mietkaution/swk-bank-mietkaution 1 6980 0 0
+/banken/debeka-bausparkasse 2 25920 0 0
+/produkte/kreditkarte/bewertungen/224/ING-DiBa-VISA-Direkt-Card 5 62159 0 0
+/produktbewertungen/festgeld/bewertung-festgeld-von-anonymous-barclays 3 36492 0 0
+/produkte/baufinanzierung/huk-coburg-bausparkasse-baufinanzierung 1 13322 0 0
+/widget 1 13666 0 0
+/node/4163 6 89588 0 0
+/banken/frankfurter-sparkasse 3 39643 0 0
+/produktbewertungen/bank/bewertung-bank-von-wilhelm-m-sparda-bank-berlin 2 24318 0 0
+/produktbewertungen/bank/bewertung-bank-von-doe-barclaycard 2 24261 0 0
+/produktbewertungen/bank/bewertung-bank-von-novagodard-allianz 1 12101 0 0
+/produkte/kreditkarte/bewertungen/250/norisbank-noris-Kreditkarte 3 36823 0 0
+/produkte/tagesgeld/frankfurter-sparkasse-cashplus 1 13328 0 0
+/verifyMail/6412/fe8578a97f819e3a19a8b1f45273e060 1 20 0 0
+/node/add/bewertung-depot 2 18551 0 0
+/sites/all/libraries/quickrating/listItems.php 4 2253 0 0
+/admin/by-module 1 15532 0 0
+/sites/all/libraries/quickrating/getProductItems.php-2 1 13610 0 0
+/produkte/girokonto/bewertungen/173/ING-DiBa-Girokonto 1 13286 0 0
+/produkte/mietkaution 4 28790 0 0
+/banken/dkb 4 46485 0 1
+/admin/content/nodewords/settings 1 15287 0 0
+/produktbewertungen/tagesgeld/bewertung-tagesgeld-von-anonymous-moneyou 3 17548 0 0
+/node 6 91066 0 0
+/admin/content/node-settings 1 12613 0 0
+/admin/build/trigger/cron 2 26099 0 0
+/produktbewertungen/baufinanzierung/bewertungbaufinanzierung-4336-von-wilhelm-m 2 24443 0 0
+/produkte/baufinanzierung/allianz-baufinanzierung 1 14129 0 0
+/admin/build/translate/overview 1 11826 0 0
+/node/add/bewertung-baufinanzierung 3 32886 0 0
+/node/6394/edit 2 23755 0 0
+/banken/allianz 1 12985 0 0
+/produkte/girokonto/Audi-Bank-direct-Audi-Girokonto 1 14103 0 0
+/produktbewertungen/bank/bewertung-bank-von-ahoenig-allianz-0 1 12090 0 0
+/admin/build/trigger/unassign/nodeapi/insert/1679091c5a880faf6fb5e6087eb1b2dc 2 11723 0 0
+/produktbewertungen/depot/bewertung-depot-von-novagodard-s-broker-1 2 17667 1 1
+/produkte/girokonto/ING-DiBa-Girokonto 2 27143 0 0
+/node/6414 2 5415 0 0
+/produkte/girokonto 2 37323 0 0
+/produkte/ratenkredit/SWK-Bank-Direktkredit 1 7569 0 0
+/verifyMail/6410/22fff3662f8ac6985d4498d1e42ef7a0 1 20 0 0
+/produkte/tagesgeld/bewertungen/1334/MoneYou-Tagesgeld 8 105282 0 0
+/admin_menu/flush-cache 9 180 0 0
+/produkte 3 57957 0 0
+/node/191 1 13035 0 0
+/produktbewertungen/kreditkarte/bewertung-kreditkarte-von-admin-adac-finanzdienste 1 12166 0 0
+/produkte/festgeld/bewertungen/3484/Barclays-Festgeld 1 12571 0 0
+/produkte/festgeld 2 39931 0 0
+/verifyMail/6416/8277fffe4b856c6671256cce70347011 1 20 0 0
+/banken/adac-finanzdienste 3 38510 0 0
+/produkte/depot/dkb-broker 1 6648 0 0
+/produkte/kreditkarte/ADAC-Finanzdienste-ADAC-Clubmobil-Karte 1 13703 0 0
+/node/add/bewertung-mietkaution 4 17865 0 0
+/banken 13 187249 0 0
+/produkte/festgeld/moneyou-festgeld 4 21927 0 0
+/admin/build/trigger/node 9 97524 0 0
+/produkte/kreditkarte/Barclaycard-for-Students 1 13098 0 0
+/banken/bewertungen/191/Barclaycard 10 121533 0 0
+/admin/user/roles 1 12111 0 0
+/admin/content/node-type/bewertung-mietkaution/display/token 1 13171 0 0
+/node/6415/edit 2 23554 0 0
+/produkte/tagesgeld 8 119238 0 0
+/produktbewertungen/kreditkarte/bewertung-kreditkarte-von-ahoenig-ing-diba 4 10927 0 0
+/produkte/festgeld/Barclays-Festgeld 1 13978 0 0
+/produkte/kreditkarte/norisbank-noris-Kreditkarte 6 81076 0 0
+/produkte/baufinanzierung/interhyp-baufinanzierung 1 6982 0 0
+/admin/build/block/list 1 18853 0 0
+/admin/build/trigger 1 20 0 0
+/produkte/tagesgeld/dkb-cash-tagesgeld 2 20503 0 0
+/produkte/mietkaution/norisbank-mietkaution 3 20647 0 0
+END_SIDER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 9
+css 957 593361 0 0
+png 621 3581814 0 0
+ico 31 25368 0 0
+php 574 96561 0 0
+html 79 740299 0 0
+js 695 1511218 0 0
+jpg 38 1039963 0 0
+Unknown 549 6675648 0 0
+gif 821 2946882 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 5
+winxp 1 1
+win8 1183 240
+macosx8 805 117
+linux 5 5
+win7 2371 839
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 8
+mozilla 4 4
+msie7.0 12 0
+firefox6.0 6 3
+firefox21.0 572 179
+chrome27.0.1453.110 1765 575
+chrome5.0.307.11 1 1
+chrome27.0.1453.116 2004 439
+firefox3.5 1 1
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 0
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 98 138
+From1 0 0
+From2 0 0
+From3 0 0
+From4 1104 4227
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 0
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 0
+END_SIDER_404

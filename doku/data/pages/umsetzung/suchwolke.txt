@@ -1,0 +1,11 @@
+====== Suchwolke (Tagcloud) ======
+Die Suchwolke ist ein Block (Tagcloud:3) und erscheint auf unterschiedlichen Seiten in der inneren rechten Spalte (Region: Content right). Dies sind:
+  * Startseite
+  * Produktseiten (produkte/*)
+
+Der Suchwolkenblock muss als Akkordion zusammen mit 
+  * Neue Produkte
+  * Am Besten bewertet
+  * Am häufigsten bewertet
+  * Am häufigsten gesucht
+dargestellt werden. (JQuers onload).

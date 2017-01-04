@@ -1,0 +1,96 @@
+<?php
+// $Id: luceneapi_tagcloud.install,v 1.4 2009/12/06 22:11:27 cpliakas Exp $
+
+/**
+ * @file
+ * Installation functions for Search Lucene Tagcloud.
+ *
+ * @ingroup luceneapi_tagcloud
+ */
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function luceneapi_tagcloud_uninstall() {
+}
+
+/**
+ * Implementation of hook_requirements().
+ */
+function luceneapi_tagcloud_requirements($phase) {
+  $requirements = array();
+  // Ensure translations don't break at install time
+  $t = get_t();
+
+  // Search Lucene MoreLikeThis requires the 2.0 API
+  if ('runtime' == $phase) {
+    $requirements['luceneapi_tagcloud'] = array(
+      'title' => 'Search Lucene Tagcloud',
+      'value' => $t('2.0 API or higher'),
+    );
+    if (defined('LUCENEAPI_VERSION') && version_compare(LUCENEAPI_VERSION, '2.0', '>=')) {
+      $requirements['luceneapi_tagcloud']['severity'] = REQUIREMENT_OK;
+    }
+    else {
+      $requirements['luceneapi_tagcloud']['severity'] = REQUIREMENT_ERROR;
+      $requirements['luceneapi_tagcloud']['description'] = $t('Search Lucene API version 2.0 or greater is required.');
+    }
+  }
+
+  // if requirements fail for Search Lucene API, this module will still get
+  // installed breaking the site.  This code double checks the requirements to
+  // get around this bug.  Requirements are only returned on failure.
+  // @see http://drupal.org/node/592182
+  // @see http://drupal.org/node/592800
+  if ('install' == $phase) {
+
+    // bails if Drupal is in the process of being installed
+    if (!function_exists('db_query') || (function_exists('install_verify_drupal') && !install_verify_drupal())) {
+      return array();
+    }
+
+    // makes sure path to luceneapi exists, formats path to "lib" dir
+    if ($luceneapi_path = drupal_get_path('module', 'luceneapi')) {
+      $lib_dir = sprintf('%s/lib', $luceneapi_path);
+    }
+    else {
+      return array(
+        'luceneapi_tagcloud' => array(
+          'title' => t('Search Lucene Tagcloud'),
+          'severity' => REQUIREMENT_ERROR,
+          'description' => t('Search Lucene Tagcloud depends on Search Lucene API.'),
+        ),
+      );
+    }
+
+    // re-tests Search Lucene API requirements
+    if (!is_dir("$lib_dir/Zend") || !is_dir("$lib_dir/LuceneAPI") || !extension_loaded('iconv')) {
+      return array(
+        'luceneapi_tagcloud' => array(
+          'title' => t('Search Lucene Tagcloud'),
+          'severity' => REQUIREMENT_ERROR,
+          'description' => t('Search Lucene Tagcloud depends on Search Lucene API.'),
+        ),
+      );
+    }
+  }
+
+  // returns requirements
+  return $requirements;
+}
+
+/**
+ * Implementation of hook_update_N().
+ */
+function luceneapi_tagcloud_update_6101() {
+  $items = array();
+
+  // each module has it's own facet block now
+  $sql = 'UPDATE {blocks}'
+       ." SET delta = 'luceneapi_node'"
+       ." WHERE module = 'luceneapi_tagcloud' AND delta = 'luceneapi_tagcloud'";
+
+  $items[] = update_sql($sql);
+
+  return $items;
+}

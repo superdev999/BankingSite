@@ -1,0 +1,11 @@
+name = BS Nice Frontpage
+description = Redirect from often ugly an unformated /node page
+core = 6.x
+package = BrightSolutions
+
+; Information added by drupal.org packaging script on 2010-12-12
+version = "6.x-1.2"
+core = "6.x"
+project = "bs_nice_frontpage"
+datestamp = "1292172360"
+

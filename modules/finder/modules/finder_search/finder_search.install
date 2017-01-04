@@ -1,0 +1,14 @@
+<?php
+// $Id: finder_search.install,v 1.1.2.11 2009/05/02 07:49:18 danielb Exp $
+
+/**
+ * @file
+ * Finder search module install file.
+ */
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function finder_search_uninstall() {
+  variable_del('finder_search_finder_results_theme');
+}

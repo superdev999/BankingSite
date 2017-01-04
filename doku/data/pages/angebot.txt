@@ -1,0 +1,340 @@
+Boedger Media Solutions GmbH
+Herrn Daniel Bödger
+Luisenstraße 111
+76137 Karlsruhe
+
+sdfsd
+
+18. Oktober 2010
+Angebot Nr.:
+Job:
+Titel:
+
+A-10-0812
+10-1872-Boedger
+Umsetzung banking-check.de
+
+Sehr geehrter Herr Bödger,
+im Folgenden erhalten Sie unser Angebot zu den von Ihnen angefragten Leistungen.
+Vertragspartner
+Vertragspartner, soweit in diesem Angebot nicht ausdrücklich anders bestimmt, sind die Boedger
+Media Solutions GmbH (Anschrift wie oben) als Auftraggeber und die Navigate AG, Waldstraße
+41-43, 76133 Karlsruhe als Auftragnehmer.
+Projektbeschreibung
+Das Portal banking-check.de soll mit einem CMS realisiert werden. Wir bieten im folgenden Angebot
+die Umsetzung mit Drupal an.
+
+Konzeption
+Konzeption/Design
+Entwicklung eines Navigationskonzepts sowie
+Entwurf und Gestaltung der Website gezeigt
+anhand der Homepage und einiger Folgeseiten. Das
+Design wird auf das vorhandene CI sowie Flyer und
+andere Print-Produkte abgestimmt.
+Lieferung als Farb-Booklet und PDF. Präsentation
+dieser Entwürfe beim Kunden / bei der Navigate AG.
+Pauschal.
+
+1,00 Stück
+
+2.000,00 EUR
+
+2.000,00 EUR
+
+Gestaltung Newsletter
+Grafische Gestaltung des Newsletters.
+
+0,50
+Manntage
+
+800,00 EUR
+
+400,00 EUR
+
+Technische Feinkonzeption
+Erstellung Datenmodell und Einbindung in Drupal,
+genaue Beschreibung der Standard- und
+Spezial-Module. Präsentation dieser Entwürfe beim
+Kunden / bei der Navigate AG.
+
+1,50
+Manntage
+
+800,00 EUR
+
+1.200,00 EUR
+
+Zwischensumme:
+
+3.600,00 EUR
+
+Basis-Umsetzung
+CMS-Integration
+Installation des CMS auf dem Webserver. Anlegen
+von User, Berechtigungen, Verzeichnisstrukturen
+für Fremdsprachen. Pauschal.
+
+1,00 Stück
+
+250,00 EUR
+
+250,00 EUR
+
+Template-Programmierung
+Programmierung des Drupal-Templates als Basis für
+alle einzelnen Seiten. Dadurch wird es möglich,
+einfach weitere Prosa-Seiten hinzuzufügen und
+vorhandene zu pflegen. Prinzipiell sind alle Inhalte
+in Drupal pflegbar. Folgende Seiten sind reine
+Inhaltsseiten und daher nicht Gegenstand von
+Modul-Funktionalitäten:
+
+3,00
+Manntage
+
+400,00 EUR
+
+1.200,00 EUR
+
+0,50
+Manntage
+
+400,00 EUR
+
+200,00 EUR
+
+- Fertige Rechner für Produktanfrage
+- Produkt-Tests
+HTML-Newsletter
+Umsetzung der Gestaltung in
+E-Mailclient-konformes HTML (HTML 3.01), Tests in
+den gängigen Systemen (Outlook, Thunderbird,
+web.de, GMX, Google-Mail).
+
+Seite 2/7
+
+Installation/Konfiguration von Standardmodulen
+Für verschiedene Aufgaben werden
+Standardmodule verwendet. Diese werden
+kostengünstig „Out-Of-The-Box“ installiert.
+Erweiterungen und Fehler werden, wie im
+OpenSource-Bereich üblich, meist von der
+Community bereit gestellt. Für etwaige Fehler kann
+aber aus diesem Grunde keine Gewährleistung
+erfolgen.
+
+4,00
+Manntage
+
+800,00 EUR
+
+3.200,00 EUR
+
+1,00
+Manntag
+
+800,00 EUR
+
+800,00 EUR
+
+Zwischensumme:
+
+5.650,00 EUR
+
+Spezielle Wünsche werden, soweit möglich, im
+Rahmen der im Modul vorgesehenen Optionen
+implementiert.
+Dies sind i. W.:
+- Umfragen
+- Forum
+- Google-XML-Sitemap
+- CCK/Panels/Views
+- nodewords (Meta-Tags)
+- Formulare
+- Kommentare & Bewertungen
+- Freigabeworkflow für Kommentare &
+Bewertungen
+- Banner
+- Suchwolke
+Datenbank-Anbindung
+Getaktete Abholung der Daten aus den
+verschiedenen XML-Schnittstellen der Fa.
+FinanceAds.
+
+Seite 3/7
+
+Spezielle Module
+Suche und Suchergebnis
+Die Standardsuche in Drupal ist zu unspezifisch im
+Vergleich zu den im Pflichtenheft erwähnten
+Anforderungen. Daher wird hier eine
+(upgradefähige) Eigenentwicklung vorgeschlagen.
+Grundlegende Mechanismen werden im Punkt
+Bankenvergleich wiederverwendet.
+
+1,50
+Manntage
+
+800,00 EUR
+
+1.200,00 EUR
+
+Normaler Newsletter
+Versand der aktuellen News an alle Empfänger.
+
+0,50
+Manntage
+
+800,00 EUR
+
+400,00 EUR
+
+Alert-Newsletter
+Benutzer können Produkte beobachten. Falls sich
+etwas an den Daten (z.B. Zinssatz) ändert, wird ein
+HTML-Mail mit einem Hinweis und einem
+generierten Text verschickt.
+
+1,50
+Manntage
+
+800,00 EUR
+
+1.200,00 EUR
+
+Bankenvergleich
+Erstellung spezieller Views für die unterschiedlichen
+Produkte.
+
+1,50
+Manntage
+
+800,00 EUR
+
+1.200,00 EUR
+
+Zwischensumme:
+
+4.000,00 EUR
+
+Sonstiges
+Projekthandling / -management
+Qualitätssicherung, Testing, interne Meetings,
+Koordination aller beteiligten Stellen.
+Bei der Schätzung des Aufwandes gehen wir von ca.
+10% der bisherigen Positionen aus.
+
+1,00 Stück
+
+1.325,00 EUR
+
+1.325,00 EUR
+
+Zwischensumme:
+
+1.325,00 EUR
+
+Nettosumme:
+19 % MwSt.:
+Gesamtsumme:
+
+14.575,00 EUR
+2.769,25 EUR
+17.344,25 EUR
+
+Seite 4/7
+
+Weitere Leistungen / Stundensätze zur allg. Information
+Für das angefragte Projekt gilt der angegebene Pauschal-Preis. Damit sind alle geforderten
+Leistungen abgedeckt. Zusätzliche Arbeiten im Zuge einer weiteren Zusammenarbeit werden mit
+den folgenden Stundensätzen verrechnet:
+Graphische Umsetzung
+Illustrationen oder Bildbearbeitung je Stunde
+Flash inkl. ActionScript je Stunde
+Programmierung
+weitere Folgeseiten (HTML, Junior Programmer) pro Stunde
+weitere Templates (Senior Programmer) je Stück
+Javascript, XML, MySQL, PHP... (Senior Programmer) pro Stunde
+
+65 EUR
+75 EUR
+
+50 EUR
+125 EUR
+115 EUR
+
+Handling
+Projekthandling, Telefonsupport durch erfahrene Projektmanager, pro Stunde 75 EUR
+Support außerhalb der üblichen Geschäftszeiten nach Vereinbarung möglich.
+Text/Übersetzung
+Gerne bieten wir Ihnen die Überarbeitung bestehender Texte, die Erstellung neuer Texte sowie die
+Übersetzung von Texten in verschiedene Fremdsprachen an.
+
+Technische Grundlagen
+Grafikarbeiten sind auf 32bit-Farbtiefe optimiert. Die Website und ihre Inhalte sind optimiert für
+Internet Explorer7.x, sowie. Mozilla Firefox ab 3.x jeweils mit Windows als Betriebssystem.
+Anpassungen an ältere Versionen der o. g. Browser oder an andere Browser und andere
+Betriebssysteme werden im Einzelfall mit dem Kunden abgesprochen, sofern hierzu
+Mehraufwendungen notwendig sein sollten. Aktiviertes JavaScript und CSS werden vorausgesetzt.
+Die Darstellung der Seiten wird für eine Bildschirmauflösung von 1024x768 Pixel optimiert.
+Beim Einsatz von Software von Drittanbietern wie z. B. Typo3 übernehmen wir keinerlei Haftung für
+Fehler oder Sicherheitslücken in diesen Programmen. Eine Kostenübernahme für evtl. daraus
+resultierende Schäden wird ausgeschlossen.
+Beim Einsatz eines Content-Management-Systems sind dessen Systemvoraussetzungen zu beachten.
+Weitere Informationen erhalten Sie
+- für Weblication® unter www.info.weblication.de bzw.
+- für Typo3 unter www.typo3.org.
+Die Navigate IT Services GmbH bietet passende Hostingpakete und Server.
+
+Seite 5/7
+
+Angebotsdauer
+Wir fühlen uns an dieses Angebot einen Monat ab Angebotsdatum gebunden.
+
+Vergütung
+Alle Preise zzgl. MwSt. Die Abrechnung der beauftragten Leistungen erfolgt – soweit im Angebot
+nicht anders ausgewiesen – in Raten:
+1. Rate über 50% bei Vertragsabschluss. Jeweils 2. Raten über 50% bei Abschluss der jeweiligen
+Agenturleistungen. Zahlungsziel ist 14 Tage nach Rechnungsdatum.
+Beachten Sie bitte, dass Bildrechte generell nicht im Angebotspreis enthalten sind und gegebenfalls
+gesondert berechnet werden.
+Fremdleistungen (z.B. Lizenzen, Druckkosten, ...) werden gemäß den tatsächlichen
+Lieferantenrechnungen sofort weiterberechnet.
+Mit freundlichen Grüßen
+Ihr
+Roland Löffler
+
+(Dieses Schreiben wurde digital erstellt und versandt. Es ist ohne Unterschrift gültig)
+
+Seite 6/7
+
+Navigate AG
+Manfred Rössler
+Waldstraße 41 - 43
+76133 Karlsruhe
+Telefax: +49 (0) 721 664714 10
+
+Auftragsbestätigung
+Angebot Nr.
+Job
+Titel
+
+A-10-0874
+10-1872-Boedger
+Umsetzung banking-check.de
+
+Hiermit bestätigen wir Ihr Angebot „Umsetzung banking-check.de“ (Angebot Nr. A-10-0874) für Job
+„10-1872-Boedger“ mit einer Gesamtsumme in Höhe von 14.575,00 EUR netto zuzüglich der
+gesetzlichen Mehrwertsteuer und beauftragen die angebotenen Leistungen.
+
+Ort / Datum
+
+Stempel
+
+Auftraggeber
+
+Rechtsverbindliche Unterschrift
+
+Seite 7/7
+
+

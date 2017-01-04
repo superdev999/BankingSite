@@ -1,0 +1,549 @@
+<?php
+function novacompanyuser_menu() {
+	$items['user/registercompany'] = array(
+    	'title' => 'Create new companyaccount',
+    	'page callback' => 'drupal_get_form',
+    	'page arguments' => array('user_register'),
+    	'access callback' => 'user_register_access',
+    	'type' => MENU_LOCAL_TASK,
+	);
+	$items['company/%'] = array(
+			'page callback' => 'novacompanyuser_callPart',
+    	'page arguments' => array(1),
+    	'access callback' => 'novacompanyuser_accessCompanyFunctions',
+	);
+	return $items;
+}
+
+function novacompanyuser_form_alter($form, &$form_state, $form_id) {
+	$formName = $form["form_id"]["#id"];
+	#echo $formName;
+	if($formName == "edit-user-profile-form" || $formName == "edit-user-register") {
+		$result = db_query("SELECT nid, title FROM `content_type_bank` JOIN node USING(nid) ORDER BY title");
+		#dpm($form);
+		while ($object = db_fetch_object($result)) {
+			#echo $object->title."<br>";
+			#$companyIdArray[] = $object->nid;
+			$form['Persönliche Informationen']['profile_company_id']['#options'][$object->nid] = $object->title;
+		}
+		if ($formName == "edit-user-profile-form" && in_array('Unternehmen', array_values($form['#parameters'][2]->roles))) {
+			$novaBCUser = NovaBCUser::buildUser($form['#parameters'][2]->uid);
+			$form['Persönliche Informationen']['profile_company_id']['#disabled'] = TRUE;
+			$form['Rechtliche Hinweise']['profile_company_agb']['#disabled'] = TRUE;
+
+			$widgetTextfield = &$form['Persönliche Informationen']['profile_company_widget'];
+			$widgetTextfield['#description'] = "Bitte eine ID pro Zeile eintragen.<br>Alle FinanceAds-IDs für diesen Benutzer:<ul><li>Bank: ".($novaBCUser->getMyBankNode()->field_financeaddsid[0]['value']+10000)."</li>";
+			foreach ($novaBCUser->getMyProducts() as $key => $productNode) {
+				$widgetTextfield['#description'] .= "<li>".$productNode->title." : ".$productNode->field_prodfinanceaddsid[0]['value'];
+			}
+			$widgetTextfield['#description'] .= "</ul>";
+			#dpm($novaBCUser->getMyProducts());
+		}
+		#var_dump($form['Persönliche Informationen']['profile-company-agb']['#disabled']);
+	} elseif ($formName == "edit-reply-node-form") {
+		#drupal_add_css('#edit-field-reply-reference-0-nid-nid-wrapper{display:none;}', array('type' => 'inline'));
+		#var_dump($form);
+	// Adjust Bank and Productitem forms (disable title edit)
+	} elseif ($formName == "edit-bank-node-form" || $formName == "edit-productitem-node-form") {
+		if (!user_access('administer node titles')) {
+			$form['#after_build'][] = 'novacompanyuser_alter_bank_and_productitem_forms';
+    }
+	} elseif ($formName == "edit-story-node-form") {
+		if (!user_access('edit any story content')) {
+			$form['#after_build'][] = 'novacompanyuser_alter_story_form';
+		}
+	// form for Rechner Integration
+	} elseif ($formName == "edit-webform-client-form-32688") {
+		novacompanyuser_alter_calculatorform($form, $formState);
+	} #else echo $formName."\n";
+}
+
+function novacompanyuser_alter_calculatorform(&$form, &$form_state) {
+	$productfield = &$form['submitted']['produktgroup'];
+	if (NovaBCUser::isCompanyUser($GLOBALS['user']->uid)) {
+		$novaBCUser = NovaBCUser::buildUser($GLOBALS['user']->uid);
+
+		// check if the user has products
+		if (count($novaBCUser->getMyProducts())>0) {
+			// populate array with right IDs
+			foreach ($novaBCUser->getMyProducts() as $key => $productNode) {
+				$productfield[$productNode->title] = array(
+					'#type' => 'checkbox',
+					'#processed' => TRUE,
+					'#title' => $productNode->title,
+					'#return_value' => $productNode->title,
+					'#default_value' => FALSE,
+					'#attributes' => array('class' => 'dummyProductCheckbox'),
+					'#ahah' => NULL,
+				);
+			}
+			// transform input field to checkboxes
+			// add callback
+			// hide original text field
+			drupal_add_js('function dummyProductCheckboxSerialize() {
+				var dummyString = "";
+				$jq(\'input.dummyProductCheckbox:checked\').each(
+					function(elem){
+						if (dummyString.length > 0)	dummyString += ", "
+						dummyString += $jq(this).val();
+					});
+				return dummyString;
+			}
+
+			function dummyProductCheckboxCallback() {
+				$jq(\'[name="submitted[produktgroup][produkt]"]\').val(dummyProductCheckboxSerialize());
+			}
+
+			$jq(function() {
+				$jq(\'input.dummyProductCheckbox\').click(dummyProductCheckboxCallback);
+				$jq(\'#webform-component-produktgroup--produkt\').hide();
+			});', 'inline');
+		} else {
+			// hide original field
+			// add message
+			drupal_add_js('
+			$jq(function() {
+				$jq(\'#edit-submitted-produktgroup-produkt\').hide().val(\'Keine Produkte vorhanden.\');
+				$jq(\'#edit-submitted-produktgroup-produkt-wrapper\').append(\'Keine Produkte vorhanden.\');
+				$jq(\'#edit-submitted-produktgroup-produkt-wrapper>label\').hide();
+			});', 'inline');
+		}
+	}
+	return $form;
+}
+
+/*
+ * Function to alter the form if the user wants to edit a bank or productitem
+ */
+function novacompanyuser_alter_bank_and_productitem_forms($form, &$form_state) {
+	// Hide Form field via Javascript and add content as fixed text
+	// Validation later makes sure that the hidden field is not changed
+	drupal_add_js('$jq(function() {
+		if ($jq("#edit-title").css("display") != "none") {
+			$jq("#edit-title").hide().after($jq("#edit-title").val());
+		}
+	});', 'inline');
+	return $form;
+}
+
+/*
+ * Function to alter the form if the user wants to create a new story
+ */
+function novacompanyuser_alter_story_form($form, &$form_state) {
+	$novaBCUser = NovaBCUser::buildUser($GLOBALS['user']->uid);
+	#dpm($novaBCUser->getBankId());
+  $bankfield = &$form["field_mybank"];
+
+  // adjust bank field so that only the bank of the companyuser can be selected
+	// set right entry as default
+  $bankfield['#default_value'][0]["nid"] = $novaBCUser->getBankId();
+  $bankfield['nid']['#default_value'][0]["nid"] = $novaBCUser->getBankId();
+  $bankfield['nid']['nid']['#default_value'] = $novaBCUser->getBankId();
+  $bankfield['nid']['nid'][$novaBCUser->getBankId()]['#default_value'] = $novaBCUser->getBankId();
+  // set right entry as selected
+  $bankfield['#value'][0]["nid"] = $novaBCUser->getBankId();
+  $bankfield['nid']['#value'][0]["nid"] = $novaBCUser->getBankId();
+  $bankfield['nid']['nid']['#value'] = $novaBCUser->getBankId();
+  $bankfield['nid']['nid'][$novaBCUser->getBankId()]['#value'] = $novaBCUser->getBankId();
+  // remove invalid form fields
+  novacompanyuser_removeEntriesFromFormArray($bankfield["nid"]["nid"], (int) $novaBCUser->getBankId());
+  // finally set form field as invisible
+  $bankfield['#access'] = FALSE;
+
+
+  // adjust product field so that only the bank of the companyuser can be selected
+
+  // save form field
+  $productitemfield = $form["field_myproduct"];
+  // get all nodes
+  $myProducts = $novaBCUser->getMyProducts();
+
+  // add to form, via http://drupal.stackexchange.com/questions/91224/hook-form-alter-for-select-list
+  // get nodes in usable form
+  $dropdown_array = array("" => "Keines/Allgemein");
+  foreach ($myProducts as $node) {
+  	$dropdown_array[$node->title.' [nid:'.$node->nid.']'] = $node->title;
+  }
+
+  // Add new dummy field, dropdown instead of input text
+  $form["field_myproduct_dummy"] = array(
+  	'#title' => 'Einzelprodukt',
+  	'#type' => 'select',
+  	'#columns' => array(0 => 'nid'),
+		'#field_name' => 'field_myproduct_dummy',
+		'#name' => 'field_myproduct_dummy',
+		'#value' => $productitemfield[0]['#value']['nid'],
+    '#options' => $dropdown_array,
+  );
+
+  // add jQuery handler to copy over the value to the real field and hide the real field
+  drupal_add_js('$jq(function() {$jq(\'[name="field_myproduct_dummy"]\').change(function(){$jq(\'#edit-field-myproduct-0-nid-nid\').val($jq(\'[name="field_myproduct_dummy"]\').val())});$jq(\'#edit-field-myproduct-0-nid-nid-wrapper\').hide();});', 'inline');
+
+  return $form;
+}
+
+
+/*
+ * Remove all entries from a form entry array except the one denoted in $entryToKeep
+ */
+function novacompanyuser_removeEntriesFromFormArray(&$array, $entryToKeep) {
+	foreach ($array as $key => $value) {
+		if (substr($key, 0, 1) == "#") continue;
+		if ($key !== $entryToKeep) {
+			unset($array[$key]);
+		}
+	}
+	#dpm($array);
+}
+
+/*
+ * Validate entries to story form
+ */
+function novacompanyuser_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
+	if ($op == 'validate') {
+		if ($node->type == 'story') {
+			#dpm('Validate story input');
+			if (!user_access('edit any story content')) {
+				$novaBCUser = NovaBCUser::buildUser($GLOBALS['user']->uid);
+				// Validate bank field
+				if ($node->field_mybank[0]['nid'] != $novaBCUser->getBankId()) {
+					form_set_error('field_mybank', 'Keine gültige Bankauswahl.');
+				}
+				// validate product field
+				if (!is_null($node->field_myproduct[0]['nid']) && !in_array($node->field_myproduct[0]['nid'], $novaBCUser->getMyProductIds())) {
+					form_set_error('field_mybank', 'Keine gültige Einzelproduktauswahl.');
+				}
+			}
+		} elseif ($node->type == 'productitem' || $node->type == 'bank') {
+			// check that title wasn't changed
+			if (!user_access('administer node titles')) {
+				$oldNode = node_load(array('nid' => $node->nid));
+				if ($oldNode->title != $node->title) {
+					form_set_error('title', 'Der Titel darf nicht verändert werden.');
+					watchdog('Novacompanyuser', $GLOBALS['user']->name.' tried to change the title of Node #'.$node->nid.' from '.$oldNode->title.' to '.$node->title, array(), WATCHDOG_WARNING);
+				}
+			}
+		}
+	}
+}
+
+/**
+ * Implementation of hook_user().
+ */
+function novacompanyuser_user($type, &$edit, &$user, $category = NULL) {
+	#echo $type.$user->name;
+	$pathArgs = arg();
+	//var_dump($user);
+	if ($type == 'form') {
+		if (in_array('Unternehmen', array_values($user->roles))) {
+			// Leere Tabs verstecken
+			drupal_add_js('$jq().ready(function(){$jq(".tabs .secondary>li:eq(1), .tabs .secondary>li:eq(4)").hide();});', 'inline');
+		}
+		# check if admin edit
+		if (user_access('administer users')) {
+			#drupal_add_js('modules/novacompanyuser/novacompanyuser.js', 'file');
+		}
+	} elseif ($type == 'insert') {
+		# check if registration was on company page
+		if ($pathArgs[1] == "registercompany") {
+			$role_id = db_result(db_query("SELECT rid FROM {role} WHERE name = '%s'", "Unternehmen"));
+      // apply the new role
+      $edit['roles'][$role_id] = "Unternehmen";
+			#$update['roles'][] = "Unternehmen";
+			#user_save($user, array('roles' => $update));
+		}
+		#print_r($user->roles);
+
+		#die();
+	}
+}
+
+function novacompanyuser_perm() {
+  return array('edit associated bank content', 'access company functions', 'administer node titles');
+}
+
+
+/*function novacompanyuser_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
+	ob_start();
+	$debugFile = $_SERVER['DOCUMENT_ROOT']."/modules/novacompanyuser/debug_nodeapi.txt";
+	echo $GLOBALS['user']->name." wants to ".$op." the node #".$node->nid." (".$node->title.")\n";
+	if ($op == 'prepare') {
+
+		// Performance boost: Check if bank or prooductitem
+		if ($node->type == "bank" || $node->type == "productitem") {
+			// check for rights
+			if (!novacompanyuser_theUserHasTheRightToEdit($node)) {
+				#drupal_access_denied();
+				#module_invoke_all('exit');
+				#exit();
+			}
+		} else {
+			echo "Not a bank or productitem.";
+		}
+	}
+	file_put_contents($debugFile, ob_get_clean(), FILE_APPEND);
+} */
+
+
+function novacompanyuser_menu_alter(&$items) {
+	$items['node/%node/edit']['access callback'] = 'novacompanyuser_theUserHasTheRightToEdit';
+    $items['node/%node/edit']['access arguments'] = array(1);
+}
+
+function novacompanyuser_theUserHasTheRightToEdit($node) {
+	if (user_access('edit associated bank content') && in_array("Unternehmen", $GLOBALS['user']->roles)) {
+		// prepare array of allowed ids
+		$novaBCUser = NovaBCUser::buildUser($GLOBALS['user']->uid);
+		$allowedIds = $novaBCUser->getMyProductIds();
+		$allowedIds[] = $novaBCUser->getBankId();
+		// Allow admin access
+		if (in_array("admin", $GLOBALS['user']->roles)) {
+			return true;
+		// allow access for nodes belonging to the user
+		} elseif (in_array($node->nid, $allowedIds)) {
+			#echo "Node #".$node->nid." belongs to user ".$GLOBALS['user']->name.". Access granted.\n";
+			return true;
+		}
+
+		// Deny access
+		#echo "Access denied. Not-admin user ".$GLOBALS['user']->name." cannot edit the node #".$node->nid;
+		return false;
+	}
+	// Allow admin access
+	if (in_array("admin", $GLOBALS['user']->roles)) {
+			return true;
+	}
+	return false;
+}
+
+function novacompanyuser_block($op = 'list', $delta = '', $edit = array()) {
+	#dpm($op);
+	// The $op parameter determines what piece of information is being requested.
+	switch ($op) {
+		case 'list':
+			// If $op is "list", we just need to return a list of block descriptions.
+			// This is used to provide a list of possible blocks to the administrator;
+			// end users will not see these descriptions.
+
+	    $blocks['novacompanymenu'] = array(
+	      'info' => t('Companymenu'),
+	      'cache' => BLOCK_CACHE_PER_ROLE | BLOCK_CACHE_PER_PAGE,
+	      'region' => BLOCK_REGION_NONE,
+	      'status' => TRUE,
+	      'weight' => 0,
+	      'visibility' => 1,
+	      'pages' => '*',
+	    );
+			#var_dump($blocks);
+			return $blocks;
+		case 'configure':
+			// If $op is "configure", we need to provide the administrator with a
+			// configuration form. The $delta parameter tells us which block is being
+			// configured. In this example, we'll allow the administrator to customize
+			// the text of the first block.
+			$form = array();
+			return $form;
+		case 'save':
+			// If $op is "save", we need to save settings from the configuration form.
+			// Since the first block is the only one that allows configuration, we
+			// need to check $delta to make sure we only save it.
+			if ($delta == 'sidebarMenu') {
+			}
+			return;
+		case 'view':
+			#echo $delta;
+
+			// If $op is "view", then we need to generate the block for display
+			// purposes. The $delta parameter tells us which block is being requested.
+			switch ($delta) {
+				case 0:
+					// The subject is displayed at the top of the block. Note that it
+					// should be passed through t() for translation.
+					$block['subject'] = t('Title of configurable-text block');
+					// The content of the block is typically generated by calling a custom
+					// function.
+					$block['content'] = novacompanyuser_contents(1);
+					break;
+			}
+			return $block;
+	}
+}
+/**
+* A block content function.
+*/
+function novacompanyuser_contents($which_block) {
+	if (!novacompanyuser_accessCompanyFunctions()) return "";
+	#var_dump($which_block);
+	switch ($which_block) {
+		case 1:
+			// Modules would typically perform some database queries to fetch the
+			// content for their blocks. Here, we'll just use the variable set in the
+			// block configuration or, if none has set, a default value.
+		$html = '
+			<div id="companyMenu">
+				<h2 class="blueBigSignRight">Unternehmensmenü<sup>&nbsp;</sup></h2>
+				<div class="rightInner">
+					<ul style="list-style:none">
+						<li><div class="rightColButton">
+						<a href="/company/company" title="Anbieter Seite anzeigen und bearbeiten" class="fa_button">Anbieter</a>
+					</div></li>
+						<li><div class="rightColButton">
+						<a href="/company/product" title="Produkte anzeigen und bearbeiten" class="fa_button">Produkte</a>
+					</div></li>
+						<li><div class="rightColButton">
+						<a href="/company/reviews" title="Bewertungen anzeigen und antworten" class="fa_button">Bewertungen</a>
+					</div></li>
+						<li><div class="rightColButton">
+						<a href="/company/socialmedia" title="Social Media Integration" class="fa_button">Social Media</a>
+					</div></li>
+						<li><div class="rightColButton">
+						<a href="/company/kwk" title="Kunden Werben Kunden Programm hinzufügen" class="fa_button">Kunden Werben Kunden</a>
+					</div></li>
+						<li><div class="rightColButton">
+						<a href="/company/reviewprocess" title="Bewertungsprozess Links abrufen" class="fa_button">Bewertungsprozess</a>
+					</div></li>
+						<li><div class="rightColButton">
+						<a href="/company/testseal" title="Testsiegel & Widget Generator / SEO für Webseitenintegration" class="fa_button">Testsiegel & Widget Generator / SEO</a>
+					</div></li>
+						<!--li><div class="rightColButton">
+						<a href="/company/monitoring" title="Media Monitoring mit ubermetrics" class="fa_button">Media Monitoring</a>
+					</div></li-->
+					<li><div class="rightColButton">
+						<a href="/company/calculators" title="Rechner Integration beantragen" class="fa_button">Rechner Integration</a>
+					</div></li>
+					<li><div class="rightColButton">
+						<a href="/company/news" title="eigene News / PR erstellen" class="fa_button">News / PR</a>
+					</div></li>
+					</ul>
+			  </div>
+			</div>';
+			return $html;
+	}
+}
+
+function novacompanyuser_accessCompanyFunctions() {
+	return user_access('access company functions');
+}
+
+function novacompanyuser_callPart($part) {
+	$html = "";
+	switch ($part) {
+		case 'company':
+			$html .= novacompanyuser_company();
+			break;
+		case 'product':
+			$html .= novacompanyuser_product();
+			break;
+		case 'reviews':
+			$html .= novacompanyuser_reviews();
+			break;
+		case 'socialmedia':
+			$html .= novacompanyuser_socialmedia();
+			break;
+		case 'kwk':
+			$html .= novacompanyuser_kwk();
+			break;
+		case 'reviewprocess':
+			$html .= novacompanyuser_reviewprocess();
+			break;
+		case 'testseal':
+			$html .= novacompanyuser_testseal();
+			break;
+		case 'monitoring':
+			$html .= novacompanyuser_monitoring();
+			break;
+		case 'calculators':
+			$html .= novacompanyuser_calculators();
+			break;
+		case 'news':
+			$html .= novacompanyuser_news();
+			break;
+		default:
+			throw new Exception("Error Processing Request", 1);
+			break;
+	}
+	return $html;
+}
+
+
+function novacompanyuser_company() {
+	include("company.php");
+
+	$html = novacompanyuser_companyInner();
+
+	return $html;
+}
+
+function novacompanyuser_product() {
+	include("product.php");
+
+	$html = novacompanyuser_productInner();
+
+	return $html;
+}
+
+function novacompanyuser_reviews() {
+	include("reviews.php");
+
+	$html = novacompanyuser_reviewsInner();
+
+	return $html;
+}
+
+function novacompanyuser_socialmedia() {
+	include("socialmedia.php");
+
+	$html = novacompanyuser_socialmediaInner();
+
+	return $html;
+}
+
+function novacompanyuser_kwk() {
+	include("kwk.php");
+
+	$html = novacompanyuser_kwkInner();
+
+	return $html;
+}
+
+function novacompanyuser_reviewprocess() {
+	include("reviewprocess.php");
+
+	$html = novacompanyuser_reviewprocessInner();
+
+	return $html;
+}
+
+function novacompanyuser_testseal() {
+	include("testseal.php");
+
+	$html = novacompanyuser_testsealInner();
+
+	return $html;
+}
+
+function novacompanyuser_monitoring() {
+	include("monitoring.php");
+
+	$html = novacompanyuser_monitoringInner();
+
+	return $html;
+}
+
+function novacompanyuser_calculators() {
+	include("calculators.php");
+
+	$html = novacompanyuser_calculatorsInner();
+
+	return $html;
+}
+
+function novacompanyuser_news() {
+	include("news.php");
+
+	$html = novacompanyuser_newsInner();
+
+	return $html;
+}
+
+?>

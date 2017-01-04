@@ -1,0 +1,14 @@
+; $Id: luceneapi_tagcloud.info,v 1.3 2009/12/06 18:21:40 cpliakas Exp $
+name = "Search Lucene Tagcloud"
+description = "Adds tagadelic-like facets to Search Lucene API modules. The weights of the items in the tag clouds are calculated by their occurrences in the search results."
+dependencies[] = search
+dependencies[] = luceneapi
+dependencies[] = luceneapi_facet
+package = "Search Lucene API"
+core = 6.x
+; Information added by drupal.org packaging script on 2010-01-26
+version = "6.x-1.0-beta2"
+core = "6.x"
+project = "luceneapi_tagcloud"
+datestamp = "1264481707"
+

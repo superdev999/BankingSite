@@ -1,0 +1,405 @@
+AWSTATS DATA FILE 7.3 (build 20140126)
+# If you remove this file, all statistics for date 201412 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 1982                
+POS_TIME 2647                
+POS_VISITOR 6180                
+POS_DAY 6475                
+POS_DOMAIN 3314                
+POS_LOGIN 3548                
+POS_ROBOT 3751                
+POS_WORMS 3923                
+POS_EMAILSENDER 4054                
+POS_EMAILRECEIVER 4197                
+POS_SESSION 6774                
+POS_SIDER 6960                
+POS_FILETYPES 4332                
+POS_DOWNLOADS 4604                
+POS_OS 4652                
+POS_BROWSER 4746                
+POS_SCREENSIZE 4894                
+POS_UNKNOWNREFERER 4968                
+POS_UNKNOWNREFERERBROWSER 5055                
+POS_ORIGIN 5137                
+POS_SEREFERRALS 5278                
+POS_PAGEREFS 5422                
+POS_SEARCHWORDS 5570                
+POS_KEYWORDS 5722                
+POS_MISC 2311                
+POS_ERRORS 5781                
+POS_CLUSTER 3404                
+POS_SIDER_404 5871                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20150102155506 8931 2889560 96993329504
+FirstTime 0
+LastTime 20141223194013
+LastUpdate 20150103021419 1 0 0 0 0
+TotalVisits 11                  
+TotalUnique 3                   
+MonthHostsKnown 3                   
+MonthHostsUnknown 0                   
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 8 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 0 0 0 3 4 1604
+1 0 0 0 0 0 0
+2 0 0 0 2 3 1203
+3 0 0 0 2 2 802
+4 0 0 0 1 1 401
+5 0 0 0 3 5 2005
+6 0 0 0 0 0 0
+7 0 0 0 0 0 0
+8 0 0 0 2 2 802
+9 0 0 0 1 1 401
+10 39 317 1409240 14 83 33283
+11 0 16 0 2 4 1604
+12 0 48 0 1 2 802
+13 7 70 291025 4 10 4010
+14 1582 9906 7503443 5 50 20050
+15 146 4728 2157843 4 27 10827
+16 109 2664 1722181 4 31 12030
+17 514 12355 17014639 27 136 54135
+18 132 6291 5123338 11 36 14436
+19 101 5638 1726491 26 101 49676
+20 4 347 59692 1 1 401
+21 0 0 0 2 4 1604
+22 42 674 903112 3 7 2005
+23 79 4517 2391223 3 42 16842
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+de 2755 47571 40302227
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 1
+bankingcheck 2755 32294 31090748 20141223194013
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 1
+no_user_agent 12 13987 20141223192559 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 10
+css 11621 2951712 0 0
+png 9699 3834532 0 0
+ico 399 162778 0 0
+php 1981 7658747 0 0
+html 27 688575 0 0
+xml 2 156920 0 0
+jpg 175 2243085 0 0
+js 10331 8466578 0 0
+Unknown 745 10937654 0 0
+gif 12591 3201646 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 2
+linux 46970 2707
+win7 601 48
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 5
+chrome39.0.2171.95 698 115
+msie11.0 150 2
+firefox33.0 1530 56
+firefox34.0 45116 2582
+msie7.0 77 0
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 0
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 104 192
+From1 0 0
+From2 0 0
+From3 0 0
+From4 2651 47379
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 1
+401 528 211728
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 0
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 3
+host-114-75.kawo1.rwth-aachen.de 2550 38428 35726803 20141217180403
+hsi-kbw-5-10-56-129.hsi18.kabel-badenwuerttemberg.de 159 8692 2875159 20141223194013
+ip5b406241.dynamic.kabel-deutschland.de 46 451 1700265 20141221134453
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 9
+20141204 7 368 552552 1
+20141209 49 1162 1605999 1
+20141213 1917 20810 12291394 1
+20141214 65 3661 1135784 1
+20141215 431 5804 4024285 2
+20141217 120 7004 17526029 1
+20141220 133 7214 2386863 2
+20141221 7 70 291025 1
+20141223 26 1478 488296 1
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 5
+1h+ 3
+5mn-15mn 2
+30s-2mn 2
+15mn-30mn 3
+30mn-1h 1
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 150
+/sites/all/libraries/nova/msd1.24.4/dump.php 1465 7035929 0 0
+/sites/all/libraries/nova/msd1.24.4/restore.php 371 411572 0 0
+/sites/all/modules/ad/serve.php 58 47004 0 0
+/admin/content/node/overview 57 1065205 0 2
+/node/add/bewertung-festgeld 48 437674 0 0
+/admin/build/views/ajax/preview/Vermittler 37 238602 0 0
+/ 27 688575 0 0
+/banken/weltsparen 27 481501 0 0
+/BewertungsWidget/bw_widget_JSON.php 25 51576 0 0
+/banken/savedo 24 550907 1 1
+/node/15398/edit 2 35636 0 0
+/admin/user/user 1 14048 0 0
+/user/924/edit 4 60137 0 1
+/admin/build/views/ajax/config-item/Vermittler/default/field/type 5 11750 0 0
+/node/33444/edit 2 70995 0 0
+/node/34159/edit 1 24060 0 0
+/produkte/tagesgeld/psd-bank-hessen-thueringen-psd-tagesgeld 10 137806 0 0
+/admin/build/views/ajax/details/Vermittler 3 2422 0 0
+/admin/build/views/ajax/add-item/Vermittler/default/field 6 54383 0 0
+/node/33348/edit 1 26258 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-weltsparen-77 1 12244 0 0
+/sites/all/libraries/nova/msd1.24.4/main.php 2 2842 0 0
+/banken/lendico 1 13565 0 0
+/node/34189/edit 3 47135 0 0
+/produkte/tagesgeld/atb-internet-tagesgeldkonto 1 10641 0 0
+/produkte/tagesgeld/amsterdam-trade-bank-internet-tagesgeldkonto 1 13742 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-fibank-31 2 24469 0 1
+/admin/user/user/list 2 130228 0 0
+/node/244/edit 1 25752 0 0
+/produkte/festgeld/banca-sistema-festgeld 4 57129 0 0
+/user/924/edit/Pers%C3%B6nliche%20Informationen 5 45391 0 0
+/node/34167/edit 4 98532 0 0
+/admin/content/node-type/productitem/fields/field_agent 7 86907 0 0
+/produkte/festgeld/sberbank-direct-festgeld 1 14090 0 0
+/admin/content/node-type/productitem/fields/field_banklink 2 13866 0 0
+/node/add/bewertung-tagesgeld 4 65196 0 0
+/admin/build/translate 1 89245 0 0
+/users/nova-bank 1 29200 0 0
+/admin/build/views/ajax/display/Vermittler/default/row_plugin 2 1827 0 0
+/admin/content/node-type/bank/fields/field_banklink 4 27843 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-weltsparen-80 2 24493 0 0
+/produktbewertungen/festgeld/bewertung-festgeld-von-anonymous-fibank-16 1 12292 0 1
+/BewertungsWidget/bw_widget.php 11 33134 0 0
+/node/34166/edit 2 47595 0 0
+/admin/content/node-type/bank/fields/field_isagent 14 151948 0 0
+/verifyMail/34178/c699e2b064af6d941d0a4e1101885d7f 1 25 0 0
+/node/299/edit 1 34928 0 1
+/admin/build/translate/search 3 76798 1 1
+/node/34172/edit 21 508075 0 0
+/verifyMail/34159/6e222c99bf07868ff22ec26c0ccfc93c 7 7381 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-lendico-105 1 12236 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-vexcash-325 2 17720 0 0
+/node/34161/edit 1 23801 0 0
+/company/testseal 8 50306 0 0
+/node/34160/edit 1 23793 0 0
+/admin/build/views/edit/Vermittler 19 160754 0 0
+//sites/all/modules/bcnav/faCache.xml 2 156920 0 0
+/verifyMail/34165/a5cafd45d80d7974a5451219d539d2c4 1 25 0 0
+/admin/content/node-type/productitem/fields 14 223764 0 0
+/user/2603/edit/Pers%C3%B6nliche%20Informationen 8 296898 2 0
+/node/32632/edit 3 69852 0 0
+/node/15354/edit 10 205623 1 0
+/node/34163/edit 2 47647 0 0
+/node/34156 5 2795 0 0
+/node/32553/edit 5 107752 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-vexcash-330 1 12238 0 0
+/produkte/ratenkredit/lendico-kredit-von-privat 7 91675 0 0
+/verifyMail/34172/b5e81503acbbbd1ad0549cc9235ecc8c 1 25 0 0
+/banken/psd-bank-hannover 14 182536 2 0
+/logout 2 50 0 0
+/node/34156/edit 2 968 0 0
+/produktbewertungen/festgeld/bewertung-festgeld-von-anonymous-fibank-9 1 12302 0 0
+/node/34183/edit 10 200784 0 0
+/sites/all/libraries/nova/msd1.24.4/filemanagement.php 23 48925 0 0
+/node/add/bewertung-bank 2 112901 0 0
+/node/add/bewertung-ratenkredit 14 85586 0 0
+/admin/build/views/ajax/display/Vermittler/default/items_per_page 1 818 0 0
+/users/nova-godard 2 21487 0 0
+/admin/content/types 18 232225 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-fibank-27 1 12238 0 0
+/admin/content/node-type/bank 2 39961 0 0
+/verifyMail/34167/1c4101dc730f9b32afbe57db49e3d903 1 25 0 0
+/admin/build/views/ajax/config-item/Vermittler/default/field/field_isagent_value 6 14631 0 0
+/admin/content 1 12017 0 0
+/admin/build/views/add 3 25909 0 0
+/produkte/festgeld/bewertungen/15619/fibank-festgeld 4 34925 0 0
+/banken/psd-bank-hessen-thueringen 10 213349 0 0
+/admin/build/views 3 44235 0 0
+/user 5 32713 0 0
+/produkte/festgeld/fibank-festgeld 16 243988 1 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-weltsparen-76 3 36735 0 0
+/admin/build/views/ajax/config-item/Vermittler/default/filter/field_isagent_value 2 3030 0 0
+/admin/content/node 12 197505 1 0
+/node/34173/edit 6 95054 0 0
+/node/15354/devel 1 34135 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-weltsparen-82 2 17578 0 0
+/admin/content/node-type/bank/display 6 49912 0 0
+/verifyMail/34187/6fa944b165d5187d5728d6432ea4367b 1 25 0 0
+/produkte/festgeld/psd-bank-hannover-psd-festgeld 2 26075 0 0
+/node/34187/edit 3 47658 0 0
+/produkte/ratenkredit/psd-bank-hannover-psd-privatkredit 3 42154 0 0
+/admin/content/node-type/productitem/display 4 38644 0 0
+/banken/amsterdam-trade-bank 1 13659 0 0
+/sites/all/libraries/nova/msd1.24.4/index.php 2 702 0 0
+/admin/content/node-type/product/fields 1 18347 0 0
+/admin/reports/dblog 3 98174 1 1
+/admin/build/views/ajax/add-item/Vermittler/default/filter 4 33051 0 0
+/banken/banca-sistema 10 156652 0 0
+/admin/content/node-type/bewertung-depot/fields 1 19713 0 0
+/admin/build/views/ajax/config-item/Vermittler/default/field/title 6 14414 0 0
+/admin/build/views/ajax/analyze/Vermittler 1 677 0 0
+/banken/vexcash 1 6684 0 0
+/node/15619/edit 16 511781 0 0
+/node 2 24764 0 0
+/admin/build/views/ajax/display/Vermittler/default/style_options 3 2695 0 0
+/admin/build/views/ajax/display/Vermittler/default/display_title 3 1920 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-fibank-28 1 12236 0 0
+/produkte/ratenkredit/vexcash-kurzzeitkredit 2 15148 0 0
+/node/34188/edit 3 47126 0 0
+/admin/build/views/ajax/display/Vermittler/default/row_options 3 3878 0 0
+/node/34165/edit 2 49184 0 0
+/produktbewertungen/ratenkredit/bewertung-ratenkredit-von-anonymous-lendico-55 2 24579 0 1
+/bewerten 23 229752 0 0
+/fboauth/connect 3 75 0 0
+/sites/all/libraries/nova/msd1.24.4/menu.php 9 26688 0 0
+/admin/build/views/ajax/display/Vermittler/default/style_plugin 2 2161 0 0
+/zum_Anbieter.php 15 375 0 0
+/admin/build/views/ajax/display/Vermittler/default/analyze-theme 11 19515 0 0
+/produkte/festgeld/j-t-banka-festgeld 2 28716 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-fibank-29 1 12237 0 0
+/banken/bewertungen/15354/weltsparen 1 14148 0 0
+/admin/build/themes 1 21302 1 0
+/user/2603/edit 1 35395 0 0
+/node/34162/edit 2 48182 0 0
+/admin_menu/flush-cache 3 75 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-weltsparen-78 1 12244 0 0
+/node/34174/edit 4 71380 0 0
+/node/34164/edit 2 47663 0 0
+/produktbewertungen/festgeld/bewertung-festgeld-von-anonymous-fibank-12 2 24599 0 0
+/node/34168/edit 4 95342 0 0
+/users/admin 3 217319 0 0
+/produktbewertungen/ratenkredit/bewertung-ratenkredit-von-anonymous-vexcash-0 1 12289 0 0
+/admin/build/views/ajax/display/Vermittler/default/title 1 647 0 0
+/admin/build/views/ajax/config-item/Vermittler/default/filter/type 2 3539 0 0
+/admin/reports/updates 9 132152 0 0
+/verifyMail/34162/6e222c99bf07868ff22ec26c0ccfc93c 1 25 0 0
+/admin/content/node-type/bank/fields 18 294946 0 0
+/admin/content/node-type/bewertung-bank/fields 1 187174 0 1
+/produktbewertungen/bank/bewertung-bank-von-anonymous-vexcash-328 1 12236 0 0
+/node/15619/devel 1 18881 0 0
+END_SIDER

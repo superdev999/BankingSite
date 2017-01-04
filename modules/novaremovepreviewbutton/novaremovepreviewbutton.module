@@ -1,0 +1,43 @@
+<?php
+function novaremovepreviewbutton_form_alter(&$form, &$form_state, $form_id) {
+	$formName = $form["form_id"]["#id"];
+
+
+	$bewertungsArray = array("bewertung-autokredit", "bewertung-baufinanzierung", "bewertung-depot", "bewertung-festgeld", "bewertung-girokonto", "bewertung-kreditkarte", "bewertung-mietkaution", "bewertung-ratenkredit", "bewertung-tagesgeld", "bewertung-bank");
+	$arrayToRemove = array();
+	foreach ($bewertungsArray as $bewertungsTyp) {
+		$arrayToRemove[] = "edit-".$bewertungsTyp."-node-form";
+	}
+	if(in_array($formName, $arrayToRemove)) {
+		unset($form["buttons"]["preview"]);
+
+		$novaBCVoting = new NovaBCVoting($form["#node"]);
+		$fieldName = "edit-".str_replace("_", "-", $novaBCVoting->getTokenFieldName())."-0-value";
+		if ($novaBCVoting->isAnonymousVote() && $GLOBALS['user']->uid == 0) {
+			novaremovepreviewbutton_setTokenRandomJavascript($fieldName);
+		} elseif ($novaBCVoting->isAnonymousVote() && $GLOBALS['user']->uid != 0) {
+			drupal_add_js('
+			$jq(function() {
+				$jq("#'.$fieldName.'-wrapper").hide();
+			});', 'inline');
+		}
+	}
+}
+
+function novaremovepreviewbutton_setTokenRandomJavascript($fieldName) {
+	drupal_add_js('
+			function novaremovepreviewbutton_randomToken(length, chars) {
+    		var result = "";
+    		for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
+    		return result;
+			}
+			function novaremovepreviewbutton_setToken(fieldName) {
+				var rString = novaremovepreviewbutton_randomToken(32, "0123456789abcdef");
+				$jq("#"+fieldName).val(rString);
+			}
+
+			$jq(function() {
+				novaremovepreviewbutton_setToken("'.$fieldName.'");
+				$jq(".group-mailadress").hide();
+			});', 'inline');
+}

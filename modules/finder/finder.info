@@ -1,0 +1,11 @@
+; $Id: finder.info,v 1.7.2.9 2009/05/02 07:49:17 danielb Exp $
+name = Finder
+description = "Provides forms for users to find stuff."
+core = 6.x
+package = "Finder"
+; Information added by drupal.org packaging script on 2009-07-22
+version = "6.x-1.0-rc4"
+core = "6.x"
+project = "finder"
+datestamp = "1248231939"
+

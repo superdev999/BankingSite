@@ -1,0 +1,357 @@
+Unserializing a:0:{}
+Unserialized: Array
+(
+)
+Not a shortnews:
+Context:Array
+(
+    [hook] => nodeapi
+    [op] => update
+    [node] => stdClass Object
+        (
+            [nid] => 88
+            [vid] => 88
+            [uid] => 1
+            [created] => 1299603878
+            [type] => bank
+            [language] => de
+            [changed] => 1478784692
+            [title] => 1822direkt
+            [teaser_include] => 1
+            [body] => <p style="text-align: justify;">Die <strong>1822direkt</strong> ist eine 100%ige Tochtergesellschaft der Frankfurter Sparkasse. Hier verbindet sich das Beste aus zwei Welten: Die Tradition und Sicherheit der Frankfurter Sparkasse kombiniert mit der Schnelligkeit und dem Komfort des Direktbankings der 1822direkt.</p><p style="text-align: justify;">In den vergangenen Jahren wurde die 1822direkt bereits mehrfach für ihre Servicequalität ausgezeichnet, u.a. von dem Sozialwissenschaftlichen Institut – S.W.I. FINANCE – als "Beste Bank 2013" für ihren erstklassigen, kundenorientierten Service und belegte unter allen Direktbanken den ersten Platz. Auch für ihr Angebots-Portfolio erhielt sie schon mehrfach Anerkennung.</p><p style="text-align: justify;">Die Produktpalette der 1822direkt ist vielfältig - neben Girokonto, Tagesgeld und Festgeld, bietet sie auch Wertpapierdepots sowie Finanzierungsmöglichkeiten an. Mit <strong>1,00%</strong> Tagesgeldzinsen bietet die 1822direkt ein gutes <a href="http://www.bankingcheck.de/produkte/tagesgeld/1822direkt-tagesgeldkonto" title="1822direkt - 1822direkt Tagesgeldkonto">Tagesgeld </a>Angebot. Dies spiegelt sich auch in unserem Tagesgeld-Vergleich wider. Auch im Bereich des Ratenkredits kann die 1822direkt mit Top-Konditionen überzeugen.</p><p style="text-align: justify;"><strong>Einlagensicherung:</strong><br>Die 1822direkt ist als ein 100%iges Tochterunternehmen der Frankfurter Sparkasse, die Teil des Sicherungssystems der Sparkassen-Finanzgruppe ist. Dieses Sicherungssystem gewährleistet den Bestand aller beteiligten Finanzinstitute, sodass alle Kundeneinlagen ohne betragsmäßige Begrenzung geschützt sind. Seit Bestehen des Sicherungssystems hat noch nie ein Kunde einer Sparkasse, Landesbank oder eines weiteren angeschlossenen Instituts einen Verlust seiner Einlagen erlitten sowie musste sich noch nie eine Sparkasse oder ein anderes Mitgliedsinstitut insolvent melden.</p>
+            [format] => 2
+            [revision] => 0
+            [name] => admin
+            [date] => 2011-03-08 19:04:38 +0200
+            [status] => 1
+            [promote] => 0
+            [sticky] => 0
+            [op] => Speichern
+            [submit] => Speichern
+            [preview] => Vorschau
+            [delete] => Löschen
+            [form_build_id] => form-S3yStMIMbwrbLDtpVvCOR9jVK2oTaS-zo0HGrRacuN8
+            [form_token] => 86b184344a552bedcd8c68d3429e0220
+            [form_id] => bank_node_form
+            [comment] => 2
+            [menu] => Array
+                (
+                    [mlid] => 0
+                    [module] => menu
+                    [hidden] => 0
+                    [has_children] => 0
+                    [customized] => 0
+                    [options] => Array
+                        (
+                        )
+
+                    [expanded] => 0
+                    [parent_depth_limit] => 8
+                    [link_title] => 
+                    [parent] => primary-links:0
+                    [weight] => 0
+                    [plid] => 0
+                    [menu_name] => primary-links
+                )
+
+            [opengraph_meta] => Array
+                (
+                    [title] => 
+                    [description] => 
+                    [type] => 
+                    [location] => Array
+                        (
+                            [latitude] => 
+                            [longitude] => 
+                            [street-address] => 
+                            [locality] => 
+                            [region] => 
+                            [postal-code] => 
+                            [country-name] => 
+                        )
+
+                    [contact] => Array
+                        (
+                            [email] => 
+                            [phone_number] => 
+                            [fax_number] => 
+                        )
+
+                    [image] => 
+                )
+
+            [path] => banken/1822direkt
+            [pid] => 137
+            [pathauto_perform_alias] => 1
+            [old_alias] => banken/1822direkt
+            [taxonomy] => Array
+                (
+                )
+
+            [upload] => 
+            [attach] => Anfügen
+            [field_financeaddsid] => Array
+                (
+                    [0] => Array
+                        (
+                            [value] => 107
+                            [_error_element] => field_financeaddsid][0][value
+                        )
+
+                )
+
+            [field_banklogo] => Array
+                (
+                    [0] => Array
+                        (
+                            [fid] => 626
+                            [list] => 1
+                            [uid] => 3
+                            [filename] => 107[1].gif
+                            [filepath] => sites/default/files/107[1]_0.gif
+                            [filemime] => image/gif
+                            [filesize] => 8217
+                            [status] => 1
+                            [timestamp] => 1342630249
+                            [data] => Array
+                                (
+                                    [fid] => 626
+                                    [width] => 200
+                                    [height] => 50
+                                    [duration] => 0
+                                    [audio_format] => 
+                                    [audio_sample_rate] => 0
+                                    [audio_channel_mode] => 
+                                    [audio_bitrate] => 0
+                                    [audio_bitrate_mode] => 
+                                    [tags] => Array
+                                        (
+                                        )
+
+                                    [alt] => 
+                                    [title] => 
+                                )
+
+                            [alt] => 
+                            [title] => 
+                            [filefield_upload] => Upload
+                            [filefield_remove] => Entfernen
+                            [upload] => 
+                        )
+
+                )
+
+            [field_isagent] => Array
+                (
+                    [0] => Array
+                        (
+                            [value] => 0
+                        )
+
+                )
+
+            [field_banklink] => Array
+                (
+                    [0] => Array
+                        (
+                            [value] => 
+                        )
+
+                )
+
+            [field_anbieterkategorien] => Array
+                (
+                    [0] => Array
+                        (
+                            [nid] => 38800
+                        )
+
+                )
+
+            [field_award2015] => Array
+                (
+                    [0] => Array
+                        (
+                            [value] => 0
+                        )
+
+                )
+
+            [field_ekomishopid] => Array
+                (
+                    [0] => Array
+                        (
+                            [value] => 58000
+                            [_error_element] => field_ekomishopid][0][value
+                        )
+
+                )
+
+            [field_ekomiimport] => Array
+                (
+                    [0] => Array
+                        (
+                            [value] => 1
+                        )
+
+                )
+
+            [field_ekomidate] => Array
+                (
+                    [0] => Array
+                        (
+                            [value] => 2015-01-14T00:00:00
+                            [value2] => 2015-12-14T00:00:00
+                            [timezone] => Europe/Berlin
+                            [offset] => 3600
+                            [offset2] => 3600
+                            [timezone_db] => Europe/Berlin
+                            [date_type] => date
+                        )
+
+                )
+
+            [field_ekomialreadyimported] => Array
+                (
+                    [0] => Array
+                        (
+                            [value] => 1
+                        )
+
+                )
+
+            [field_award2016] => Array
+                (
+                    [0] => Array
+                        (
+                            [value] => 0
+                        )
+
+                )
+
+            [field_bccustomer] => Array
+                (
+                    [0] => Array
+                        (
+                            [value] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [value] => 
+                        )
+
+                )
+
+            [xmlsitemap] => Array
+                (
+                    [status] => 1
+                    [status_default] => 1
+                    [status_override] => 1
+                    [priority] => 0.7
+                    [priority_default] => 0.7
+                    [priority_override] => 0
+                )
+
+            [nodewords] => Array
+                (
+                    [abstract] => Array
+                        (
+                            [value] => 
+                        )
+
+                    [canonical] => Array
+                        (
+                            [value] => 
+                        )
+
+                    [copyright] => Array
+                        (
+                            [value] => 
+                        )
+
+                    [description] => Array
+                        (
+                            [value] => 
+                        )
+
+                    [keywords] => Array
+                        (
+                            [value] => 
+                        )
+
+                    [revisit-after] => Array
+                        (
+                            [value] => 1
+                        )
+
+                    [robots] => Array
+                        (
+                            [value] => Array
+                                (
+                                    [noarchive] => 0
+                                    [nofollow] => 0
+                                    [noindex] => 0
+                                    [noodp] => 0
+                                    [nosnippet] => 0
+                                    [noydir] => 0
+                                )
+
+                            [use_default] => 0
+                        )
+
+                    [dc.contributor] => Array
+                        (
+                            [value] => 
+                        )
+
+                    [dc.creator] => Array
+                        (
+                            [value] => 
+                        )
+
+                    [dc.date] => Array
+                        (
+                            [value] => Array
+                                (
+                                    [day] => 29
+                                    [month] => 6
+                                    [year] => 2011
+                                )
+
+                        )
+
+                    [dc.title] => Array
+                        (
+                            [value] => 
+                        )
+
+                    [location] => Array
+                        (
+                            [latitude] => 
+                            [longitude] => 
+                        )
+
+                    [pics-label] => Array
+                        (
+                            [value] => 
+                        )
+
+                )
+
+            [teaser] => <p style="text-align: justify;">Die <strong>1822direkt</strong> ist eine 100%ige Tochtergesellschaft der Frankfurter Sparkasse. Hier verbindet sich das Beste aus zwei Welten: Die Tradition und Sicherheit der Frankfurter Sparkasse kombiniert mit der Schnelligkeit und dem Komfort des Direktbankings der 1822direkt.</p><p style="text-align: justify;">In den vergangenen Jahren wurde die 1822direkt bereits mehrfach für ihre Servicequalität ausgezeichnet, u.a. von dem Sozialwissenschaftlichen Institut – S.W.I. FINANCE – als "Beste Bank 2013" für ihren erstklassigen, kundenorientierten Service und belegte unter allen Direktbanken den ersten Platz. Auch für ihr Angebots-Portfolio erhielt sie schon mehrfach Anerkennung.</p>
+            [validated] => 1
+            [is_new] => 
+            [timestamp] => 1478784692
+        )
+
+    [script] => include "sites/all/libraries/onvista/mail.php";
+)
+
+
+Object:
+
+Node:1
+Array
+(
+)

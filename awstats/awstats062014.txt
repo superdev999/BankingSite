@@ -1,0 +1,433 @@
+AWSTATS DATA FILE 7.3 (build 20140126)
+# If you remove this file, all statistics for date 201406 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 1982                
+POS_TIME 2643                
+POS_VISITOR 6303                
+POS_DAY 6618                
+POS_DOMAIN 3362                
+POS_LOGIN 3611                
+POS_ROBOT 3814                
+POS_WORMS 4022                
+POS_EMAILSENDER 4153                
+POS_EMAILRECEIVER 4296                
+POS_SESSION 7108                
+POS_SIDER 7313                
+POS_FILETYPES 4431                
+POS_DOWNLOADS 4687                
+POS_OS 4735                
+POS_BROWSER 4857                
+POS_SCREENSIZE 4998                
+POS_UNKNOWNREFERER 5072                
+POS_UNKNOWNREFERERBROWSER 5159                
+POS_ORIGIN 5241                
+POS_SEREFERRALS 5381                
+POS_PAGEREFS 5525                
+POS_SEARCHWORDS 5673                
+POS_KEYWORDS 5825                
+POS_MISC 2306                
+POS_ERRORS 5884                
+POS_CLUSTER 3467                
+POS_SIDER_404 5994                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20140701091124 17 2923 44905631946
+FirstTime 0
+LastTime 20140624004527
+LastUpdate 20140702021417 1 0 0 0 0
+TotalVisits 29                  
+TotalUnique 3                   
+MonthHostsKnown 4                   
+MonthHostsUnknown 0                   
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 12 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 68 1683 1314325 8 16 6416
+1 0 2 2249 3 4 1604
+2 0 0 0 3 6 2406
+3 0 0 0 5 10 4010
+4 0 0 0 5 12 4812
+5 0 0 0 2 8 3208
+6 0 0 0 3 4 1604
+7 0 0 0 8 16 26679
+8 0 0 0 2 2 802
+9 75 382 1318985 14 83 53879
+10 0 0 0 5 7 2807
+11 19 134 653350 7 9 3609
+12 130 1376 2879683 18 61 44702
+13 122 3157 2848596 17 101 39699
+14 456 6002 5197236 28 132 52932
+15 345 10319 4463809 42 168 106341
+16 690 12750 5737792 15 22 7728
+17 205 5019 3051952 9 58 22857
+18 236 7895 2271816 13 48 19248
+19 73 320 1363141 8 44 17644
+20 0 0 0 1 3 1203
+21 0 0 0 2 2 802
+22 138 4392 2875956 7 48 19248
+23 47 1774 370763 1 2 802
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 2
+de 2604 55192 34305871
+com 0 13 43782
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 1
+bankingcheck 2604 31167 22073783 20140624004942
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 2
+googlebot\-image 4 81102 20140622154806 0
+facebook 1 20976 20140605153507 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 9
+css 14454 1922405 0 0
+php 1540 1666258 0 0
+png 14008 4214428 0 0
+ico 437 59192 0 0
+html 118 2163679 0 0
+jpg 957 5296840 0 0
+js 10894 5278975 0 0
+Unknown 946 10738986 0 0
+gif 11851 3008890 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 4
+winxp 13 0
+macosx9 140 19
+linux 51983 1934
+win7 3069 651
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 4
+chrome35.0.1916.114 140 19
+firefox29.0 26428 1198
+firefox3.0.7 13 0
+firefox30.0 28624 1387
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 0
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 95 147
+From1 0 0
+From2 0 0
+From3 0 0
+From4 2509 55058
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 3
+401 842 337642
+403 1 227
+301 1 283
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 0
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 4
+host-114-75.kawo1.rwth-aachen.de 1934 51983 22701059 20140624004527
+91-64-122-21-dynip.superkabel.de 651 3069 10989860 20140623194325
+p54ab57bb.dip0.t-ipconnect.de 19 140 614952 20140606143117
+google-proxy-66-249-93-196.google.com 0 13 43782 
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 16
+20140602 205 376 1715266 1
+20140603 11 385 703703 1
+20140604 140 4762 2377814 1
+20140605 381 13343 4308122 3
+20140606 88 475 1713144 2
+20140609 188 5825 2701316 1
+20140610 14 114 124505 2
+20140611 16 128 116648 1
+20140613 104 1330 2591184 2
+20140616 108 3154 1566439 1
+20140617 67 312 1287225 1
+20140618 147 3773 3377207 4
+20140619 356 3325 2221882 2
+20140620 640 15913 6888953 3
+20140623 71 307 1341920 3
+20140624 68 1683 1314325 1
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 7
+1h+ 5
+5mn-15mn 4
+30s-2mn 4
+2mn-5mn 4
+0s-30s 3
+15mn-30mn 5
+30mn-1h 4
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 164
+/sites/all/modules/ad/serve.php 1208 208086 1 29
+/sites/all/libraries/nova/msd1.24.4/dump.php 284 1362732 0 0
+/ 116 2159382 12 0
+/banken/dkb 90 1073011 3 0
+/user/registercompany 70 532708 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-dkb-3374 65 664581 3 0
+/admin/build/block 57 960866 0 0
+/company/company 40 288153 2 0
+/banken/bewertungen/100/dkb 35 284080 0 0
+/produkte/girokonto/fidor-bank-fidor-smart-geschaeftskonto 32 389010 1 0
+/user/2425/edit/Pers%C3%B6nliche%20Informationen 6 69472 0 0
+/produktbewertungen 2 27969 0 0
+/user/2436/edit 3 26122 0 0
+/comment/reply/100/4441 3 27993 0 0
+/admin/content/node-type/story 1 20610 0 0
+/sites/all/libraries/nova/msd1.24.4/main.php 4 5249 0 0
+/users/bankingcheck 2 29319 0 0
+/user/2431/edit 5 61081 0 0
+/sites/all/libraries/anonRatings/listAnonRatings.php 5 35855 2 0
+/admin/build/modules 10 279403 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-amsterdam-trade-bank-20 3 38018 0 0
+/user/reset/2436/1403563340/5a6059fa38acff06facb2ef304620739 1 7362 0 0
+/admin/user/user/list 16 265278 0 0
+/produkte/kreditkarte/bewertungen/168/dkb-visa-card 3 21112 0 0
+/node/6989 1 12631 0 0
+/node/3621/edit 2 49229 0 0
+/admin/user/profile/edit/25 10 94561 0 0
+/produkte/kreditkarte 1 8265 0 0
+/comment/ 1 4272 0 0
+/admin/content/listAnonRatings 1 25 0 0
+/company/reviewprocess 6 29452 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-santander-consumer-bank-20 5 63046 0 0
+/admin/user/profile/autocomplete/Rechtliche%20Hinweise 1 54 0 0
+/admin/content/comment/approval 8 62956 0 0
+/admin/content/node/overview 13 202863 2 0
+/user/register 20 130626 0 0
+/admin/build/translate 2 24347 0 0
+/comment/reply/100 5 50148 0 0
+/users/nova-bank 4 36597 0 0
+/company/socialmedia 2 14558 0 0
+/admin/content/node-type/bewertung-bank 6 103053 0 0
+/agb-datenschutz 1 15447 0 0
+/admin/build/modules/list/confirm 4 100 0 0
+/user/2416/edit/Pers%C3%B6nliche%20Informationen 5 57882 0 0
+/produkte/girokonto/dkb-cash-girokonto 3 42311 0 0
+/comment/reply/24365 1 16600 0 0
+/company/product 3 21873 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-dkb-3332 1 5496 0 0
+/admin/user/profile/autocomplete/Pers%C3%B6nliche%20Informationen 1 61 0 0
+/admin/build/translate/search 9 114144 0 0
+/node/6989/edit 4 73977 0 0
+/admin/user/profile/edit/20 3 26935 0 0
+/company/news 2 14626 0 0
+/user/2428/edit/Rechtliche%20Hinweise 2 22237 0 0
+/produkte/festgeld/bewertungen/6837/renault-bank-direkt-festgeld 2 21358 0 0
+/admin/user/profile/edit/22 3 26833 0 0
+/banken/bankingcheck 2 24827 0 0
+/company/testseal 5 36508 0 0
+/user/password 1 7154 0 0
+/node/24531/edit 5 71685 0 0
+/news 20 364724 0 0
+/produktbewertungen/girokonto/bewertung-girokonto-von-anonymous-dkb-252 2 25767 0 0
+/verifyMail/4550/15ec00bf767f6692ed8ab5a17049a861 1 468 0 0
+/node/24531/4440 1 8014 0 0
+/admin/build/translate/edit/10321 2 12087 0 0
+/logout 12 300 0 0
+/admin/user/settings 1 15312 0 0
+/admin/content/node-type/shortnews 1 20411 0 0
+/users/dkb2 5 50548 0 0
+/sites/all/libraries/nova/msd1.24.4/filemanagement.php 14 26179 0 0
+/news/der-beste-urlaubsbegleiter-die-kreditkarte-mit-reiseversicherungen-24365 4 67653 0 0
+/node/517 1 12758 0 0
+/produkte/kreditkarte/santander-consumer-bank-travelcard 3 28511 0 0
+/admin/build/block/configure/novacompanyuser/configurable-text 2 26273 0 0
+/node/6809 1 13322 0 0
+/comment/reply/24455 1 14588 0 0
+/banken/vincento-payment-solutions-ltd 2 26643 0 0
+/sites/all/modules/bcnav/saveSearchQuery.php 9 225 0 0
+/user/2431/edit/Rechtliche%20Hinweise 1 7580 0 0
+/user/2416/edit/Rechtliche%20Hinweise 3 22740 0 0
+/admin/user/permissions 11 723973 1 0
+/admin/content/types 2 26627 0 0
+/company/reviews 3 21868 0 0
+/user/2431/edit/Pers%C3%B6nliche%20Informationen 1 11012 0 0
+/produkte/depot/bewertungen/265/dkb-broker 4 22181 0 0
+/admin/content/comment/new 1 19303 0 0
+/news/die-wichtigsten-fakten-zum-sepa-einheitlicher-euro-zahlungsverkehrsraum-14023 11 163741 0 0
+/admin/build/block/add 1 15151 0 0
+/produktbewertungen/depot/bewertung-depot-von-anonymous-dkb-27 2 25349 0 0
+/admin/user/roles/edit/6 2 11999 0 0
+/banken/dkb/kommentare 1 11092 0 0
+/search/node 9 89321 0 0
+/company/monitoring 6 43830 0 0
+/user 7 26630 0 0
+/produkte/ratenkredit/dkb-privatdarlehen 3 22335 0 0
+/admin/content/node 1 22730 0 0
+/users/testunternehmen 4 50371 0 0
+/sites/all/libraries/nova/msd1.24.4/ 1 25 0 0
+/produktbewertungen/festgeld/bewertung-festgeld-von-anonymous-renault-bank-direkt-19 3 24549 0 0
+/user/2425/edit/Rechtliche%20Hinweise 3 29814 0 0
+/users/dkb2/track 1 7279 0 0
+/admin/by-module 2 32177 0 0
+/comment/reply/24531 10 72369 0 0
+/admin/reports/event/25171 1 11974 0 0
+/user/reset/2428/1402656554/9874f0a4b8497edb60dbf02147b5c845/login 1 25 0 0
+/user/reset/2428/1402656554/9874f0a4b8497edb60dbf02147b5c845 1 7224 0 0
+/banken/amsterdam-trade-bank 1 14089 0 0
+/shortnews 4 71458 0 0
+/sites/all/libraries/nova/msd1.24.4/index.php 3 1053 0 0
+/node/add/reply 4 26106 0 0
+/admin/reports/dblog 2 28486 0 0
+/node 15 192449 0 0
+/produkte/ratenkredit/bewertungen/276/dkb-privatdarlehen 2 14599 0 0
+/shortnews/renault-bank-direkt-kuendigt-zinserhoehung-beim-tagesgeld-24440 3 38456 0 0
+/comment/reply/24337 3 75 0 0
+/users/amsterdam-trade-bank/track 1 7209 0 0
+/user/registerbank 12 82138 0 0
+/admin/build/translate/edit/10311 4 23954 0 0
+/banken/bewertungen/3415/amsterdam-trade-bank 1 14379 0 0
+/users/gdfgdf 1 14357 0 0
+/comment/reply/19377 1 25 0 0
+/produkte/festgeld/renault-bank-direkt-festgeld 2 21742 0 0
+/produkte/kreditkarte/bewertungen/4019/santander-consumer-bank-travelcard 1 6030 0 0
+/node/24498/edit 1 24869 0 0
+/fboauth/connect 9 225 0 0
+/admin/content/node-type/reply 3 40846 0 0
+/admin/content/comment 13 220115 0 0
+/sites/all/libraries/nova/msd1.24.4/menu.php 6 17455 0 0
+/comment/edit/4441 2 14142 0 0
+/sites/all/libraries/nova/msd1.24.4/install.php 7 9424 0 0
+/user/2428/edit/Pers%C3%B6nliche%20Informationen 5 69843 0 0
+/user/2428/edit 9 104115 0 0
+/user/2425/edit 4 51962 0 0
+/node/24532 3 36118 0 0
+/user/2429/edit 1 17473 0 0
+/admin/build/block/configure/novacompanyuser/0 16 104549 0 0
+/user/2416/edit 1 8468 0 0
+/filter/tips 1 14423 0 0
+/produktbewertungen/autokredit/bewertung-autokredit-von-anonymous-creditplus-bank 1 14931 0 0
+/admin_menu/flush-cache 10 250 0 0
+/user/reset/2436/1403563340/5a6059fa38acff06facb2ef304620739/login 1 25 0 0
+/admin/user/profile 10 148500 0 0
+/users/admin 3 42909 0 0
+/users/amsterdam-trade-bank 6 65285 0 0
+/produkte/tagesgeld/volkswagen-bank-plus-konto-topzins 3 40533 0 0
+/produkte/depot/dkb-broker 2 14637 0 0
+/produkte/girokonto/bewertungen/161/dkb-cash-girokonto 1 14442 0 0
+/company/calculators 3 14957 0 0
+/produktbewertungen/ratenkredit/bewertung-ratenkredit-von-anonymous-dkb-59 2 12441 0 0
+/company/kwk 2 14558 0 0
+/banken 1 26128 0 0
+/admin/user/roles 4 49830 1 0
+/users/asdasd 2 28530 0 0
+/produkte/tagesgeld 1 22622 0 0
+/comment/reply/23614 5 29598 0 0
+/admin/user/profile/edit/21 4 40243 0 0
+/banken/dkb-kommentare 1 11086 0 0
+/comment/reply/24028 3 75 0 0
+/produkte/kreditkarte/dkb-visa-card 7 48614 0 0
+/user/2430/edit 1 17514 0 0
+/agb-b2b 1 6642 0 0
+/produkte/tagesgeld/dkb-cash-tagesgeld 3 40010 0 0
+/produktbewertungen/kreditkarte/bewertung-kreditkarte-von-anonymous-dkb-698 1 12665 1 0
+/devel/switch/BankingCheck 1 25 0 0
+END_SIDER

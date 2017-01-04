@@ -1,0 +1,187 @@
+stdClass Object
+(
+    [uid] => 0
+    [created] => 1348919337
+    [type] => bewertung_ratenkredit
+    [language] => de
+    [changed] => 1348919337
+    [title] => bewertung_ratenkredit  von Anonymous
+    [name] => 
+    [date] => 
+    [status] => 
+    [promote] => 
+    [sticky] => 
+    [submit] => Speichern
+    [form_build_id] => form-5c7e71f074e13cc07d4aebac1ebd6176
+    [form_id] => bewertung_ratenkredit_node_form
+    [comment] => 0
+    [menu] => Array
+        (
+            [mlid] => 0
+            [module] => menu
+            [hidden] => 0
+            [has_children] => 0
+            [customized] => 0
+            [options] => Array
+                (
+                )
+
+            [expanded] => 0
+            [parent_depth_limit] => 8
+            [link_title] => 
+            [parent] => primary-links:0
+            [weight] => 0
+            [plid] => 0
+            [menu_name] => primary-links
+        )
+
+    [path] => 
+    [pathauto_perform_alias] => 1
+    [field_loans_myproductitem] => Array
+        (
+            [0] => Array
+                (
+                    [nid] => 275
+                    [_error_element] => field_loans_myproductitem][0][nid][nid
+                )
+
+        )
+
+    [xmlsitemap] => Array
+        (
+            [status] => 0
+            [status_default] => 0
+            [status_override] => 0
+            [priority] => 0.3
+            [priority_default] => 0.3
+            [priority_override] => 0
+        )
+
+    [field_loans_costs] => Array
+        (
+            [0] => Array
+                (
+                    [rating] => 84
+                    [target] => 
+                    [axis] => 
+                )
+
+        )
+
+    [field_loans_commitment] => Array
+        (
+            [0] => Array
+                (
+                    [rating] => 84
+                    [target] => 
+                    [axis] => 
+                )
+
+        )
+
+    [field_loans_features] => Array
+        (
+            [0] => Array
+                (
+                    [rating] => 84
+                    [target] => 
+                    [axis] => 
+                )
+
+        )
+
+    [field_loans_service] => Array
+        (
+            [0] => Array
+                (
+                    [rating] => 84
+                    [target] => 
+                    [axis] => 
+                )
+
+        )
+
+    [field_loans_apply] => Array
+        (
+            [0] => Array
+                (
+                    [rating] => 84
+                    [target] => 
+                    [axis] => 
+                )
+
+        )
+
+    [field_loans_promote] => Array
+        (
+            [0] => Array
+                (
+                    [value] => 1
+                )
+
+        )
+
+    [field_loans_comment] => Array
+        (
+            [0] => Array
+                (
+                    [value] => Nur ein Test
+                    [_error_element] => field_loans_comment][0][value
+                )
+
+        )
+
+    [field_loans_mailadress] => Array
+        (
+            [0] => Array
+                (
+                    [value] => daniel.nientiedt@googlemail.com
+                    [_error_element] => field_loans_mailadress][0][value
+                )
+
+        )
+
+    [field_loans_token] => Array
+        (
+            [0] => Array
+                (
+                    [value] => ed20d5c5438cbee5b1aa05336cf82a05
+                    [_error_element] => field_loans_token][0][value
+                )
+
+        )
+
+    [field_loans_mailapproved] => Array
+        (
+            [0] => Array
+                (
+                    [value] => 0
+                    [_error_element] => field_loans_mailapproved][0][value
+                )
+
+        )
+
+    [field_notify_publish] => Array
+        (
+            [0] => Array
+                (
+                    [value] => 0
+                )
+
+        )
+
+    [op] => Speichern
+    [teaser] => 
+    [format] => 0
+    [validated] => 1
+    [auto_nodetitle_applied] => 1
+    [is_new] => 1
+    [log] => 
+    [body] => 
+    [timestamp] => 1348919337
+    [vid] => 4465
+    [moderate] => 0
+    [tnid] => 0
+    [translate] => 0
+    [nid] => 4465
+)

@@ -1,0 +1,497 @@
+AWSTATS DATA FILE 7.1.1 (build 1.989)
+# If you remove this file, all statistics for date 201307 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 1981                
+POS_TIME 2663                
+POS_VISITOR 8216                
+POS_DAY 9194                
+POS_DOMAIN 3376                
+POS_LOGIN 3643                
+POS_ROBOT 3843                
+POS_WORMS 4189                
+POS_EMAILSENDER 4320                
+POS_EMAILRECEIVER 4463                
+POS_SESSION 9639                
+POS_SIDER 9834                
+POS_FILETYPES 4598                
+POS_DOWNLOADS 4862                
+POS_OS 4910                
+POS_BROWSER 5030                
+POS_SCREENSIZE 5281                
+POS_UNKNOWNREFERER 5355                
+POS_UNKNOWNREFERERBROWSER 5442                
+POS_ORIGIN 5524                
+POS_SEREFERRALS 5665                
+POS_PAGEREFS 5820                
+POS_SEARCHWORDS 6018                
+POS_KEYWORDS 6170                
+POS_MISC 2326                
+POS_ERRORS 6229                
+POS_CLUSTER 3499                
+POS_SIDER_404 6356                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20130801011046 14992 4619018 51042315780
+FirstTime 20130703214935
+LastTime 20130730122612
+LastUpdate 20130801021422 12 0 11 0 0
+TotalVisits 21                  
+TotalUnique 13                  
+MonthHostsKnown 14                  
+MonthHostsUnknown 0                   
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 20 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 41 507 2917945 4 9 2165
+1 0 0 0 2 7 1343
+2 0 0 0 0 3 491
+3 0 0 0 2 7 1699
+4 0 0 0 10 15 5303
+5 0 0 0 15 17 6441
+6 0 0 0 19 22 8822
+7 0 0 0 39 45 209530
+8 0 0 0 13 14 75338
+9 92 510 2044588 6 12 19603
+10 227 1076 3810362 4 14 35764
+11 154 366 1464528 3 24 16944
+12 169 677 2573434 63 106 27293
+13 99 1111 3668257 12 57 26937
+14 212 1278 3380890 69 119 48073
+15 416 1785 5875304 14 166 39616
+16 155 854 2784153 3 5 1604
+17 0 9 38690 11 18 6220
+18 0 0 0 13 22 8466
+19 1 1 7223 6 9 3253
+20 60 291 684194 7 9 2095
+21 155 1004 2575073 7 10 3298
+22 72 301 1323718 2 40 15308
+23 0 0 0 0 2 50
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 3
+de 1745 9202 30893498
+net 103 561 2194566
+com 5 7 60295
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 1
+bankingcheck 780 2211 7793541 20130730122612
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 6
+googlebot 95 298570 20130720174156 39
+bingbot 9 225 20130715053233 9
+ia_archiver 5 125 20130707015656 5
+mj12bot 4 18602 20130718032242 3
+mediapartners\-google 3 51573 20130716104942 0
+unknown 1 45 20130715140045 1
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 10
+css 2052 2025826 0 0
+png 1589 5172019 0 0
+ico 35 59192 0 0
+htm 1 2485 0 0
+php 969 235880 0 0
+html 150 2133510 0 0
+jpg 358 2999698 0 0
+js 1546 5563407 0 0
+Unknown 733 8285786 0 0
+gif 2337 6670556 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 4
+win8 2044 278
+linux 3 3
+macosx8 823 170
+win7 6900 1402
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 10
+chrome28.0.1500.72 5421 1157
+mozilla 3 3
+firefox22.0 1118 177
+msie7.0 15 0
+msie10.0 360 24
+firefox6.0 4 2
+firefox21.0 1598 203
+firefox10.0.1 1 1
+chrome28.0.1500.71 203 17
+chrome27.0.1453.116 1047 269
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 0
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 207 283
+From1 0 0
+From2 1 1
+From3 1 33
+From4 1644 9453
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 1
+google 1 1
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 1
+http://webcache.googleusercontent.com/search 1 33
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 4
+403 2 421
+401 284 111478
+500 55 29535
+404 180 44077
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 19
+/sites/default/files/News/Barclays-Logo.jpg 16 http://www.testsystem.de.bankingcheck.nova-web.de/
+/sites/default/files/News/volkswagen-bank_audi-bank.jpg 16 http://www.testsystem.de.bankingcheck.nova-web.de/
+/banken 3 http://www.testsystem.de.bankingcheck.nova-web.de/
+/sites/default/files/News/santander-consumer-bank_bestcredit_0.jpg 16 http://www.testsystem.de.bankingcheck.nova-web.de/
+/node 2 http://www.testsystem.de.bankingcheck.nova-web.de/
+/sites/default/files/News/Sparkassen-Broker_50%25-Aktion.jpg 16 http://www.testsystem.de.bankingcheck.nova-web.de/
+/sites/default/files/News/barclaycard_logo.jpg 16 http://www.testsystem.de.bankingcheck.nova-web.de/
+/produkte/baufinanzierung 1 http://www.testsystem.de.bankingcheck.nova-web.de/
+/produkte 3 http://www.testsystem.de.bankingcheck.nova-web.de/
+/www.testsystem.de 1 -
+/www.testsystem.de/ 1 -
+/produkte/ 1 -
+/sites/default/files/News/swk_bank.jpg 16 http://www.testsystem.de.bankingcheck.nova-web.de/
+/sites/default/files/News/BankingCheck_Award_2013.jpg 16 http://www.testsystem.de.bankingcheck.nova-web.de/
+/sites/default/files/News/bmw-premium-depot.jpg 16 http://www.testsystem.de.bankingcheck.nova-web.de/
+/banken/bewertung/98 1 -
+/sites/default/files/News/C%26A%20Money%20Sparbrief.png 16 http://www.testsystem.de.bankingcheck.nova-web.de/
+/themes/pixture_reloaded/images/footer-googleplus.gif 7 http://www.testsystem.de.bankingcheck.nova-web.de/themes/pixture_reloaded/custom.css
+/sites/default/files/News/Renault_Bank_Logo.png 16 http://www.testsystem.de.bankingcheck.nova-web.de/
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 14
+p57905b5b.dip0.t-ipconnect.de 450 1561 5094830 20130717165706
+p5b0e60b0.dip0.t-ipconnect.de 305 2079 5939179 20130715155046
+p579051e5.dip0.t-ipconnect.de 284 1054 4015196 20130730115651
+p57905837.dip0.t-ipconnect.de 201 1355 4822034 20130718150826
+p57905ac5.dip0.t-ipconnect.de 160 832 2906993 20130716164051
+p54897f62.dip0.t-ipconnect.de 153 620 1191608 20130729213312
+hsi-kbw-046-005-002-206.hsi8.kabel-badenwuerttemberg.de 133 975 3384707 20130725221549
+gw.ts58.kae.de.codekunst.net 103 561 2194566 20130730122612
+hsi-kbw-046-005-002-112.hsi8.kabel-badenwuerttemberg.de 37 400 1944415 20130722001246
+p579053ae.dip0.t-ipconnect.de 17 203 455778 20130722163423
+rs206284.rs.hosteurope.de 1 1 94030 20130705132813
+hsi-kbw-046-005-002-153.hsi8.kabel-badenwuerttemberg.de 4 107 973530 20130706001302
+google-proxy-66-249-81-196.google.com 5 7 60295 20130717095721
+91-64-97-221-dynip.superkabel.de 0 15 71198 
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 16
+20130701 0 6 22436 0
+20130703 1 1 6670 1
+20130704 1 4 23493 1
+20130705 1 1 94030 1
+20130706 4 107 973530 1
+20130709 1 1 7223 1
+20130711 0 3 16254 0
+20130712 1 2 19812 1
+20130715 305 2082 5955433 1
+20130716 160 832 2906993 3
+20130717 451 1563 5114181 3
+20130718 201 1355 4822034 1
+20130722 54 603 2400193 3
+20130725 133 975 3384707 1
+20130729 153 620 1191608 1
+20130730 387 1615 6209762 2
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 6
+1h+ 6
+5mn-15mn 1
+0s-30s 9
+15mn-30mn 3
+30s-2mn 1
+30mn-1h 1
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 185
+/sites/all/modules/ad/serve.php 724 170710 0 9
+/ 136 1915951 18 3
+/sites/all/libraries/quickrating/getProductItems.php 90 14439 0 0
+/bewerten 75 647867 0 0
+/node/add/bewertung-bank 49 436298 0 0
+/sites/all/libraries/quickrating/listItems-2.php 48 14328 0 0
+/test.php 45 3001 0 1
+/batch 39 15968 0 0
+/admin/content/node/overview 35 532679 0 1
+/banken 29 454697 0 1
+/banken/bewertungen/10448/Aachener-Bausparkasse-AG 2 10796 0 0
+/admin/user/user 1 18270 0 0
+/banken/accedo 1 6329 0 0
+/banken/bewertungen/4120/MKB-Mietkautions-AG 1 12640 0 0
+/produkte/festgeld/SWK-Bank-Festgeld 1 7021 0 0
+/banken/ethikbank 2 27306 0 0
+/produkte/festgeld/denizbank-festgeld 1 7673 0 0
+/node/10835/delete 2 14324 0 0
+/admin/content/node-type/bewertung-bank/fields/field_bank_mailapproved 1 14292 0 0
+/produkte/autokredit/bewertungen/313/ADAC-Finanzdienste-AutoKredit 1 12810 0 0
+/kontakt 1 15187 0 0
+/admin/build/modules 10 208832 0 0
+/admin/user/user/list 1 18079 0 0
+/banken/dhb-bank 1 6748 0 0
+/node/10836/edit 3 47431 0 0
+/produkte/depot/bewertungen/267/1822direkt-Wertpapierdepot 2 23985 0 0
+/produkte/kreditkarte 3 55068 0 0
+/produkte/tagesgeld/rabodirect-rabotagesgeld 2 14462 2 2
+/admin/build/block/configure/block/25 13 104563 0 1
+/banken/credit-europe-bank 19 224652 0 0
+/produkte/kreditkarte/ING-DiBa-VISA-Direkt-Card 2 13750 0 0
+/node/add/bewertung-tagesgeld 28 359041 0 0
+/produkte/depot/1822direkt-wertpapierdepot 3 40244 0 0
+/admin/content/node-type/bewertung-bank 1 20310 0 0
+/node/add/bewertung-autokredit 7 168298 0 0
+/node/add/page 1 23701 0 0
+/admin/content/node-type/bewertung-bank/display 1 14124 0 0
+/banken/bmw-bank 1 6799 0 0
+/news/renault-bank-direkt-senkt-tagesgeldzins-zum-25-juni-2013-7204 1 8714 0 0
+/widget/ 14 217559 0 0
+/admin/build/modules/list/confirm 5 100 0 0
+/produkte/depot/lynx-broker-depot 3 28561 0 0
+/ratgeber 2 30165 0 0
+/banken/bewertungen/251/ADAC-Finanzdienste 1 6197 0 0
+/sites/all/libraries/tinymce/jscripts/tiny_mce/plugins/advimage/image.htm 1 2485 0 0
+/node/add/story 3 58687 0 0
+/banken/kautionskasse 1 6760 0 0
+/banken/advanzia-bank 1 12986 0 0
+/sites/all/libraries/quickrating/getProductItems-2.php 13 2154 0 0
+/banken/mkb-mietkautions-ag 4 39885 0 0
+/node/add/bewertung-festgeld 5 49698 0 0
+/node/7/edit 1 24352 0 0
+/node/5971 1 13505 0 0
+/comment/delete/2228 2 11665 0 0
+/produktbewertungen/mietkaution/bewertung-mietkaution-von-anonymous-kautionsfreide-7 1 12213 0 0
+/verifyMail/10837/523f11de7b804c04548ef99998c645b9 1 20 0 0
+/verifyMail/10839/692415f3b7dcc37ab73fd496d2e2010a 1 20 0 0
+/getxml/test.php 2 130 0 0
+/banken/alte-leipziger-bauspar-ag 1 6380 0 0
+/ratgeber/kreditkarte/was-ist-eine-kreditkarte 1 15017 0 0
+/banken/eurokaution 1 6670 1 1
+/produktbewertungen/tagesgeld/bewertung-tagesgeld-von-anonymous-renault-bank-direkt-2 2 17871 0 0
+/produkte/autokredit/adac-finanzdienste-autokredit 2 27628 0 0
+/news/neue-zinssaetze-10835 16 209693 0 0
+/produkte/girokonto/comdirect-bank-Girokonto 1 7443 0 0
+/news 25 415022 0 0
+/admin/settings/actions/configure/4 1 12412 0 0
+/admin/user/permissions/1 1 29575 0 0
+/admin/settings/actions 1 13529 0 0
+/banken/1822direkt 4 54587 0 0
+/produkte/mietkaution/kautionsfrei-de-mietkaution 1 13711 0 0
+/produkte/mietkaution/mkb-mietkautions-ag-smartkaution 4 35076 0 1
+/node/466/edit 1 25530 0 0
+/banken/barclaycard 3 20205 0 0
+/logout 13 7975 0 0
+/produkte/tagesgeld/moneyou-tagesgeld 2 20657 0 0
+/admin/user/settings 2 30113 0 0
+/user/autocomplete/ahoenigh 1 24 0 0
+/install.php 17 8305 0 0
+/banken/bewertungen/98/ING-DiBa 1 6315 0 0
+/bankingcheck-award 3 45974 0 0
+/produkte/tagesgeld/Credit-Europe-Bank-Top-Interest-Konto 2 27425 0 0
+/produkte/kreditkarte/advanzia-bank-gebuehrenfreie-mastercard-gold 1 13745 0 0
+/sites/all/modules/bcnav/saveSearchQuery.php 1 20 0 0
+/BewertungsWidget/b 1 13986 0 0
+/ratgeber/kreditkarte 1 14723 0 0
+/admin/user/permissions 3 234253 0 0
+/verifyMail/6130/531cdb71eea7f89dc753658b68618e1f 1 20 0 0
+/admin/content/node-type/bank 1 20127 0 0
+/verifyMail/10844/072fc2af1596d2b8349c115ef9d9a36a 1 20 0 0
+/produkte/kreditkarte/bewertungen/224/ING-DiBa-VISA-Direkt-Card 1 6008 0 0
+/banken/bewertungen/96/Credit-Europe-Bank 1 12738 0 0
+/verifyMail/10836/b40afd5ce66cde8c08566524dc1b7919 1 20 0 0
+/admin/build/block/add 3 29350 0 0
+/banken/mercedes-benz-bank 1 13209 0 0
+/widget 3 44944 0 0
+/produkte/kreditkarte/bewertungen/3889/VoiceCash-Bank-Prepaid-Karte 1 11794 0 0
+/search/node 2 29431 0 0
+/admin/user/rules/list 1 12152 0 0
+/banken/ing-diba 1 7408 0 0
+/user 4 13585 0 0
+/admin/build/block 12 209106 0 0
+/banken/bewertungen/4516/GLS-Bank 5 69346 0 0
+/comment/reply/10835 5 41505 0 0
+/admin/content/node 3 53514 0 0
+/node/add/bewertung-depot 6 80415 0 0
+/node/10652/edit 2 62560 0 0
+/node/10835/edit 9 151370 0 0
+/sites/all/libraries/quickrating/listItems.php 7 4420 0 0
+/admin/content/node-type/bank/display 1 12473 0 0
+/admin/by-module 1 15527 0 0
+/produkte/mietkaution 2 19306 0 0
+/banken/amsterdam-trade-bank 1 7000 0 0
+/comment/reply/10652 1 14860 0 0
+/shortnews 1 11423 0 0
+/produkte/tagesgeld/renault-bank-direkt-tagesgeld 2 21171 0 0
+/forum 1 15528 0 0
+/node/10844/edit 4 47424 0 0
+/user/autocomplete/ahoenig 1 35 0 0
+/node/add/bewertung-kreditkarte 1 24119 0 0
+/node 14 203794 0 0
+/admin/content/node-settings 2 24864 0 0
+/admin/build/trigger/cron 1 13095 0 0
+/produkte/tagesgeld/gls-bank-gls-tagesgeldkonto 2 14668 0 0
+/node/add/bewertung-girokonto 1 9759 0 0
+/produkte/baufinanzierung/allianz-baufinanzierung 1 14723 0 0
+/banken/gls-bank 9 68153 0 0
+/node/add/bewertung 1 7333 0 0
+/bankingcheck-award-2012 1 8212 0 0
+/produktbewertungen/girokonto/bewertung-girokonto-von-anonymous-dkb-15 3 18365 0 0
+/bankingcheck-award-2013 2 15873 0 0
+/banken/allianz 1 13415 0 0
+/admin/build/modules/list 4 107431 0 0
+/node/10448 1 6368 0 0
+/admin/settings/fivestar 1 15368 0 0
+/news/optimierung-des-festgeldzinssatzes-bei-der-swk-bank-10652 3 46290 0 0
+/admin/content/node-settings/rebuild 2 11210 0 0
+/produkte/mietkaution/kautionskasse-moneyfix 1 7304 0 0
+/admin/build/views/edit/news 2 33899 0 0
+/produkte/girokonto 2 23716 0 0
+/zum_Anbieter.php 1 20 0 1
+/admin/content/node-type/bank/fivestar 1 13363 0 0
+/banken/aachener-bausparkasse-ag 9 39113 0 0
+/banken/lynx-broker 3 20855 0 0
+/produkte/kreditkarte/bewertungen/512/Advanzia-Bank-Gebuehrenfreie-MasterCard-Gold 1 13464 0 0
+/banken/moneyou 1 6592 0 0
+/admin_menu/flush-cache 15 300 0 0
+/banken/abk-bank 2 7136 0 0
+/admin/settings/actions/manage 1 13539 0 0
+/produkte 11 129075 0 0
+/admin/user/profile 1 14157 0 0
+/users/admin 3 43474 0 0
+/sitemap 2 28912 0 0
+/admin/build/block/configure/block/23 7 74207 0 0
+/update.php 18 18155 0 0
+/verifyMail/10838/692415f3b7dcc37ab73fd496d2e2010a 1 20 0 0
+/produkte/festgeld 1 13178 0 0
+/produkte/tagesgeld/mercedes-benz-bank-tagesgeldkonto 1 13663 0 0
+/admin/reports/updates 6 92821 0 0
+/news/50-aktion-auf-orderprovisionen-bei-s-broker-bis-zum-jahresende-10586 1 15261 0 0
+/banken/adac-finanzdienste 4 39843 0 0
+/admin/content/node-type/bewertung-bank/fields/field_bank_token 2 28679 0 0
+/produkte/ratenkredit/Credit-Europe-Bank-Privatkredit 1 13951 0 0
+/admin/content/node-type/bank/fields 1 18426 0 0
+/admin/content/node-type/bewertung-bank/fields 2 38547 0 0
+/node/add/bewertung-mietkaution 11 153427 0 0
+/comment/reply/10586 1 14667 0 0
+/produkte/kreditkarte/valovis-bank-schwarze-kreditkarte 1 13304 0 0
+/admin/settings/site-maintenance 15 111678 0 0
+/admin/user/roles 2 24393 0 0
+/getxml/temp.php 1 37 0 0
+/banken/bewertungen/191/Barclaycard 1 6169 0 0
+/admin/settings/error-reporting 1 12056 0 0
+/banken/bewertungen/3412/EthikBank 1 12335 0 0
+/produkte/tagesgeld 5 74722 0 0
+/admin 1 1373 0 0
+/admin/content/node-type/bewertung-bank/fivestar 1 13363 0 0
+/admin/content/node-type/bewertung-autokredit/fields/field_carloans_apply 1 14360 0 0
+/admin/user/rules 1 12139 0 0
+/admin/settings/filters 1 12435 0 0
+/index.php 2 161 0 0
+/banken/barclays 1 7087 0 0
+/admin/build/block/list 9 170708 0 0
+/banken/bewertungen/1333/MoneYou 1 6221 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-abk-bank 1 12134 0 0
+END_SIDER

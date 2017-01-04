@@ -1,0 +1,125 @@
+<?php
+// $Id: finder.install,v 1.7.2.9 2009/05/02 07:49:17 danielb Exp $
+
+/**
+ * @file
+ * Finder module install file.
+ */
+
+/**
+ * Implementation of hook_schema().
+ */
+function finder_schema() {
+  $schema['finder'] = array(
+    'description' => t('The base table for finders, each row is a finder object.'),
+    'fields' => array(
+      'finder_id' => array(
+        'description' => t('The primary identifier for a finder.'),
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'base' => array(
+        'description' => t('Base findable for finder.'),
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'title' => array(
+        'description' => t('The title of this finder.'),
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'description' => array(
+        'description' => t('The description of this finder.'),
+        'type' => 'text',
+        'size' => 'big',
+      ),
+      'path' => array(
+        'description' => t('Path for finder functions.'),
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'block' => array(
+        'description' => t('Provide block for this finder.'),
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'size' => 'tiny',
+      ),
+      'settings' => array(
+        'description' => t('Settings for this finder.'),
+        'type' => 'text',
+        'size' => 'big',
+        'serialize' => TRUE,
+      ),
+    ),
+    'primary key' => array('finder_id'),
+  );
+  $schema['finder_element'] = array(
+    'description' => t('The table for finder elements, each row is a finder element.'),
+    'fields' => array(
+      'finder_element_id' => array(
+        'description' => t('The primary identifier for a finder element.'),
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'finder_id' => array(
+        'description' => t('The primary identifier for a finder.'),
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'element' => array(
+        'description' => t('Form element for this finder element.'),
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'title' => array(
+        'description' => t('The title of this finder element.'),
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'weight' => array(
+        'description' => t('The ordering of this element.'),
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'size' => 'tiny',
+      ),
+      'settings' => array(
+        'description' => t('Settings for this finder element.'),
+        'type' => 'text',
+        'size' => 'big',
+        'serialize' => TRUE,
+      ),
+    ),
+    'primary key' => array('finder_element_id'),
+  );
+  return $schema;
+}
+
+/**
+ * Implementation of hook_install().
+ */
+function finder_install() {
+  drupal_install_schema('finder');
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function finder_uninstall() {
+  drupal_uninstall_schema('finder');
+}

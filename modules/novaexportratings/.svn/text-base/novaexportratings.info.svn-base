@@ -1,0 +1,5 @@
+name = Nova ExportRatings
+description = Exports ratings to XML
+package = Nova
+version = 0.1
+core = 6.x

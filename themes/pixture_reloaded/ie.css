@@ -1,0 +1,40 @@
+/* $Id: ie.css,v 1.10 2009/05/07 17:00:39 jmburnz Exp $ */
+/* ie fixes */
+fieldset { background: none; }
+ul.primary { position: relative;}
+html.js fieldset.collapsible { position: relative; top: -1em; }
+html.js fieldset.collapsed { top: 0; margin-bottom: 1em; }
+td.menu-disabled { filter: alpha(opacity=50); }
+#header-region { height: 1em; }
+#attach-hide label, #uploadprogress div.message { background-color: #ffffff; }
+/*Pixture Reloaded specific*/
+.node-full-view .sticky,
+.node-full-view .node-inner-0,
+.node-full-view .node-inner-1,
+.node-full-view .node-inner-2,
+.node-full-view .node-inner-3 { background: none; }
+.with-logo #primary-inner   { margin: 6px 0 0 0; }
+.with-logo #superfish-inner { margin: 0; }
+#primary ul.links li a,
+#superfish { position: relative; z-index: 10;}
+#primary,
+#superfish {
+  _width: 100%;
+  _margin: 0 -100% 0 0;
+}
+.block .node {
+  padding: 5px 5px 0;
+  background: #FFF;
+}
+
+/* um 25.03.2011 */
+.views-row,
+.greyGradient,
+.blueGradientInvert,
+#content-parts {position: relative; display: inline-block;}
+#footer {clear: both;}
+#superfish-inner {position: absolute; top: 6px; left: 0; background: none;}
+#superfish-inner ul li a,
+#superfish-inner ul li a:hover {background: red; height: 30px;}
+#superfish-inner ul li ul li {background: none!important; display: inline-block;}
+#superfish-inner ul li ul li a {margin: 0!important;}

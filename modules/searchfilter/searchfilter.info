@@ -1,0 +1,6 @@
+; $Id$
+ 
+name = Search filter
+description = "Filters out selected content types from search results"
+dependencies[] = search
+core = 6.x

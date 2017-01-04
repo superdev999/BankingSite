@@ -1,0 +1,466 @@
+AWSTATS DATA FILE 7.3 (build 20140126)
+# If you remove this file, all statistics for date 201506 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 1982                
+POS_TIME 2648                
+POS_VISITOR 6317                
+POS_DAY 6515                
+POS_DOMAIN 3346                
+POS_LOGIN 3581                
+POS_ROBOT 3785                
+POS_WORMS 3992                
+POS_EMAILSENDER 4123                
+POS_EMAILRECEIVER 4266                
+POS_SESSION 6811                
+POS_SIDER 6996                
+POS_FILETYPES 4401                
+POS_DOWNLOADS 4697                
+POS_OS 4850                
+POS_BROWSER 4944                
+POS_SCREENSIZE 5029                
+POS_UNKNOWNREFERER 5103                
+POS_UNKNOWNREFERERBROWSER 5190                
+POS_ORIGIN 5272                
+POS_SEREFERRALS 5413                
+POS_PAGEREFS 5557                
+POS_SEARCHWORDS 5705                
+POS_KEYWORDS 5857                
+POS_MISC 2311                
+POS_ERRORS 5916                
+POS_CLUSTER 3437                
+POS_SIDER_404 6008                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20150701170332 3707 1100119 46611049012
+FirstTime 0
+LastTime 20150630193607
+LastUpdate 20150702021421 1 0 0 0 0
+TotalVisits 12                  
+TotalUnique 2                   
+MonthHostsKnown 2                   
+MonthHostsUnknown 0                   
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 10 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 918 11795 37831165 2633 2682 128641622
+1 41 2389 5472721 5164 5165 203697275
+2 6 335 718714 1 4 1604
+3 0 0 0 0 1 401
+4 0 0 0 0 0 0
+5 0 0 0 1 1 401
+6 0 0 0 1 2 802
+7 0 0 0 0 0 0
+8 0 1 88 3 6 2406
+9 0 0 0 2 3 1203
+10 0 0 0 0 0 0
+11 0 0 0 1 1 401
+12 0 0 0 4 8 3208
+13 0 0 0 2 3 1203
+14 0 0 0 2 3 1203
+15 18 173 1193081 2 3 1203
+16 23 1186 2791594 1720 1761 24293939
+17 792 7087 13188230 2014 2051 28533219
+18 103 5395 15610397 1 1 401
+19 60 3422 19855198 2 4 1604
+20 0 0 0 0 0 0
+21 6 203 922668 4 35 14035
+22 957 20841 62752397 10 98 39298
+23 163 5825 18923430 8 70 28070
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+de 3087 58652 179259683
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 1
+bankingcheck 3087 37123 107171379 20150630193607
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 2
+wget 5746 382793473 20150627174200 0
+no_user_agent 1 1870 20150630002219 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 11
+css 14383 20880913 0 0
+png 11594 21539908 0 0
+ico 471 995694 0 0
+php 2352 7541600 0 0
+html 50 1151184 0 0
+xml 6 603870 0 0
+js 10907 51260769 0 0
+jpg 506 12554819 0 0
+Unknown 679 10124753 0 0
+gif 17703 44064883 0 0
+gz 1 8541290 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 1
+/sites/all/libraries/nova/msd1.24.4/work/backup/usrdb_bankidbk_bchde_2015_06_26_00_35.sql.gz 1 0 8541290
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 2
+linux 58459 3060
+win7 193 27
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 2
+firefox38.0 58646 3087
+msie7.0 6 0
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 0
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 137 321
+From1 0 0
+From2 0 0
+From3 0 0
+From4 2950 58331
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 1
+401 6145 2464145
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 0
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 2
+host-114-75.kawo1.rwth-aachen.de 3060 58459 177917876 20150630002715
+ip1-vt.berlin.isp.ekomi.de 27 193 1341807 20150630193607
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 9
+20150622 513 9694 29819955 2
+20150623 33 746 2173684 1
+20150624 550 12336 29404479 1
+20150625 70 4166 10407411 2
+20150626 808 6608 20828650 1
+20150627 1025 21448 73468415 2
+20150628 0 1 88 0
+20150629 0 6 16254 0
+20150630 88 3647 13140747 3
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 5
+1h+ 4
+5mn-15mn 3
+15mn-30mn 2
+0s-30s 2
+30mn-1h 1
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 212
+/sites/all/libraries/nova/msd1.24.4/dump.php 1299 6380360 0 0
+/sites/all/libraries/nova/msd1.24.4/restore.php 793 882321 0 0
+/sites/all/modules/ad/serve.php 114 54819 0 2
+/produkte/girokonto 66 2216881 1 0
+/ 50 1151184 1 0
+/lib/php/inc/bcVotingsInTimespan.php 39 9597 0 1
+/lib/php/exe/convertVotings.php 36 95208 2 1
+/produktbewertungen/bank/bewertung-bank-von-anonymous-ikano-bank-1109 34 379249 0 0
+/lib/php/exe/reindexVotings.php 31 31782 1 0
+/bewerten 29 330983 0 1
+/produkte/ratenkredit/bewertungen/291/ing-diba-ratenkredit 1 12572 0 1
+/admin/content/node-type/bewertung-ratenkredit/fields/field_loans_apply 2 14448 0 0
+/admin/content/node-type/bewertung-autokredit/fields/field_carloans_mailadress 1 14355 0 0
+/exportRatings.xml 5 579040 0 0
+/admin/settings/devel 3 58741 0 0
+/banken/hypovereinsbank 1 13901 0 0
+/produkte/girokonto/bewertungen/176/postbank-giro-extra-plus 1 13336 0 0
+/node/52364/edit 1 24022 0 0
+/sites/all/libraries/nova/msd1.24.4/main.php 1 1413 0 0
+/sites/all/libraries/anonRatings/listAnonRatings.php 1 1799 1 0
+/admin/content/node-type/bewertung-baufinanzierung/fields/field_mortgages_service 2 14481 0 0
+/admin/content/node-type/bewertung-festgeld/fields 6 119532 0 0
+/admin/content/node-type/bewertung-kreditkarte/fields 7 140233 0 0
+/admin/build/modules 10 210995 0 0
+/produkte/ratenkredit 1 13677 0 0
+/admin/content/node-type/bewertung-tagesgeld/fields/field_dailyallowances_apply 2 14501 0 0
+/produkte/ratenkredit/valendo-sachwertdarlehen 1 7067 0 0
+/admin/content/node-type/bewertung-autokredit/fields/field_carloans_features 2 14292 0 0
+/admin/content/node-type/bewertung-mietkaution/fields 6 119790 0 0
+/admin/content/node-type/bewertung-ratenkredit/fields/field_loans_service 2 14470 0 0
+/admin/content/node-type/productitem 2 40617 0 0
+/admin/content/node-type/bewertung-depot/fields/field_brokerage_costs 2 14420 0 0
+/produkte/kreditkarte 2 31099 0 0
+/admin/content/node-type/bewertung-ratenkredit/fields/field_loans_commitment 2 14373 0 0
+/verifyMail/52377/2edee862c1272a7ba886773f32939588 1 25 0 0
+/produkte/ratenkredit/Barclaycard-Kredit 1 7252 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-ikano-bank-1108 4 67675 0 0
+/node/15484 1 12469 0 0
+/node/add/bewertung-tagesgeld 4 56334 0 0
+/admin/content/node/overview 6 118057 0 0
+/produkte/baufinanzierung 2 20555 0 0
+/node/add/bewertung-autokredit 5 42675 0 0
+/admin/content/node-type/bewertung-mietkaution/fields/field_rentalbonds_apply 2 14461 0 0
+/node/52366/edit 1 23736 0 0
+/node/3917 2 62982 0 0
+/produkte/autokredit/bewertungen/32493/bank-of-scotland-autokredit 2 25575 0 0
+/produkte/girokonto/volkswagen-bank-girokonto 2 28173 0 0
+/admin/content/node-type/bewertung-tagesgeld/fields/field_dailyallowances_credit 2 14425 0 0
+/admin/build/modules/list/confirm 3 75 0 0
+/produkte/girokonto/dkb-cash-girokonto 5 64386 0 0
+/getxml/cached_xml_5154423/bankingcheck.xml 1 24830 0 0
+/verifyMail/52371/85dcf899186669eec05a770a89f2cda4 1 25 0 0
+/admin/content/node-type/bewertung-tagesgeld/fields 7 139485 0 0
+/banken/atlantico-europa 1 13424 0 0
+/node/15397/edit 1 21645 0 0
+/banken/ikano-bank 2 20853 0 0
+/admin/content/node-type/bewertung-depot/fields/field_brokerage_fund 3 28751 0 0
+/admin/content/node-type/bewertung-girokonto/fields/field_currentaccount_apply 2 14527 0 0
+/admin/content/node-type/bewertung-girokonto/fields/field_currentaccount_service 2 14543 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-ikano-bank-48417 1 118484 0 0
+/admin/content/node-type/bewertung-depot/fields/field_brokerage_service 2 14506 0 0
+/sites/all/libraries/quickrating/getProductItems.php 1 178 0 0
+/produkte/kreditkarte/Barclaycard-New-Visa 1 6842 0 0
+/node/add/bewertung-festgeld 6 36852 0 0
+/node/10757 5 122672 0 0
+/admin/content/node-type/bewertung-kreditkarte/fields/field_creditcard_payment 2 14445 0 0
+/admin/content/node-type/bewertung-autokredit/fields/field_carloans_service 11 142156 0 0
+/produkte/girokonto/Postbank-Giro-extra-plus 7 98051 0 1
+/company/testseal 2 12579 0 0
+/admin/content/node-type/bewertung-girokonto/fields 8 160580 0 0
+/admin/content/node-type/bewertung-tagesgeld/fields/field_dailyallowances_interest 2 14421 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-renault-bank-direkt-3790 1 4545 0 0
+/banken/bewertungen/4143/augsburger-aktienbank 1 12546 0 0
+/produkte/girokonto/Commerzbank-Kostenloses-Girokonto 2 28296 0 0
+/admin/content/node-type/productitem/fields 4 75572 1 0
+/node/176 1 13983 0 0
+/admin/content/node-type/bewertung-kreditkarte/fields/field_creditcard_specials 2 14437 0 0
+/admin/content/node-type/bewertung-ratenkredit/fields/field_loans_costs 2 14363 0 0
+/banken/1822direkt 1 7651 0 0
+/admin/content/node-type/bewertung-depot/fields/field_brokerage_trading 2 14441 0 0
+/admin/content/node-type/bewertung-girokonto/fields/field_currentaccount_cards 2 14470 0 0
+/news/neu-bei-bankingcheck-bn-bank-festgeld-32441 1 16177 0 0
+/verifyMail/52364/95018e281afd1e1812e16be550b3da9f 2 50 0 0
+/node/3420 1 30984 0 0
+/admin/content/node-type/bewertung-baufinanzierung/fields/field_mortgages_features 2 14388 0 0
+/node/add/bewertung-bank 13 126652 0 1
+/node/add/bewertung-ratenkredit 3 18601 0 0
+/sites/all/libraries/nova/msd1.24.4/filemanagement.php 24 58719 0 0
+/bank/bewertung-bank-von-anonymous-sparkasse-pforzheim-calw 1 13243 0 0
+/produkte/festgeld/aib-festgeld 3 43860 0 0
+/admin/content/node-type/bewertung-depot/fields/field_brokerage_apply 2 14493 0 0
+/node/17326 1 13404 0 0
+/admin/content/types 1 12975 0 0
+/admin/content/node-type/bewertung-kreditkarte/fields/field_creditcard_cash 2 14450 0 0
+/produktbewertungen/ratenkredit/bewertung-ratenkredit-von-anonymous-swk-bank-560 1 12513 0 0
+/banken/debeka-bausparkasse 3 44058 0 0
+/produkte/autokredit 2 34971 0 0
+/produkte/tagesgeld/ostsaechsische-sparkasse-dresden-zinsaktivkonto 1 13430 0 0
+/produkte/girokonto/hypovereinsbank-hvb-konto-klassik 3 43156 0 0
+/node/4116/edit 1 26695 0 1
+/admin/build/views 2 29599 0 0
+/user 2 6809 0 0
+/admin/build/block 1 19216 0 0
+/admin/content/node-type/bewertung-festgeld/fields/field_fixeddeposits_security 2 14404 0 0
+/admin/content/node-type/bewertung-girokonto/fields/field_currentaccount_cash 2 14473 0 0
+/admin/content/node-type/bewertung-girokonto/fields/field_currentaccount_costs 2 14471 0 0
+/admin/content/node 1 13542 0 0
+/node/add/bewertung-depot 2 9475 0 0
+/admin/content/node-type/bewertung-festgeld/fields/field_fixeddeposits_interest 2 14400 0 0
+/admin/content/node-type/bewertung-ratenkredit/fields 6 120149 0 0
+/admin/content/node-type/bewertung-ratenkredit/fields/field_loans_features 2 14369 0 0
+/produktbewertungen/autokredit/bewertung-autokredit-von-anonymous-bank-of-scotland-1 5 62192 0 0
+/admin/build/block/configure/block/3 1 14950 0 0
+/produkte/autokredit/bank-of-scotland-autokredit 8 112766 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-weltsparen-52354 6 48204 0 0
+/admin/content/exportAllRatings 5 263 0 0
+/node/10882 1 31124 0 0
+/banken/sparkasse-pforzheim-calw 2 27384 1 0
+/produkte/mietkaution 1 9064 0 0
+/banken/dkb 3 37569 0 0
+/admin/content/node-type/bewertung-mietkaution/fields/field_rentalbonds_features 2 14382 0 0
+/verifyMail/52367/970437a8fdaceeeed9c0c35a08e9d269 1 25 0 0
+/sites/all/libraries/nova/msd1.24.4/index.php 4 1404 0 0
+/banken/bank-of-scotland 11 162984 0 0
+/banken/renault-bank-direkt 2 13421 1 0
+/produkte/tagesgeld/bewertungen/6549/renault-bank-direkt-tagesgeld 1 6981 0 0
+/produkte/tagesgeld/renault-bank-direkt-tagesgeld 3 21250 0 0
+/produkte/depot 1 10896 0 0
+/node/37569 1 13394 0 0
+/admin/content/node-type/bewertung-depot/fields 7 140128 0 0
+/admin/build/views/ajax/display/latestRated/default/items_per_page 4 5547 0 0
+/banken/vexcash 1 6934 0 0
+/admin/build/views/ajax/preview/latestRated 20 49064 1 1
+/node/add/bewertung-kreditkarte 2 9514 0 0
+/produktbewertungen/festgeld/bewertung-festgeld-von-anonymous-novo-banco-52364 1 7833 0 0
+/node 11 231968 1 0
+/node/add/bewertung-girokonto 2 9513 0 0
+/verifyMail/48417/c4f1b18ccc962f34339ce930f2fe9b4d 1 25 0 0
+/admin/content/node-type/bewertung-autokredit/fields 6 119861 0 0
+/node/33383/edit 1 24372 0 0
+/node/17672 1 6172 0 0
+/sites/all/libraries/quickrating/listItems-2.php 1 644 0 0
+/direktbank 2 24144 0 0
+/produkte/girokonto/paycenter-global-mastercard-premium-kartenkonto 1 13474 0 0
+/produkte/tagesgeld/cashboard-geldanlage 1 7520 0 0
+/admin/settings/fivestar 1 15384 0 1
+/produkte/tagesgeld/dab-bank-relax-tagesgeld 11 252830 0 0
+/banken/weltsparen 14 216745 1 0
+/produkte/ratenkredit/ING-DiBa-Ratenkredit 1 13949 0 0
+/node/6419/edit 1 37457 0 0
+/produkte/tagesgeld/bewertungen/85/bank-of-scotland-tagesgeld 2 29755 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-weltsparen-52349 4 49301 0 0
+/banken/bewertungen/100/dkb 2 29067 0 0
+/admin/content/node-type/bewertung-baufinanzierung/fields/field_mortgages_commitment 2 14390 0 0
+/sites/all/libraries/nova/msd1.24.4/menu.php 8 23356 0 0
+/admin/content/node-type/bewertung-depot/fields/field_brokerage_specials 2 14428 0 0
+/verifyMail/52369/26fd6cc9e346b0ca73445eefdb8260d7 1 25 0 0
+/produkte/festgeld/bewertungen/42633/aib-festgeld 1 12834 0 0
+/banken/cashcloud 1 6891 0 0
+/admin/content/node-type/bewertung-bank/fields/field_bank_service 2 14447 0 0
+/produkte/tagesgeld/consorsbank-tagesgeldkonto 9 71362 0 0
+/produkte/tagesgeld/bank-of-scotland-tagesgeld 6 82367 0 0
+/verifyMail/52379/73575143fec33eaac90bc53e30897d12 1 25 0 0
+/verifyMail/52382/a3c88e6d51a4714cbe6bbe0c6dc15f1c 1 25 0 0
+/banken/bewertungen/15354/weltsparen 1 6841 0 1
+/admin/content/node-type/bewertung-mietkaution/fields/field_rentalbonds_service 2 14479 0 0
+/admin/content/node-type/bewertung-mietkaution/fields/field_rentalbonds_costs 2 14388 0 0
+/admin_menu/flush-cache 15 375 0 0
+/produkte/depot/onvista-bank-freebuy-cash-festpreis-depot 1 7220 0 0
+/admin/content/node-type/bewertung-kreditkarte/fields/field_creditcard_costs 2 14451 0 0
+/admin/content/node-type/bewertung-autokredit/fields/field_carloans_costs 2 14286 0 0
+/produkte/tagesgeld/bewertungen/6505/dab-bank-relax-tagesgeld 3 36825 0 0
+/users/admin 1 13812 0 0
+/admin/content/node-type/bewertung-tagesgeld/fields/field_dailyallowances_security 2 14422 0 0
+/admin/content/node-type/bewertung-kreditkarte/fields/field_creditcard_apply 2 14502 0 0
+/admin/content/node-type/bewertung-baufinanzierung/fields/field_mortgages_costs 2 14378 0 0
+/admin/content/node-type/bewertung-tagesgeld/fields/field_dailyallowances_service 2 14522 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-ikano-bank-1110 5 48289 0 0
+/produkte/festgeld 2 38148 0 0
+/admin/content/node-type/bewertung-baufinanzierung/fields/field_mortgages_apply 2 14464 0 0
+/node/4143 1 13674 0 0
+/node/48292/edit 1 23812 0 0
+/admin/content/node-type/bewertung-autokredit/fields/field_carloans_commitment 3 28617 0 0
+/banken/psd-bank-braunschweig 1 32143 0 0
+/node/3929 1 31042 0 0
+/admin/content/node-type/bewertung-girokonto/fields/field_currentaccount_credinteres 2 14437 0 0
+/admin/content/node-type/bewertung-bank/fields 2 38829 0 0
+/admin/content/node-type/bewertung-kreditkarte/fields/field_creditcard_service 2 14527 0 0
+/admin/content/node-type/bewertung-baufinanzierung/fields 5 99776 0 0
+/admin/content/node-type/bewertung-girokonto/fields/field_currentaccount_mrpinterest 2 14448 0 0
+/banken 2 59778 0 0
+/node/48291/edit 1 23794 0 0
+/node/52365/edit 1 23746 0 0
+/verifyMail/52373/c25d69c138988e4959286bcaf623e04f 1 25 0 0
+/produkte/festgeld/novo-banco-festgeld 2 14996 0 0
+/node/90 1 13785 0 0
+/banken/bewertungen/223/debeka-bausparkasse 1 12542 0 0
+/verifyMail/52375/2d160e4cc9047420412a3c2ac04e7edf 1 25 0 0
+/produkte/tagesgeld 18 596693 0 0
+/node/6505 1 13645 0 0
+/company/company 1 25 0 0
+/produkte/girokonto/norisbank-Top-Girokonto 2 28135 0 0
+/admin/content/node-type/bewertung-festgeld/fields/field_fixeddeposits_credit 2 14407 0 0
+/admin/content/node-type/bewertung-festgeld/fields/field_fixeddeposits_service 2 14502 0 0
+/admin/build/views/edit/latestRated 4 58500 0 0
+/admin/content/node-type/bewertung-autokredit/fields/field_carloans_apply 2 14369 0 0
+/admin/content/node-type/bewertung-festgeld/fields/field_fixeddeposits_apply 2 14478 0 0
+//banken/weltsparen 1 9016 0 0
+/node/37323 5 91641 0 0
+/admin/content/node-type/bewertung-bank/fields/field_bank_apply 2 14421 0 0
+/banken/bewertungen/243/ikano-bank 2 27893 0 0
+/admin/content/node-type/bewertung-mietkaution/fields/field_rentalbonds_commitment 2 14388 0 0
+END_SIDER

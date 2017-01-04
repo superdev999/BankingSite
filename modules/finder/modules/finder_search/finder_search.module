@@ -1,0 +1,112 @@
+<?php
+// $Id: finder_search.module,v 1.1.2.27 2009/07/22 03:02:53 danielb Exp $
+
+/**
+ * @file
+ * The finder search module.
+ */
+
+/**
+ * Implementation of hook_theme().
+ */
+function finder_search_theme() {
+  return array(
+    'finder_search_results' => array(
+      'arguments' => array(
+        'results' => NULL,
+        'finder' => NULL,
+        'form_state' => NULL,
+      ),
+    ),
+  );
+}
+
+/**
+ * Implementation of hook_form_FORM-ID_alter().
+ */
+function finder_search_form_finder_admin_edit_alter(&$form, $form_state) {
+  $finder = &$form_state['storage']['finder'];
+
+  $form['settings']['advanced']['search'] = array(
+    '#type' => 'radios',
+    '#title' => t('Use search module'),
+    '#default_value' => isset($finder->settings['advanced']['search']) ? $finder->settings['advanced']['search'] : 0,
+    '#weight' => 50,
+    '#options' => array(
+      0 => t('Do not use search module.'),
+      1 => t('Attempt to fetch results from a content search when finder results are empty.'),
+    ),
+  );
+
+}
+
+/**
+ * Implementation of hook_theme_registry_alter().
+ */
+function finder_search_theme_registry_alter(&$theme_registry) {
+  variable_set('finder_search_finder_results_theme', $theme_registry['finder_results']['function']);
+  $theme_registry['finder_results']['function'] = 'finder_search_preprocess_finder_results';
+}
+
+/**
+ * Intervene before theme function.
+ */
+function finder_search_preprocess_finder_results($results, $finder, $keywords, $pager, $params, $form_state) {
+  $theme_func = variable_get('finder_search_finder_results_theme', 'theme_finder_results');
+
+  if ($finder->settings['advanced']['search'] && empty($results)) {
+    $keys = array();
+    foreach ($keywords as $finder_element_id => $finder_element_keywords) {
+      foreach ((array)$finder_element_keywords as $keyword) {
+        $keys[] = $keyword;
+      }
+    }
+    $results_array = finder_search_get_result(implode(' ', $keys));
+    $results = theme('finder_search_results', $results_array, $finder, $form_state);
+
+    // search module has it's own pager
+    $pager = 0;
+  }
+
+  return $theme_func($results, $finder, $keywords, $pager, $params, $form_state);
+
+}
+
+/**
+ * Get results array from search module.
+ */
+function finder_search_get_result($keys = NULL, $type = 'node') {
+  if (isset($keys)) {
+    if (module_hook($type, 'search')) {
+      return module_invoke($type, 'search', 'search', $keys);
+    }
+  }
+}
+
+/**
+ * Get themed version of results from search module.
+ */
+function finder_search_get_themed_results($results) {
+  $output = '';
+  if (isset($results) && is_array($results) && count($results)) {
+    if (module_hook($type, 'search_page')) {
+      $output .= module_invoke($type, 'search_page', $results);
+    }
+    else {
+      $output .= theme('search_results', $results, $type);
+    }
+  }
+  return $output;
+}
+
+/**
+ * Theme function for a search result.
+ */
+function theme_finder_search_results($results, $finder, $form_state) {
+  $output = '';
+  $output .= finder_search_get_themed_results($results);
+  return $output;
+}
+
+// to do: 
+// - ability to exclude certain fields from being included in the search keywords

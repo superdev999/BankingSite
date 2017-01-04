@@ -1,0 +1,5 @@
+name = Nova CompanyUser
+description = Adjustments for company users
+package = Nova
+version = 0.3
+core = 6.x

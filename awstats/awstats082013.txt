@@ -1,0 +1,277 @@
+AWSTATS DATA FILE 7.2 (build 1.992)
+# If you remove this file, all statistics for date 201308 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 1979                
+POS_TIME 2641                
+POS_VISITOR 6164                
+POS_DAY 6487                
+POS_DOMAIN 3314                
+POS_LOGIN 3565                
+POS_ROBOT 3764                
+POS_WORMS 3931                
+POS_EMAILSENDER 4062                
+POS_EMAILRECEIVER 4205                
+POS_SESSION 6682                
+POS_SIDER 6836                
+POS_FILETYPES 4340                
+POS_DOWNLOADS 4575                
+POS_OS 4623                
+POS_BROWSER 4728                
+POS_SCREENSIZE 4882                
+POS_UNKNOWNREFERER 4956                
+POS_UNKNOWNREFERERBROWSER 5043                
+POS_ORIGIN 5125                
+POS_SEREFERRALS 5262                
+POS_PAGEREFS 5406                
+POS_SEARCHWORDS 5554                
+POS_KEYWORDS 5706                
+POS_MISC 2305                
+POS_ERRORS 5765                
+POS_CLUSTER 3421                
+POS_SIDER_404 5855                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20130901001109 224 49603 44637065426
+FirstTime 0
+LastTime 20130823152508
+LastUpdate 20130901021414 7 0 6 0 0
+TotalVisits 3                   
+TotalUnique 3                   
+MonthHostsKnown 4                   
+MonthHostsUnknown 0                   
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 1 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 0 0 0 16 19 9187
+1 0 0 0 10 15 6015
+2 0 0 0 20 25 10025
+3 0 0 0 15 18 7218
+4 0 0 0 18 21 8020
+5 0 0 0 19 23 9223
+6 0 0 0 27 31 12431
+7 0 0 0 29 37 14837
+8 0 0 0 22 28 33762
+9 26 240 917574 29 33 13233
+10 40 80 386786 23 28 12906
+11 78 107 465867 20 25 10025
+12 0 15 48762 17 24 9624
+13 0 6 0 28 33 13233
+14 0 0 0 32 42 16842
+15 33 361 915172 35 44 21291
+16 41 214 594327 28 34 13233
+17 74 364 940195 39 44 40117
+18 44 171 436620 52 59 23258
+19 0 0 0 35 41 16441
+20 0 0 0 26 30 12030
+21 0 0 0 24 28 9624
+22 0 0 0 23 28 33349
+23 0 0 0 17 19 7619
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 2
+de 192 1131 2935076
+net 144 427 1770227
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 1
+bankingcheck 336 976 3161717 20130823152508
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 1
+googlebot 7 78833 20130825224543 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 9
+css 269 231782 0 0
+php 138 39698 0 0
+png 350 599530 0 0
+ico 13 12684 0 0
+html 13 186176 0 0
+js 302 841622 0 0
+jpg 82 715482 0 0
+Unknown 185 1820012 0 0
+gif 206 258317 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 3
+win8 358 33
+macosx8 840 236
+win7 360 67
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 5
+chrome28.0.1500.95 413 92
+chrome29.0.1547.57 598 93
+firefox22.0 385 135
+msie7.0 27 0
+firefox23.0 135 16
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 0
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 13 66
+From1 0 0
+From2 0 0
+From3 0 0
+From4 323 1492
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 1
+401 715 284309
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 0
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 4
+p57905a3b.dip0.t-ipconnect.de 159 746 1971142 20130822181527
+gw.ts58.kae.de.codekunst.net 144 427 1770227 20130823115242
+hsi-kbw-046-005-002-093.hsi8.kabel-badenwuerttemberg.de 33 358 898918 20130823152508
+91-64-97-221-dynip.superkabel.de 0 27 65016 
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 6
+20130805 0 9 16254 0
+20130809 0 3 16254 0
+20130822 159 746 1971142 1
+20130823 177 785 2669145 2
+20130826 0 12 16254 0
+20130829 0 3 16254 0
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 2
+1h+ 2
+5mn-15mn 1
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 26
+/sites/all/modules/ad/serve.php 138 39698 0 2
+/admin/content/node/overview 46 580639 0 1
+/node/add/bewertung-girokonto 29 155558 0 0
+/admin/content/import/bankimport 29 249748 0 0
+/node 21 251368 0 0
+/ 13 186176 3 0
+/produkte/girokonto/berliner-volksbank-vr-privatkonto 8 59134 0 0
+/bewerten 7 58820 0 0
+/node/add/bewertung-tagesgeld 6 44609 0 0
+/node/4068/edit 4 63986 0 0
+/produkte/girokonto 1 18722 0 0
+/node/10851/activity 2 14218 0 0
+/node/10852/edit 3 25498 0 0
+/node/add/bewertung-festgeld 4 26772 0 0
+/node/10852/activity 2 14220 0 0
+/users/ahoenig 3 22195 0 0
+/user/494/edit 1 8597 0 0
+/node/10862/edit 3 49505 0 0
+/banken/berliner-volksbank 1 6887 0 0
+/news 2 19308 0 0
+/produkte/tagesgeld/santander-direkt-bank-superkonto 4 42027 0 0
+/node/10858/edit 1 24656 0 0
+/produkte/festgeld/Berliner-Volksbank-Festgeld 2 13512 0 0
+/produkte/tagesgeld/santander-direkt-bank-geldkonto 1 6769 0 0
+/node/10851/edit 4 51034 0 0
+/produktbewertungen/girokonto/bewertung-girokonto-von-ahoenig-berliner-volksbank 1 12230 0 0
+END_SIDER

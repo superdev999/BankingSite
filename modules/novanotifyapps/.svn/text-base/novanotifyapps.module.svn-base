@@ -1,0 +1,108 @@
+<?php
+
+
+function novanotifyapps_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL)
+{
+	ob_start();
+	$debugFile = $_SERVER['DOCUMENT_ROOT']."/modules/novanotifyapps/debug_nodeapi.txt";
+	#echo "\nNodeapi called with ".$op." for nid ".$node->nid."\n";
+	switch ($op)
+	{
+		case 'insert':
+		case 'update':
+		#case 'load':
+			echo "\n\nInsert or update called for Nid ".$node->nid.". Status: ".$node->status."\n";
+			// Check if node is published
+			if ($node->status == 1) {
+				// Check if it is a rating
+				if ($node->type=="shortnews" || $node->type=="story") {
+					echo "Got a published news.\n";
+					novanotifyapps_notifyServer($node);
+				} else {
+					echo "Not a news: ".$node->type."\n";
+				}
+			} else {
+				echo "Node not published.\n";
+			}
+			break;		
+		#default: echo "op: ".$op." for node ".$node->nid.", type ".$node->type.", status ".$node->status."\n";
+	}
+	// Output debug info
+	file_put_contents($debugFile, ob_get_clean(), FILE_APPEND);
+}
+
+function novanotifyapps_notifyServer($newsNode)
+{
+	$dataFile = $_SERVER['DOCUMENT_ROOT']."/modules/novanotifyapps/notified.txt";
+	$server_BC_iOS = "apps.bankingcheck.de/BC_IOS/index.php?action=SENDNOTIFY&param=";
+	$server_BC_Android = "apps.bankingcheck.de/BC_ANDROID/index.php?action=SENDNOTIFY&param=";
+	
+	
+	if ($newsNode->type=="shortnews" || $newsNode->type=="story")
+	{
+		$nid = $newsNode->nid;
+		if (is_file($dataFile)) $serialized = file_get_contents($dataFile);
+		$trailer = "";
+		$deserialized = unserialize($serialized);
+		if ($deserialized !== false)
+		{
+			#echo "Unserializing ".$serialized;
+			$trailer .= print_r($deserialized, true);
+			$alreadyNotifiedFor = $deserialized;
+			echo "\nUnserialized: ";
+			print_r($alreadyNotifiedFor);
+		}
+		else
+		{
+			echo "New array created.\n";
+			$alreadyNotifiedFor = array();
+		}
+		// Schauen, ob bereits benachrichtigt
+		// wenn nicht, einzelne Push Server aufrufen
+		if (!in_array($newsNode->nid, $alreadyNotifiedFor))
+		{
+			// type bestimmen
+			if ($newsNode->type=="story")
+			{
+				$type = "news";
+			}
+			else // ($newsNode->type=="shortnews")
+			{
+				$type = "shortnews";
+			}
+			
+			// titel holen und umwandeln nach "This+is+the+title"
+			$title = $newsNode->title;
+			$titleofthepost = urlencode($title);
+			
+			// iOS Push
+			$ch1 = curl_init();
+			$pushurl_bc_ios = $server_BC_iOS.$titleofthepost."&type=".$type;
+			curl_setopt($ch1, CURLOPT_URL, $pushurl_bc_ios);
+			curl_setopt($ch1, CURLOPT_HEADER, 0);
+			curl_exec($ch1);
+			curl_close($ch1);
+			
+			
+			// Android Push
+			$ch2 = curl_init();
+			$pushurl_bc_android = $server_BC_Android.$titleofthepost."&type=".$type;
+			curl_setopt($ch2, CURLOPT_URL, $pushurl_bc_android);
+			curl_setopt($ch2, CURLOPT_HEADER, 0);
+			curl_exec($ch2);
+			curl_close($ch2);
+			
+			// speichern, dass schon gesendet wurde
+			$alreadyNotifiedFor[] = $newsNode->nid;
+		}
+		else
+			echo "Already notified\n";
+		
+		$serialized = serialize($alreadyNotifiedFor);
+		echo $serialized;
+		file_put_contents($dataFile, $serialized);
+	}		
+	else
+		echo "Not a news: ".$newsNode->type."\n";
+}
+?>

@@ -1,0 +1,334 @@
+<?php
+function novacompanyuser_menu() {
+	$items['user/registercompany'] = array(
+    	'title' => 'Create new companyaccount',
+    	'page callback' => 'drupal_get_form',
+    	'page arguments' => array('user_register'),
+    	'access callback' => 'user_register_access',
+    	'type' => MENU_LOCAL_TASK,
+	);
+	$items['company/%'] = array(
+			'page callback' => 'novacompanyuser_callPart',
+    	'page arguments' => array(1),
+    	'access callback' => 'novacompanyuser_accessCompanyFunctions',
+	);
+	return $items;
+}
+
+function novacompanyuser_form_alter($form, &$form_state, $form_id) {
+	$formName = $form["form_id"]["#id"];
+	if($formName == "edit-user-profile-form" || $formName == "edit-user-register") {
+		$result = db_query("SELECT nid, title FROM `content_type_bank` JOIN node USING(nid) ORDER BY title");
+		#var_dump($form)
+		while ($object = db_fetch_object($result)) {
+			#echo $object->title."<br>";
+			#$companyIdArray[] = $object->nid;
+			$form['Persönliche Informationen']['profile_company_id']['#options'][$object->nid] = $object->title;
+		}
+		if ($formName == "edit-user-profile-form") {
+			$form['Persönliche Informationen']['profile_company_id']['#disabled'] = TRUE;
+			$form['Rechtliche Hinweise']['profile_company_agb']['#disabled'] = TRUE;
+		}
+		#var_dump($form['Persönliche Informationen']['profile-company-agb']['#disabled']);
+	} elseif ($formName == "edit-reply-node-form") {
+		#drupal_add_css('#edit-field-reply-reference-0-nid-nid-wrapper{display:none;}', array('type' => 'inline'));
+		#var_dump($form);
+	} #else echo $formName;
+}
+
+/**
+ * Implementation of hook_user().
+ */
+function novacompanyuser_user($type, &$edit, &$user, $category = NULL) {
+	#echo $type.$user->name;
+	$pathArgs = arg();
+	//var_dump($user);
+	if ($type == 'form') {
+		if (in_array('Unternehmen', array_values($user->roles))) {
+			// Leere Tabs verstecken
+			drupal_add_js('$jq().ready(function(){$jq(".tabs .secondary>li:eq(1), .tabs .secondary>li:eq(4)").hide();});', 'inline');
+		}
+		# check if admin edit
+		if (user_access('administer users')) {
+			#drupal_add_js('modules/novacompanyuser/novacompanyuser.js', 'file');
+		}
+	} elseif ($type == 'insert') {
+		# check if registration was on company page
+		if ($pathArgs[1] == "registercompany") {
+			$role_id = db_result(db_query("SELECT rid FROM {role} WHERE name = '%s'", "Unternehmen"));
+      // apply the new role
+      $edit['roles'][$role_id] = "Unternehmen";
+			#$update['roles'][] = "Unternehmen";
+			#user_save($user, array('roles' => $update));
+		}
+		#print_r($user->roles);
+
+		#die();
+	}
+}
+
+function novacompanyuser_perm() {
+  return array('edit associated bank content', 'edit associated productitem content');
+}
+
+
+function novacompanyuser_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
+	ob_start();
+	$debugFile = $_SERVER['DOCUMENT_ROOT']."/modules/novacompanyuser/debug_nodeapi.txt";
+	echo $GLOBALS['user']->name." wants to ".$op." the node #".$node->nid."\n";
+	if ($op == 'prepare') {
+		// Performance boost: Check if bank item
+		if ($node->type == "bank") {
+			#var_dump($node);
+			if (user_access('edit associated bank content') && $node->nid == NovaBCUser::buildUser($GLOBALS['user']->uid)->getBankId()) {
+				echo "Node #".$node->nid." belongs to user ".$GLOBALS['user']->name.". Access granted.\n";
+			} else {
+				if (!in_array("admin", $user->roles)) {
+					echo "Access denied. Not-admin user ".$GLOBALS['user']->name." tried to access the node #".$node->nid;
+					#drupal_access_denied();
+				}
+			}
+		} else {
+			echo "Not a bank item.";
+		}
+	}
+	file_put_contents($debugFile, ob_get_clean(), FILE_APPEND);
+}
+
+function novacompanyuser_block($op = 'list', $delta = '', $edit = array()) {
+	#dpm($op);
+	// The $op parameter determines what piece of information is being requested.
+	switch ($op) {
+		case 'list':
+			// If $op is "list", we just need to return a list of block descriptions.
+			// This is used to provide a list of possible blocks to the administrator;
+			// end users will not see these descriptions.
+
+	    $blocks['novacompanymenu'] = array(
+	      'info' => t('Companymenu'),
+	      'cache' => BLOCK_CACHE_PER_ROLE | BLOCK_CACHE_PER_PAGE,
+	      'region' => BLOCK_REGION_NONE,
+	      'status' => TRUE,
+	      'weight' => 0,
+	      'visibility' => 1,
+	      'pages' => '*',
+	    );
+			#var_dump($blocks);
+			return $blocks;
+		case 'configure':
+			// If $op is "configure", we need to provide the administrator with a
+			// configuration form. The $delta parameter tells us which block is being
+			// configured. In this example, we'll allow the administrator to customize
+			// the text of the first block.
+			$form = array();
+			return $form;
+		case 'save':
+			// If $op is "save", we need to save settings from the configuration form.
+			// Since the first block is the only one that allows configuration, we
+			// need to check $delta to make sure we only save it.
+			if ($delta == 'sidebarMenu') {
+			}
+			return;
+		case 'view':
+			#echo $delta;
+
+			// If $op is "view", then we need to generate the block for display
+			// purposes. The $delta parameter tells us which block is being requested.
+			switch ($delta) {
+				case 0:
+					// The subject is displayed at the top of the block. Note that it
+					// should be passed through t() for translation.
+					$block['subject'] = t('Title of configurable-text block');
+					// The content of the block is typically generated by calling a custom
+					// function.
+					$block['content'] = novacompanyuser_contents(1);
+					break;
+			}
+			return $block;
+	}
+}
+/**
+* A block content function.
+*/
+function novacompanyuser_contents($which_block) {
+	if (!novacompanyuser_accessCompanyFunctions()) return "";
+	#var_dump($which_block);
+	switch ($which_block) {
+		case 1:
+			// Modules would typically perform some database queries to fetch the
+			// content for their blocks. Here, we'll just use the variable set in the
+			// block configuration or, if none has set, a default value.
+		$html = '
+			<div id="companyMenu">
+				<h2 class="blueBigSignRight">Unternehmensmenü<sup>&nbsp;</sup></h2>
+				<div class="rightInner">
+					<ul style="list-style:none">
+						<li><div class="rightColButton">
+						<a href="/company/company" title="Anbieter" class="fa_button">Anbieter</a>
+					</div></li>
+						<li><div class="rightColButton">
+						<a href="/company/product" title="Produkte" class="fa_button">Produkte</a>
+					</div></li>
+						<li><div class="rightColButton">
+						<a href="/company/reviews" title="Bewertungen" class="fa_button">Bewertungen</a>
+					</div></li>
+						<li><div class="rightColButton">
+						<a href="/company/socialmedia" title="Social Media" class="fa_button">Social Media</a>
+					</div></li>
+						<li><div class="rightColButton">
+						<a href="/company/kwk" title="Kunden werben Kunden" class="fa_button">Kunden werben Kunden</a>
+					</div></li>
+						<li><div class="rightColButton">
+						<a href="/company/reviewprocess" title="Bewertungsprozess" class="fa_button">Bewertungsprozess</a>
+					</div></li>
+						<li><div class="rightColButton">
+						<a href="/company/testseal" title="Testsiegel" class="fa_button">Testsiegel</a>
+					</div></li>
+						<li><div class="rightColButton">
+						<a href="/company/monitoring" title="Monitoring" class="fa_button">Monitoring</a>
+					</div></li>
+					<li><div class="rightColButton">
+						<a href="/company/calculators" title="Rechner Integration" class="fa_button">Rechner Integration</a>
+					</div></li>
+					<li><div class="rightColButton">
+						<a href="/company/news" title="News" class="fa_button">News</a>
+					</div></li>
+					</ul>
+
+					<!--<div class="rightColButton">
+						<a href="/produktbewertungen" title="Alle Bewertungen" class="fa_button"></a>
+					</div>-->
+			  </div>
+			</div>';
+			return $html;
+	}
+}
+
+function novacompanyuser_accessCompanyFunctions() {
+	if ($GLOBALS['user']->uid == 1) return true;
+	return in_array("Unternehmen", $GLOBALS['user']->roles);
+	return false;
+}
+
+function novacompanyuser_callPart($part) {
+	$html = "";
+	switch ($part) {
+		case 'company':
+			$html .= novacompanyuser_company();
+			break;
+		case 'product':
+			$html .= novacompanyuser_product();
+			break;
+		case 'reviews':
+			$html .= novacompanyuser_reviews();
+			break;
+		case 'socialmedia':
+			$html .= novacompanyuser_socialmedia();
+			break;
+		case 'kwk':
+			$html .= novacompanyuser_kwk();
+			break;
+		case 'reviewprocess':
+			$html .= novacompanyuser_reviewprocess();
+			break;
+		case 'testseal':
+			$html .= novacompanyuser_testseal();
+			break;
+		case 'monitoring':
+			$html .= novacompanyuser_monitoring();
+			break;
+		case 'calculators':
+			$html .= novacompanyuser_calculators();
+			break;
+		case 'news':
+			$html .= novacompanyuser_news();
+			break;
+		default:
+			throw new Exception("Error Processing Request", 1);
+			break;
+	}
+	return $html;
+}
+
+
+function novacompanyuser_company() {
+	include("company.php");
+
+	$html = novacompanyuser_companyInner();
+
+	return $html;
+}
+
+function novacompanyuser_product() {
+	include("product.php");
+
+	$html = novacompanyuser_productInner();
+
+	return $html;
+}
+
+function novacompanyuser_reviews() {
+	include("reviews.php");
+
+	$html = novacompanyuser_reviewsInner();
+
+	return $html;
+}
+
+function novacompanyuser_socialmedia() {
+	include("socialmedia.php");
+
+	$html = novacompanyuser_socialmediaInner();
+
+	return $html;
+}
+
+function novacompanyuser_kwk() {
+	include("kwk.php");
+
+	$html = novacompanyuser_kwkInner();
+
+	return $html;
+}
+
+function novacompanyuser_reviewprocess() {
+	include("reviewprocess.php");
+
+	$html = novacompanyuser_reviewprocessInner();
+
+	return $html;
+}
+
+function novacompanyuser_testseal() {
+	include("testseal.php");
+
+	$html = novacompanyuser_testsealInner();
+
+	return $html;
+}
+
+function novacompanyuser_monitoring() {
+	include("monitoring.php");
+
+	$html = novacompanyuser_monitoringInner();
+
+	return $html;
+}
+
+function novacompanyuser_calculators() {
+	include("calculators.php");
+
+	$html = novacompanyuser_calculatorsInner();
+
+	return $html;
+}
+
+function novacompanyuser_news() {
+	include("news.php");
+
+	$html = novacompanyuser_newsInner();
+
+	return $html;
+}
+
+?>

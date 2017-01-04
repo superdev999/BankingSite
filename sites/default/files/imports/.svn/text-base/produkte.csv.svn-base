@@ -1,0 +1,8 @@
+"Name","Rechner","Abfrage","URL"
+"Tagesgeld","tagesgeldrechner","http://data.financeads.net/getxmldata.php?w=13289&key=d2dbb72cc84ff56682acc75ae50e3552&cat=dailyallowances","produkte/Tagesgeld"
+"Festgeld","festgeldrechner","http://data.financeads.net/getxmldata.php?w=13289&key=d2dbb72cc84ff56682acc75ae50e3552&cat=fixeddeposits","produkte/Festgeld"
+"Girokonto","girokontorechner","http://data.financeads.net/getxmldata.php?w=13289&key=d2dbb72cc84ff56682acc75ae50e3552&cat=currentaccounts","produkte/Girokonto"
+"Kreditkarte","kreditkarterechner","http://data.financeads.net/getxmldata.php?w=13289&key=d2dbb72cc84ff56682acc75ae50e3552&cat=creditcards","produkte/Kreditkarte"
+"Depot","depotrechner","http://data.financeads.net/getxmldata.php?w=13289&key=d2dbb72cc84ff56682acc75ae50e3552&cat=brokerage","produkte/Depot"
+"Ratenkredit","ratenkreditrechner","http://data.financeads.net/getxmldata.php?w=13289&key=d2dbb72cc84ff56682acc75ae50e3552&cat=loans","produkte/Ratenkredit"
+"Autokredit","autokreditrechner","http://data.financeads.net/getxmldata.php?w=13289&key=d2dbb72cc84ff56682acc75ae50e3552&cat=carloans","produkte/Autokredit"

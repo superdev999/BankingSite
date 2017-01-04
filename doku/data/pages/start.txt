@@ -1,0 +1,449 @@
+====== To Do-Liste ======
+  * bei den Produkten scheinen die News Verknüpfungen noch nicht zu funktionieren. Sprich das die entsprechenden veröffentlichten News der einzelnen Konten unter der Kontolasche News angezeigt werden. Bspw. http://www.bankingcheck.de/produkte/news/264/OnVista-Bank-FreeBuy-Depot sollte es eine News geben.
+
+
+====== Drupal-Implementierungsnotizen ======
+
+Script zum reindizieren der Votings : http://www.bankingcheck.de/lib/php/exe/reindexVotings.php
+
+<code php>
+<div class="rechner" id="tagesgeldrechner">
+<h1>Tagesgeldrechner</h1>
+<?php
+## fincenceAds Rechner ################################
+$fa_wfid 	= 13289;
+$fa_rechner = 'tagesgeldrechner';
+$fa_url = $_SERVER["REQUEST_URI"];
+include("sites/all/libraries/fa_rechner_php/fa_inc_rechner.php");
+#######################################################
+?>
+</div>
+</code>
+=====Banken====
+^Abfrage^
+|http://data.financeads.net/getxmldata.php?w=13289&key=d2dbb72cc84ff56682acc75ae50e3552&cat=companies|
+=====Produkte====
+^Name^Rechner^Abfrage^Beschreibung^
+|Tagesgeld|tagesgeldrechner|http://data.financeads.net/getxmldata.php?w=13289&key=d2dbb72cc84ff56682acc75ae50e3552&cat=dailyallowances|http://www.financeads.net/docs/api/xml/doc_xmldata_dailyallowances.pdf|
+|Festgeld|festgeldrechner|http://data.financeads.net/getxmldata.php?w=13289&key=d2dbb72cc84ff56682acc75ae50e3552&cat=fixeddeposits|http://www.financeads.net/docs/api/xml/doc_xmldata_fixeddeposits.pdf|
+|Girokonto|girokontorechner|http://data.financeads.net/getxmldata.php?w=13289&key=d2dbb72cc84ff56682acc75ae50e3552&cat=currentaccounts|http://www.financeads.net/docs/api/xml/doc_xmldata_currentaccounts.pdf|
+|Kreditkarte|kreditkarterechner|http://data.financeads.net/getxmldata.php?w=13289&key=d2dbb72cc84ff56682acc75ae50e3552&cat=creditcards|http://www.financeads.net/docs/api/xml/doc_xmldata_creditcards.pdf|
+|Depot|depotrechner|http://data.financeads.net/getxmldata.php?w=13289&key=d2dbb72cc84ff56682acc75ae50e3552&cat=brokerage|http://www.financeads.net/docs/api/xml/doc_xmldata_brokerage.pdf|
+|Ratenkredit|ratenkreditrechner|http://data.financeads.net/getxmldata.php?w=13289&key=d2dbb72cc84ff56682acc75ae50e3552&cat=loans|http://www.financeads.net/docs/api/xml/doc_xmldata_loans.pdf|
+|Autokredit|autokreditrechner|http://data.financeads.net/getxmldata.php?w=13289&key=d2dbb72cc84ff56682acc75ae50e3552&cat=carloans|http://www.financeads.net/docs/api/xml/doc_xmldata_carloans.pdf|
+
+
+
+Login-box oben
+  2 Blocks, ein Standard, ein eigener
+
+Tag-Cloud:
+  Eigener Block verwendet tagadelic-api
+  Gruppierung als Accordion: div[class=accordionItem]
+
+Eigener Block erstellen: admin/build/block/add
+
+URL-Vereinbarungen
+  * News unter bankingcheck.de/news/%postname%/%Art.Number*100% (<=Wichtig für die Block-Anzeigensteuerung)
+    * %postname% == Überschrift des Artikels
+    * Art.Number*100 == mind. 3-stellige Zahl für Google News Vorgabe
+    * Wurde auch eingestellt unter admin/build/path/pathauto
+
+
+
+
+===== Liste der News (=Artikel = story) =====
+{{:listedernewsstartseite.png|}}
+
+  * News sind Artikel (Inhaltstyp Story)
+  * Inhaltstyp wurde mit Beitragsrefenz auf Bank (=bank-Inhaltstyp) versehen
+  * Inhaltstyp wurde mit Beitragsrefenz auf Produkt (=product-Inhaltstyp) versehen
+  * Für die Anzeige wurde ein View (news) erstellt, und zwar
+    * Darstellung: Unformatiert
+    * Zeilendesign: Felder
+    * Bei Felder wurden die entsprechend im Design (gleiche ungefähre Reihenfolge) angegeben Felder ausgewählt
+      * Node: Beitragsdatum
+      * Inhalt: Bank Titel (Link)
+      * Inhalt: Produkt Titel (Link)
+      * Node: Titel
+      * Node: Anrisstext
+      * Node: Link
+      * Node: Anzahl an Kommentaren Anzahl an Kommentaren
+      * Node: Add comment link
+    * Von dem View wurde ein Display für Block erstellt (News as Block)
+    * In den Blöcken (admin/build/block/list) wurde der Block an die entsprechende Stelle gesetzt und eingestellt, dass er nur auf der Startseite und der Aktuelles Seite erscheint
+===== Social Buttons =====
+http://developers.facebook.com/docs/share
+
+http://dev.twitter.com/pages/tweet_button
+
+
+====== Prioritäten ======
+
+===== Priorität 1 =====
+  * Datenbank-Anbindung: Getaktete Abholung der Daten aus den verschiedenen XML-Schnittstellen der Fa. FinanceAds
+  * Aktualisierung der Produktseiten (automatisch) und Newsletter (automatisch) entsprechend der Änderungen
+  * Newsletter normal / manuell
+  * Bankenvergleich
+  * Produktrechner einbinden (FinanceAds)
+  * Suche und Suchergebnis
+  * Google-XML-Sitemap
+  * Google-News-Sitemap
+  * Google-Image-Sitmap
+  * Kommentare & Bewertungen
+  * Freigabeworkflow für Kommentare
+  * Bewertungsprozess entspr. der versch. Produkte umsetzen
+  * Freigabeworkflow für Bewertungen
+  * Banner (automatische Zuordnung zu Produkten)
+  * Links (automatische Zuordnung zu Produkten)
+  * Facebook Implementierung ("Gefällt mir")
+  * Twitter Implementierung (z.B. News)
+  * RSS Feeds etc.
+  * Suchwolke
+  * Forum
+  * einfache Infoseite für Banken (Kontakt)
+===== Priorität 2 =====
+  * Historie (Statistiken): z.B. Verlauf der Zins-Sätze
+  * Umfragen
+  * Einbindung von Siegeln anderer Institutionen (Stiftung Warentest, Finanztest, TÜV)
+===== Priorität 3 =====
+  * Später evt. Anpassungen für Österreich/Schweiz
+  * Interner Bereich für Banken
+  * Facebook-Applikationen
+  * e-Post-Adresse bei Registrierung
+  * Videobewertung
+
+
+====== Pflichtenheft für das Projekt www.bankingcheck.de ======
+01. Oktober 2010
+
+
+===== 1.Ziele des Workshops =====
+
+Im Zuge der Realisierung der Webseite www.bankingcheck.de wurde ein Workshop veranstaltet um alle Funktionalitäten und Features der neuen Seite zu besprechen und zu spezifizieren. Im Wesentlichen ging es um die folgenden Punkte:
+
+allg. Ziele festlegen
+Vorgaben für Design und Technik klären
+die Sitemap grob durchsprechen
+evtl. bei einzelnen Punkten Zuständigkeiten, Zugänge und Datenströme klären
+
+
+===== 2.Ziele der Webseite =====
+
+
+==== 2.1.Zielgruppen ====
+
+
+Folgende Zielgruppen der Seite wurden erörtert:
+Endverbraucher
+Banken (evt. wird es später einen internen Bereich für Banken geben: Für Banken soll eine  eigene kleine Infoseite für interessierte Banken vorgesehen werden. Banken können sich per Mail oder Telefon melden - dann Weiterleitung des Kontaktes an FinanceAds
+
+
+==== 2.2.Marketing ====
+
+
+Der Bereich Marketing (Bannerschaltung, Google AdWords, Affilinet) wird von Herrn Bödger übernommen. Eine Technik für Links, Banner, usw. muss vorgesehen werden - vielleicht eine interne Parametrierseite oder ähnliches (sollte es als Drupal-Plugin geben).
+
+
+==== 2.3.Weitere Ziele ====
+
+
+Folgende Ziele wurden besprochen, d.h. hierauf soll das Hauptaugenmerk fokussiert sein.
+Die wichtigste Funktion der Seite soll die Benutzerbewertung der Banken sein
+Unabhängigkeit von Banken soll klar dargestellt werden
+Redaktion bewertet die Banken anfänglich ebenfalls, damit Content vorhanden ist. Hierfür wird eine Art Gütesiegel (siehe siehe http://www.forium.de/redaktion/test-die-kreditkarte-der-volkswagen-bank/1/) erstellt, das die Bewertung durch die Redaktion wiederspiegelt.
+Benutzer Gütesiegel sollte es auch geben - kann man an die Produkte drankleben und ggf. an die Banken ausgeben (Werbewirkung)
+
+
+==== 2.4.Design ====
+
+
+grundsätzliche Wünsche:
+Auflösung 1280x800 mit optionaler 1024er Variante
+Eine Farbcodierung soll es nicht geben.
+Image: seriös nicht bieder
+Farben:  Verläufe, Grundfarben : Blau/Grau
+Visuals/Bilder im Header sollen eher nicht verwendet werden
+bei Produktseiten und Bankenseiten werden die Banken / Produktlogos und Finanzteste / Stiftung Warentest Logos eingeblendet, selbiges gilt für News. Image System wird von Drupal Es wird ein Logo gestaltet: bankingcheck.de
+3.Technik und Umsetzung
+
+===== 3. Umsetzung =====
+
+==== 3.1.Programmierung ====
+
+
+Die Webseite wird mit der kostenlosen Open-Source-Software Drupal (drupal.org) umgesetzt. Bei der Programmierung werden die grundlegenden Anforderungen an die Barrierefreiheit berücksichtigt. Eine Schriftgrößen-Änderung ist allerdings nicht vorgesehen. Grafikarbeiten sind auf 32bit-Farbtiefe optimiert. Die Website und ihre Inhalte sind optimiert für Internet Explorer 7.x, sowie. Mozilla Firefox ab 3.x jeweils mit Windows als Betriebssystem. Anpassungen an ältere Versionen der o. g. Browser oder an andere Browser und andere Betriebssysteme werden im Einzelfall mit dem Kunden abgesprochen, sofern hierzu Mehraufwendungen notwendig sein sollten. Aktiviertes JavaScript und CSS werden vorausgesetzt. Die Darstellung der Seiten wird für eine Bildschirmauflösung von 1280x800 Pixel optimiert, es gibt aber eine Version für 1024x768 Pixel. Eine zusätzliche Druckversion wird per CSS erstellt, über eine spätere Druckausgabe als PDF wird nachgedacht.
+
+
+==== 3.2. Login für Benutzer ====
+
+
+Benutzer können sich jederzeit über ein Formular neu registrieren oder einloggen.
+
+Die folgenden Felder sollen vorhanden sein. Alle mit * gekennzeichneten Felder sind Pflichtfelder.
+  * Name*
+  * E-Mail*
+  * Adresse
+  * Telefon
+  * Bei der Eingabe wird gefragt für welche Leistungen sich der Besucher interessiert
+  * Wie haben Sie von bankingcheck.de erfahren?
+  * Newsletter An- Abmeldung
+  * AGB's + Datenschutzerklärung gelesen*
+  * e-Post-Adresse (kommt erst später, Priorität 3)
+
+
+==== 3.3.Freigabemechanismus für Kommentare/Bewertungen ====
+
+
+Für die Bewertungen und Kommentare wird zur Authentifizierung ein  Opt-in-Verfahren realisiert. Desweiteren erfolgt eine Freigabe der Kommentare durch die Redaktion. Gäste können ebenfalls  bewerten. Ein Spamschutz (Drupal-Plugin) wird integriert.
+
+
+==== 3.4.Volltextsuche ====
+
+
+Die Suchmaske soll auf jeder Seite an einer zentralen Stelle vorhanden sein. Die einfache Suche besteht aus einem Eingabefeld; durch Klick auf die „Erweiterte Suche“ erhält der Besucher mehrere Optionen zur Auswahl.
+
+Hauptsuche – Startseite:
+Eingabe (1 input-Feld): Produktname (z.B. Tagesgeld)/ Bankname
+
+Erweiterte Suche (Suchoptionen)
+Produkt (z.B. Tagesgeld) vom Benutzer einzugeben
+Bankname
+PLZ
+Ort
+Bewertung (evt. Euro-Münzen 1-6)
+Redaktions-Bewertung
+Weiterempfehlungsrate
+Weitere Kriterien (z.B. nur Onlinebank, mit Auszeichnung?)
+Was ist mir wichtig?: Service, Größe der Bank, Einlagensicherung
+
+
+==== 3.5.Ergebnis-Seiten ====
+
+
+Die Suchergebnis-Seiten sind wie folgt aufgebaut:
+
+Sortierung nach bestimmten Kriterien
+Erweiterte Suchoptionen bleiben erhalten/oben stehen
+Tendenz als Anzeige der letzten Bewertungen (z.B. Pfeil nach oben) - siehe holidaycheck.de
+Auswahl des Bewertungs-Zeitraums (z.B. Zeige die Bewertungen der letzten 3 Monate). Die Bewertungen der letzten 3 Monate wird als Standard eingerichtet.
+
+
+==== 3.6.Suchwolke (Tagcloud) ====
+
+
+Auf der Startseite soll eine Tagcloud (Schlagwortwolke ) zum Einsatz kommen. Der Inhalt wird automatisch (<del>haltautomatisch - manuell noch einstellbar</del>((gibt Plugin nicht her))) aus den Tags der Artikel, News, Seiten erstellt.
+
+Ferner werden bei der Suchwolke (hat nichts mit Tagadelic zu tun):
+
+  * Am besten bewertet
+  * Neue Produkte
+  * Am meisten bewertet
+  * Am häufigsten gesucht
+
+==== 3.7.Fertige Rechner für Produktanfrage ====
+
+
+Fertige Rechner für Produktanfragen werden eingekauft (FinanceAds). Diese errechnen aus unseren bei FinanceAds hinterlegten Daten das Ranking und die Werte des Rechners und der Ausgabe. Gesamtbewertung und  ggf. Bewertungslogo wird an FinanceAds übertragen, damit auch nach der Bewertung sortiert werden kann. Technik dazu wird geklärt.
+
+
+==== 3.8.Newsletter ====
+
+
+Registrierte Benutzer erhalten eine Info per Mail wenn sich bei vorher ausgewählten Produkten die Zinsen ändern. Der Versand erfolgt automatisch
+
+Normaler Newsletter: einmal pro Woche werden die aktuellen News an alle Empfänger gesendet. Die Anmeldung erfolgt über ein Double-Opt-in-Verfahren.
+
+==== 3.9.Historie (Statistiken) – Priorität 2 ====
+
+
+Es soll ein Drupal-Modul zum Einsatz kommen, dass den Verlauf verschiedener Werte (z.B. Zins-Sätze darstellt.  Im Vorfeld wird geklärt ob es ein passendes Drupal-Modul gibt?
+
+==== 3.10.Umfragen ====
+
+
+Es soll ein Modul für die Erstellung von Umfragen integriert werden.
+
+==== 3.11.Forum ====
+
+
+Es wird ein Forum-Modul verwendet. Folgende Funktionen sollen enthalten sein:
+Suchfunktion
+mehrere Kategorien (Subforen) z.B. Tagesgeld
+
+
+==== 3.12.Datenimport/Schnittstelle ====
+
+
+Die Bankdaten werden über einen XML-Import der Fa. FinanceAds in die Datenbank geschrieben.
+
+Die Abfragen sehen wie folgt aus:
+
+Bankdaten Allgemein (Infos zu den verfügbaren Banken)
+  * Abfrage - http://data.financeads.net/getxmldata.php?w=13289&key=d2dbb72cc84ff56682acc75ae50e3552&cat=companies
+
+Tagesgeld
+  * Abfrage - http://data.financeads.net/getxmldata.php?w=13289&key=d2dbb72cc84ff56682acc75ae50e3552&cat=dailyallowances
+  * Beschreibung: http://www.financeads.net/docs/api/xml/doc_xmldata_dailyallowances.pdf
+
+Festgeld
+  * Abfrage - http://data.financeads.net/getxmldata.php?w=13289&key=d2dbb72cc84ff56682acc75ae50e3552&cat=fixeddeposits
+  * Beschreibung - http://www.financeads.net/docs/api/xml/doc_xmldata_fixeddeposits.pdf
+
+Girokonto
+  * Abfrage - http://data.financeads.net/getxmldata.php?w=13289&key=d2dbb72cc84ff56682acc75ae50e3552&cat=currentaccounts
+  * Beschreibung - http://www.financeads.net/docs/api/xml/doc_xmldata_currentaccounts.pdf
+
+Kreditkarte
+  * Abfrage - http://data.financeads.net/getxmldata.php?w=13289&key=d2dbb72cc84ff56682acc75ae50e3552&cat=creditcards
+  * Beschreibung - http://www.financeads.net/docs/api/xml/doc_xmldata_creditcards.pdf
+
+Depot
+  * Abfrage - http://data.financeads.net/getxmldata.php?w=13289&key=d2dbb72cc84ff56682acc75ae50e3552&cat=brokerage
+  * Beschreibung - http://www.financeads.net/docs/api/xml/doc_xmldata_brokerage.pdf
+
+Ratenkredit
+  * Abfrage - http://data.financeads.net/getxmldata.php?w=13289&key=d2dbb72cc84ff56682acc75ae50e3552&cat=loans
+  * Beschreibung - http://www.financeads.net/docs/api/xml/doc_xmldata_loans.pdf
+
+Autokredit
+  * Abfrage - http://data.financeads.net/getxmldata.php?w=13289&key=d2dbb72cc84ff56682acc75ae50e3552&cat=carloans
+  * Beschreibung - http://www.financeads.net/docs/api/xml/doc_xmldata_carloans.pdf
+
+
+==== 3.13.Produkt-Tests (z.B. neue Kreditkarte der Noris-Bank) ====
+
+
+Bei den News oder als Extra-Punkt können Produkt-Tests eingegeben werden.
+
+
+==== 3.14.Bankenvergleich (siehe vergleich.de) ====
+
+
+Der Benutzer kann zu bestimmten Themen einen Vergleich der Banken abrufen. Je nach Thema wird nach unterschiedlichen Kriterien ausgewertet (z.B. bei Tagesgeld: Zinssatz, Einlagensicherung)
+
+
+==== 3.15.Social Media (Facebook/Twitter) ====
+
+
+Social Media (Facebook, Twitter) Links sollen auf jeder Seite integrierbar sein. Die entsprechenden Konten werden von Herrn Bödger erstellt und administriert. Evt. sind spätere Facebook-Applikationen denkbar (Priorität 3).
+
+
+==== 3.16.Interner Bereich für Banken ====
+
+
+Der interne Bereich für Banken wird evt. von FinanceAds verwaltet und soll erst einmal nicht umgesetzt werden (Priorität 3).
+
+
+==== 3.17.Zusammenhängende Informationen ====
+
+
+News zu einer Bank können auf der Detailseite der Bank eingebunden werden.
+
+
+==== 3.18.SEO (Suchmaschinenoptimierung) ====
+
+
+Keywords werden noch genauer definiert. Hier einige Beispiele:
+Finanzen
+bankencheck
+tagesgeld
+girokonto
+
+Meta-Tags
+Description und Keywords sind für jede Seite pflegbar. Ansonsten werden defaul-Werte gesetzt
+
+Seitentitel für jede Seite individuell
+
+Google XML-Sitemap wird automatisiert generiert
+
+Google News-Sitemap (nur aktuelle News als XML)
+Bei jeder News-URL muss eine 5-stellige Nummer angehängt werden
+
+Speaking URL
+
+Offsite-Optimierung/Linkbuilding anbieten
+
+==== 3.19.SEM (Suchmaschinenmarketing) ====
+
+
+Der Bereich SEM wird von Herrn Bödger bearbeitet.
+
+Marketing
+Einfügen von Bannern
+Linksystem (Affiliate -Link verbergen) - 301-Weiterleitung - siehe http://www.tagesgeld-news.de/tagesgeldvergleich/
+
+
+===== 4.Sitemap =====
+
+
+Im folgenden Abschnitt finden Sie eine vorläufige Sitemap:
+
+  * Hauptnavigation (Reiter ähnlich wie holidaycheck.de)
+    * Start (oder ein Haus als Symbol)
+    * News (inkl. RSS-Feed)
+    * Produkte
+    * Banken
+    * Empfehlungen
+    * Ratgeber
+    * Lexikon
+  * Meta-Navigation
+    * Kontakt
+    * Sitemap
+    * Impressum
+
+
+===== 5.Startseite =====
+
+
+Auf der Startseite sollen die folgenden Elemente vorhanden sein:
+
+Vergleich von versch. Produkten
+Tagesgeld
+Girokonto
+...
+Tagcloud
+Suche mit Link auf erweiterte Suche
+Aktuelle News
+Zuletzt bewertet,  Am besten bewertet ...
+Werbung (Banner)
+Mitmachen & Bewerten: siehe holidaycheck.de
+Registieren/Login (evt. mit Formular bei MouseOver)
+
+
+==== 6.Welche Banken werden bewertet? ====
+
+
+Es werden zum Start der Webseite anfänglich ca. 20 Onlinebanken bewertet.
+
+
+
+==== 7.Was wird bewertet? ====
+
+
+Hier finden Sie eine beispielhafte Liste der zu bewertenden Kriterien. Neue Produkte und Kriterien sollen jederzeit hinzugefügt werden können.
+
+Depot
+Kreditkarte
+Sie können auch bei diesen Banken Geld abheben
+Ratenkredit
+Autofinanzierung
+Girokonto
+Sie können auch bei diesen Banken Geld abheben
+Datenbank
+Beispiel XML-folgt
+Bewertungsfelder (z.B. Tagesgeld: Zinssatz, Einlagensicherung, Gültigkeit)
+
+
+==== 8.Seiten-Typen ====
+Detailansicht einer Bank
+Suche
+Tipps
+Bewertungs-Formular
+Nur Produkte werden bewertet
+Evt. Welche Bank ist in allen Bereichen gut
+Weiterempfehlungs-Formular (Weiterempfehlen ja/nein)
+Kriterien als Sterne (1-6)
+optional mit Kommentarfunktion
+Überprüfung
+Zu klären: Gibt es ein Spam-Schutz-Modul für Drupal?

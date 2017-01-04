@@ -1,0 +1,255 @@
+AWSTATS DATA FILE 7.2 (build 1.992)
+# If you remove this file, all statistics for date 201310 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 1979                
+POS_TIME 2644                
+POS_VISITOR 5958                
+POS_DAY 6270                
+POS_DOMAIN 3275                
+POS_LOGIN 3506                
+POS_ROBOT 3705                
+POS_WORMS 3837                
+POS_EMAILSENDER 3968                
+POS_EMAILRECEIVER 4111                
+POS_SESSION 6403                
+POS_SIDER 6562                
+POS_FILETYPES 4246                
+POS_DOWNLOADS 4478                
+POS_OS 4526                
+POS_BROWSER 4606                
+POS_SCREENSIZE 4677                
+POS_UNKNOWNREFERER 4751                
+POS_UNKNOWNREFERERBROWSER 4838                
+POS_ORIGIN 4920                
+POS_SEREFERRALS 5056                
+POS_PAGEREFS 5200                
+POS_SEARCHWORDS 5348                
+POS_KEYWORDS 5500                
+POS_MISC 2307                
+POS_ERRORS 5559                
+POS_CLUSTER 3362                
+POS_SIDER_404 5649                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20131101161318 3295 857226 44788126170
+FirstTime 0
+LastTime 20131008122525
+LastUpdate 20131102021414 1 0 0 0 0
+TotalVisits 3                   
+TotalUnique 3                   
+MonthHostsKnown 3                   
+MonthHostsUnknown 0                   
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 12 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 0 0 0 22 24 8421
+1 0 0 0 13 13 4812
+2 0 0 0 14 15 5614
+3 0 0 0 15 17 6416
+4 0 0 0 17 20 7218
+5 0 0 0 22 29 11629
+6 0 0 0 18 24 9624
+7 0 0 0 26 29 11629
+8 0 0 0 23 29 11629
+9 0 0 0 15 16 6416
+10 39 137 424353 18 26 10426
+11 0 0 0 14 18 7218
+12 39 1033 3452232 17 25 10025
+13 24 139 334610 15 53 20451
+14 0 0 0 18 25 10025
+15 0 0 0 18 26 10426
+16 0 0 0 12 16 6416
+17 0 0 0 13 14 5614
+18 0 0 0 17 24 9624
+19 0 0 0 19 21 8421
+20 0 0 0 9 11 4411
+21 0 0 0 15 20 8020
+22 0 0 0 20 27 10827
+23 0 0 0 15 15 6015
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+de 102 1309 4211195
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 1
+bankingcheck 102 695 1955690 20131008122529
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 9
+css 319 432410 0 0
+php 84 42062 0 0
+png 343 1145005 0 0
+ico 14 29596 0 0
+html 5 86147 0 0
+js 226 1248139 0 0
+jpg 66 909648 0 0
+Unknown 13 136477 0 0
+gif 239 181711 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 1
+linux 1309 102
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 1
+firefox24.0 1309 102
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 0
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 62 69
+From1 0 0
+From2 0 0
+From3 0 0
+From4 40 1240
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 1
+401 523 206515
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 0
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 3
+hsi-kbw-085-216-048-124.hsi.kabelbw.de 39 137 424353 20131007104347
+hsi-kbw-109-193-070-237.hsi7.kabel-badenwuerttemberg.de 39 1033 3452232 20131008124644
+hsi-kbw-095-208-235-091.hsi5.kabel-badenwuerttemberg.de 24 139 334610 20131004135651
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 3
+20131004 24 139 334610 1
+20131007 39 137 424353 1
+20131008 39 1033 3452232 1
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 2
+15mn-30mn 2
+30mn-1h 1
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 16
+/tests/bc-test-mail.php 51 11892 0 2
+/sites/all/modules/ad/serve.php 25 8245 0 1
+/ 5 86147 2 0
+/tests/bc-test-mail-imap.php 5 1472 0 0
+/admin/settings/smtp 3 25760 0 0
+/node 2 24021 0 0
+/user/register 2 7743 0 0
+/admin/build/modules/list 1 27055 0 0
+/logout 1 20 0 0
+/admin/build/modules 1 27012 0 0
+/admin/reports/status 1 12776 0 0
+/admin/help 1 12070 0 0
+/tests/bc-send-mail.php 1 6816 0 0
+/admin/build/modules/list/confirm 1 20 0 0
+/tests/bc-test-mail-ima%C3%BC.php 1 6822 0 0
+/test/bc-send-mail.php 1 6815 1 0
+END_SIDER

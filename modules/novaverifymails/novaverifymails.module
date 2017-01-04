@@ -1,0 +1,173 @@
+<?php
+
+$debugging = false;
+
+function novaverifymails_menu() {
+	$items['verifyMail'] = array(
+			'page callback' => 'novaverifymails_verifyMail',
+			'access arguments' => array('access content'),
+	);
+	return $items;
+}
+
+function novaverifymails_init() {
+	$args = arg();
+	if ($args[0] == "verifyMail") {
+		$GLOBALS['conf']['cache'] = FALSE;
+	}
+}
+
+function novaverifymails_verifyMail($nid, $urlToken) {
+	ob_start();
+	echo "verifyMail called with nid ".$nid." and Token ".$urlToken."\n";
+	if ($debugging == true)
+		$debugFile = $_SERVER['DOCUMENT_ROOT']."/modules/novaverifymails/debug_verifyMail.txt";
+	else
+		$debugFile = "";
+	
+	$novaBCVoting = new NovaBCVoting($nid);
+	
+	$realToken = $novaBCVoting->getToken();
+	$mail = $novaBCVoting->getEmail();
+	$productId = $novaBCVoting->getRatedProductItemNid();
+	echo "\n";
+	if ($urlToken === $realToken) {
+		
+		// Set approval state
+		$novaBCVoting->setMailApproved(1);
+		
+		// save node
+		#echo "State after: ".print_r($novaBCVoting,true)."\n";
+		$novaBCVoting->saveNode();
+
+		// Check if there are corresponding bank-bewertungen
+		// Only if not already a bank-bewertung
+		if ($novaBCVoting->getNode()->type != "bewertung_bank") {
+			$correspondingNodes = $novaBCVoting->getCopiedBankVotings();
+			var_dump($correspondingNodes);
+			foreach ($correspondingNodes as $key => $correspondingNode) {
+				echo "corresponding Bank-bewertung found: ".$correspondingNode->getNid()."\n";
+				$correspondingNode->setMailApproved(1);
+				$correspondingNode->saveNode();
+			}
+			if (count($correspondingNodes) == 0) {
+				watchdog('novaverifymails', $node->type." with nid ".$node->nid." doesn't have a corresponding bewertung_bank.", NULL, WATCHDOG_ERROR);		
+			}
+		} else echo "Node is itself bewertung_bank, no corresponding voting searched.";
+
+		// set message and redirect
+		drupal_set_message("<p>Ihre E-Mail-Adresse wurde bestätigt. Vielen Dank für die Teilnahme!</p>", "status", FALSE);		
+		header('Location: /bewerten?action=mailApproved&nid='.$nid);
+	} else {
+		echo "Bei der Bestätigung ist ein Fehler aufgetreten.".$urlToken." != ".$realToken;
+		drupal_set_message("<p>Bei der Bestätigung ist leider ein Fehler aufgetreten. Bitte melden Sie sich bei uns.</p>", "error", FALSE);		
+		header('Location: /bewerten?action=mailApproved&nid='.$nid);
+	}
+	$messages = ob_get_clean();
+	if ($debugging == true)
+		file_put_contents($debugFile, $messages);
+}
+
+function novaverifymails_cron() {
+	ob_start();
+	echo "verifyMailCron called\n";
+	if ($debugging == true)
+		$debugFile = $_SERVER['DOCUMENT_ROOT']."/modules/novaverifymails/debug_verifyMailCron.txt";
+	else
+		$debugFile = "";
+	$dataFileNotifiedAfterThreeDays = $_SERVER['DOCUMENT_ROOT']."/modules/novaverifymails/notifiedAfterThreeDays.txt";
+	$verifyScriptPath = "/verifyMail/";
+	if (is_file($dataFileNotifiedAfterThreeDays)) $serialized = file_get_contents($dataFileNotifiedAfterThreeDays);
+	$trailer = "";
+	$deserialized = unserialize($serialized);
+	if ($deserialized !== false) {
+		echo "Unserializing ".$serialized;
+		$alreadyNotifiedFor = $deserialized;
+		echo "\nUnserialized: ";
+		print_r($alreadyNotifiedFor);
+	} else {
+		echo "New array created.\n";
+		$alreadyNotifiedFor = array();
+	}
+	echo "Looking for unverified ratings older than three days\n";
+	$time = time();
+	$minusThreeDays = strtotime("-3 days");
+	echo "Current date: ".time(). "(".date("r")."), three days ago was ".$minusThreeDays." (".date("r", $minusThreeDays).")\n";
+	$sql = db_query('SELECT nid FROM `node` WHERE `type` LIKE "bewertung_%" AND uid=0 AND created<%s AND status=0', $minusThreeDays);
+	$i=0;
+	while ($RatingObject = db_fetch_object ($sql)) {
+		if (!in_array($RatingObject->nid, $alreadyNotifiedFor)) {
+			try {
+				$ratingNode = node_load(array("nid" => $RatingObject->nid));
+				$novaBCRating = new NovaBCVoting($ratingNode->nid);
+				
+				/* NVEDIT OS 26.07.2013 
+					Wenn der vote und sein vorgänger nicht anonymous ist gibt es sonst bei NovaBCVoting::getToken in NovaBCVoting::isCopiedBankVoting eine Exception.
+				*/
+				$previousNode = new NovaBCVoting($ratingNode->nid-1);
+				if (!$novaBCRating->isAnonymousVote()) {
+					echo " Do not send reminder mail for nid ".$ratingNode->nid." because it is not anonymous";
+					continue;
+				}
+
+				// Do net send reminder mails for automatically created nodes
+				// Nur wenn previousNode anonym ist muss eine Mail gesendet werden
+				if ($previousNode->isAnonymousVote() && !empty($previousNode->getNode()->type)&& $novaBCRating->isCopiedBankVoting()) {
+					/* assert $previousNode->isAnonymousVote() && $novaBCRating->isAnonymousVote() */
+					echo "  Do not send reminder mail for nid ".$ratingNode->nid." because it is an automatically created bewertung_bank.\n";
+					continue;
+				}			
+
+				$nid = $ratingNode->nid;
+				$token = $novaBCRating->getToken();
+				$mail = $novaBCRating->getEmail();
+				echo "  Sending reminder mail for nid ".$ratingNode->nid." to ".$mail."\n";
+
+				// Building mail
+				$url = BCEmailGenerator::fl($verifyScriptPath.$nid."/".$token);
+				$filename = $_SERVER['DOCUMENT_ROOT']."/emails/verifyRatingReminder/".$token.".html";
+				echo "  Storing mail in ".$filename."\n";
+				$gen = new BCEmailGenerator(NULL, $filename, "&nbsp;");
+				$headline = "Erinnerung: Bitte best&auml;tigen Sie Ihre Bewertung auf BankingCheck, damit ihre Bewertung gespeichert werden kann.";
+				$headerBar = '<img src="'.BCEmailGenerator::fl('/themes/pixture_reloaded/images/people.png').'" style="float: left;"><div style="height: 19px;font-size: 15px;vertical-align: middle;padding-top: 7px;padding-bottom: 5px;padding-left: 9px;float: left;font-weight: bold;">Hallo '.$mail.'</div><div style="float: right;height: 23px;padding-top: 7px;font-size: 13px;background-image: url('.BCEmailGenerator::fl('/themes/pixture_reloaded/images/modal_login.png').');color: white;background-repeat: no-repeat; width: 77px; text-align: center;"><a href="'.BCEmailGenerator::fl('/user/register').'" style="color: white; text-decoration: none;">Mein Profil</a></div><div style="clear:both"></div><hr>';
+				$body = "Sie haben vor einigen Tagen eine Bewertung bei bankingcheck.de abgegeben, bisher aber ihre E-Mail-Adresse noch nicht bestätigt.<br>Wahrscheinlich haben sie unsere E-Mail nur übersehen, daher bitten wir Sie, die Bestätigung heute nachzuholen.<br><img src='".BCEmailGenerator::fl("/sites/default/files/bcgrafiken/readMore.png")."'><a href='".$url."'>Hier Bewertung freigeben</a><br><br>Wenn Sie den Link nicht anklicken können, kopieren Sie bitte folgende URL in ihren Browser: ".$url;
+				$noHtmlBody = "Wenn diese Nachricht in Ihrem E-Mail-Programm nicht richtig angezeigt wird, klicken Sie bitte auf den folgenden Link oder kopieren ihn in die Adresszeile Ihres Browsers: ".$gen->getStaticFileUrl()."\n\n\nSie haben vor einigen Tagen eine Bewertung bei bankingcheck.de abgegeben, bisher aber ihre E-Mail-Adresse noch nicht bestätigt.\nWahrscheinlich haben sie unsere E-Mail nur übersehen, daher bitten wir Sie, die Bestätigung heute nachzuholen.\nBitte bestätigen Sie Ihre Bewertung auf BankingCheck, damit ihre Bewertung gespeichert werden kann:\n\nHier Bewertung freigeben: ".$url."\n\n\n\nCopyright © ".date("Y")." BankingCheck.de\nKontakt: ".BCEmailGenerator::fl("/kontakt")."\nImpressum: ".BCEmailGenerator::fl("/Impressum");
+				$design = new BCEmailGeneratorPartSection(null, $headline, null, null, $body, null, null, $headerBar);
+				$gen->addContent($design);
+				$gen->saveStatic();
+				$email = new Email($mail, BCEmail::$fromAddress, "Erinnerung: Bitte bestaetigen Sie ihre Bewertung auf Bankingcheck.de", $noHtmlBody);
+				$email->addHTML($gen->personalize($user), true);
+				if(!$email->send())	throw new Exception("Can't send to ".$mail);
+					
+				echo "  Storing that mail was already send for this id.\n";
+				$alreadyNotifiedFor[] = $ratingNode->nid;
+			
+			} catch (Exception $e) {
+	    			echo 'Exception abgefangen: ',  $e->getMessage(), "\n";
+	    			echo $e->getTraceAsString();
+	    			echo "\n";
+	    			echo "continue...\n";
+			}
+			
+
+		} else echo "  ".$RatingObject->nid." was already notified.\n";
+
+		if($i%50 == 0) {
+			$messages = ob_get_clean();
+			if ($debugging == true)
+				file_put_contents($debugFile, $messages, FILE_APPEND);
+			unset($messages);
+			ob_start();
+		}
+
+		$i++;
+	}
+	$serialized = serialize($alreadyNotifiedFor);
+	#echo $serialized;
+	file_put_contents($dataFileNotifiedAfterThreeDays, $serialized);
+
+	$messages = ob_get_clean();
+	if ($debugging == true)
+		file_put_contents($debugFile, $messages, FILE_APPEND);
+}
+?>

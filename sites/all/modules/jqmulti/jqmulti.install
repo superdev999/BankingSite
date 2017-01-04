@@ -1,0 +1,81 @@
+<?php
+
+/**
+ * @file 
+ * Install file for the jQuery Multi module.
+ */
+
+/**
+ * Implements hook_enable().
+ */
+function jqmulti_enable() {
+  // Check for jQuery Update and warn if not compatible
+  if (module_exists('jquery_update') && !function_exists('jquery_update_jquery_update_alter')) {
+    drupal_set_message(t('The version of jQuery Update installed is not compatible with jQuery Multi. In order to use jQuery Multi you need to update jQuery Update to the latest development release.'), 'warning');
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function jqmulti_uninstall() {
+  $vars = array(
+    'version',
+    'libraries',
+    'load_always',
+    'load_libraries_always',
+  );
+  foreach ($vars as $var) {
+    variable_del('jqmulti_' . $var);
+  }
+  cache_clear_all('jqmulti_files', 'cache');
+}
+
+
+/**
+ * Implements hook_requirements().
+ */
+function jqmulti_requirements($phase) {
+  require_once dirname(__FILE__) . '/jqmulti.module';
+  $requirements = array();
+  $requirements['jqmulti_jquery'] = array(
+    'title' => 'jQuery Multi jQuery library',
+  );
+  switch ($phase) {
+    case 'install':
+    case 'runtime':
+      if (function_exists('libraries_get_path')) {
+        $version = jqmulti_get_version(TRUE);
+        if (!$version) {
+          $requirements['jqmulti_jquery']['description'] = 'jQuery Multi: Could not locate a jQuery library. Please look at the README for instructions and ensure you have placed the library correctly.';
+          $requirements['jqmulti_jquery']['severity'] = REQUIREMENT_ERROR;
+        }
+        else {
+          $requirements['jqmulti_jquery']['value'] = $version;
+          $requirements['jqmulti_jquery']['severity'] = REQUIREMENT_OK;
+        }
+      }
+  }
+  return $requirements;
+}
+
+/**
+ * Enable the new 'Always load libraries and files' option, to ensure the module's
+ * behavior is not changed.
+ */
+function jqmulti_update_6101() {
+  /*
+  * Set the default value for the new option to include libraries assigned to the
+  * jqmulti jQuery library on all pages automatically.
+  *
+  * The logical setting for this on new sites is disabled. However,
+  * this is enabled to mimic existing functionality, so existing
+  * sites aren't unexpectedly affected.
+  */
+  variable_set('jqmulti_load_libraries_always', TRUE);
+  // Display a message to the user to alert them to this new setting.
+  drupal_set_message(t('The jqmulti module previously always included all its files and libraries on every page. This is now an option you can disable, so you can load JS selectively only on some pages.') . '<br />' .
+                     t('This has been enabled for you so that the module functions exactly as it did before.') . '<br />' .
+                     t('You may choose to disable this at the <a href="@url">jqmulti admin settings page</a>.', array('@url' => url('admin/settings/jqmulti'))));
+  return;
+}

@@ -1,0 +1,83 @@
+<?php
+// $Id$
+ 
+/**
+ * @file
+ */
+ 
+/**
+ * Implementation of HOOK_perm().
+ *
+ * @return array An array of the permissions for this module.
+ */
+function searchfilter_perm() {
+    return array('access searchfilter content');
+}
+ 
+/**
+ * Implementation of HOOK_db_rewrite_sql. Rewrite the search database query and 
+ * add in the node types that have been selected.
+ *
+ * @param string $query         Query to be rewritten.
+ * @param string $primary_table Name or alias of the table which has the primary key field for this query. 
+ * @param string $primary_field Name of the primary field.
+ * @param array  $args          Array of additional arguments.
+ * 
+ * @return array The addition to the where statement to be used by the search
+ *               query.
+ */
+function searchfilter_db_rewrite_sql($query, $primary_table, $primary_field, $args) {
+    // Users with the correct permissions can search for all content on the site.
+    if (!user_access('access searchfilter content')) {
+        if ($query == '' && $primary_table == 'n' && $primary_field = 'nid' && empty($args)) {
+            $excluded_types = variable_get('searchfilter_types', array());
+            if (!empty($excluded_types)) {
+                $where = " n.type NOT IN ('" . implode("','", $excluded_types) . "') ";
+                return array('where' => $where);
+            }
+        }
+    }
+}
+ 
+/**
+ * Implementation of HOOK_search, allows the addition of a form component to our
+ * search admin interface.
+ *
+ * @return array The additional form component.
+ */
+function searchfilter_search($op = 'search') {
+        if ('admin' == $op) {
+        $form = array();
+        $form['searchfilter_types'] = array(
+            '#type'          => 'select',
+            '#multiple'      => TRUE,
+            '#title'         => t('Exclude Node Types'),
+            '#default_value' => variable_get('searchfilter_types', array()),
+            '#options'       => node_get_types('names'),
+            '#size'          => 9,
+            '#description'   => t('Node types to exclude from search results.'),
+        );
+        return $form;
+    }
+}
+ 
+/**
+ * Implementation of HOOK_form_alter. Alter the search form to restrict the 
+ * selectable node types to just the list that has been saved.
+ * 
+ * @param array  $form       Nested array of form elements that comprise the form.
+ * @param array  $form_state A keyed array containing the current state of the form.
+ * @param string $form_id    String representing the name of the form itself.
+ */
+function searchfilter_form_alter(&$form, &$form_state, $form_id) {
+    if ('search_form' == $form_id) {
+        if (!user_access('access searchfilter content')) {
+            $excluded_types = variable_get('searchfilter_types', array());
+            $types = array_map('check_plain', node_get_types('names'));
+            foreach ($excluded_types as $excluded_type) {
+                unset($types[$excluded_type]);
+            }
+            $form['advanced']['type']['#options'] = $types;
+        }
+    }
+}

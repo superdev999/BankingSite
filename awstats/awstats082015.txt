@@ -1,0 +1,442 @@
+AWSTATS DATA FILE 7.3 (build 20140126)
+# If you remove this file, all statistics for date 201508 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 1982                
+POS_TIME 2648                
+POS_VISITOR 6445                
+POS_DAY 6919                
+POS_DOMAIN 3400                
+POS_LOGIN 3635                
+POS_ROBOT 3839                
+POS_WORMS 3971                
+POS_EMAILSENDER 4102                
+POS_EMAILRECEIVER 4245                
+POS_SESSION 7406                
+POS_SIDER 7589                
+POS_FILETYPES 4380                
+POS_DOWNLOADS 4679                
+POS_OS 4727                
+POS_BROWSER 4848                
+POS_SCREENSIZE 5052                
+POS_UNKNOWNREFERER 5126                
+POS_UNKNOWNREFERERBROWSER 5291                
+POS_ORIGIN 5373                
+POS_SEREFERRALS 5515                
+POS_PAGEREFS 5659                
+POS_SEARCHWORDS 5836                
+POS_KEYWORDS 5988                
+POS_MISC 2310                
+POS_ERRORS 6047                
+POS_CLUSTER 3491                
+POS_SIDER_404 6136                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20150902095649 851 210748 118273168053
+FirstTime 0
+LastTime 20150828150448
+LastUpdate 20150903021427 1 0 0 0 0
+TotalVisits 25                  
+TotalUnique 6                   
+MonthHostsKnown 6                   
+MonthHostsUnknown 0                   
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 261 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 117 2861 26537044 3 66 193093
+1 227 5882 41829186 1 37 195265
+2 18 522 4742884 0 4 1989
+3 0 0 0 0 0 0
+4 0 0 0 0 1 401
+5 0 0 0 1 2 802
+6 0 0 0 0 0 0
+7 0 0 0 1 2 802
+8 0 0 0 0 0 0
+9 34 4308 22463324 5 55 312901
+10 50 4728 28107138 7 32 124708
+11 27 1167 8376033 2 19 384747
+12 30 2310 15351630 0 3 27454
+13 67 3352 21429995 1 21 864338
+14 48 1579 10416996 5 24 306095
+15 341 11493 96466078 1 37 1117795
+16 146 6526 43388085 4 19 233491
+17 232 12123 85343944 0 21 354491
+18 195 12069 67672758 4 23 679746
+19 65 878 5408668 4 10 5550
+20 0 0 0 0 2 802
+21 0 0 0 0 0 0
+22 66 1268 5237884 0 7 11425
+23 113 3030 21437114 5 24 37794
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+de 1776 74096 504208761
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 1
+bankingcheck 1776 34322 291750048 20150828150448
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 11
+css 16344 38342609 0 0
+png 6753 69811294 0 0
+ttf 63 213243 0 0
+ico 716 1363530 0 0
+woff 15 563552 0 0
+php 354 66116 0 0
+html 434 20285367 0 0
+jpg 3937 86645823 0 0
+js 9511 94037536 0 0
+Unknown 910 39730896 0 0
+gif 35059 153148795 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 4
+macosx 60 4
+Unknown 278 2
+linux 71690 1675
+win7 2068 95
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 7
+chrome44.0.2403.125 60 4
+opera31.0.1889.99 129 8
+firefox40.0 46161 916
+firefox38.0 1174 41
+firefox39.0 24953 698
+chrome44.0.2403.130 1616 109
+msie7.0 3 0
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 1
+Mozilla/5.0_(Android;_Mobile;_rv:40.0)_Gecko/40.0_Firefox/40.0 20150818105355
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 165 1156
+From1 0 0
+From2 0 0
+From3 2 2
+From4 1609 72938
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 1
+https://www.facebook.com 2 2
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 1
+401 126 50526
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 0
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 6
+host-114-97.kawo1.rwth-aachen.de 762 24729 164456256 20150810172736
+hsi-kbw-37-49-24-220.hsi14.kabel-badenwuerttemberg.de 471 26199 177350432 20150817181328
+p54b3658d.dip0.t-ipconnect.de 399 19196 144337063 20150818163012
+ip1-vt.berlin.isp.ekomi.de 95 2068 10413929 20150828150448
+host-114-93.kawo1.rwth-aachen.de 45 1844 7110111 20150806001538
+p57a3aeaf.dip0.t-ipconnect.de 4 60 540970 20150813162014
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 16
+20150805 42 1733 6651063 1
+20150806 140 2668 20466071 2
+20150807 268 9707 64578516 2
+20150808 131 3085 22898720 1
+20150809 154 4401 30566836 1
+20150810 109 5753 29882660 3
+20150813 14 439 2787629 2
+20150814 20 462 2177961 2
+20150815 163 10320 71588256 2
+20150817 298 15500 103515517 2
+20150818 399 19196 144337063 3
+20150819 0 3 16254 0
+20150824 8 525 2854342 1
+20150826 4 4 56425 1
+20150827 20 294 1767258 1
+20150828 6 6 64190 1
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 5
+1h+ 9
+5mn-15mn 2
+30s-2mn 6
+0s-30s 3
+30mn-1h 5
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 171
+/ 394 18597366 15 1
+/sites/all/modules/ad/serve.php 352 65501 0 16
+/admin/build/views/ajax/preview/news 104 6440397 0 0
+/admin/build/views/edit/news 69 7366730 1 0
+/themes/bankingcheck2015/icons/icomoon.ttf 63 213243 0 1
+/startseite 33 1484762 0 0
+/admin/build/views/ajax/display/news/default/analyze-theme 25 53222 0 0
+/node/52424/edit 23 622336 0 0
+/produkte/baufinanzierung 22 1020018 0 0
+/admin/build/menu-customize/menu-mainmenu 21 494727 0 0
+/admin/user/user 3 245634 0 0
+/admin/build/views/clone/news 1 72393 0 0
+/user/924/edit 1 8538 0 0
+/produkte/girokonto/postbank-giro-plus 1 8140 0 0
+/empty 1 9584 0 0
+/admin/settings/devel 3 60746 0 0
+/admin/build/views/ajax/display/news/page_2/css_class 1 924 0 0
+/admin/build/views/ajax/add-display/news 4 11755 0 0
+/banken/amazon-payments 10 857393 0 0
+/admin/build/views/ajax/display/news/default/items_per_page 1 817 0 0
+/admin/build/views/nojs/add-item/news/default/argument 1 80830 0 0
+/admin/build/views/ajax/display/news/page_2/path 18 135347 0 0
+/admin/build/views/ajax/config-item/news/page_2/filter/type 2 9690 0 0
+/admin/build/views/ajax/display/new_products/default/style_plugin 1 7174 0 0
+/admin/build/menu-customize/ 3 29907 0 0
+/news/sommeraktion-bei-den-hanseatic-bank-kreditkarten-bis-zu-75eur-geschenkt-52411 3 34715 0 0
+/comment/reply/17306 1 65116 0 0
+/produkte/ratenkredit/lendico-unternehmenskredit 1 20000 0 1
+/admin/build/path-redirect 2 102746 0 0
+/admin/build/modules 14 3796461 0 1
+/admin/user/user/list 2 307758 0 0
+/admin/settings/jqmulti 2 116047 0 0
+/produkte/ratenkredit 1 3022 0 1
+/fintech-startup 2 71732 0 0
+/admin/settings 7 81575 0 0
+/admin/build/menu-customize/navigation 1 91284 0 0
+/node/4043/edit 4 113115 0 0
+/admin/build/menu-customize/menu-mainmenu/add 8 93810 0 0
+/produkte/kreditkarte 16 567594 0 0
+/admin/build/block/configure/ad/25 1 11218 0 0
+/admin/build/themes/settings 3 43831 0 0
+/admin/build/views/ajax/config-item/news/block_1/filter/type 2 8845 0 0
+/admin/build/views/ajax/display/new_products/default/pager_options 1 2239 0 0
+/admin/build/themes/settings/bankingcheck2015 15 137599 0 0
+/admin/content/node/overview 9 1095267 0 0
+/admin/settings/logging 1 9539 0 0
+/admin/build/views/ajax/display/news/page_2/style_plugin 2 21360 0 0
+/banken/mbs-direkt 1 19596 0 0
+/node/add/page 1 19820 0 0
+/news/article 6 99359 0 0
+/node/17306/activity 1 16998 0 0
+/produktbewertungen/baufinanzierung/bewertung-baufinanzierung-von-anonymous-ing-diba-52318 3 58218 0 0
+/admin/build/modules/list/confirm 4 100 0 0
+/produkte/girokonto/dkb-cash-girokonto 1 11154 0 0
+/admin/build/views/ajax/add-item/news/default/argument 3 35015 0 0
+/admin/build/views/ajax/display/news/page_2/access 3 46263 0 0
+/node/375 1 18435 0 0
+/ratgeber 5 35777 0 0
+/admin/settings/logging/dblog 1 9900 0 0
+/admin/build/views/ajax/display/news/default/css_class 2 1301 0 0
+/admin/build/views/ajax/display/news/page_2/row_plugin 1 1045 0 0
+/admin/user 1 65052 0 0
+/admin/build/path-redirect/delete/3213 2 16776 0 0
+/node/17306/track 1 17133 0 0
+/node/7/edit 5 285088 0 0
+/admin/build/block/configure/block/6 1 72882 0 0
+/admin/build/views/ajax/add-item/news/block_2/field 1 14095 0 0
+/admin/build/menu-customize/primary-links 2 78457 0 0
+/admin/build/views/ajax/display/news/block_2/display_title 2 28495 0 0
+/node/52411/edit 1 32680 0 0
+/news 10 332429 0 0
+/admin/build/views/edit/new_products 5 405865 0 0
+/admin/build/views/ajax/display/news/block_2/pager 2 2146 0 0
+/news/shortnews 8 736252 0 0
+/node/371/edit 3 40641 0 0
+/node/10 1 13292 0 0
+/admin/user/settings 4 266604 0 0
+/node/add/bewertung-bank 1 18482 0 0
+/news/news/story 1 79614 0 0
+/bankingcheck-award 5 42401 0 0
+/users/nova-godard 2 14773 0 0
+/admin/build/views/ajax/config-item/news/page_2/argument/type 17 121332 0 0
+/admin/build/views/ajax/display/new_products/default/pager 2 3640 0 0
+/admin/user/permissions 1 242613 0 0
+/banken/avuba 1 20764 0 0
+/produkte/tagesgeld/ 19 1416646 0 1
+/node/add/contentonly 3 39690 0 0
+/admin/build/block/configure/block/9 2 25778 0 0
+/admin/build/views 14 957078 0 0
+/admin/build/views/ajax/add-item/news/block_1/argument 4 46434 0 0
+/node/36470 1 19672 0 0
+/admin/build/block 21 680109 0 0
+/admin/build/views/edit/banken 1 24697 0 0
+/admin/content/node 6 922212 0 0
+/admin/build/path-redirect/list/news/story 3 136858 0 0
+/admin/build/views/ajax/config-item/news/default/field/nid 1 6667 0 0
+/user/894/edit 5 208879 0 0
+/news/shortnews/ 5 93311 0 0
+/node/371 3 21820 0 0
+/admin/build/views/ajax/preview/new_products 2 23918 0 0
+/admin/build/block/configure/block/3 1 13048 0 0
+/news/story 13 419831 0 0
+/admin/build/views/ajax/display/news/page_2/menu 4 18163 0 0
+/produkte/mietkaution 1 2908 0 0
+/node/17306/edit 2 337784 0 0
+/banken/dkb 1 11008 0 0
+/shortnews 6 107641 1 1
+/forum 5 49760 0 0
+/produkte/depot 1 2969 0 0
+/node/add/bewertung-kreditkarte 1 19461 0 0
+/admin/build/path-redirect/list/news 2 22863 0 0
+/node 5 68402 0 0
+/admin/build/views/ajax/remove-display/news/page_2 1 6658 0 0
+/node/add/bewertung-girokonto 2 9837 0 0
+/admin/build/menu/item/764/delete 2 9877 0 0
+/node/211/edit 1 169195 0 0
+/banken/gls-bank 1 3728 0 0
+/sites/all/libraries/quickrating/listItems-2.php 2 615 0 1
+/admin/build/menu-customize/secondary-links 5 141587 0 0
+/themes/bankingcheck2015/fonts/icomoon.woff 15 563552 0 0
+/admin/build/menu/item/5661/edit 7 328280 0 0
+/admin/build/menu/list 2 19949 0 0
+/users/bankingcheck-melanie 2 32896 0 0
+/admin/build/views/ajax/config-item/news/page_2/argument/null 2 13464 0 0
+/admin/build/views/ajax/rearrange/news/page_2/argument 5 18878 0 0
+/admin/build/views/ajax/config-item/news/default/field/name 3 15297 0 0
+/bewerten 9 131870 1 0
+/fboauth/connect 1 25 0 0
+/admin/build/menu/item/801/edit 2 13328 0 0
+/admin/reports/updates/check 1 25 0 0
+/admin/build/views/ajax/display/news/page_2/display_id 3 7901 0 0
+/admin/build/views/ajax/display/news/page_2/analyze-theme-row 3 9175 0 0
+/banken/cashcloud 12 698740 0 0
+/admin/build/views/ajax/preview/banken 1 2238 0 0
+/admin/build/views/edit/Shortnews 1 28974 0 0
+/produkte/girokonto 10 92072 0 0
+/admin/build/menu/item/5662/edit 7 112700 0 0
+/admin/build/views/ajax/config-item/news/default/argument/type 7 46971 0 0
+/admin/build/views/ajax/add-item/news/default/filter 2 22359 0 0
+/admin/build/themes 13 868959 1 0
+/admin/build/menu/item/13990/edit 2 13451 0 0
+/admin/build/views/ajax/display/news/block_1/analyze-theme 7 69973 1 1
+/admin/settings/site-information 1 10473 0 0
+/admin/build/views/ajax/add-item/news/page_2/field 2 26278 0 0
+/admin_menu/flush-cache 11 275 0 0
+/produkte 17 302005 3 0
+/apps 4 30167 0 0
+/admin/user/profile 1 168071 0 0
+/node/371/delete 2 9693 0 0
+/admin/build/path-redirect/list/news/shortnews 2 41297 0 0
+/node/4117 1 19793 0 0
+/node/23233 1 21073 0 0
+/node/add 1 10332 0 0
+/admin/reports/updates 8 1624121 0 0
+/admin/build/views/ajax/display/news/block_2/pager_options 2 7610 0 0
+/admin/build/menu 6 243419 0 0
+/admin/build/views/ajax/display/news/page_2/display_title 6 41666 0 0
+/banken 18 386450 1 0
+/admin/build/views/ajax/display/news/page_2/analyze-theme 19 172212 0 0
+/admin/build/views/ajax/add-item/news/default/field 5 63580 0 0
+/admin/settings/performance 4 33996 0 0
+/admin/build/views/ajax/display/news/block_2/analyze-theme 7 23840 0 0
+/admin/build/views/ajax/add-item/news/page_2/argument 2 24336 0 0
+/admin/build/views/ajax/config-item/news/default/filter/type 3 15266 0 0
+/admin/build/views/ajax/display/news/page_2/analyze-theme-display 3 28305 0 0
+/admin/build/block/configure/views/banken-block_1 1 70282 0 0
+/admin/build/path-redirect/delete/3212 2 67705 0 0
+/admin/settings/ 13 148137 0 0
+/admin/build/block/configure/views/news-block_1 1 69240 0 0
+/award-2015/paymentdienst 2 28394 1 0
+/admin/build/views/ajax/config-item/news/default/field/created 1 4443 0 0
+END_SIDER

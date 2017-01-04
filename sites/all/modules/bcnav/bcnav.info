@@ -1,0 +1,6 @@
+; $Id: content.info,v 1.6 2007/07/04 23:46:29 yched Exp $
+name = BankingCheck
+description =  Adjustments from Navigate, mainly import and newsletter related code
+package = Sonstige
+core = 6.x
+version = 0.1

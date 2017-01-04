@@ -1,0 +1,711 @@
+<?php
+require_once($_SERVER['DOCUMENT_ROOT']."/lib/php/class.BCDBRelated.php");
+/* $Id$ */
+
+/**
+ * @file
+ * Very simple DRUPAL module
+ */
+
+class Ekomiapi {
+	private $masterToken = '3e08027db9ca60f325cf5c090499b7df49aeb2267a1e99096415de8440b0213e';
+	private $baseUrl = 'http://diverses.ekimp.com/banking_check/api/';
+	private $sessionToken = null;
+
+	public function auth() {
+		$url = $this->baseUrl . 'auth?token=' . $this->masterToken;
+		$res = $this->parseResult($this->getURL($url));
+		$this->sessionToken = $res->sessionToken;
+		// var_dump( $this->sessionToken);
+	}
+
+
+	public function getFeedback($shopId, $from, $to) {
+		if(!isset($this->sessionToken)) {
+			throw new Exception("No session token");
+		}
+		$url = $this->baseUrl . 'getFeedback?token=' . $this->sessionToken . '&shop_id='. urlencode($shopId);
+		if(isset($from)) {
+			$url .= '&from=' . urlencode($from);
+		}
+		if(isset($to)) {
+			$url .= '&to=' . urlencode($to);
+		}
+		echo " ", $url;
+		$res = $this->parseResult($this->getURL($url));
+		return $res;
+	}
+
+	public function getProductFeedback($shopId, $productId, $from, $to) {
+		if(!isset($this->sessionToken)) {
+			throw new Exception("No session token");
+		}
+		$url = $this->baseUrl . 'getProductfeedback?token=' . $this->sessionToken . '&shop_id='. urlencode($shopId) . '&product_id='. urlencode($productId);
+		if(isset($from)) {
+			$url .= '&from=' . urlencode($from);
+		}
+		if(isset($to)) {
+			$url .= '&to=' . urlencode($to);
+		}
+		// var_dump($url);
+		$res = $this->parseResult($this->getURL($url));
+		return $res;
+	}
+
+	private function getURL($url) {
+		$rCURL = curl_init();
+		curl_setopt($rCURL, CURLOPT_URL, $url);
+		curl_setopt($rCURL, CURLOPT_HEADER, 0);
+		curl_setopt($rCURL, CURLOPT_RETURNTRANSFER, 1);
+		$resTxt = curl_exec($rCURL);
+		curl_close($rCURL);
+
+		// $resTxt = file_get_contents($url);
+		// var_dump($http_response_header);
+		return $resTxt;
+	}
+
+	private function parseResult($resTxt) {
+		if($resTxt === FALSE) {
+			throw new Exception("Error on api request");
+		}
+		$res = json_decode($resTxt);
+		if(!isset($res)) {
+			throw new Exception("Unexpected api result: " . $resTxt);
+		}
+		return $res;
+	}
+}
+
+
+class BCeKomiImport extends BCDBRelated {
+
+	public function getBankNode($ekomiShopId) {
+		$sql = 'SELECT nid FROM content_type_bank WHERE field_ekomishopid_value = ' . $ekomiShopId . ';';
+		return $this->getDB()->simple_query($sql);
+	}
+
+	public function getProductNode($ekomiProductId) {
+		$sql = 'SELECT nid FROM content_type_productitem WHERE field_ekomiproductid_value = ' . $ekomiProductId . ';';
+		return $this->getDB()->simple_query($sql);
+	}
+
+	public function markImported($nid) {
+		$sql = 'UPDATE content_field_ekomialreadyimported SET field_ekomialreadyimported_value = 1 WHERE nid = ' . $nid . ';';
+		return $this->getDB()->simple_query($sql);
+	}
+
+	public function getAllBankNodes() {
+		$sql = 'SELECT 
+			n.nid, 
+			n.title, 
+			b.field_ekomishopid_value, 
+			i.field_ekomiimport_value as `enabled`, 
+			d.field_ekomidate_value as `from`, 
+			d.field_ekomidate_value2 as `to`,
+			e.field_ekomialreadyimported_value
+			FROM content_type_bank as b 
+			LEFT JOIN node as n ON b.nid = n.nid 
+			LEFT JOIN content_field_ekomidate as d ON b.nid = d.nid 
+			LEFT JOIN content_field_ekomiimport as i ON b.nid = i.nid 
+			LEFT JOIN content_field_ekomialreadyimported as e ON b.nid = e.nid 
+			WHERE b.field_ekomishopid_value IS NOT NULL;';
+		return $this->getDB()->fullTableArray($sql);
+	}
+
+	public function getAllProductNodes() {
+		 $sql = 'SELECT 
+			n.nid, 
+			n.title, 
+			p.field_ekomiproductid_value, 
+			b.field_ekomishopid_value,
+			i.field_ekomiimport_value as `enabled`, 
+			d.field_ekomidate_value as `from`, 
+			d.field_ekomidate_value2 as `to`,
+			e.field_ekomialreadyimported_value
+			FROM content_type_productitem as p 
+			LEFT JOIN node as n ON p.nid = n.nid 
+			LEFT JOIN content_field_ekomidate as d ON p.nid = d.nid 
+			LEFT JOIN content_field_ekomiimport as i ON p.nid = i.nid 
+			LEFT JOIN content_type_bank as b ON p.field_proditemmybank_nid = b.nid 
+			LEFT JOIN content_field_ekomialreadyimported as e ON p.nid = e.nid 
+			WHERE p.field_ekomiproductid_value IS NOT NULL;';
+		return $this->getDB()->fullTableArray($sql);
+	}
+
+	public function getBankBewertungNode($eKomiOrderId) {
+		$sql = 'SELECT n.nid 
+						FROM content_type_bewertung_bank as n
+						LEFT JOIN content_field_ekomiorderid as f on n.nid = f.nid
+						WHERE f.field_ekomiorderid_value = "' . $eKomiOrderId . '"';
+		if(is_numeric($eKomiOrderId)) {
+			$sql .= ' OR n.nid = '. $eKomiOrderId;
+		}
+		$sql .= ';';
+		// var_dump($sql);
+		return $this->getDB()->simple_query($sql);
+	}
+
+	public function getProduktBewertungNode($type, $eKomiOrderId) {
+		// var_dump($eKomiOrderId);
+		$sql = 'SELECT n.nid 
+						FROM content_type_bewertung_' . $type . ' as n
+						LEFT JOIN content_field_ekomiorderid as f on n.nid = f.nid
+						WHERE f.field_ekomiorderid_value = "' . $eKomiOrderId . '"';
+		if(is_numeric($eKomiOrderId)) {
+			$sql .= ' OR n.nid = '. $eKomiOrderId;
+		}
+		$sql .= ';';
+		// var_dump($sql);
+		return $this->getDB()->simple_query($sql);
+	}
+
+	public function instertBankBewertungNode($bankNodeId, $eKomiFeedback) {
+		$node = new stdClass();
+		
+		$rating = (int)$eKomiFeedback->rating_value * 20;
+		$promote = ((int)$eKomiFeedback->rating_value >= 3 ? 1 : 0);
+		$node->is_new = true;
+		$node->type = 'bewertung_bank';
+		$node->comment = 2;
+		$node->language = 'de';
+		$node->title = 'Bewertung Bank';
+		$node->path = 'produktbewertungen/bank/ekomi-' . $eKomiFeedback->order_id;
+		$node->status = 1;
+		
+		//date("Y-m-d", strtotime("-1 month"));
+		
+		// 14.01.2016 DaBo - new date from ekomi review
+		//$dateekomibankreview = DateTime::createFromFormat("Y-m-d H:i:s",$eKomiFeedback->date,new DateTimeZone('UTC'));
+		$dateekomibankreview = strtotime(($eKomiFeedback->date))+ 3600;
+		$date = $dateekomibankreview;//$dateekomibankreview->getTimestamp();
+
+		$node->field_bank_service = array(array("rating"=>$rating));
+		$node->field_bank_apply = array(array("rating"=>$rating));
+		$node->field_bank_promote = array(array("value"=>$promote));
+		$node->field_bank_comment = array(array("value"=>str_replace('\n', "\n", $eKomiFeedback->review_text)));
+		$node->field_bank_mailapproved = array(array("value"=>1));;
+		$node->field_bank_bankitem = array(array("nid"=>$bankNodeId));
+		$node->field_ekomiorderid = array(array("value"=>$eKomiFeedback->order_id));
+
+		$node->created = $date;
+		$node->changed = $date;
+		
+		$GLOBALS['nova_api_create'] = true;
+		node_save($node);
+		$BCVotingNode = BCVotings::byRatingNode($node);
+		$BCVotingNode->reindex();
+	}
+
+	public function instertProduktBewertungNode($type, $productNode, $eKomiFeedback) {
+		$node = new stdClass();
+
+		$rating = (int)$eKomiFeedback->rating_value * 20;
+		$promote = ((int)$eKomiFeedback->rating_value >= 3 ? 1 : 0);
+		$text = str_replace('\n', "\n", $eKomiFeedback->review_text);
+		//$date = strtotime($eKomiFeedback->date);
+		// 14.01.2016 DaBo - new date from ekomi review
+		//$dateekomiprodreview = DateTime::createFromFormat("Y-m-d H:i:s",$eKomiFeedback->date,new DateTimeZone('UTC'));
+		$dateekomibankreview = strtotime(($eKomiFeedback->date))+ 3600;
+		$date = $dateekomibankreview; //$dateekomiprodreview->getTimestamp();
+
+		$node->is_new = true;
+		$node->type = 'bewertung_' . $type;
+		$node->comment = 2;
+		$node->language = 'de';
+		$node->title = "Bewertung ".ucfirst($type)." von Anonymous | ".$productNode->title;
+		$node->path = 'produktbewertungen/' . $type . '/ekomi-' . $eKomiFeedback->order_id;
+		$node->status = 1;
+		$node->created = $date;
+		$node->changed = $date;
+
+		switch($type) {
+			case 'autokredit':
+				$node->field_carloans_myproductitem = array(array("nid"=>$productNode->nid));
+
+				$node->field_carloans_promote = array(array("value"=>$promote));
+				$node->field_carloans_promote_bank = array(array("value"=>$promote));
+
+				$node->field_carloans_costs = array(array("rating"=>$rating));
+				$node->field_carloans_commitment = array(array("rating"=>$rating));
+				$node->field_carloans_features = array(array("rating"=>$rating));
+				$node->field_carloans_service = array(array("rating"=>$rating));
+				$node->field_carloans_apply = array(array("rating"=>$rating));
+
+				$node->field_carloans_comment = array(array("value"=>$text));
+				$node->field_carloans_mailapproved = array(array("value"=>1));
+			break;
+			case 'baufinanzierung':
+				$node->field_mortgages_myproductitem = array(array("nid"=>$productNode->nid));
+
+				$node->field_mortgages_promote = array(array("value"=>$promote));
+				$node->field_mortgages_promote_bank = array(array("value"=>$promote));
+
+				$node->field_mortgages_costs = array(array("rating"=>$rating));
+				$node->field_mortgages_commitment = array(array("rating"=>$rating));
+				$node->field_mortgages_features = array(array("rating"=>$rating));
+				$node->field_mortgages_service = array(array("rating"=>$rating));
+				$node->field_mortgages_apply = array(array("rating"=>$rating));
+
+				$node->field_mortgages_comment = array(array("value"=>$text));
+				$node->field_mortgages_mailapproved = array(array("value"=>1));
+			break;
+			case 'depot':
+				$node->field_brokerage_myproductitem = array(array("nid"=>$productNode->nid));
+
+				$node->field_brokerage_promote = array(array("value"=>$promote));
+				$node->field_brokerage_promote_bank = array(array("value"=>$promote));
+
+				$node->field_brokerage_promote = array(array("value"=>$promote));
+				$node->field_brokerage_costs = array(array("rating"=>$rating));
+				$node->field_brokerage_trading = array(array("rating"=>$rating));
+				$node->field_brokerage_fund = array(array("rating"=>$rating));
+				$node->field_brokerage_specials = array(array("rating"=>$rating));
+				$node->field_brokerage_service = array(array("rating"=>$rating));
+				$node->field_brokerage_apply = array(array("rating"=>$rating));
+
+				$node->field_brokerage_comment = array(array("value"=>$text));
+				$node->field_brokerage_mailapproved = array(array("value"=>1));
+			break;
+			case 'festgeld':
+				$node->field_myproductitem = array(array("nid"=>$productNode->nid));
+
+				$node->field_promote = array(array("value"=>$promote));
+				$node->field_promote_bank = array(array("value"=>$promote));
+
+				$node->field_fixeddeposits_interest = array(array("rating"=>$rating));
+				$node->field_fixeddeposits_security = array(array("rating"=>$rating));
+				$node->field_fixeddeposits_credit = array(array("rating"=>$rating));
+				$node->field_fixeddeposits_service = array(array("rating"=>$rating));
+				$node->field_fixeddeposits_apply = array(array("rating"=>$rating));
+
+				$node->field_fixeddeposits_comment = array(array("value"=>$text));
+				$node->field_fixeddeposits_mailapproved = array(array("value"=>1));;
+			break;
+			case 'girokonto':
+				$node->field_currentaccount_myproductim = array(array("nid"=>$productNode->nid));
+
+				$node->field_currentaccount_promote = array(array("value"=>$promote));
+				$node->field_currentaccount_promote_bank = array(array("value"=>$promote));
+
+				$node->field_currentaccount_costs = array(array("rating"=>$rating));
+				$node->field_currentaccount_credinteres = array(array("rating"=>$rating));
+				$node->field_currentaccount_mrpinterest = array(array("rating"=>$rating));
+				$node->field_currentaccount_cards = array(array("rating"=>$rating));
+				$node->field_currentaccount_cash = array(array("rating"=>$rating));
+				$node->field_currentaccount_service = array(array("rating"=>$rating));
+				$node->field_currentaccount_apply = array(array("rating"=>$rating));
+
+				$node->field_currentaccount_comment = array(array("value"=>$text));
+				$node->field_currentaccount_mailapproved = array(array("value"=>1));
+			break;
+			case 'kreditkarte':
+				$node->field_creditcard_myproductitem = array(array("nid"=>$productNode->nid));
+
+				$node->field_creditcard_promote = array(array("value"=>$promote));
+				$node->field_creditcard_promote_bank = array(array("value"=>$promote));
+
+				$node->field_creditcard_costs = array(array("rating"=>$rating));
+				$node->field_creditcard_cash = array(array("rating"=>$rating));
+				$node->field_creditcard_payment = array(array("rating"=>$rating));
+				$node->field_creditcard_specials = array(array("rating"=>$rating));
+				$node->field_creditcard_apply = array(array("rating"=>$rating));
+
+				$node->field_creditcard_comment = array(array("value"=>$text));
+				$node->field_creditcard_mailapproved = array(array("value"=>1));
+			break;
+			case 'mietkaution':
+				$node->field_rentalbonds_myproductitem = array(array("nid"=>$productNode->nid));
+
+				$node->field_rentalbonds_promote = array(array("value"=>$promote));
+				$node->field_rentalbonds_promote_bank = array(array("value"=>$promote));
+
+				$node->field_rentalbonds_costs = array(array("rating"=>$rating));
+				$node->field_rentalbonds_commitment = array(array("rating"=>$rating));
+				$node->field_rentalbonds_features = array(array("rating"=>$rating));
+				$node->field_rentalbonds_service = array(array("rating"=>$rating));
+				$node->field_rentalbonds_apply = array(array("rating"=>$rating));
+
+				$node->field_rentalbonds_comment = array(array("value"=>$text));
+				$node->field_rentalbonds_mailapproved = array(array("value"=>1));
+			break;
+			case 'ratenkredit':
+				$node->field_loans_myproductitem = array(array("nid"=>$productNode->nid));
+
+				$node->field_loans_promote = array(array("value"=>$promote));
+				$node->field_loans_promote_bank = array(array("value"=>$promote));
+
+				$node->field_loans_costs = array(array("rating"=>$rating));
+				$node->field_loans_commitment = array(array("rating"=>$rating));
+				$node->field_loans_features = array(array("rating"=>$rating));
+				$node->field_loans_service = array(array("rating"=>$rating));
+				$node->field_loans_apply = array(array("rating"=>$rating));
+
+				$node->field_loans_comment = array(array("value"=>$text));
+				$node->field_loans_mailapproved = array(array("value"=>1));
+			break;
+			case 'tagesgeld':
+				$node->field_dailyallowances_myproductitem = array(array("nid"=>$productNode->nid));
+
+				$node->field_dailyallowances_promote = array(array("value"=>$promote));
+				$node->field_dailyallowances_promote_bank = array(array("value"=>$promote));
+
+				$node->field_dailyallowances_interest = array(array("rating"=>$value));
+				$node->field_dailyallowances_security = array(array("rating"=>$rating));
+				$node->field_dailyallowances_fcredit = array(array("rating"=>$rating));
+				$node->field_dailyallowances_service = array(array("rating"=>$rating));
+				$node->field_dailyallowances_apply = array(array("rating"=>$rating));
+
+				$node->field_dailyallowances_comment = array(array("value"=>$text));
+				$node->field_dailyallowances_mailapproved = array(array("value"=>1));
+			break;
+		}
+
+		$node->field_ekomiorderid = array(array("value"=>$eKomiFeedback->order_id));
+		// var_dump($type, $node);
+		// die();
+		$GLOBALS['nova_api_create'] = true;
+		node_save($node);
+		$BCVotingNode = BCVotings::byRatingNode($node);
+		$BCVotingNode->reindex();
+	}
+
+
+}
+
+
+
+/**
+ * Implementation of hook_help().
+ */
+function novaekomiimport_help($section) {
+	switch ($section) {
+		case 'admin/help#novaekomiimport':
+			$output = '<p>Hello world help...</p>';
+			return $output;
+		case 'admin/modules#description':
+			return 'Hello world module description...';
+	}
+}
+
+/**
+ * Implementation of hook_menu().
+ */
+function novaekomiimport_menu() {
+	$items = array();
+
+	$items['ekomiimport'] = array(// drupal path example.com/?q=ekomiimport
+		'title' => 'eKomi Importer', // page title
+		'page callback' => 'novaekomiimport_page', // callback function name
+		'access callback' => 'novaekomiimport_access',
+		'type' => MENU_CALLBACK // define type of menu item as callback
+	);
+
+	// Ajax Callback.
+	$items['ekomiimportdobank'] = array (
+		'title' => 'eKomi Importer ajax',
+		'page callback' => 'novaekomiimport_ajax_import_bank',
+		'access callback' => 'novaekomiimport_access',
+		// 'access arguments' => array('access content'),
+		'type' => MENU_CALLBACK,
+	);
+
+	$items['ekomiimportdoprodukt'] = array (
+		'title' => 'eKomi Importer ajax',
+		'page callback' => 'novaekomiimport_ajax_import_produkt',
+		'access callback' => 'novaekomiimport_access',
+		// 'access arguments' => array('access content'),
+		'type' => MENU_CALLBACK,
+	);
+
+	return $items;
+}
+
+function novaekomiimport_access() {
+	return true;
+}
+
+/**
+ * Function which generate page (this generate any content - you need only your own code...)
+ */
+function novaekomiimport_page() {
+	$importer = new BCeKomiImport();
+	$banken = $importer->getAllBankNodes();
+	$produkte = $importer->getAllProductNodes();
+
+	// novaekomiimport_import_all_cron();
+	// var_dump($importer->getDB());
+	// var_dump(node_load(928));
+	// $bank = $importer->getBankNode(67964);
+	// return 'Bank ' . json_encode($banks);
+
+	function bankHtmlCheckbox($node){
+		return '<label><input type="checkbox" '. ($node['enabled'] == '1' ? 'checked' : '' ) .' class="bank-cb" data-nid="'.$node['nid'].'"> ' . 
+			htmlspecialchars($node['title']) .
+			(isset($node['from']) ? ' von ' . substr($node['from'], 0, 10) . ' bis ' . substr($node['to'], 0, 10) : '' ) .
+			'</label>';
+	}
+
+	function produktHtmlCheckbox($node){
+		return '<label><input type="checkbox" '. ($node['enabled'] == '1' ? 'checked' : '' ) .' class="produkt-cb" data-nid="'.$node['nid'].'"> ' . 
+			htmlspecialchars($node['title']) .
+			(isset($node['from']) ? ' von ' . substr($node['from'], 0, 10) . ' bis ' . substr($node['to'], 0, 10) : '' ) .
+			'</label>';
+	}
+
+	$bankenHtml = implode('<br>', array_map("bankHtmlCheckbox", $banken));
+	$produkteHtml = implode('<br>', array_map("produktHtmlCheckbox", $produkte));
+	$from = date("Y-m-d", strtotime("-1 month"));
+	$to = date("Y-m-d");
+	return '<h1>eKomi-Bewertungen Importieren</h1>' .
+		'Import von <input type="text" name="from" value="' . $from . '"> bis <input type="text" name="to" value="' . $to . '"><br>' .
+		'<strong>Banken:</strong> <br>' . $bankenHtml . '<br>' .
+		'<a href="#" class="select-all" title="Alle" data-type="bank" class="">Alle auswählen</a> <a href="#" class="select-none" data-type="bank" title="Keine" class="">Keine auswählen</a><br><br>' .
+		'<strong>Produkte:</strong> <br>' . $produkteHtml . '<br>' .
+		'<a href="#" class="select-all" title="Alle" data-type="produkt" class="">Alle auswählen</a> <a href="#" class="select-none" data-type="produkt" title="Keine" class="">Keine auswählen</a><br><br>' .
+		'<script>window.banken = ' . json_encode($banken) . '; window.produkte = ' . json_encode($produkte) . '; </script>' .
+		'<div id="import-log"></div>' .
+		'<div id="import-status"></div>' .
+		'<a href="#" id="start-import" title="Import Starten" class="fa_button">Import Starten</a>' .
+		'<script src="/modules/novaekomiimport/js/main.js"></script>';
+}
+
+function novaekomiimport_import_all_cronjob() {
+	module_load_include('inc', 'node', 'node.pages');
+	$debugFile = $_SERVER['DOCUMENT_ROOT']."/modules/novaekomiimport/debug_cron.txt";
+	// ob_start();
+	echo "\nCron called on ".date("Y-m-d-H:i:s")."\n";
+
+	function novaekomiimport_exception_handler($exception) {
+	  echo "Nicht aufgefangene Exception: " , $exception->getMessage(), "\n";
+	  echo $exception->getTraceAsString();
+	  $text = ob_get_clean();
+		file_put_contents($debugFile, $text, FILE_APPEND);
+	}
+
+	set_exception_handler('novaekomiimport_exception_handler');
+
+	$importer = new BCeKomiImport();
+	$banken = $importer->getAllBankNodes();
+	$imported = 0;
+	$total = 0;
+	foreach ($banken as $bank) {
+		echo "Import fuer " . $bank['nid'] . ' ' . $bank['title'] . "\n";
+		if($bank['enabled'] != 1) {
+			echo "Nicht aktiviert\n";
+			continue;
+		}
+		if(!isset($bank['from'])) {
+			$bank['from'] = date('Y-m-d', 0);
+		}
+		if(!isset($bank['to'])) {
+			$bank['to'] = date('Y-m-d');
+		}
+		$fromCurent = str_replace('T', ' ', $bank['from']);
+		if($bank['field_ekomialreadyimported_value'] == 1) {
+			$nowMinusSix = time() - 7*24*60*60;
+			if($nowMinusSix > strtotime(str_replace('T', ' ', $bank['from']))) {
+				$fromCurent = date('Y-m-d', $nowMinusSix);
+			}
+		}
+
+		$toCurrent = str_replace('T', ' ', $bank['to']);
+		if(strtotime(($fromCurent) > strtotime($toCurrent))){
+			$fromCurent = $toCurrent;
+		}
+
+		try{
+			while(isset($toCurrent)) {
+				echo "Daten von " . $fromCurent . ' bis ' . $toCurrent . ": ";
+				$result = novaekomiimport_import_bank($bank['nid'], $bank['field_ekomishopid_value'], $fromCurent, $toCurrent);
+				$toCurrent = $result['lastDate'];
+				if(isset($toCurrent)) {
+					$toCurrent = date('Y-m-d H:i:s', strtotime($toCurrent)-1);
+				}
+				$imported += $result['imported'];
+				$total += $result['total'];
+				echo $result['imported'] . ' von ' . $result['total'] ."\n";
+			}
+			$importer->markImported($bank['nid']);
+		} catch(Exception $exception) {
+			echo "Exception: " , $exception->getMessage(), "\n";
+	  		echo $exception->getTraceAsString();
+		}
+	}
+
+	$produkte = $importer->getAllProductNodes();
+
+	foreach ($produkte as $produkt) {
+		echo "Import fuer " . $produkt['nid'] . ' ' . $produkt['title'] . "\n";
+		if($produkt['enabled'] != 1) {
+			echo "Nicht aktiviert\n";
+			continue;
+		}
+		if(!isset($produkt['from'])) {
+			$produkt['from'] = date('Y-m-d', 0);
+		}
+		if(!isset($produkt['to'])) {
+			$produkt['to'] = date('Y-m-d');
+		}
+		if(!isset($produkt['field_ekomiproductid_value'])) {
+			echo "Keine ProductId angegeben.\n";
+			continue;
+		}
+		$fromCurent = str_replace('T', ' ', $produkt['from']);
+		if($produkt['field_ekomialreadyimported_value'] == 1) {
+			$nowMinusSix = time() - 7*24*60*60;
+			if($nowMinusSix > strtotime(str_replace('T', ' ', $bank['from']))) {
+				$fromCurent = date('Y-m-d', $nowMinusSix);
+			}
+		}
+		echo "field_ekomialreadyimported_value = " . $produkt['field_ekomialreadyimported_value']  . " => " . $fromCurent . "\n";
+
+		$toCurrent = str_replace('T', ' ', $produkt['to']);
+		if(strtotime(($fromCurent) > strtotime($toCurrent))){
+			$fromCurent = $toCurrent;
+		}
+		try{
+			while(isset($toCurrent)) {
+				echo "Daten von " . $fromCurent . ' bis ' . $toCurrent . ": ";
+				$result = novaekomiimport_import_produkt($produkt['nid'], $produkt['field_ekomishopid_value'], $produkt['field_ekomiproductid_value'], $fromCurent, $toCurrent);
+				$toCurrent = $result['lastDate'];
+				if(isset($toCurrent)) {
+					$toCurrent = date('Y-m-d H:i:s', strtotime($toCurrent)-1);
+				}
+				$imported += $result['imported'];
+				$total += $result['total'];
+				echo $result['imported'] . ' von ' . $result['total'] ."\n";
+				// break;
+			}
+			$importer->markImported($produkt['nid']);
+		} catch(Exception $exception) {
+			echo "Exception: " , $exception->getMessage(), "\n";
+	  		echo $exception->getTraceAsString();
+		}
+	}
+
+	$result = array(
+		'imported' => $imported,
+		'total' => $total
+	);
+	var_dump($result);
+	$text = ob_get_clean();
+	file_put_contents($debugFile, $text, FILE_APPEND);
+}
+
+
+function novaekomiimport_import_bank($bankId, $shopId, $from, $to) {
+
+	$api = new Ekomiapi();
+	$api->auth();
+	echo "Request: ";
+	$feedbacks = $api->getFeedback($shopId, $from, $to);
+	echo " finished\n";
+	$importer = new BCeKomiImport();
+	$total = count($feedbacks);
+	$imported = 0;
+	$lastDate = null;
+	echo "total ". $total . ":\n";
+	foreach($feedbacks as $f) {
+		echo "Checking node " . $f->order_id. ": ";
+		set_time_limit (60);
+		$node = $importer->getBankBewertungNode($f->order_id);
+		$lastDate = $f->date;
+		if(!isset($node)) {
+			echo "Insert node\n";
+			$importer->instertBankBewertungNode($bankId, $f);
+			$imported++;
+		} else {
+			echo "node exists\n";
+		}
+	}
+
+	return array(
+		'imported' => $imported,
+		'total' => $total,
+		'lastDate' => $lastDate
+	);
+}
+
+/**
+ * AJAX function that returns the current logged in users name.
+ */
+function novaekomiimport_ajax_import_bank() {
+	// // Get currently logged in user.
+	// global $user;
+	// $user_name = $user->name;
+	module_load_include('inc', 'node', 'node.pages');
+	$bankId = (int)$_REQUEST['bankId'];
+	$shopId = $_REQUEST['shopId'];
+	$from = $_REQUEST['from'];
+	$to = $_REQUEST['to'];
+	$result = novaekomiimport_import_bank($bankId, $shopId, $from, $to);
+	module_invoke_all('exit');
+	die(json_encode($result));
+}
+
+function novaekomiimport_import_produkt($nodeId, $shopId, $productId, $from, $to) {
+	$api = new Ekomiapi();
+	$api->auth();
+	echo "Request: ";
+	$feedbacks = $api->getFeedback($productId, $from, $to);
+	echo " finished\n";
+	$productNode = node_load($nodeId);
+	$pathParts = explode("/", $productNode->path);
+	$type = $pathParts[1];
+	$importer = new BCeKomiImport();
+	$total = count($feedbacks);
+	$imported = 0;
+	$lastDate = null;
+	echo "total ". $total . ":\n";
+	foreach($feedbacks as $f) {
+		echo "Checking node " . $f->order_id. ": ";
+		set_time_limit (60);
+		$node = $importer->getProduktBewertungNode($type, $f->order_id);
+		$lastDate = $f->date;
+		if(!isset($node)) {
+			// var_dump($f);
+			echo "Insert node\n";
+			$importer->instertProduktBewertungNode($type, $productNode, $f);
+			$imported++;
+		} else {
+			echo "node exists\n";
+		}
+	}
+	return array(
+		'imported' => $imported,
+		'total' => $total,
+		'lastDate' => $lastDate
+	);
+	
+}
+
+/**
+ * AJAX function that returns the current logged in users name.
+ */
+function novaekomiimport_ajax_import_produkt() {
+	module_load_include('inc', 'node', 'node.pages');
+	function novaekomiimport_exception_handler($exception) {
+	  echo "Nicht aufgefangene Exception: " , $exception->getMessage(), "\n";
+	  echo $exception->getTraceAsString();
+	  echo ob_get_clean();
+	}
+
+	set_exception_handler('novaekomiimport_exception_handler');
+
+	// // Get currently logged in user.
+	// global $user;
+	// $user_name = $user->name;
+	$nodeId = $_REQUEST['nodeId'];
+	$shopId = $_REQUEST['shopId'];
+	$productId = $_REQUEST['productId'];
+	$from = $_REQUEST['from'];
+	$to = $_REQUEST['to'];
+	ob_start();
+	$result = novaekomiimport_import_produkt($nodeId, $shopId, $productId, $from, $to);
+	$output = ob_get_clean();
+	$result['output'] = $output;
+	module_invoke_all('exit');
+	die(json_encode($result));
+}
+

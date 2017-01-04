@@ -1,0 +1,5 @@
+name = Nova AfterNewNode
+description = Does some redirection after new nodes are created and display messages based on the user who created the rating
+package = Nova
+version = 0.2
+core = 6.x

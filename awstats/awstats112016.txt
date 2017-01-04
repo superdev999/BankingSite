@@ -1,0 +1,342 @@
+AWSTATS DATA FILE 7.4 (build 20150714)
+# If you remove this file, all statistics for date 201611 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 1982                
+POS_TIME 2667                
+POS_VISITOR 6197                
+POS_DAY 6445                
+POS_DOMAIN 3307                
+POS_LOGIN 3574                
+POS_ROBOT 3775                
+POS_WORMS 3942                
+POS_EMAILSENDER 4073                
+POS_EMAILRECEIVER 4216                
+POS_SESSION 6713                
+POS_SIDER 6918                
+POS_FILETYPES 4351                
+POS_DOWNLOADS 4627                
+POS_OS 4675                
+POS_BROWSER 4754                
+POS_SCREENSIZE 4905                
+POS_UNKNOWNREFERER 4979                
+POS_UNKNOWNREFERERBROWSER 5066                
+POS_ORIGIN 5148                
+POS_SEREFERRALS 5287                
+POS_PAGEREFS 5431                
+POS_SEARCHWORDS 5579                
+POS_KEYWORDS 5731                
+POS_MISC 2329                
+POS_ERRORS 5790                
+POS_CLUSTER 3430                
+POS_SIDER_404 5888                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20161126192103 10576 3166385 84003885701
+FirstTime 20161101145602
+LastTime 20161126192101
+LastUpdate 20161127021808 816 0 816 0 0
+TotalVisits 18                  
+TotalUnique 3                   
+MonthHostsKnown 2                   
+MonthHostsUnknown 1                   
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 112 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 0 0 0 0 0 0
+1 0 0 0 0 1 401
+2 0 0 0 0 2 802
+3 0 0 0 2 4 1604
+4 0 0 0 0 0 0
+5 0 0 0 0 0 0
+6 0 0 0 0 0 0
+7 0 0 0 0 0 0
+8 0 0 0 2 4 1604
+9 27 416 2372093 7 40 38444
+10 23 348 2094604 2 10 101485
+11 79 1145 6383183 26 55 122470
+12 38 437 2773817 5 31 340590
+13 50 702 3091997 2 20 216113
+14 83 1152 5235888 8 28 178247
+15 11 109 302247 1 2 12677
+16 18 290 432133 4 5 2005
+17 49 814 3313608 18 47 39353
+18 5 266 1645172 1 1 401
+19 6 51 281395 0 3 30990
+20 0 0 0 0 0 0
+21 0 0 0 0 0 0
+22 0 0 0 0 0 0
+23 0 0 0 3 4 1604
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 3
+de 362 5295 25119976
+com 15 359 2111493
+ip 12 76 694668
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 1
+bankingcheck 389 2577 14767957 20161126192103
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 1
+no_user_agent 3 0 20161116143113 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 11
+css 819 739887 0 0
+png 261 3329705 0 0
+ico 41 27482 0 0
+ttf 37 77814 0 0
+woff 3 13924 0 0
+php 3 1136 0 0
+html 40 1176300 0 0
+js 1168 5540494 0 0
+jpg 170 3859913 0 0
+Unknown 306 2807918 0 0
+gif 2882 10351564 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 1
+win7 5730 389
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 4
+chrome54.0.2840.71 2853 235
+firefox49.0 278 3
+chrome54.0.2840.99 2281 139
+chrome53.0.2785.143 318 12
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 0
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 110 111
+From1 0 0
+From2 0 0
+From3 0 0
+From4 279 5619
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 2
+401 141 56541
+206 1 1
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 0
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 3
+ip1-vt.berlin.isp.ekomi.de 362 5295 25119976 20161126173705
+prd.bkservers.com 15 359 2111493 20161126192101 20161126185612 /shortnews
+116.2.188.123 12 76 694668 20161126174614
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 8
+20161101 12 318 1809226 1
+20161108 100 915 4337675 3
+20161109 112 1311 2784106 4
+20161110 12 333 2013899 1
+20161111 11 294 1833552 1
+20161114 12 604 3686039 2
+20161116 87 1172 6688662 2
+20161126 43 783 4772978 4
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 7
+1h+ 2
+5mn-15mn 1
+30s-2mn 4
+2mn-5mn 2
+0s-30s 2
+15mn-30mn 4
+30mn-1h 2
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 84
+/banken/creditplus-bank 47 544771 1 4
+/user 40 94353 3 1
+/ 37 1165859 10 0
+/themes/bankingcheck2015/icons/icomoon.ttf 37 77814 0 2
+/user/register 17 75662 0 0
+/company/testseal 17 101647 0 0
+/admin/content/node-type/bank/fields/field_bccustomer 15 113206 0 1
+/users/bankingcheck-tobias 13 132299 1 2
+/banken/garantibank 13 159564 1 1
+/logout 11 275 1 0
+/admin/content/node-type/page 1 19357 0 0
+/admin/user/user 1 14406 0 0
+/image_captcha/279085/1479292052 1 2536 0 0
+/banken/Bank-of-Scotland 3 38183 0 0
+/admin/content/node-type/product 1 19209 0 0
+/sites/all/modules/ad/serve.php 2 180 0 0
+/admin/content/node 1 20897 0 0
+/image_captcha/279086/1479292838 1 2806 0 0
+/user/registercompany 4 36685 0 0
+/sites/all/libraries/anonRatings/listAnonRatings.php 1 956 0 0
+/node/7/activity 1 10057 0 0
+/produkte/ratenkredit/CreditPlus-Bank-SofortKredit 1 13170 0 0
+/image_captcha/279073/1478600670 1 2552 0 0
+/admin/build/modules 2 54690 0 1
+/admin/user/user/list 1 16613 0 0
+/banken/dkb 4 33272 0 0
+/shortnews 1 10373 0 0
+/banken/bank-of-scotland 3 39785 0 0
+/admin/content/node-type/productitem 1 19261 0 0
+/node/86/edit 8 120820 0 0
+/image_captcha/279076/1478605462 1 2285 0 0
+/admin/content/node/overview 1 17791 0 0
+/image_captcha/279079/1478681781 1 2488 0 0
+/admin/content/node-type/page/fields 1 17149 0 0
+/image_captcha/279090/1479303169 1 2492 0 0
+/image_captcha/279080/1478681791 1 1938 0 0
+/themes/bankingcheck2015/fonts/icomoon.woff 3 13924 0 1
+/node/add/page 1 21621 0 0
+/image_captcha/279083/1478697167 1 2633 0 0
+/banken/ 2 50 0 0
+/users/dkb-kundenservice 2 6467 0 0
+/node/7/ 1 10391 0 0
+/image_captcha/279071/1478008590 1 2170 0 0
+/node/7/edit 1 22264 0 0
+/banken/1822-direct 1 9336 0 0
+/admin_menu/flush-cache 1 25 0 0
+/image_captcha/279092/1480178221 1 2381 0 0
+/node/100/edit 4 45037 0 0
+/apps 2 15942 0 0
+/produkte 4 27394 0 0
+/image_captcha/279087/1479292943 1 3080 0 0
+/admin/content/node-type/productitem/fields 1 17961 0 1
+/news 1 10391 0 0
+/node/212/edit 7 121209 0 0
+/image_captcha/279077/1478681592 1 2693 0 0
+/node/add/bank 3 69116 0 0
+/banken/1822direkt 2 27028 0 0
+/image_captcha/279082/1478689041 1 2186 0 0
+/node/88/edit 2 24617 0 0
+/image_captcha/279075/1478602734 1 2727 0 0
+/admin/content/node-type/bank/fields 8 125992 0 0
+/wid 1 9313 0 0
+/user/3027/edit 1 13992 0 0
+/node/7/track 1 10240 0 0
+/image_captcha/279088/1479303049 1 3153 0 0
+/banken/GarantiBank 1 12200 0 0
+/image_captcha/279081/1478684307 1 2398 0 0
+/admin/content/node-type/bank/fields/field_award2016 1 12999 0 0
+/anbieter 2 14633 0 0
+/admin/content/types 1 11462 0 0
+/image_captcha/279078/1478681610 1 2187 0 0
+/admin/content/node-type/bank 2 38410 0 0
+/image_captcha/279073/1478600515 1 2434 0 0
+/image_captcha/279074/1478602722 1 2824 0 0
+/admin/content 1 10764 0 0
+/node/84/edit 8 122733 0 0
+/node/6388/edit 1 24081 0 0
+/node/add/contentonly 4 86760 0 1
+/banken/1822direct 1 9335 0 0
+/user/3027/edit/Pers%C3%B6nliche%20Informationen 1 15756 0 0
+/image_captcha/279072/1478594387 1 2651 0 1
+/widget 10 72768 1 1
+/node/add/product 1 21620 0 0
+/image_captcha/279091/1480177229 1 2343 0 0
+END_SIDER

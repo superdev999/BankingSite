@@ -1,0 +1,374 @@
+AWSTATS DATA FILE 7.3 (build 20140126)
+# If you remove this file, all statistics for date 201410 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 1982                
+POS_TIME 2647                
+POS_VISITOR 6163                
+POS_DAY 6546                
+POS_DOMAIN 3361                
+POS_LOGIN 3595                
+POS_ROBOT 3798                
+POS_WORMS 3969                
+POS_EMAILSENDER 4100                
+POS_EMAILRECEIVER 4243                
+POS_SESSION 6976                
+POS_SIDER 7170                
+POS_FILETYPES 4378                
+POS_DOWNLOADS 4630                
+POS_OS 4678                
+POS_BROWSER 4773                
+POS_SCREENSIZE 4878                
+POS_UNKNOWNREFERER 4952                
+POS_UNKNOWNREFERERBROWSER 5039                
+POS_ORIGIN 5121                
+POS_SEREFERRALS 5261                
+POS_PAGEREFS 5405                
+POS_SEARCHWORDS 5553                
+POS_KEYWORDS 5705                
+POS_MISC 2310                
+POS_ERRORS 5764                
+POS_CLUSTER 3451                
+POS_SIDER_404 5854                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20141101013335 1237 362540 42502045508
+FirstTime 0
+LastTime 20141030113751
+LastUpdate 20141102021415 1 0 0 0 0
+TotalVisits 15                  
+TotalUnique 3                   
+MonthHostsKnown 5                   
+MonthHostsUnknown 0                   
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 14 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 17 853 367364 5 13 5213
+1 80 4293 1499743 2 2 802
+2 10 732 224964 2 3 1203
+3 0 0 0 2 3 1203
+4 0 0 0 2 3 1203
+5 0 0 0 2 3 1203
+6 0 0 0 2 4 1604
+7 0 0 0 0 0 0
+8 0 0 0 2 2 802
+9 0 6 24242 2 3 1203
+10 0 72 29824 2 2 802
+11 64 1730 2808968 6 11 4411
+12 56 1363 1466553 1 13 5213
+13 0 30 23102 2 6 2406
+14 41 3074 2553118 6 22 6817
+15 141 9022 10981338 16 185 84864
+16 136 7911 5764749 3 8 3208
+17 243 14298 8147694 4 40 16040
+18 83 5052 3723355 13 60 24060
+19 11 390 952984 2 57 22055
+20 60 2510 2450042 9 12 4010
+21 50 3091 1652931 2 6 2406
+22 26 1297 1301312 11 15 4411
+23 0 0 0 2 3 1203
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+de 1018 55724 43972283
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 1
+bankingcheck 1018 31476 32073492 20141030113752
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 1
+no_user_agent 1 11882 20141012154615 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 9
+css 16627 2048385 0 0
+php 163 583409 0 0
+png 14346 775604 0 0
+ico 558 21140 0 0
+html 59 2681849 0 0
+js 11446 2773098 0 0
+jpg 805 7566795 0 0
+Unknown 796 23897888 0 0
+gif 10924 3624115 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 2
+linux 52437 896
+win7 3287 122
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 3
+firefox32.0 55157 1009
+firefox33.0 321 9
+msie7.0 246 0
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 0
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 118 458
+From1 0 0
+From2 0 0
+From3 0 0
+From4 900 55266
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 1
+401 450 178846
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 0
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 5
+host-114-75.kawo1.rwth-aachen.de 896 52437 39537613 20141029202322
+ip5b405e61.dynamic.kabel-deutschland.de 94 2303 2983835 20141006121015
+ip5b406241.dynamic.kabel-deutschland.de 28 960 1404339 20141030113751
+ip5b4063b8.dynamic.kabel-deutschland.de 0 18 22254 
+ip5b405c83.dynamic.kabel-deutschland.de 0 6 24242 
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 15
+20141002 0 18 22254 0
+20141004 127 6577 4949709 1
+20141005 112 6057 2530348 2
+20141006 362 21067 20096677 3
+20141007 0 30 23102 0
+20141008 44 2057 1816737 1
+20141009 50 2023 3124995 2
+20141012 150 8558 5992875 2
+20141013 0 12 5134 0
+20141015 0 6 1290 0
+20141019 136 8170 3655153 1
+20141020 0 60 24690 0
+20141027 2 2 6601 1
+20141029 9 321 454576 1
+20141030 26 766 1268142 1
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 6
+1h+ 5
+15mn-30mn 2
+0s-30s 1
+30s-2mn 1
+2mn-5mn 3
+30mn-1h 3
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 113
+/sites/all/modules/ad/serve.php 138 490486 0 3
+/calculatorform 132 3103742 3 2
+/bewerten 93 1594792 0 1
+/ 59 2681849 7 1
+/banken/bewertungen/100/dkb 57 1407953 0 1
+/produkte/festgeld/deutsche-bank-festzinssparen 32 540220 2 0
+/node/32485/webform 28 447839 0 0
+/company/reviews 24 478078 0 0
+/produkte/festgeld/bewertungen/134/deutsche-bank-festzinssparen 23 626166 1 0
+/banken/bewertungen/133/deutsche-bank 22 519242 0 0
+/admin/user/user 1 43850 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-vtb-direktbank-231 15 187799 0 0
+/node/32485/webform/components/new/textfield 3 55601 0 0
+/produkte/festgeld/bewertungen/15619/fibank-festgeld 1 24883 0 0
+/node/32485/submission/332/edit 1 31184 0 0
+/admin/build/views 2 95531 0 0
+/comment/reply/32477 4 80617 0 0
+/admin/reports/event/73193 1 17847 0 0
+/node/32485/submission/323/edit 1 30947 0 0
+/sites/all/libraries/nova/msd1.24.4/main.php 2 2835 0 1
+/admin/content/node-type/story 1 27849 0 0
+/node/32485/submission/334 3 71688 0 0
+/banken/bewertungen/3414/umweltbank 2 39726 0 0
+/sites/all/libraries/quickrating/listItems.php 1 12155 0 0
+/node/32485/webform/configure 6 159239 0 0
+/node/32485/submission/333 2 50626 0 0
+/admin/settings/xmlsitemap 5 232780 0 0
+/node/32485/webform-results 9 220796 0 0
+/admin/build/modules 3 685914 1 0
+/admin/by-module 1 117494 0 0
+/admin/user/user/list 6 568163 0 0
+/verifyMail/32495/3df11290a1d312ee340c7a25b4fd2b4e 1 55356 0 0
+/node/32485/submission/322/edit 1 244952 0 0
+/banken/dkb 3 63619 0 0
+/shortnews 3 122111 0 1
+/sites/all/libraries/nova/msd1.24.4/index.php 2 702 0 0
+/banken/renault-bank-direkt 3 63049 0 0
+/node/add/bewertung- 1 78928 0 0
+/produkte/girokonto/bewertungen/173/ing-diba-girokonto 20 533810 0 1
+/produkte/depot/bewertungen/32421/benk-depot-prepaid 1 62264 0 0
+/banken/bewertungen/6548/renault-bank-direkt 2 51784 0 0
+/admin/reports/dblog 11 947466 0 1
+/node/32485/webform/components/2 11 234965 0 0
+/news/festzinssparen-mit-125-zinsen-pa-bei-6-monatiger-laufzeit-32477 2 70185 0 0
+/admin/settings/xmlsitemap/edit/1 1 89209 0 0
+/admin/build/themes/settings 2 38487 0 0
+/node 20 443600 0 0
+/node/add/bewertung-girokonto 1 117645 0 0
+/user/register 1 20501 0 0
+/sites/all/libraries/quickrating/listItems-2.php 4 24947 0 0
+/users/nova-bank 3 114597 0 0
+/node/32485/submission/332 1 29421 0 0
+/node/30545/devel/render 1 36478 0 0
+/node/32485/webform/components/new/fieldset 2 32240 0 0
+/produkte/girokonto/deutsche-bank-db-aktivkonto 6 156410 1 0
+/comment/reply/31067 3 55594 0 0
+/BewertungsWidget/bw_widget.php 11 42751 0 1
+/node/32485/submission/334/edit 1 31450 0 0
+/banken/bewertungen/1453/vtb-direktbank 2 30196 0 0
+/produkte/girokonto/dkb-cash-girokonto 2 43334 0 0
+/node/32485/webform/emails/1 5 96137 0 0
+/node/32485/submission/322 2 50626 0 0
+/verifyMail/32493/5e2107a377d540f9783596f7a0586265 1 55934 0 0
+/fboauth/connect 1 25 0 0
+/admin/reports/event/73220 1 17826 0 0
+/sites/all/libraries/nova/msd1.24.4/menu.php 3 8756 0 0
+/banken/deutsche-bank 13 272688 0 1
+/zum_Anbieter.php 1 25 0 0
+/node/32485/webform-results/analysis 1 29848 0 0
+/node/32485/webform/emails 9 229493 0 0
+/news/zinsanpassung-beim-klarna-festgeld-32427 5 79574 0 0
+/admin/build/themes 2 142222 0 0
+/node/add/bewertung-festgeld 5 276322 0 0
+/user/2603/edit 4 113962 0 0
+/produktbewertungen/festgeld/bewertung-festgeld-von-anonymous-fibank 1 20757 0 0
+/node/30545/edit 1 85664 0 0
+/admin_menu/flush-cache 4 100 0 0
+/comment/reply/134 1 60112 0 0
+/banken/eurokaution 4 46233 0 0
+/company/testseal 2 67434 0 0
+/produkte 2 89121 0 0
+/news 16 1404726 0 0
+/user/2603/edit/Pers%C3%B6nliche%20Informationen 11 202239 0 0
+/banken/vtb-direktbank 4 64624 0 0
+/banken/1822direkt 1 21352 0 0
+/admin/reports/event/73187 2 35415 0 0
+/produkte/depot/benk-depot-prepaid 1 25219 0 0
+/comment/reply/32427 1 7611 0 0
+/banken/bewertungen/88/1822direkt 17 1367784 0 0
+/produkte/girokonto/bewertungen/161/dkb-cash-girokonto 1 26951 0 0
+/company/calculators 2 50 0 0
+/node/32485/webform/components 4 89409 0 0
+/logout 10 250 0 0
+/node/32485/edit 2 127578 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-renault-bank-direkt-1832 2 40445 0 0
+/banken 2 156239 0 0
+/admin/reports/event/73176 1 235730 0 0
+/admin/settings/xmlsitemap/settings 4 166157 0 0
+/node/add/bewertung-bank 1 192191 0 0
+/node/32485/webform-results/table 1 201095 0 0
+/sites/all/libraries/nova/msd1.24.4/restore.php 1 752 0 0
+/produkte/tagesgeld 1 48868 0 0
+/admin/content/types 3 190623 0 0
+/admin/user/permissions 1 154597 0 0
+/node/32485/webform/components/2/delete 2 29462 0 0
+/node/32495 6 123889 0 0
+/node/30545/devel 1 32580 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-deutsche-bank-114 8 156857 0 0
+/node/32485/done 14 449548 0 1
+/admin/reports/status/run-cron 8 1736 0 0
+/produktbewertungen/bank/bewertung-bank-von-anonymous-renault-bank-direkt-1617 20 1331079 0 0
+/node/32485/submission/330 1 29412 0 0
+/banken/umweltbank 1 21877 0 0
+END_SIDER

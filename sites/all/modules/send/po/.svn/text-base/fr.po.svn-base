@@ -1,0 +1,213 @@
+
+# translation of send-module.fr.po to French
+# $Id: fr.po,v 1.1 2008/08/06 06:17:26 jerdavis Exp $
+# Generated from files:
+#  send.inc,v 1.9.2.4 2007/02/12 06:05:12 vauxia
+#  send.info,v 1.1 2007/01/05 05:44:46 vauxia
+#  send_views.inc,v 1.1.2.3 2007/01/21 01:09:08 vauxia
+#  send.module,v 1.28.2.4 2007/02/12 06:05:12 vauxia
+#
+# FEH‚àö√¢R J‚àö¬∞nos <feher.janos _at- mindworks.hu>, 2007.
+# Updated by Mike Gifford and Jonathan Lane of OpenConcept Consulting Inc.
+#  http://www.openconcept.ca/ 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: send-module.fr\n"
+"POT-Creation-Date: 2007-07-31 23:38+0200\n"
+"PO-Revision-Date: 2008-04-15 14:06-0500\n"
+"Last-Translator: Google\n"
+"Language-Team: "
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms:  nplurals=2; plural=n != 1;\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: send.inc:11
+msgid "Allow visitors to send full item text"
+msgstr "Autoriser les visiteurs à envoyer le texte intégral du point"
+
+#: send.inc:16
+msgid "Link text"
+msgstr "Lien texte"
+
+#: send.inc:20
+msgid "Leave blank to suppress link"
+msgstr "Ne rien pour réprimer le lien"
+
+#: send.inc:24
+msgid "E-mail subject line"
+msgstr "Ligne du sujet"
+
+#: send.inc:31
+msgid "Default message text"
+msgstr "Le texte du message par défaut"
+
+#: send.inc:38
+msgid "Email Template"
+msgstr "Modèle d'courriel"
+
+#: send.inc:58
+msgid "Send Threshold"
+msgstr "Send Seuil"
+
+#: send.inc:59
+msgid "The maximum number of times per hour a user can send a message.  0 for unlimited"
+msgstr "Le nombre maximum de fois par heure, un utilisateur peut envoyer un message. 0 pour illimité"
+
+#: send.inc:67
+msgid "Save configuration"
+msgstr "Enregistrer configuration"
+
+#: send.inc:100
+msgid "Enable \"%name\" functionality"
+msgstr "Activer fonctionnalité \"%name\""
+
+#: send.inc:108
+msgid "Permit changes on every item"
+msgstr "Permission de modifications sur chaque point"
+
+#: send.inc:207
+msgid "There was a problem loading this item"
+msgstr "Un problème est survenu lors du chargement de ce point"
+
+#: send.inc:211
+msgid "Unable to send this item"
+msgstr "Impossible d'envoyer cet article"
+
+#: send.inc:219
+msgid "You have exceeded the limit for sending items"
+msgstr "Vous avez dépassé la limite d'envoi des articles"
+
+#: send.inc:254;282
+msgid "Email"
+msgstr "Courriel"
+
+#: send.inc:262;289
+msgid "First Name"
+msgstr "Prénom"
+
+#: send.inc:269;295
+msgid "Last Name"
+msgstr "Nom de famille"
+
+#: send.inc:276
+msgid "Send a copy to myself"
+msgstr "Envoyer une copie à moi-même"
+
+#: send.inc:308
+msgid "E-mail Subject Line"
+msgstr "Ligne du sujet du courriel"
+
+#: send.inc:326
+msgid "Message Text"
+msgstr "Message"
+
+#: send.inc:357 send.info:0
+msgid "Send"
+msgstr "Envoyer"
+
+#: send.inc:387
+msgid "Invalid from address"
+msgstr "Adresse de l'expéditeur invalide"
+
+#: send.inc:392
+msgid "Invalid recipient address"
+msgstr "Adresse du destinataire invalide"
+
+#: send.inc:424
+msgid "Sent %subject"
+msgstr "%subject expédier"
+
+#: send.inc:482
+msgid "Received %subject"
+msgstr "Reçu %subject"
+
+#: send.inc:545
+msgid "A copy of this message has also been sent to %mail"
+msgstr "Une copie de ce message a également été envoyé à %mail"
+
+#: send.inc:558
+msgid "Message sent to %mail"
+msgstr "Message expédié à %mail"
+
+#: send.inc:806
+msgid "From"
+msgstr "De"
+
+#: send.inc:806
+msgid "To"
+msgstr "À"
+
+#: send_views.inc:27
+msgid "Send: Last time sent"
+msgstr "Envoyer: La dernière fois envoyé"
+
+#: send_views.inc:32
+msgid "Display the last time this node was sent via e-mail"
+msgstr "Afficher la dernière fois que ce noeud a été envoyé par courriel"
+
+#: send_views.inc:113
+msgid "Send: Module"
+msgstr "Envoyer: Module"
+
+#: send_views.inc:117
+msgid "Send: Sender"
+msgstr "Envoyer: Expéditeur"
+
+#: send_views.inc:121
+msgid "Send: Recipient"
+msgstr "Envoyer: Destinataire"
+
+#: send.module:27
+msgid "send this page"
+msgstr "envoyez cette page"
+
+#: send.module:35
+msgid "Send modules"
+msgstr "Envoyer modules"
+
+#: send.module:38
+msgid "Default settings for \"Send to Friend\" and other modules that send content via e-mail"
+msgstr "Les paramètres par défaut pour \"Envoyer à un ami\" et d'autres modules de contenu qui envoient par courriel"
+
+#: send.module:44
+msgid "Defaults"
+msgstr "Par défaut"
+
+#: send.module:171
+msgid "Send to Friend"
+msgstr "Envoyer à un ami"
+
+#: send.module:198
+msgid "send to friend"
+msgstr "envoyer à un ami"
+
+#: send.module:200
+msgid "send @name"
+msgstr "envoyer @name"
+
+#: send.module:208
+msgid "You have not selected any items to send"
+msgstr "Vous n'avez pas sélectionné tous les éléments à envoyer"
+
+#: send.module:15
+msgid "administer send"
+msgstr "administrer envoyer"
+
+#: send.module:15
+msgid "send nodes"
+msgstr "envoyer noeuds"
+
+#: send.module:0
+msgid "send"
+msgstr "envoyer"
+
+#: send.info:0
+msgid "Send to friend"
+msgstr "Envoyez à un ami"
+
+#: send.info:0
+msgid "Mail"
+msgstr "Courriel"
+

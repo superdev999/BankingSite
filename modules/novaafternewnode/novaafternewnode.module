@@ -1,0 +1,346 @@
+<?php
+
+require_once($_SERVER['DOCUMENT_ROOT']."/lib/php/class.NovaBCVoting.php");
+
+function novaafternewnode_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
+	ob_start();
+	$debugFile = $_SERVER['DOCUMENT_ROOT']."/modules/novaafternewnode/debug_nodeapi.txt";
+	$mailIconCode = '<script type="text/javascript">$jq().ready(function(){$jq(".status").css("background-image", "url(/themes/pixture_reloaded/images/mail.png)");$(".status>ul>li:contains(\"wurde"+" erstellt\")").hide();$(".status>ul").css("list-style-type", "none");});</script>';
+	#echo "\nNodeapi called with ".$op." for nid ".$node->nid."\n";
+	switch ($op) {
+		case 'insert':
+			echo "\n".date("r")."\nInsert called for Nid ".$node->nid.". Type: ".$node->type."\n";
+			// Check if it is a rating
+			// continue if the node was not created by this module
+			if (!$GLOBALS['nova_api_create'])	{
+				if (NovaBCVoting::isVoting($node)) {
+					$novaBCVoting = new NovaBCVoting($node);
+					// Check if it is not a bank-bewertung
+					if ($node->type != "bewertung_bank") {
+						// Not a bewertung_bank, create corresponding bewertung_bank
+						$GLOBALS['nova_api_create'] = true;
+
+						novaafternewnode_createNewBankRating($node, $novaBCVoting, $novaBCVoting->getRatedBankNid());
+
+						// check if another agent rating needs to be derived
+						$ratedNodeNid = $novaBCVoting->getRatedProductItemNid();
+						$ratedNode = new NovaBCProductitem($ratedNodeNid);
+
+						if ($ratedNode->hasAgent()) {
+							novaafternewnode_createNewBankRating($node, $novaBCVoting, $ratedNode->getAgentNid());
+						}
+
+						$GLOBALS['nova_api_create'] = false;
+					} elseif ($node->type == "bewertung_bank") {
+						// do not create another bank-bewertung for bank-bewertung
+						echo "bank-bewertung, do not create corresponding bank-bewertung.\n";
+					} else {
+						echo "Unknown type of bewertung";
+					}
+
+					//Pruefen ob Mobil
+					if ($_GET["app"] == "true") $mobile = "&app=true";
+
+					// Redirect action
+					// Check if it is an anonymous node
+					if ($node->uid === 0)	{
+
+						// Check if URL param set. Use default case if not.
+						if (!isset($_GET["novaafternewnodeaction"])) {
+							echo "novaafternewnodeaction not set. Recommend activating emailOrRegistrationBlock.\n";
+						}
+						// Check URL param if the user wants to register
+						if ($_GET["novaafternewnodeaction"] === "goToRegister")	{
+							echo "Goto register and display message\n";
+							$_REQUEST['destination'] = "user/register";
+						}
+						elseif ($_GET["novaafternewnodeaction"] === "goToRating")	{
+							$location = "bewerten?action=bewertung-zeigen&node=".$_GET["novaafternewnodenid"]."&bewertungsnid=".$node->nid . $mobile;
+							echo "Goto ".$location." and display message\n";
+							$_REQUEST['destination'] = $location;
+						}
+						else echo "Not implemented novaafternewnodeaction. No redirection set.\n";
+						drupal_set_message("<p><strong>Ihre Bewertung wurde eingetragen.</strong></p><p><strong>Um die Bewertung abzuschließen, bestätigen Sie bitte noch Ihre E-Mail-Adresse. Eine Bestätigungsmail wurde soeben versendet.</strong></p>".$mailIconCode, "status", FALSE);
+						novaafternewnode_buildVerifyMail($novaBCVoting);
+					}
+					// Not anonymous
+					else {
+						$location = "bewerten?action=bewertung-zeigen&node=".$_GET["novaafternewnodenid"]."&bewertungsnid=".$node->nid.$mobile;
+						echo "Goto ".$location." and display message\n";
+						$_REQUEST['destination'] = $location;
+						$_SESSION['messages'] = array();
+						drupal_set_message("<p>Ihre Bewertung wurde erfolgreich erstellt.</p><p>Wir werden Ihre Bewertung umgehend freischalten.</p>", "status", FALSE);
+					}
+				}
+				else echo "Not a rating.\n";
+			}
+			else echo "Recursion protection\n";
+			break;
+		case 'validate':
+			#echo "\n\nValidate called.\n";
+			if ($node->uid == 0) {
+				$novaBCVoting = new NovaBCVoting($node);
+				$mailField = $novaBCVoting->getEmailFieldName();
+				$mail = $novaBCVoting->getEmail();
+				$productIdField = $novaBCVoting->getRatedProductItemNidFieldName();
+				$productId = $novaBCVoting->getRatedProductItemNid();
+
+				// Get number of ratings for this id of this mailadress
+				// direct database call because noad_load cannot find multple nodes
+				$sql = db_query('SELECT COUNT(*) AS num FROM `content_type_%s` WHERE `%s_nid` = %d AND `%s_value` = "%s" AND `nid` != %d', $node->type, $productIdField, $productId, $mailField, $mail, $node->nid);
+				$result = db_fetch_object($sql)->num;
+
+				echo $mail." has rated #".$productId." (".$productIdField.") ".$result." time(s).\n";
+				if ($result != 0) {
+					// alte Bewertungen unter dieser Email gefunden!
+					// prüfe ob letzte Bewertung älter als drei Monate ist
+
+					// hole nid der letzten Bewertung
+					$sql = db_query('SELECT MAX(nid) AS nid FROM `content_type_%s` WHERE `'.$productIdField.'_nid` =%d AND `'.$mailField.'_value` =  "%s"', $node->type, $productId, $mail);
+					$result_nid = db_fetch_object($sql)->nid;
+
+					// hole createdDate der letzten Bewertung
+					$sql = db_query('SELECT created  FROM `node` WHERE `nid` = ' . $result_nid);
+					$result_date = db_fetch_object($sql)->created;
+
+					$createdDate = $result_date;
+					$threeMonthsAgo = strtotime('-3 months', time());
+
+					// prüfe ob letzte Bewertung drei Monate oder länger zurückliegt
+					if ($createdDate > $threeMonthsAgo && $GLOBALS['user']->uid == 0) {
+						form_set_error("field_creditcard_mailadress", "Sie k&ouml;nnen jede Bank / Anbieter oder Einzelprodukt nur ein Mal alle 3 Monate bewerten.");
+					}
+				}
+				break;
+			} else {
+				// Not an anonymous rating
+				if (NovaBCVoting::isVoting($node)) {
+					global $user;
+					$novaBCVoting = new NovaBCVoting($node);
+					$productIdField = $novaBCVoting->getRatedProductItemNidFieldName();
+					$productIdTmp = $node->$productIdField;
+					$productId = $novaBCVoting->getRatedProductItemNid();
+
+					$iThreeMonthsAgo = strtotime('-3 months', time());
+
+					// hole alle Node-Ids von Bewertungen der letzten 3 Monate
+					$sql = db_query('SELECT nid  FROM `node` WHERE `uid` = ' . $user->uid . ' AND `created` > ' . $iThreeMonthsAgo);
+
+					$arrNodeIds = array();
+
+					// speichere Ids in einem Array
+					while ($objRecord = db_fetch_object($sql)) {
+						$arrNodeIds[] = $objRecord->nid;
+					}
+
+					// hole alle Node-Ids von Bewertungen des Produktes/der Bank
+					$sql = db_query('SELECT nid FROM `content_type_%s` WHERE `'.$productIdField.'_nid` =%d', $node->type, $productId);
+
+					// prüfe ob Node-Ids übereinstimmen. Wenn nicht, ist die Bewertung älter als 3 Monate.
+					$hasRatings = false;
+					while ($objRecord = db_fetch_object($sql)) {
+						if (in_array($objRecord->nid, $arrNodeIds)) {
+							$hasRatings = true;
+							break;
+						}
+					}
+
+					if ($hasRatings)
+						form_set_error("field_creditcard_mailadress", "Sie k&ouml;nnen jede Bank / Anbieter oder Einzelprodukt nur ein Mal alle 3 Monate bewerten.");
+				}
+				break;
+			}
+		case 'update':
+			echo "\n".date("r")."\nUpdate called on node ".$node->nid.". Type: ".$node->type."\n";
+			$novaBCVoting = new NovaBCVoting($node);
+			novaafternewnode_buildVerifyMail($novaBCVoting);
+			break;
+	}
+	// Output debug info
+	$debug = ob_get_clean();
+	file_put_contents($debugFile, $debug, FILE_APPEND);
+}
+
+function novaafternewnode_buildVerifyMail($novaBCVoting) {
+	$dataFileNotPublished  = $_SERVER['DOCUMENT_ROOT']."/sites/all/libraries/quickrating/notifiedNotPublished.txt";
+	$dataFileJustPublished = $_SERVER['DOCUMENT_ROOT']."/sites/all/libraries/quickrating/notifiedJustPublished.txt";
+	$verifyScriptPath = "/verifyMail/";
+	$node = $novaBCVoting->getNode();
+	if (ereg("^bewertung_", $node->type)) {
+		$nid = $node->nid;
+		$mail = $novaBCVoting->getEmail();
+		$productId = $novaBCVoting->getRatedProductItemNid();
+		if ($novaBCVoting->isAnonymousVote()) {
+			$token = $novaBCVoting->getToken();
+			$mailApproved = $novaBCVoting->getMailApproved();
+			if ($node->status == 0 && $mailApproved == 0) {
+				// Neu erzeugt und noch nicht bestätigt
+				// Deserialisieren
+				if (is_file($dataFileNotPublished)) $serialized = file_get_contents($dataFileNotPublished);
+				$trailer = "";
+				$deserialized = unserialize($serialized);
+				if ($deserialized !== false) {
+					#echo "Unserializing ".$serialized;
+					$trailer .= print_r($deserialized, true);
+					$alreadyNotifiedFor = $deserialized;
+					#echo "\nUnserialized: ".print_r($alreadyNotifiedFor, true);
+				} else {
+					echo "New array created.\n";
+					$alreadyNotifiedFor = array();
+				}
+				// Schauen, ob bereits benachrichtigt
+				if (!in_array($node->nid, $alreadyNotifiedFor)) {
+				// Mail senden
+					if (strlen($mail) < 2) $mail = "godard@nova-web.de";
+					$url = BCEmailGenerator::fl($verifyScriptPath.$nid."/".$token);
+					$filename = $_SERVER['DOCUMENT_ROOT']."/emails/verifyRatings/".$token.".html";
+					$gen = new BCEmailGenerator($id, $filename, "&nbsp;");
+					$headline = "Bitte best&auml;tigen Sie Ihre Bewertung auf BankingCheck, damit ihre Bewertung gespeichert werden kann:";
+					$headerBar = '<table><tr><td><img src="'.BCEmailGenerator::fl('/themes/pixture_reloaded/images/people.png').'"></td><td style="width: 435px; height: 19px;font-size: 15px;vertical-align: middle;padding-top: 7px;padding-bottom: 5px;padding-left: 9px;font-weight: bold;">Hallo '.$mail.'</td><td style="height: 32px; width: 79px;"><a href="'.BCEmailGenerator::fl('/user/register').'" style="color: white; text-decoration: none;"><img src="'.BCEmailGenerator::fl('/themes/pixture_reloaded/images/modal_login_new.png').'"></a></td></tr></table><hr>';
+					$body = "<img src='".BCEmailGenerator::fl("/sites/default/files/bcgrafiken/readMore.png")."'><a href='".$url."'>Hier Bewertung freigeben</a><br><br>Wenn Sie den Link nicht anklicken können, kopieren Sie bitte folgende URL in ihren Browser: ".$url;
+					$noHtmlBody = "Wenn diese Nachricht in Ihrem E-Mail-Programm nicht richtig angezeigt wird, klicken Sie bitte auf den folgenden Link oder kopieren ihn in die Adresszeile Ihres Browsers: ".$gen->getStaticFileUrl()."\n\n\nBitte bestaetigen Sie Ihre Bewertung auf BankingCheck, damit ihre Bewertung gespeichert werden kann:\n\nHier Bewertung freigeben: ".$url."\n\n\n\nCopyright © ".date("Y")." BankingCheck.de\nKontakt: ".BCEmailGenerator::fl("/kontakt")."\nImpressum: ".BCEmailGenerator::fl("/Impressum");
+					$design = new BCEmailGeneratorPartSection(null, $headline, null, null, $body, null, null, $headerBar);
+					$gen->addContent($design);
+					$gen->saveStatic();
+					$email = new Email($mail, BCEmail::$fromAddress, "Bitte bestaetigen Sie ihre Bewertung auf Bankingcheck.de", $noHtmlBody);
+					$email->addHTML($gen->personalize($user), true);
+					if(!$email->send())	throw new Exception("Can't send to ".$mail);
+					$alreadyNotifiedFor[] = $node->nid;
+					echo "Sending mail to ".$mail."\n";
+				} else echo $node->nid." was already notified: ".in_array($node->nid, $alreadyNotifiedFor)."\n";
+				sort($alreadyNotifiedFor);
+				$serialized = serialize($alreadyNotifiedFor);
+				#echo "Serialized: ".$serialized."\n";
+				file_put_contents($dataFileNotPublished, $serialized);
+			}
+		}
+		elseif (!$novaBCVoting->isAnonymousVote()) echo "Not an anonymous rating. No mail to verify mailadress.";
+		if ($node->status != 0 && !$novaBCVoting->isCopiedBankVoting()) {
+			// Gerade freigeschaltet
+			if ($node->field_notify_publish[0]["value"] == "1") {
+				echo "Build notify mail.\n";
+				// Deserializing
+				if (is_file($dataFileJustPublished)) $serialized = file_get_contents($dataFileJustPublished);
+				$trailer = "";
+				$deserialized = unserialize($serialized);
+				if ($deserialized !== false) {
+					$trailer .= print_r($deserialized, true);
+					$alreadyNotifiedFor = $deserialized;
+				} else {
+					echo "New array created.\n";
+					$alreadyNotifiedFor = array();
+				}
+
+				if(is_null($productId)){
+					watchdog('verifyMail', "No product id for node ".$node->nid." found.", NULL, WATCHDOG_CRITICAL);
+				}
+
+				// Schauen, ob bereits benachrichtigt
+				if (!in_array($node->nid, $alreadyNotifiedFor)) {
+					// Mail senden
+					if (strlen($mail) < 2) $mail = "godard@nova-web.de";
+					$filename = $_SERVER['DOCUMENT_ROOT']."/emails/publishedRatings/".$token.".html";
+					$gen = new BCEmailGenerator($id, $filename, "&nbsp;");
+					$headline = "Ihre Bewertung wurde gerade freigeschaltet.<br>Vielen Dank für Ihren Beitrag.";
+					$ratedProduct = node_load(array("nid"=>$productId));
+					$nodeMyBank = node_load(array("nid"=>($ratedProduct->field_proditemmybank[0]["nid"])));
+					$bankName = $nodeMyBank->title;
+
+
+					/* NVEDIT OS 22.12.2012 Diese Bewertung muss auch schon beachtet werden daher reindex!  */
+					$BCVotingNode = BCVotings::byRatingNode($node);
+					$BCVotingNode->reindex();
+					/* /NVEDIT */
+
+					$link = '/node/'.$node->nid;
+					echo "Original link ".$link."\n";
+					if (strlen($node->path)>0) {
+						$link = "/".$node->path;
+						echo "new link ".$link."\n";
+					}
+					$fbAgs = array('app_id=394856827230388',
+						'link=' . BCEmailGenerator::fl($link),
+						'redirect_uri=' . urlencode("http://www.facebook.com/"),
+						'name=' . urlencode("Bewertung von " . $ratedProduct->title . " der " .  $bankName . " auf BankingCheck.de" ),
+						'description=' . urlencode('Ich habe gerade ' . $ratedProduct->title  .' der ' . $bankName . ' auf BankingCheck bewertet. Hier könnt Ihr meine Bewertung nachlesen!'),
+						'picture=' . BCEmailGenerator::fl($BCVotingNode->getSiegelUrl())
+						);
+
+
+					$body = "
+					<a href='https://www.facebook.com/dialog/feed?" . implode('&', $fbAgs) . "'><img src='".BCEmailGenerator::fl('/themes/pixture_reloaded/images/facebook_recommend.png')."' alt='Bei Facebook empfehlen' /></a>
+					<a href='https://twitter.com/intent/tweet?source=webclient&text=". urlencode("Ich habe gerade ".$ratedProduct->title. " der " . $bankName . " bei @BankingCheck bewertet: ") . BCEmailGenerator::fl($link)."' title='Twittern'><img src='".BCEmailGenerator::fl('/themes/pixture_reloaded/images/tweet.png')."' alt='Twitter' /></a>
+					<a href='https://plus.google.com/share?hl=de&url=".BCEmailGenerator::fl($link)."&title=" .urlencode("Ich habe gerade ".$ratedProduct->title. " der " . $bankName . " bei +BankingCheck bewertet") ."' title='Bei Google+ empfehlen'><img src='".BCEmailGenerator::fl('/themes/pixture_reloaded/images/plus1.png')."' alt='Google +1' /></a>
+					";
+
+					$headerBar = '<table><tr><td><img src="'.BCEmailGenerator::fl('/themes/pixture_reloaded/images/people.png').'"></td><td style="width: 435px; height: 19px;font-size: 15px;vertical-align: middle;padding-top: 7px;padding-bottom: 5px;padding-left: 9px;font-weight: bold;">Hallo '.$mail.'</td><td style="height: 32px; width: 79px;"><a href="'.BCEmailGenerator::fl('/user/register').'" style="color: white; text-decoration: none;"><img src="'.BCEmailGenerator::fl('/themes/pixture_reloaded/images/modal_login_new.png').'"></a></td></tr></table><hr>';
+
+					$noHtmlBody = "Wenn diese Nachricht in Ihrem E-Mail-Programm nicht richtig angezeigt wird, klicken Sie bitte auf den folgenden Link oder kopieren ihn in die Adresszeile Ihres Browsers: ".$gen->getStaticFileUrl()."\n\n\nIhre Bewertung wurde gerade freigeschaltet.\nVielen Dank für Ihren Beitrag.\nZu Ihrem Beitrag: ".BCEmailGenerator::fl($link)."\n\n\n\nCopyright © ".date("Y")." BankingCheck.de\nKontakt: ".BCEmailGenerator::fl("/kontakt")."\nImpressum: ".BCEmailGenerator::fl("/Impressum");
+					$design = new BCEmailGeneratorPartSection(null, $headline, null, null, $body, "zur Bewertung", $link, $headerBar);
+					$gen->addContent($design);
+					$gen->saveStatic();
+					$email = new Email($mail, BCEmail::$fromAddress, "Ihre Bewertung wurde gerade freigeschaltet.", $noHtmlBody);
+					$email->addHTML($gen->personalize($user), true);
+					if(!$email->send())	throw new Exception("Can't send to ".$mail);
+					$alreadyNotifiedFor[] = $node->nid;
+				} else echo "Already notified\n";
+				$serialized = serialize($alreadyNotifiedFor);
+				file_put_contents($dataFileJustPublished, $serialized);
+			} else echo "User does not want to be notified.\n";
+		} elseif ($node->status == 0) {
+			echo "Not published.\n";
+		} elseif ($novaBCVoting->isCopiedBankVoting()) {
+			echo "Copied Bank Bewertung.\n";
+		} else echo "An error occured.";
+	}
+	elseif (!ereg("^bewertung_", $node->type)) echo "Not a rating";
+	else echo "Just called.";
+}
+
+function novaafternewnode_createNewBankRating($node, $novaBCVoting, $bankNid) {
+	$newNode = new stdClass();
+	$newNode->type = "bewertung_bank";
+	node_object_prepare($newNode); // Set some default values
+
+	$type = ucfirst(substr($node->type, 10));
+	$userName = $node->uid == 0 ? "Anonymous" : user_load(array("uid" => $node->uid))->name;
+	$bankNode = node_load(array("nid" =>$bankNid));
+	$newNode->title = "Bewertung ".$type." von ".$userName. " | ".$bankNode->title;
+
+	$newNode->language = 'de';
+	$newNode->uid = $node->uid;
+
+	// copy Anonymous fields of Anonymous voting
+	if ($novaBCVoting->isAnonymousVote()) {
+		$newNode->field_bank_mailadress[0]["value"] = $novaBCVoting->getEmail();
+		$newNode->field_bank_token[0]["value"] = $novaBCVoting->getRealToken();
+		$newNode->field_bank_mailapproved[0]["value"] = $novaBCVoting->getMailApproved();
+	}
+
+	// get notify publish
+	$newNode->field_notify_publish = $node->field_notify_publish;
+
+	// get comment
+	$newNode->field_bank_comment[0]["value"] = $novaBCVoting->getComment();
+
+	// get rated bank
+	$newNode->field_bank_bankitem[0]["nid"] = $bankNid;
+
+	// save Service, Beantragung, Weiterempfehlen
+	$newNode->field_bank_service = $novaBCVoting->getServiceField();
+	$newNode->field_bank_apply = $novaBCVoting->getApplyField();
+	$newNode->field_bank_promote = $novaBCVoting->getBankPromoteField();
+
+	$type = ucfirst(substr($node->type, 10));
+
+	$newNode->pathauto_perform_alias = true;
+	$newNode->path = '';
+
+	if($newNode = node_submit($newNode)) { // Prepare node for saving
+		node_save($newNode);
+	}
+
+	module_load_include('inc', 'pathauto');
+	pathauto_node_update_alias($newNode, 'insert', array());
+}
+?>

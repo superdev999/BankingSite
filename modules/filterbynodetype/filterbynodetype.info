@@ -1,0 +1,10 @@
+name = Filter By Node Type
+description = Restrict what input formats are available by node type
+core = 6.x
+
+; Information added by drupal.org packaging script on 2013-01-21
+version = "6.x-1.5"
+core = "6.x"
+project = "filterbynodetype"
+datestamp = "1358802113"
+

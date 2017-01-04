@@ -1,0 +1,5 @@
+name = Nova VerifyMails
+description = Provides the script for verification of the mails, sends reminder email after three days without verification
+package = Nova
+version = 0.1
+core = 6.x

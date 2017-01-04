@@ -1,0 +1,166 @@
+====== Banking-Check-Bewertungssystem ======
+Pro Produkt muss es ein Inhaltstyp geben, damit die unterschiedlichen Bewertungskriterien abgebildet werden können. Die sind vorgegeben hier vorgegeben: {{:produktdaten_und_bewertungen.pdf|}}
+
+{{:produktdaten_und_bewertungen.1.2.pdf|}}
+===== Namenskonventionen =====
+URL: /produkte/[NAME]/egal
+Rechnernamen: (Wichtig für Aufruf) [Name]rechner, z.B. tagesgeldrechner.
+
+Daraus ergeben sich folgende (mögliche) Produktnamen:
+^Rechnernname     ^Produktname ^Name Bewertungs-Inhaltstyp^englisch((lt. FinanceAdds)) ^Feld-Namen^
+|tagesgeldrechner  |tagesgeld   |Bewertung Tagesgeld       |dailyallowances   |field_dailyallowances_XXX|
+|festgeldrechner   |festgeld    |Bewertung Festgeld        |fixeddeposits     |field_fixeddeposits_XXX|
+|girokontorechner  |girokonto   |Bewertung Girokonto       |currentaccount   |field_currentaccount_XXX|
+|kreditkarterechner|kreditkarte |Bewertung Kreditkarte     |creditcard       |field_creditcard_XXX|
+|depotrechner      |depot       |Bewertung Depot           |brokerage         |field_brokerage_XXX|
+|ratenkreditrechner|ratenkredit |Bewertung Ratenkredit     |loans             |field_loans_XXX|
+|autokreditrechner |autokredit  |Bewertung Autokredit      |carloans          |field_carloans_XXX|
+
+
+
+===== Anlegen des Inhaltstyps =====
+^Name^|Bewertung [Produkt] ((z.B. "Bewertung Festgeld"))|
+^Typ^|bewertung_[produkt] ((z.B. "bewertung_festgeld"))|
+
+Also aufrufbar über node/add/bewertung-festgeld
+
+
+^Einstellungen für Kommentare:^|deaktiviert|
+^Veröffentlichungseinstellungen:^|keine (damit ein Admin sie freigeben muss!)|
+
+==== Felder ====
+**Namensprefix für die Felder**: field_[product]_
+		
+=== Titel und Kommentar ===
+Es soll keinen Titel geben und der Kommentar soll optional sein. Daher:
+  - Auto-Titel((unter Bearbeitung eines Inhaltstype ganz oben zugeklappt)) in der Form: Bewertung-Tagesgeld #[nid] von [author-name] anlegen, dadurch verschwindet der Titel
+  - Neues Feld **field_dailyallowances_comment** anlegen((**Berechtigungen nicht vergessen!**)), einfaches mehrzeiliges Textfeld
+ 
+===Pflichtfeld: Referenz auf ProductItem (muss es geben, sonst funktioniert nichts)===
+^Name^|field_[product]_myproductitem|
+^Typ^|Beitragsreferenz, Textfeld mit Auto|
+^Erforderlich^|JA|
+**Standardwert (erforderlich, damit das über GET-Parameter eingetragen wird):**
+<code php>
+return array(
+  0 => array('nid' => $_GET["itemId"])
+);
+</code>
+
+^Max. Anzahl von Werten^|1|
+^Inhaltstypen auf die referenziert werden kann^|Einzelprodukt|
+===Pflichtfeld: Weiterempfehlen===
+^Name^|field_[product]_promote|
+^Typ^|Text, Ankreuzfeld/Auswahlknöpfe|
+^Erforderlich^|JA!|
+^Standardwert^|Ja|
+**Zulässige Wertetabelle**:
+<code>
+1|Ja
+0|Nein
+</code>
+===Sonstige Felder===
+Pro Bewertungsart eine Five-Star-Voting mit 6 Optionen
+
+===== URL-Alias-Einstellungen =====
+URL-Alias-Einstellungen (pflegbar über: admin/build/path/pathauto):
+<code>
+produktbewertungen/[produkt]/[title-raw] ((z.B. produktbewertungen/festgeld/[title-raw]))
+</code>
+
+===== Pflege in Auswertungsklasse ====
+Eintragung in lib/php/class.BCVotings.php:31f
+
+===== Aufrufe (interne Notiz) ====
+Produkte (themes/pixture_reloaded/node-product.tpl.php:29)
+<code>
+	BCFARechner::showRechner
+		BCImport::getFARechnerArray(tagesgeldrechner)
+			new BCVotings(nid, str_replace("rechner", "", $rechnerName))
+</code>
+Einzelprodukt (themes/pixture_reloaded/node-productitem.tpl.php:29)
+<code>
+	BCVotings(nid, BCTemplate::getProductNameByNode($node))
+</code>
+Bank (themes/pixture_reloaded/node-bank.tpl.php)
+<code php>
+	foreach($import->getBankProductsData($node->field_financeaddsid[0]["value"]) as $line) {
+		BCVotings($line["nidProductItem"], $line["typeProduct"]);
+	}
+</code>
+
+====== Folgende Bewertungen wurden bereits integriert ======
+**Tagesgeld:**
+
+  * Zinssatz: field_dailyallowances_interest
+  * Sicherheit: dailyallowances_security 
+  * Zinsgutschrift: dailyallowances_credit  
+  * Service: dailyallowances_service 
+  * Beantragung: dailyallowances_apply
+
+**Festgeld:**
+
+  * Zinssatz: fixeddeposits_interest
+  * Sicherheit: fixeddeposits_security 
+  * Zinsgutschrift: fixeddeposits_credit  
+  * Service: fixeddeposits_service 
+  * Beantragung: fixeddeposits_apply  
+
+**Girokonto:**
+
+  * Einzelprodukt: currentaccount_myproductitem
+  * Weiterempfehlen: currentaccount_promote 
+
+  * Kosten: currentaccount_costs
+  * Dispozinsen: currentaccount_mrpinterest
+  * Guthabenzinsen: currentaccount_credinteres
+  * Karten: currentaccount_cards
+  * Bargeldversorgung: currentaccount_cash 
+  * Service: currentaccount_service 
+  * Beantragung: currentaccount_apply
+
+**Kreditkarte**
+
+  * Einzelprodukt: creditcard_myproductitem
+  * Weiterempfehlen: creditcard_promote 
+
+  * Kosten: creditcard_costs
+  * Bargeldversorgung: creditcard_cash
+  * Zahlungsbedingungen: creditcard_payment
+  * Zusatzleistungen: creditcard_specials
+  * Service: creditcard_service
+  * Beantragung: creditcard_apply
+
+**Depot**
+
+    *  Einzelprodukt: brokerage_myproductitem
+    *  Weiterempfehlen: brokerage_promote
+
+    * Kosten: brokerage_costs
+    * Wertpapierhandel: brokerage_trading
+    * Fondshandel: brokerage_fund 
+    * Zusatzleistungen: brokerage_specials
+    * Service: brokerage_service
+    * Beantragung: brokerage_apply
+
+**Ratenkredit**
+
+    *  Einzelprodukt: loans_myproductitem
+    *  Weiterempfehlen: loans_promote
+
+    * Kreditkosten: loans_costs
+    * Kreditzusage: loans_commitment
+    * Leistungen: loans_features
+    * Service: loans_service
+    * Beantragung: loans_apply
+
+**Autokredit**
+
+    *  Einzelprodukt: carloans_myproductitem
+    *  Weiterempfehlen: carloans_promote
+
+    * Kreditkosten: carloans_costs
+    * Kreditzusage: carloans_commitment
+    * Leistungen: carloans_features
+    * Service: carloans_service
+    * Beantragung: carloans_apply

@@ -1,0 +1,14 @@
+
+name = "Wysiwyg SpellCheck"
+description = "Wysiwyg editor plugin that enables TinyMCE spellcheck."
+dependencies[] = wysiwyg
+package = "User interface"
+core = 6.x
+
+
+; Information added by drupal.org packaging script on 2011-08-27
+version = "6.x-1.3"
+core = "6.x"
+project = "wysiwyg_spellcheck"
+datestamp = "1314477122"
+

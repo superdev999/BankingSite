@@ -1,0 +1,390 @@
+AWSTATS DATA FILE 7.3 (build 20140126)
+# If you remove this file, all statistics for date 201407 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 1982                
+POS_TIME 2639                
+POS_VISITOR 6045                
+POS_DAY 6342                
+POS_DOMAIN 3296                
+POS_LOGIN 3530                
+POS_ROBOT 3733                
+POS_WORMS 3865                
+POS_EMAILSENDER 3996                
+POS_EMAILRECEIVER 4139                
+POS_SESSION 6618                
+POS_SIDER 6790                
+POS_FILETYPES 4274                
+POS_DOWNLOADS 4524                
+POS_OS 4572                
+POS_BROWSER 4664                
+POS_SCREENSIZE 4759                
+POS_UNKNOWNREFERER 4833                
+POS_UNKNOWNREFERERBROWSER 4920                
+POS_ORIGIN 5002                
+POS_SEREFERRALS 5143                
+POS_PAGEREFS 5287                
+POS_SEARCHWORDS 5435                
+POS_KEYWORDS 5587                
+POS_MISC 2302                
+POS_ERRORS 5646                
+POS_CLUSTER 3386                
+POS_SIDER_404 5736                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20140801103142 1 0 44762256047
+FirstTime 0
+LastTime 20140731191020
+LastUpdate 20140802021412 1 0 0 0 0
+TotalVisits 10                  
+TotalUnique 3                   
+MonthHostsKnown 3                   
+MonthHostsUnknown 0                   
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 14 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 132 4143 983230 4 8 3208
+1 8 289 87555 0 0 0
+2 0 0 0 1 2 802
+3 0 0 0 0 0 0
+4 0 0 0 1 1 401
+5 0 0 0 2 4 1604
+6 0 0 0 0 0 0
+7 0 0 0 2 4 1604
+8 0 0 0 0 0 0
+9 0 0 0 2 4 1604
+10 0 0 0 4 4 1604
+11 0 0 0 2 4 1604
+12 0 2 0 2 10 4010
+13 78 2237 3464337 15 94 37694
+14 107 1188 1083835 4 41 16441
+15 106 3039 6899014 20 95 38095
+16 157 4823 2952014 11 88 35288
+17 91 2115 976369 0 3 1203
+18 261 7552 4655909 9 51 20451
+19 81 3034 2221260 2 4 1604
+20 0 0 0 0 0 0
+21 0 0 0 0 0 0
+22 337 2462 2542156 2 11 3609
+23 529 7407 3692187 6 41 16441
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+de 1887 38291 29557866
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 1
+bankingcheck 1887 22962 19543244 20140731191021
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 9
+php 1309 2140282 0 0
+css 10086 679489 0 0
+png 9009 1594267 0 0
+html 18 974661 0 0
+ico 337 21140 0 0
+js 7678 2446363 0 0
+jpg 385 5265413 0 0
+Unknown 560 13080400 0 0
+gif 8909 3355851 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 2
+linux 38221 1885
+win7 70 2
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 2
+firefox30.0 14373 1008
+firefox31.0 23918 879
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 0
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 118 124
+From1 0 0
+From2 0 0
+From3 0 0
+From4 1769 38167
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 1
+401 453 181653
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 0
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 3
+host-114-75.kawo1.rwth-aachen.de 1286 22107 12740097 20140725192535
+hsi-kbw-149-172-53-139.hsi13.kabel-badenwuerttemberg.de 599 16114 16626941 20140731191020
+ip18861ccf.dynamic.kabel-deutschland.de 2 70 190828 20140723134755
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 8
+20140720 81 2370 2002100 1
+20140722 785 7499 4232243 1
+20140723 142 4504 1261613 2
+20140725 280 7804 5434969 1
+20140728 227 7453 4972300 1
+20140729 106 2950 4704706 1
+20140730 14 401 380714 1
+20140731 252 5310 6569221 2
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 4
+1h+ 4
+30s-2mn 1
+0s-30s 1
+30mn-1h 4
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 142
+/sites/all/modules/ad/serve.php 520 64635 0 9
+/sites/all/libraries/nova/msd1.24.4/restore.php 369 408362 0 0
+/sites/all/libraries/nova/msd1.24.4/dump.php 305 1463305 0 0
+/company/reviews 125 2121099 0 1
+/company/testseal 106 1670731 2 0
+/BewertungsWidget/bw_widget.php 79 48739 0 0
+/ 18 974661 0 0
+/node/100/edit 18 466472 0 0
+/admin/user/permissions 17 1374240 0 0
+/banken/bewertungen/100/dkb 15 273943 0 0
+/admin/user/user 2 31693 0 0
+/admin/settings/devel 4 81267 0 0
+/sites/all/libraries/nova/msd1.24.4/main.php 2 2821 0 0
+/admin/content/node-type/story 1 20865 0 0
+/user/registercompany 2 12010 0 0
+/sites/all/libraries/anonRatings/listAnonRatings.php 4 3776 3 0
+/admin/build/modules 5 138771 0 0
+/admin/build/views/ajax/remove-display/Unternehmsansicht_Bewertungen/page_1 1 3155 0 0
+/admin/user/user/list 8 592605 0 0
+/produkte/kreditkarte/bewertungen/168/dkb-visa-card 1 14174 0 0
+/user/1/edit/Pers%C3%B6nliche%20Informationen 1 14734 0 0
+/admin/build/views/ajax/config-item/Unternehmsansicht_Bewertungen/page_1/argument/nid 2 9597 0 0
+/node/4043/edit 1 25399 0 0
+/company/reviewprocess 1 14150 0 0
+/admin/build/translate 1 12382 0 0
+/admin/content/node/overview 4 74191 0 0
+/user/register 1 7758 0 0
+/admin/user/profile/autocomplete/Funktionen 1 30 0 0
+/admin/reports/event/71714 1 66557 0 0
+/admin/build/views/ajax/preview/Bankbewertungen 1 3752 0 0
+/users/nova-bank 5 118450 0 0
+/company/socialmedia 1 14145 0 0
+/node/511 1 5649 0 0
+/admin/user/profile/add/checkbox 2 68493 0 0
+/produkte/ratenkredit/dkb-energie 1 13911 0 0
+/admin/build/views/ajax/config-item/Unternehmsansicht_Bewertungen/default/filter/status 2 1859 0 0
+/produkte/tagesgeld/bewertungen/101/dkb-cash-tagesgeld 1 14200 0 0
+/admin/build/modules/list/confirm 2 50 0 0
+/produkte/girokonto/dkb-cash-girokonto 1 13948 0 0
+/admin/build/views/edit/Bankbewertungen 3 77509 0 0
+/company/product 2 28324 0 0
+/admin/build/block/configure/views/Shortnews-block_1 1 12878 0 0
+/node/add/story 2 23308 0 0
+/admin/build/translate/search 4 46186 0 0
+/q=company/reviews 1 27184 0 0
+/help/views/argument 1 3337 0 0
+/node/6388/track 1 14366 0 0
+/node/120 1 6930 0 0
+/company/news 1 14139 0 0
+//BewertungsWidget/bw_widget.php 1 841 0 0
+/users/kautionsfreide 1 29502 0 0
+/admin/user/permissions/6 1 29400 0 0
+/produkte/ratenkredit/bewertungen/4557/dkb-energie 1 11830 0 0
+/company/q=company/reviews 2 2330 0 0
+/admin/content/node-type/productitem/fields 4 280725 0 0
+/news 7 88671 1 0
+/user/2603/edit/Pers%C3%B6nliche%20Informationen 13 249459 0 0
+/admin/settings/actions 1 13546 0 0
+/banken/bewertungen 1 13856 0 0
+/user/2603/edit/Sonstiges 1 30183 0 0
+/admin/build/views/ajax/preview/Unternehmsansicht_Bewertungen 5 19767 0 0
+/logout 1 25 1 0
+/user/2589/edit 1 34266 0 0
+/admin/user/settings 1 15142 0 0
+/admin/content/node-type/shortnews/display/search 1 12697 0 0
+/admin/content/node-type/shortnews 2 40870 0 0
+/sites/all/libraries/nova/msd1.24.4/filemanagement.php 8 16755 0 0
+/node/100 1 22958 0 0
+/produkte/depot/bewertungen/265/dkb-broker 1 14821 0 0
+/admin/views/ajax/autocomplete/tag/Unternehmsansicht%20Bewertungen 1 30 0 0
+/admin/build/views/clone/Bankbewertungen 2 12993 0 0
+/admin/build/views/ajax/config-item/Unternehmsansicht_Bewertungen/default/filter/type 2 4646 0 0
+/admin/build/block/add 1 14949 0 0
+/node/6388/edit 2 54065 0 0
+/produktbewertungen/depot/bewertung-depot-von-anonymous-dkb-27 1 12742 0 0
+/banken/flatex 1 66176 0 0
+/widget 4 60427 0 0
+/user/2603/edit/Ich%20interessiere%20mich%20f%C3%BCr%20folgende%20Produkte 1 30100 0 0
+/admin/build/views/ajax/display/Unternehmsansicht_Bewertungen/page_1/path 3 5016 0 0
+/admin/build/views/ajax/config-item/Unternehmsansicht_Bewertungen/page_1/filter/status 1 1158 0 0
+/company/monitoring 2 28788 0 0
+/user/2589/edit/Pers%C3%B6nliche%20Informationen 3 100869 0 0
+/admin/content/node-type/shortnews/display/token 1 12465 0 0
+/admin/build/views 3 44623 0 0
+/user 10 40584 0 0
+/admin/build/block 9 222675 0 0
+/produkte/ratenkredit/dkb-privatdarlehen 1 14093 0 0
+/admin/content/node-type/shortnews/fields 1 19161 0 0
+/admin/content/node 1 13623 0 0
+/admin/build/views/edit/Unternehmsansicht_Bewertungen 2 15833 0 0
+/node/216/edit 2 364308 0 0
+/admin/build/block/configure/block/3 2 73919 0 0
+/admin/by-module 2 31116 0 0
+/admin/content/node-type/shortnews/display/rss 1 12455 0 0
+/admin/views/ajax/autocomplete/tag/Unternehmsansicht_Bewertungen 1 30 0 0
+/user/2585/edit/Pers%C3%B6nliche%20Informationen 1 34010 0 0
+/banken/dkb 3 57580 0 0
+/shortnews 3 55476 0 0
+/sites/all/libraries/nova/msd1.24.4/index.php 4 1404 0 0
+/admin/reports/dblog 1 69853 0 0
+/user/1/edit 2 35229 0 0
+/node 6 851541 0 0
+/produkte/ratenkredit/bewertungen/276/dkb-privatdarlehen 1 14452 0 0
+/admin/build/workflow 1 13659 0 0
+/admin/build/views/ajax/config-item/Unternehmsansicht_Bewertungen/page_1/filter/field_brokerage_myproductitem_nid 2 17373 0 0
+/admin/user/profile/autocomplete/Funktionn 1 30 0 0
+/sites/all/libraries/nova/msd1.24.4/menu.php 5 14341 0 0
+/admin/build/views/ajax/add-item/Unternehmsansicht_Bewertungen/default/filter 2 21104 0 0
+/node/24532 1 14420 0 0
+/users/unternehmen 2 87867 0 0
+/user/2585/edit 1 34859 0 0
+/admin/build/themes 1 13286 0 0
+/user/2603/edit 12 234386 1 0
+/admin/settings/site-information 2 24848 0 0
+/admin_menu/flush-cache 2 50 0 0
+/users/admin 4 88617 1 0
+/admin/user/profile 10 1110801 1 0
+/admin/build/views/ajax/config-item/Unternehmsansicht_Bewertungen/page_1/relationship/field_bank_bankitem_nid 2 4210 0 0
+/produkte/girokonto/bewertungen/161/dkb-cash-girokonto 1 14321 0 0
+/produkte/depot/dkb-broker 1 14084 0 0
+/company/calculators 1 14145 0 0
+/user/reset/2603/1406067040/4e1bec8c71886848f24780eea851a49c 1 7346 0 0
+/sites/all/libraries/nova/msd1.24.4/sql.php 12 115303 0 0
+/admin/build/views/ajax/display/Bankbewertungen/page_1/path 1 934 0 0
+/company/kwk 1 14146 0 0
+/node/103 1 65216 0 0
+/banken 2 76950 0 0
+/admin/settings/performance 1 13827 0 0
+/admin/settings/admin_menu 4 37817 0 0
+/admin/build/views/ajax/config-item/Unternehmsansicht_Bewertungen/page_1/filter/field_bank_bankitem_nid 1 5147 0 0
+/admin/build/views/ajax/display/Unternehmsansicht_Bewertungen/default/analyze-theme 1 1571 0 0
+/admin/build/views/ajax/add-item/Bankbewertungen/default/filter 2 16130 0 0
+/admin/user/roles 1 12337 0 0
+/company/company 14 220704 0 0
+/help/views/path 1 1864 0 0
+/admin/content/node-type/shortnews/display 1 12866 0 0
+/produkte/kreditkarte/dkb-visa-card 1 13868 0 0
+/admin/build/views/ajax/add-item/Unternehmsansicht_Bewertungen/page_1/argument 3 23419 0 0
+/devel/menu/reset 1 25 0 0
+/user/1/edit/Ich%20interessiere%20mich%20f%C3%BCr%20folgende%20Produkte 1 14918 0 0
+/produkte/tagesgeld/dkb-cash-tagesgeld 1 13756 0 0
+/user/reset/2603/1406067040/4e1bec8c71886848f24780eea851a49c/login 1 25 0 0
+END_SIDER

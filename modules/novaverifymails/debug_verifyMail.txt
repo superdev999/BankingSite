@@ -1,0 +1,3 @@
+verifyMail called with nid 48299 and Token 01cf37b589fc3557b62c0c306965b12e
+
+Node is itself bewertung_bank, no corresponding voting searched.

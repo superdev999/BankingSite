@@ -1,0 +1,13 @@
+; $Id: send.info,v 1.2 2008/10/27 05:16:09 vauxia Exp $
+name = Send
+description = Send to friend
+package = Mail
+dependencies[] = mimemail
+core = 6.x
+
+; Information added by drupal.org packaging script on 2010-08-05
+version = "6.x-1.0-alpha4"
+core = "6.x"
+project = "send"
+datestamp = "1281043879"
+

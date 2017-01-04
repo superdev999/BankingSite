@@ -1,0 +1,360 @@
+AWSTATS DATA FILE 7.3 (build 20140126)
+# If you remove this file, all statistics for date 201503 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 1982                
+POS_TIME 2649                
+POS_VISITOR 6195                
+POS_DAY 6713                
+POS_DOMAIN 3325                
+POS_LOGIN 3576                
+POS_ROBOT 3779                
+POS_WORMS 3911                
+POS_EMAILSENDER 4042                
+POS_EMAILRECEIVER 4185                
+POS_SESSION 7017                
+POS_SIDER 7212                
+POS_FILETYPES 4320                
+POS_DOWNLOADS 4576                
+POS_OS 4624                
+POS_BROWSER 4733                
+POS_SCREENSIZE 4832                
+POS_UNKNOWNREFERER 4906                
+POS_UNKNOWNREFERERBROWSER 5071                
+POS_ORIGIN 5153                
+POS_SEREFERRALS 5294                
+POS_PAGEREFS 5438                
+POS_SEARCHWORDS 5586                
+POS_KEYWORDS 5738                
+POS_MISC 2312                
+POS_ERRORS 5797                
+POS_CLUSTER 3432                
+POS_SIDER_404 5886                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20150402025642 11502 3372298 22319722425
+FirstTime 0
+LastTime 20150330155603
+LastUpdate 20150403021708 1 0 0 0 0
+TotalVisits 18                  
+TotalUnique 7                   
+MonthHostsKnown 6                   
+MonthHostsUnknown 1                   
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 22 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 0 0 0 0 1 401
+1 26 1675 6153370 0 2 802
+2 0 0 0 1 2 802
+3 0 0 0 0 1 401
+4 0 0 0 0 1 401
+5 0 0 0 0 0 0
+6 0 0 0 0 1 401
+7 0 0 0 0 0 0
+8 0 0 0 0 0 0
+9 374 2401 1862570 2 4 1604
+10 487 4269 2362695 3 10 2406
+11 348 3495 2511570 7 52 20852
+12 124 1813 1028788 1 2 802
+13 164 5759 11771927 1 7 2005
+14 236 10155 19117084 3 9 3208
+15 109 2031 6915207 12 71 27669
+16 83 3880 8034146 0 1 401
+17 113 3698 6761440 1 3 1203
+18 0 0 0 0 0 0
+19 0 0 0 0 2 802
+20 0 0 0 0 1 401
+21 156 9844 24006945 7 64 25664
+22 14 1128 4143178 1 2 802
+23 12 752 2513707 1 3 1203
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 2
+de 2207 50462 96800541
+ip 39 438 382086
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 1
+bankingcheck 2246 25968 57588792 20150330155605
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 9
+php 1625 2605766 0 0
+css 10422 8950727 0 0
+png 8620 15413557 0 0
+html 16 508747 0 0
+ico 384 560210 0 0
+jpg 381 7746175 0 0
+js 9062 30738373 0 0
+Unknown 605 14363596 0 0
+gif 19785 16295476 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 3
+Unknown 129 3
+linux 49576 2147
+win7 1195 96
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 2
+chrome39.0.2171.95 460 16
+firefox36.0 50440 2230
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 1
+Mozilla/5.0_(Android;_Mobile;_rv:36.0)_Gecko/36.0_Firefox/36.0 20150306101339
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 102 203
+From1 0 0
+From2 0 0
+From3 0 0
+From4 2144 50697
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 1
+401 208 83408
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 0
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 7
+p5796fcc4.dip0.t-ipconnect.de 1453 18049 9960283 20150306152828
+host-114-75.kawo1.rwth-aachen.de 303 18046 50974505 20150330155603
+kg-192-52-1-76.mobile.uni-freiburg.de 199 9256 29785670 20150310174037
+kg-192-52-1-39.mobile.uni-freiburg.de 116 3189 1066803 20150302173421
+ip5b41f831.dynamic.kabel-deutschland.de 96 1195 4470498 20150330111828
+kg-0-8.mobile.uni-freiburg.de 40 727 542782 20150302123834
+89.204.139.158 39 438 382086 20150302120708
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 9
+20150302 195 4354 1991671 3
+20150306 1453 18049 9960283 2
+20150310 279 10219 33362836 3
+20150314 26 1880 6656885 1
+20150325 46 1581 4947685 2
+20150326 47 2565 7711720 2
+20150327 182 11519 30160315 2
+20150328 1 78 242071 1
+20150330 17 655 2149161 2
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 6
+1h+ 4
+5mn-15mn 3
+0s-30s 1
+30s-2mn 3
+15mn-30mn 4
+30mn-1h 3
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 102
+/sites/all/libraries/nova/msd1.24.4/restore.php 757 842330 0 0
+/sites/all/libraries/nova/msd1.24.4/dump.php 313 1516823 0 0
+/sites/all/libraries/quickrating/listItems-cats.php 174 57064 0 3
+/bewerten 168 2596315 6 0
+/akkordion-test 88 1563569 3 1
+/sites/all/libraries/quickrating/listItems-2.php 80 38895 0 2
+/sites/all/libraries/quickrating/getProductItems-cats.php 78 13763 0 3
+/sites/all/libraries/quickrating/listItems.php 71 67937 0 1
+/node/40033/edit 70 1379460 1 4
+/sites/all/libraries/quickrating/getProductItems.php 53 10298 0 0
+/ 16 508747 0 0
+/node/38757/edit 8 126919 0 0
+/admin/settings/devel 5 94295 0 0
+/admin/build/views 5 354010 0 0
+/banken/agila 3 38544 0 0
+/admin/build/block 6 526340 0 0
+/sites/all/modules/ad/serve.php 38 13828 0 0
+/node/13686/edit 4 52930 0 0
+/admin/build/views/edit/banken 7 744812 1 0
+/admin/content/node 8 228350 1 0
+/sites/all/libraries/nova/msd1.24.4/main.php 2 2830 0 0
+/banken/cashper 2 42110 0 0
+/banken/bausparkasse-schwaebisch-hall 2 27410 0 0
+/node/38807/edit 3 388632 0 0
+/admin/build/block/configure/block/3 1 75265 0 0
+/admin/build/modules 6 598703 0 0
+/admin/by-module 1 119014 0 0
+/admin/build/views/ajax/display/news/block_1/cache_options 1 4542 0 0
+/sites/all/libraries/nova/msd1.24.4/index.php 2 702 0 0
+/banken/bank-of-scotland 2 28423 0 0
+/admin/build/views/ajax/display/banken/block_1/analyze-theme 2 3428 0 0
+/node/38811/edit 1 22751 0 0
+/node/4038/activity 1 13803 0 0
+/admin/reports/dblog 2 28030 0 0
+/admin/content/node-type/anbieterkategorie 3 105310 0 0
+/node/38840 1 32551 0 0
+/admin/build/views/ajax/display/banken/default/cache_options 1 2915 0 0
+/admin/build/views/ajax/display/banken/block_1/block_caching 2 3749 0 0
+/admin/build/views/ajax/display/banken/block_1/cache 1 856 0 0
+/banken/aachenmuenchener 3 40239 0 0
+/banken/aachener-bausparkasse 2 27117 0 0
+/node 5 74623 0 0
+/admin/build/views/ajax/display/banken/default/cache 3 4629 0 0
+/node/211/edit 5 195474 1 0
+/admin/content/node/overview 10 469196 0 0
+/admin/build/views/ajax/display/banken/default/display_title 1 638 0 0
+/banken/alte-leipziger-bauspar 2 27122 0 0
+/node/add/page 2 24359 0 0
+/undefined 7 91170 1 0
+/admin/build/views/ajax/config-item/banken/default/argument/field_anbieterkategorien_nid 2 7381 0 0
+/banken/akf-bank 3 39999 0 0
+/admin/build/views/ajax/config-item/banken/block_1/argument/field_anbieterkategorien_nid 1 2889 0 0
+/node/6571/edit 2 26711 0 0
+/admin/build/modules/list/confirm 2 50 0 0
+/fboauth/connect 2 50 0 0
+/node/7078/edit 2 26691 0 0
+/admin/build/views/ajax/display/banken/default/row_options 1 965 0 0
+/node/211/devel 1 32114 0 0
+/admin/build/views/ajax/display/banken/block_1/display_title 1 634 0 0
+/admin/build/views/edit/news 4 380180 0 0
+/sites/all/libraries/nova/msd1.24.4/menu.php 5 14665 0 0
+/admin/build/views/ajax/display/banken/block_1/row_plugin 1 1016 0 0
+/admin/build/views/ajax/config-item/news/block_1/field/path 1 2983 0 0
+/admin/build/views/ajax/display/news/block_1/cache 4 7623 0 0
+/admin/build/views/ajax/preview/banken 16 234466 0 1
+/sites/all/libraries/quickrating/getProductItems-2.php 41 4271 0 0
+/help/views/argument 2 11310 0 0
+/admin/build/themes 1 96966 0 0
+/node/4038/edit 6 127196 0 0
+/admin/build/views/ajax/display/news/block_1/block_caching 2 5450 0 0
+/node/38807 32 1026887 2 2
+/admin_menu/flush-cache 1 25 0 0
+/banken/abk-bank 1 13873 0 0
+/node/33501 3 48198 0 0
+/produkte 1 19047 0 0
+/admin/build/views/ajax/display/banken/default/style_plugin 4 4327 0 0
+/node/38807/devel 1 31868 0 0
+/news 1 20406 0 0
+/node/33501/edit 1 76795 0 0
+/admin/build/views/edit/new_products 1 22606 0 0
+/admin/reports 1 11851 0 0
+/admin/content/node-type/bank/fields 2 27112 1 0
+/node/15419/edit 4 53522 0 0
+/node/13692/edit 4 52950 0 0
+/banken 13 948971 0 1
+/admin/build/views/ajax/display/banken/block_1/style_plugin 2 2367 0 0
+/sites/all/libraries/nova/msd1.24.4/filemanagement.php 10 21960 0 0
+/node/add/bewertung-bank 4 93039 0 0
+/admin/build/views/ajax/add-item/banken/block_1/argument 2 17673 0 0
+/node/10448/edit 2 26731 0 0
+/admin/build/views/ajax/config-item/banken/default/field/field_banklogo_fid 1 3025 0 0
+/admin/build/views/ajax/preview/news 2 15571 0 0
+/admin/content/types 3 292153 0 0
+/admin/content/node-type/bank 1 20102 0 0
+/banken/allrecht-rechtsschutzversicherungen 1 13335 0 0
+/admin/build/block/configure/views/banken-block_1 3 99295 0 0
+/banken/avuba 1 13192 0 0
+/admin/build/views/ajax/display/banken/default/analyze-theme 1 1668 0 0
+/admin/build/block/configure/views/news-block_1 2 79993 0 0
+/admin/build/views/ajax/display/banken/default/row_plugin 1 913 0 0
+/sites/all/libraries/quickrating/create_rating.php 1 400 0 0
+/award-2015/paymentdienst 11 163824 1 0
+END_SIDER

@@ -1,0 +1,307 @@
+AWSTATS DATA FILE 7.4 (build 20150714)
+# If you remove this file, all statistics for date 201511 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 1982                
+POS_TIME 2648                
+POS_VISITOR 5978                
+POS_DAY 6167                
+POS_DOMAIN 3204                
+POS_LOGIN 3436                
+POS_ROBOT 3636                
+POS_WORMS 3768                
+POS_EMAILSENDER 3899                
+POS_EMAILRECEIVER 4042                
+POS_SESSION 6301                
+POS_SIDER 6487                
+POS_FILETYPES 4177                
+POS_DOWNLOADS 4429                
+POS_OS 4477                
+POS_BROWSER 4583                
+POS_SCREENSIZE 4697                
+POS_UNKNOWNREFERER 4771                
+POS_UNKNOWNREFERERBROWSER 4858                
+POS_ORIGIN 4940                
+POS_SEREFERRALS 5077                
+POS_PAGEREFS 5221                
+POS_SEARCHWORDS 5369                
+POS_KEYWORDS 5521                
+POS_MISC 2311                
+POS_ERRORS 5580                
+POS_CLUSTER 3292                
+POS_SIDER_404 5669                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20151201100600 3869 1037115 38291201098
+FirstTime 0
+LastTime 20151130171413
+LastUpdate 20151202021436 1 0 0 0 0
+TotalVisits 5                   
+TotalUnique 2                   
+MonthHostsKnown 2                   
+MonthHostsUnknown 0                   
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 26 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 0 0 0 0 1 401
+1 0 0 0 1 4 1604
+2 0 0 0 0 3 1203
+3 0 0 0 0 2 802
+4 0 0 0 1 2 802
+5 0 0 0 0 0 0
+6 0 0 0 1 3 1203
+7 0 0 0 0 0 0
+8 5 10 159466 1 1 401
+9 18 354 2606097 4 20 483332
+10 0 0 0 0 0 0
+11 0 0 0 0 0 0
+12 0 0 0 0 0 0
+13 0 0 0 0 0 0
+14 0 0 0 1 1 401
+15 24 449 3576714 2 9 55304
+16 53 812 5563144 4 9 62332
+17 21 24 2708971 2 4 1604
+18 0 0 0 0 0 0
+19 0 0 0 0 0 0
+20 0 0 0 0 0 0
+21 0 0 0 1 2 802
+22 0 0 0 0 0 0
+23 0 0 0 0 0 0
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+de 121 1649 14614392
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 1
+bankingcheck 121 553 10318156 20151130171414
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 10
+css 144 277951 0 0
+png 127 1282086 0 0
+ttf 5 43230 0 0
+ico 6 12684 0 0
+php 20 5759 0 0
+html 16 529801 0 0
+js 206 1071503 0 0
+jpg 27 808094 0 0
+Unknown 80 6882353 0 0
+gif 1018 3700931 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 3
+macosx10 449 24
+linux 468 45
+win7 732 52
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 3
+chrome46.0.2490.86 917 69
+firefox38.0 429 28
+firefox42.0 303 24
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 0
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 13 15
+From1 0 0
+From2 0 0
+From3 0 0
+From4 108 1634
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 1
+401 35 14035
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 0
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 2
+p5796f0f2.dip0.t-ipconnect.de 69 917 9548685 20151130171413
+ip1-vt.berlin.isp.ekomi.de 52 732 5065707 20151130085310
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 3
+20151125 17 292 1715764 1
+20151126 30 430 3190477 2
+20151130 74 927 9708151 2
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 5
+1h+ 1
+5mn-15mn 1
+2mn-5mn 1
+15mn-30mn 1
+30s-2mn 1
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 61
+/sites/all/modules/ad/serve.php 17 2571 0 3
+/ 14 526498 5 0
+/banken 6 256566 0 0
+/themes/bankingcheck2015/icons/icomoon.ttf 5 43230 0 0
+/admin/content/node-type/bank/fields 5 890098 0 0
+/admin/build/views/list 3 202033 0 0
+/admin/build/views 2 52643 0 0
+/admin/build/views/edit/banken 2 168437 0 0
+/user/login 2 3307 0 0
+/admin/build/themes/select 2 93362 0 0
+/node/84/devel/token 1 34475 0 0
+/node/15397/edit 1 168382 0 0
+/admin/help 1 133061 0 0
+/admin/build/themes 1 259938 0 0
+/admin/build/block 1 29341 0 0
+/filter/tips 1 70420 0 0
+/node/22/edit 1 58606 0 0
+/admin/content/node-type/story 1 207195 0 0
+/users/bankingcheck 1 16624 0 0
+/sites/all/libraries/anonRatings/listAnonRatings.php 1 956 0 1
+/node/84/devel 1 35163 0 0
+/banken/berliner-sparkasse 1 5373 0 0
+/banken/lendico 1 21752 0 0
+/login.php 1 2207 0 0
+/apps 1 4261 0 0
+/produkte 2 19880 0 0
+/users/admin 1 16992 0 0
+/produkte/autokredit/bank-of-scotland-autokredit 1 26487 0 0
+/admin/build/modules 1 81065 0 0
+/admin/build/views/ajax/add-item/banken/default/field 1 14081 0 0
+/news 1 3151 0 0
+/admin/by-module 1 235612 0 0
+/banken/1822direkt 2 43349 0 0
+/admin/settings/filters/list 1 76016 0 0
+/admin/content/node-type/story/fields 2 256214 0 0
+/banken/bank-of-scotland 1 130113 0 0
+/node/88/edit 2 139876 0 0
+/admin/content/node-type/bank/fields/field_ecomyshopid 2 397509 0 0
+/forum 1 4679 0 0
+/admin/content/node-type/bewertung-bank/fields 2 193920 0 0
+/admin/content/import/bankimport 1 613582 0 1
+/admin/content/listAnonRatings 1 25 0 0
+/user/ 2 3303 0 0
+/node 2 82070 0 0
+/admin/content/node-type/story/fields/field_ekomyproductid 1 196788 0 0
+/admin/build 1 69813 0 0
+/node/211/edit 1 181534 0 0
+/bankingcheck-award 2 9076 0 0
+/sites/all/modules/bcnav/saveSearchQuery.php 1 25 0 0
+/direktbank 1 331394 0 0
+/admin/content/node-type/bank/fields/field_ecomyshopid/remove 2 64461 0 0
+/admin/build/modules/list 1 105545 0 0
+/bewerten 1 4801 0 0
+/node/84/edit 2 153349 0 0
+/admin/build/block/list 1 83924 0 0
+/login 1 2204 0 0
+/ratgeber 1 3215 0 0
+/search/node 2 213372 0 0
+/admin/build/views/tools/basic 1 23508 0 0
+/admin/content/node-type/bank/fields/field_ekomishopid 1 196605 0 0
+/admin/content/node-type/bewertung-bank/fields/field_ekomiorderid 1 197106 0 0
+END_SIDER

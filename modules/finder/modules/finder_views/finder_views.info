@@ -1,0 +1,13 @@
+; $Id: finder_views.info,v 1.1.2.11 2009/05/02 07:49:18 danielb Exp $
+name = Finder Views
+description = "Enables finder to work with results from views."
+core = 6.x
+package = "Finder"
+dependencies[] = finder
+dependencies[] = views
+; Information added by drupal.org packaging script on 2009-07-22
+version = "6.x-1.0-rc4"
+core = "6.x"
+project = "finder"
+datestamp = "1248231939"
+
